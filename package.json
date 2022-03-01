@@ -17,6 +17,7 @@
         "babel-plugin-styled-components": "^2.0.6",
         "gatsby": "^4.8.0",
         "gatsby-plugin-google-analytics": "^4.8.0",
+        "gatsby-plugin-google-fonts": "^1.0.1",
         "gatsby-plugin-image": "^2.8.2",
         "gatsby-plugin-manifest": "^4.8.2",
         "gatsby-plugin-react-helmet": "^5.8.0",
@@ -31,5 +32,8 @@
         "react-dom": "^17.0.1",
         "react-helmet": "^6.1.0",
         "styled-components": "^5.3.3"
+    },
+    "devDependencies": {
+        "gatsby-plugin-root-import": "^2.0.8"
     }
 }
