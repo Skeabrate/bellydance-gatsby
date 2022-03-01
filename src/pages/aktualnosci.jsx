@@ -12,9 +12,15 @@ const aktualnosci = ({ data }) => {
                     ({
                         node: { id, title, date, description, assets, video },
                     }) => (
-                        <article key={id}>
+                        <article key={id} style={{ marginBottom: '50px' }}>
                             <p>{date}</p>
-                            <h1>{title}</h1>
+                            <h2>{title}</h2>
+
+                            {description.value.document.children.map(
+                                ({ children }) => (
+                                    <p>{children[0].value}</p>
+                                )
+                            )}
                         </article>
                     )
                 )}
