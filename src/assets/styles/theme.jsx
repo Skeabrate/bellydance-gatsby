@@ -7,7 +7,7 @@ export const theme = {
         heading: '5rem',
         headingMobile: '5.3rem',
         headingSmall: '4.2rem',
-        paragraph: '1.8rem',
+        paragraph: '1.6rem',
         caption: '1.35rem',
     },
     fontFamily: {
