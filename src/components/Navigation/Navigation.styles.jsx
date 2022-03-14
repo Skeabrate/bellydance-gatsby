@@ -4,8 +4,9 @@ import { Link } from 'gatsby';
 export const Wrapper = styled.div`
     position: fixed;
     background-color: ${({ theme }) => theme.colors.white};
-    box-shadow: 0px 0px 50px -33px rgba(0, 0, 0, 1);
-    height: 80px;
+    box-shadow: ${({ isOnTop }) =>
+        isOnTop ? 'none' : '0px 0px 50px -33px rgba(0, 0, 0, 1)'};
+    height: ${({ isOnTop }) => (isOnTop ? '120px' : '80px')};
     top: 0;
     left: 0;
     right: 0;
@@ -16,7 +17,7 @@ export const Wrapper = styled.div`
 
     transform: ${({ hideNav }) =>
         hideNav ? 'translateY(-100%)' : 'translateX(0)'};
-    transition: transform 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 
     ${({ theme }) => theme.mq.desktop} {
         padding: 0 50px;

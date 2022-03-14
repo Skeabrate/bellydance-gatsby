@@ -17,6 +17,7 @@ const activeLinkStyles = {
 
 const Navigation = () => {
     const [toggle, setToggle] = useState(false);
+    const [isOnTop, setIsOnTop] = useState(true);
     const [hideNav, setHideNav] = useState(false);
 
     const handleCloseMenu = () => setToggle(!toggle);
@@ -32,8 +33,12 @@ const Navigation = () => {
             function () {
                 var st =
                     window.pageYOffset || document.documentElement.scrollTop;
+
+                if (st < 20) setIsOnTop(true);
+                else setIsOnTop(false);
+
                 if (st > lastScrollTop) {
-                    if (lastScrollTop > 40) {
+                    if (lastScrollTop > 20) {
                         setHideNav(true);
                     }
                 } else setHideNav(false);
@@ -48,7 +53,7 @@ const Navigation = () => {
 
     return (
         <>
-            <Wrapper hideNav={hideNav}>
+            <Wrapper hideNav={hideNav} isOnTop={isOnTop}>
                 <StyledLogo to="/">
                     <header>
                         <h1>Leyla Bellydance</h1>

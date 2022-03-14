@@ -19,8 +19,9 @@ const activeLinkStyles = {
 
 const SlideNav = ({ toggle, setToggle, handleCloseMenu }) => {
     useEffect(() => {
-        return globalHistory.listen(({ action }) => {
-            if (action === 'PUSH') setToggle(false);
+        return globalHistory.listen((props) => {
+            if (props.action === 'PUSH') setToggle(false);
+            if (props.location.pathname === '/') console.log('inny kolor nav');
         });
     }, []);
 

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 const IndexPage = () => {
-    return <main></main>;
+    return <main style={{ height: '200vh' }}></main>;
 };
 
 export default IndexPage;
