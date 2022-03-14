@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import { GlobalStyle } from 'assets/styles/GlobalStyle';
 import { theme } from 'assets/styles/theme';
 import { ThemeProvider } from 'styled-components';
+import Navigation from './Navigation/Navigation';
 
 export const MainTemplate = ({ children }) => {
     return (
         <ThemeProvider theme={theme}>
             <GlobalStyle />
+            <Navigation />
             {children}
         </ThemeProvider>
     );
