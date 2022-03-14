@@ -15,6 +15,7 @@ export const Wrapper = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
+    z-index: 9999;
 
     transform: ${({ hideNav }) =>
         hideNav ? 'translateY(-100%)' : 'translateX(0)'};
@@ -31,15 +32,20 @@ const colorChangeHelper = css`
         if (changeColor && isOnTop) return theme.colors.white;
         else return theme.colors.black;
     }};
-    transition: color 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 `;
 
 export const StyledLogo = styled(Link)`
     font-family: ${({ theme }) => theme.fontFamily.greatVibes};
     ${colorChangeHelper};
+    text-shadow: ${({ changeColor, isOnTop }) => {
+        if (changeColor && isOnTop) return '1px 1px 2px black';
+        else return 'none';
+    }};
 
     h1 {
         font-size: ${({ theme }) => theme.fontSize.headingMobile};
+        font-weight: 400;
     }
 
     ${({ theme }) => theme.mq.desktop} {

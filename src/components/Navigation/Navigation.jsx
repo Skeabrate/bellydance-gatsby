@@ -15,6 +15,7 @@ import {
 
 const activeLinkStyles = {
     textDecoration: 'underline',
+    textUnderlineOffset: '0.05em',
 };
 
 const Navigation = () => {

@@ -21,6 +21,7 @@ export const StyledLogo = styled(Link)`
 
     h1 {
         font-size: ${({ theme }) => theme.fontSize.headingMobile};
+        font-weight: 400;
     }
 
     ${({ theme }) => theme.mq.desktop} {

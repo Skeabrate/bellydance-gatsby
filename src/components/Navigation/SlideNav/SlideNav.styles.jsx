@@ -19,6 +19,7 @@ export const Wrapper = styled.nav`
     transform: ${({ toggle }) =>
         toggle ? 'translateX(0)' : 'translateX(-110%)'};
     box-shadow: 0px 0px 50px -33px rgba(0, 0, 0, 1);
+    z-index: 99999;
 
     transition: transform 0.7s cubic-bezier(0.3, 0, 0, 1);
 
@@ -43,6 +44,7 @@ export const StyledLogo = styled(Link)`
 
     h1 {
         font-size: 4.2rem;
+        font-weight: 400;
     }
 `;
 
