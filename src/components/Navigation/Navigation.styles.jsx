@@ -14,6 +14,10 @@ export const Wrapper = styled.div`
     align-items: center;
     padding: 0 20px;
 
+    transform: ${({ hideNav }) =>
+        hideNav ? 'translateY(-100%)' : 'translateX(0)'};
+    transition: transform 0.3s ease-in-out;
+
     ${({ theme }) => theme.mq.desktop} {
         padding: 0 50px;
     }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SlideNav from './SlideNav/SlideNav';
 import Facebook from 'assets/images/SVG/fb.svg';
 import Instagram from 'assets/images/SVG/insta.svg';
@@ -17,12 +17,38 @@ const activeLinkStyles = {
 
 const Navigation = () => {
     const [toggle, setToggle] = useState(false);
+    const [hideNav, setHideNav] = useState(false);
 
     const handleCloseMenu = () => setToggle(!toggle);
 
+    useEffect(() => {
+        const abortController = new AbortController();
+        const { signal } = abortController;
+
+        var lastScrollTop = 0;
+
+        window.addEventListener(
+            'scroll',
+            function () {
+                var st =
+                    window.pageYOffset || document.documentElement.scrollTop;
+                if (st > lastScrollTop) {
+                    if (lastScrollTop > 40) {
+                        setHideNav(true);
+                    }
+                } else setHideNav(false);
+
+                lastScrollTop = st <= 0 ? 0 : st;
+            },
+            { signal: signal }
+        );
+
+        return () => abortController.abort();
+    }, []);
+
     return (
         <>
-            <Wrapper>
+            <Wrapper hideNav={hideNav}>
                 <StyledLogo to="/">
                     <header>
                         <h1>Leyla Bellydance</h1>
