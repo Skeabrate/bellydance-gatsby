@@ -1,9 +1,10 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Link } from 'gatsby';
 
 export const Wrapper = styled.div`
     position: fixed;
-    background-color: ${({ theme }) => theme.colors.white};
+    background-color: ${({ theme, isOnTop }) =>
+        isOnTop ? 'transparent' : theme.colors.white};
     box-shadow: ${({ isOnTop }) =>
         isOnTop ? 'none' : '0px 0px 50px -33px rgba(0, 0, 0, 1)'};
     height: ${({ isOnTop }) => (isOnTop ? '120px' : '80px')};
@@ -24,10 +25,18 @@ export const Wrapper = styled.div`
     }
 `;
 
+const colorChangeHelper = css`
+    text-decoration: none;
+    color: ${({ theme, changeColor, isOnTop }) => {
+        if (changeColor && isOnTop) return theme.colors.white;
+        else return theme.colors.black;
+    }};
+    transition: color 0.2s ease-in-out;
+`;
+
 export const StyledLogo = styled(Link)`
     font-family: ${({ theme }) => theme.fontFamily.greatVibes};
-    text-decoration: none;
-    color: ${({ theme }) => theme.colors.black};
+    ${colorChangeHelper};
 `;
 
 export const StyledNav = styled.nav`
@@ -44,20 +53,24 @@ export const StyledNav = styled.nav`
         align-items: center;
         column-gap: 30px;
     }
+`;
 
+export const StyledNavItem = styled(Link)`
+    ${colorChangeHelper};
+`;
+
+export const StyledSocials = styled.a`
     svg {
         height: 26px;
         width: 26px;
 
         path {
-            fill: ${({ theme }) => theme.colors.sand};
+            fill: ${({ theme, changeColor, isOnTop }) => {
+                if (changeColor && isOnTop) return theme.colors.white;
+                else return theme.colors.sand;
+            }};
         }
     }
-`;
-
-export const StyledNavItem = styled(Link)`
-    text-decoration: none;
-    color: ${({ theme }) => theme.colors.black};
 `;
 
 export const StyledHamburger = styled.button`
@@ -85,7 +98,10 @@ export const StyledHamburger = styled.button`
             display: block;
             height: 4px;
             width: 30px;
-            background-color: ${({ theme }) => theme.colors.black};
+            background-color: ${({ theme, changeColor, isOnTop }) => {
+                if (changeColor && isOnTop) return theme.colors.white;
+                else return theme.colors.black;
+            }};
             transition: all 0.25s ease-in-out;
 
             &:nth-child(1) {
