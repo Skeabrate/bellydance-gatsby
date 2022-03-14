@@ -8,6 +8,7 @@ import {
     StyledLogo,
     StyledNav,
     StyledNavItem,
+    StyledHamburger,
 } from './Navigation.styles';
 
 const activeLinkStyles = {
@@ -15,7 +16,7 @@ const activeLinkStyles = {
 };
 
 const Navigation = () => {
-    const [toggle, setToggle] = useState(true);
+    const [toggle, setToggle] = useState(false);
 
     const handleCloseMenu = () => setToggle(!toggle);
 
@@ -26,8 +27,8 @@ const Navigation = () => {
                     <h1>Leyla Bellydance</h1>
                 </StyledLogo>
 
-                <nav>
-                    <StyledNav>
+                <StyledNav>
+                    <ul>
                         <li>
                             <StyledNavItem
                                 to="/"
@@ -69,13 +70,33 @@ const Navigation = () => {
                             </StyledNavItem>
                         </li>
                         <li>
-                            <Facebook />
+                            <a
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                href="https://www.facebook.com/agnieszka.swieczkowska.9"
+                            >
+                                <Facebook />
+                            </a>
                         </li>
                         <li>
-                            <Instagram />
+                            <a
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                href="https://www.instagram.com/bellydance_leyla/"
+                            >
+                                <Instagram />
+                            </a>
                         </li>
-                    </StyledNav>
-                </nav>
+                    </ul>
+                </StyledNav>
+
+                <StyledHamburger onClick={handleCloseMenu}>
+                    <div>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </StyledHamburger>
             </Wrapper>
 
             <SlideNav toggle={toggle} handleCloseMenu={handleCloseMenu} />

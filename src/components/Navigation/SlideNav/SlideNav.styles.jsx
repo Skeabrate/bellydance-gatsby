@@ -15,12 +15,11 @@ export const Wrapper = styled.nav`
     align-items: center;
     background-color: ${({ theme }) => theme.colors.white};
     padding-block: 50px;
-    transition: all 0.5s ease-in-out;
     overflow: hidden;
     transform: ${({ toggle }) =>
         toggle ? 'translateX(0)' : 'translateX(-100%)'};
-    transition: transform 0.4s ease-in-out;
-    box-shadow: 0px 0px 50px -30px rgba(0, 0, 0, 1);
+    transition: transform 0.7s cubic-bezier(0.3, 0, 0, 1);
+    box-shadow: 0px 0px 50px -33px rgba(0, 0, 0, 1);
 
     ul {
         list-style: none;
@@ -59,6 +58,8 @@ export const StyledCloseButton = styled.li`
     button {
         background-color: transparent;
         border: none;
+        width: 50px;
+        height: 50px;
 
         svg {
             height: 30px;

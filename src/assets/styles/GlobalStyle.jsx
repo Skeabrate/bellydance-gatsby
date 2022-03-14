@@ -14,17 +14,17 @@ export const GlobalStyle = createGlobalStyle`
         scroll-behavior: smooth;
         
         *::selection {
-            background-color: blue;
+            background-color: ${({ theme }) => theme.colors.sand};
         }
         ::-webkit-scrollbar-track {
-            background-color: white;
+            background-color: ${({ theme }) => theme.colors.white};
         }
         ::-webkit-scrollbar {
             width: 8px;
             height: 8px;
         }
         ::-webkit-scrollbar-thumb {
-            background: grey;
+            background-color: ${({ theme }) => theme.colors.sand};
             border-radius: 100px;
         }
     }
@@ -32,6 +32,7 @@ export const GlobalStyle = createGlobalStyle`
     body{
         margin: 0;
         font-size: 1.6rem;
+		font-family: ${({ theme }) => theme.fontFamily.noto};
     }
 	
 	button, a{
