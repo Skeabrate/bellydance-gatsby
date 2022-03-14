@@ -5,9 +5,8 @@ export const theme = {
         black: '#000',
     },
     fontSize: {
-        heading: '5rem',
-        headingMobile: '5.3rem',
-        headingSmall: '4.2rem',
+        heading: '3.6rem',
+        headingMobile: '2.8rem',
         paragraph: '1.6rem',
         caption: '1.35rem',
     },

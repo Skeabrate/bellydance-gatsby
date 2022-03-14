@@ -139,6 +139,7 @@ const Navigation = () => {
                     onClick={handleCloseMenu}
                     isOnTop={isOnTop}
                     changeColor={changeColor}
+                    aria-label="open navigation"
                 >
                     <div>
                         <span></span>

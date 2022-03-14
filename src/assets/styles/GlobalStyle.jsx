@@ -31,7 +31,7 @@ export const GlobalStyle = createGlobalStyle`
 
     body{
         margin: 0;
-        font-size: 1.6rem;
+        font-size: ${({ theme }) => theme.fontSize.paragraph};
 		font-family: ${({ theme }) => theme.fontFamily.noto};
     }
 	

@@ -37,6 +37,16 @@ const colorChangeHelper = css`
 export const StyledLogo = styled(Link)`
     font-family: ${({ theme }) => theme.fontFamily.greatVibes};
     ${colorChangeHelper};
+
+    h1 {
+        font-size: ${({ theme }) => theme.fontSize.headingMobile};
+    }
+
+    ${({ theme }) => theme.mq.desktop} {
+        h1 {
+            font-size: ${({ theme }) => theme.fontSize.heading};
+        }
+    }
 `;
 
 export const StyledNav = styled.nav`

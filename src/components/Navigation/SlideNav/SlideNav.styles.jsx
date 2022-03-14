@@ -42,7 +42,7 @@ export const StyledLogo = styled(Link)`
     color: ${({ theme }) => theme.colors.black};
 
     h1 {
-        font-size: ${({ theme }) => theme.fontSize.headingSmall};
+        font-size: 4.2rem;
     }
 `;
 

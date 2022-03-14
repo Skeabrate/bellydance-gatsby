@@ -27,7 +27,9 @@ const SlideNav = ({ toggle, setToggle, handleCloseMenu }) => {
     return (
         <Wrapper toggle={toggle}>
             <StyledLogo to="/">
-                <h1>Leyla Bellydance</h1>
+                <header>
+                    <h1>Leyla Bellydance</h1>
+                </header>
             </StyledLogo>
 
             <StyledNav>
@@ -61,7 +63,10 @@ const SlideNav = ({ toggle, setToggle, handleCloseMenu }) => {
                 </li>
 
                 <StyledCloseButton>
-                    <button onClick={handleCloseMenu}>
+                    <button
+                        onClick={handleCloseMenu}
+                        aria-label="close navigation"
+                    >
                         <X />
                     </button>
                 </StyledCloseButton>

@@ -2,8 +2,14 @@ import * as React from 'react';
 
 const IndexPage = () => {
     return (
-        <main style={{ height: '200vh' }}>
-            <p style={{ height: '300px', background: 'red' }}>test</p>
+        <main style={{ height: '150vh' }}>
+            <p
+                style={{
+                    height: '300px',
+                    background: 'black',
+                    marginBottom: '50px',
+                }}
+            ></p>
         </main>
     );
 };
