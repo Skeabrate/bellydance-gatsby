@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import SlideNav from './SlideNav/SlideNav';
 import Facebook from 'assets/images/SVG/fb.svg';
 import Instagram from 'assets/images/SVG/insta.svg';
+import { globalHistory } from '@reach/router';
 
 import {
     Wrapper,
@@ -9,6 +10,7 @@ import {
     StyledNav,
     StyledNavItem,
     StyledHamburger,
+    StyledSocials,
 } from './Navigation.styles';
 
 const activeLinkStyles = {
@@ -19,42 +21,38 @@ const Navigation = () => {
     const [toggle, setToggle] = useState(false);
     const [isOnTop, setIsOnTop] = useState(true);
     const [hideNav, setHideNav] = useState(false);
+    const [changeColor, setChangeColor] = useState(true);
 
     const handleCloseMenu = () => setToggle(!toggle);
 
     useEffect(() => {
-        const abortController = new AbortController();
-        const { signal } = abortController;
-
         var lastScrollTop = 0;
 
-        window.addEventListener(
-            'scroll',
-            function () {
-                var st =
-                    window.pageYOffset || document.documentElement.scrollTop;
+        window.addEventListener('scroll', function () {
+            var st = window.pageYOffset || document.documentElement.scrollTop;
 
-                if (st < 20) setIsOnTop(true);
-                else setIsOnTop(false);
+            if (st < 20) setIsOnTop(true);
+            else setIsOnTop(false);
 
-                if (st > lastScrollTop) {
-                    if (lastScrollTop > 20) {
-                        setHideNav(true);
-                    }
-                } else setHideNav(false);
+            if (st > lastScrollTop) {
+                if (lastScrollTop > 20) {
+                    setHideNav(true);
+                }
+            } else setHideNav(false);
 
-                lastScrollTop = st <= 0 ? 0 : st;
-            },
-            { signal: signal }
-        );
+            lastScrollTop = st <= 0 ? 0 : st;
+        });
 
-        return () => abortController.abort();
+        return globalHistory.listen((props) => {
+            if (props.location.pathname === '/') setChangeColor(true);
+            else setChangeColor(false);
+        });
     }, []);
 
     return (
         <>
             <Wrapper hideNav={hideNav} isOnTop={isOnTop}>
-                <StyledLogo to="/">
+                <StyledLogo to="/" isOnTop={isOnTop} changeColor={changeColor}>
                     <header>
                         <h1>Leyla Bellydance</h1>
                     </header>
@@ -66,6 +64,8 @@ const Navigation = () => {
                             <StyledNavItem
                                 to="/"
                                 activeStyle={activeLinkStyles}
+                                isOnTop={isOnTop}
+                                changeColor={changeColor}
                             >
                                 Home
                             </StyledNavItem>
@@ -74,6 +74,8 @@ const Navigation = () => {
                             <StyledNavItem
                                 to="/aktualnosci"
                                 activeStyle={activeLinkStyles}
+                                isOnTop={isOnTop}
+                                changeColor={changeColor}
                             >
                                 Aktualności
                             </StyledNavItem>
@@ -82,6 +84,8 @@ const Navigation = () => {
                             <StyledNavItem
                                 to="/pokazy"
                                 activeStyle={activeLinkStyles}
+                                isOnTop={isOnTop}
+                                changeColor={changeColor}
                             >
                                 Pokazy
                             </StyledNavItem>
@@ -90,6 +94,8 @@ const Navigation = () => {
                             <StyledNavItem
                                 to="/zajecia"
                                 activeStyle={activeLinkStyles}
+                                isOnTop={isOnTop}
+                                changeColor={changeColor}
                             >
                                 Zajęcia
                             </StyledNavItem>
@@ -98,32 +104,42 @@ const Navigation = () => {
                             <StyledNavItem
                                 to="/kontakt"
                                 activeStyle={activeLinkStyles}
+                                isOnTop={isOnTop}
+                                changeColor={changeColor}
                             >
                                 Kontakt
                             </StyledNavItem>
                         </li>
                         <li>
-                            <a
+                            <StyledSocials
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 href="https://www.facebook.com/agnieszka.swieczkowska.9"
+                                isOnTop={isOnTop}
+                                changeColor={changeColor}
                             >
                                 <Facebook />
-                            </a>
+                            </StyledSocials>
                         </li>
                         <li>
-                            <a
+                            <StyledSocials
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 href="https://www.instagram.com/bellydance_leyla/"
+                                isOnTop={isOnTop}
+                                changeColor={changeColor}
                             >
                                 <Instagram />
-                            </a>
+                            </StyledSocials>
                         </li>
                     </ul>
                 </StyledNav>
 
-                <StyledHamburger onClick={handleCloseMenu}>
+                <StyledHamburger
+                    onClick={handleCloseMenu}
+                    isOnTop={isOnTop}
+                    changeColor={changeColor}
+                >
                     <div>
                         <span></span>
                         <span></span>
