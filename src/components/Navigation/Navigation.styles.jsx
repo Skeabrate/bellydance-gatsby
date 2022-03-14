@@ -14,7 +14,6 @@ export const Wrapper = styled.div`
 
 export const StyledLogo = styled.header`
     font-family: ${({ theme }) => theme.fontFamily.greatVibes};
-    font-size: ${({ theme }) => theme.fontSize.headingSmall};
 `;
 
 export const StyledNav = styled.ul`

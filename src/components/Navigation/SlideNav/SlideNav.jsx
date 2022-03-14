@@ -19,7 +19,9 @@ const activeLinkStyles = {
 const SlideNav = ({ toggle, handleCloseMenu }) => {
     return (
         <Wrapper toggle={toggle}>
-            <StyledLogo>Leyle Bellydance</StyledLogo>
+            <StyledLogo to="/">
+                <h1>Leyle Bellydance</h1>
+            </StyledLogo>
 
             <StyledNav>
                 <li>

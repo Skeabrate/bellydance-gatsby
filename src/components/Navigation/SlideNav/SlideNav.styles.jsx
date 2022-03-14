@@ -19,25 +19,31 @@ export const Wrapper = styled.nav`
     overflow: hidden;
     transform: ${({ toggle }) =>
         toggle ? 'translateX(0)' : 'translateX(-100%)'};
-    transition: all 0.4s ease-in-out;
+    transition: transform 0.4s ease-in-out;
     box-shadow: 0px 0px 50px -30px rgba(0, 0, 0, 1);
 
     ul {
         list-style: none;
-        padding: 0;
-        margin: 0;
         display: flex;
         justify-content: center;
         align-items: center;
         column-gap: 35px;
         row-gap: 35px;
     }
+
+    ${({ theme }) => theme.mq.desktop} {
+        display: none;
+    }
 `;
 
-export const StyledLogo = styled.h1`
+export const StyledLogo = styled(Link)`
     font-family: ${({ theme }) => theme.fontFamily.greatVibes};
-    font-size: ${({ theme }) => theme.fontSize.headingSmall};
-    margin: 0;
+    text-decoration: none;
+    color: ${({ theme }) => theme.colors.black};
+
+    h1 {
+        font-size: ${({ theme }) => theme.fontSize.headingSmall};
+    }
 `;
 
 export const StyledNav = styled.ul`
