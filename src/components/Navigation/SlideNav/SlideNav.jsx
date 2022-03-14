@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Facebook from 'assets/images/SVG/fb.svg';
 import Instagram from 'assets/images/SVG/insta.svg';
 import X from 'assets/images/SVG/x.svg';
+import { globalHistory } from '@reach/router';
 
 import {
     Wrapper,
@@ -16,11 +17,17 @@ const activeLinkStyles = {
     textDecoration: 'underline',
 };
 
-const SlideNav = ({ toggle, handleCloseMenu }) => {
+const SlideNav = ({ toggle, setToggle, handleCloseMenu }) => {
+    useEffect(() => {
+        return globalHistory.listen(({ action }) => {
+            if (action === 'PUSH') setToggle(false);
+        });
+    }, []);
+
     return (
         <Wrapper toggle={toggle}>
             <StyledLogo to="/">
-                <h1>Leyle Bellydance</h1>
+                <h1>Leyla Bellydance</h1>
             </StyledLogo>
 
             <StyledNav>

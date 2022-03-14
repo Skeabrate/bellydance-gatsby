@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 
 const aktualnosci = ({ data }) => {
     return (
-        <div>
+        <div style={{ margin: '140px 60px' }}>
             <h1>Aktualnosci</h1>
 
             <h3>Posty:</h3>

@@ -23,8 +23,10 @@ const Navigation = () => {
     return (
         <>
             <Wrapper>
-                <StyledLogo>
-                    <h1>Leyla Bellydance</h1>
+                <StyledLogo to="/">
+                    <header>
+                        <h1>Leyla Bellydance</h1>
+                    </header>
                 </StyledLogo>
 
                 <StyledNav>
@@ -99,7 +101,11 @@ const Navigation = () => {
                 </StyledHamburger>
             </Wrapper>
 
-            <SlideNav toggle={toggle} handleCloseMenu={handleCloseMenu} />
+            <SlideNav
+                toggle={toggle}
+                setToggle={setToggle}
+                handleCloseMenu={handleCloseMenu}
+            />
         </>
     );
 };

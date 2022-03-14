@@ -12,11 +12,17 @@ export const Wrapper = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 50px;
+    padding: 0 20px;
+
+    ${({ theme }) => theme.mq.desktop} {
+        padding: 0 50px;
+    }
 `;
 
-export const StyledLogo = styled.header`
+export const StyledLogo = styled(Link)`
     font-family: ${({ theme }) => theme.fontFamily.greatVibes};
+    text-decoration: none;
+    color: ${({ theme }) => theme.colors.black};
 `;
 
 export const StyledNav = styled.nav`
@@ -34,8 +40,13 @@ export const StyledNav = styled.nav`
         column-gap: 30px;
     }
 
-    svg path {
-        fill: ${({ theme }) => theme.colors.sand};
+    svg {
+        height: 26px;
+        width: 26px;
+
+        path {
+            fill: ${({ theme }) => theme.colors.sand};
+        }
     }
 `;
 
@@ -70,7 +81,7 @@ export const StyledHamburger = styled.button`
             height: 4px;
             width: 30px;
             background-color: ${({ theme }) => theme.colors.black};
-            transition: all 0.2s ease-in-out;
+            transition: all 0.25s ease-in-out;
 
             &:nth-child(1) {
                 width: 14px;

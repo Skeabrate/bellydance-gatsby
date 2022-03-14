@@ -24,7 +24,7 @@ export const GlobalStyle = createGlobalStyle`
             height: 8px;
         }
         ::-webkit-scrollbar-thumb {
-            background-color: ${({ theme }) => theme.colors.sand};
+            background: linear-gradient(0deg, rgba(153,138,116,1) 0%, rgba(219,196,161,1) 50%);
             border-radius: 100px;
         }
     }

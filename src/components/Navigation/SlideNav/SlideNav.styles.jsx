@@ -17,9 +17,10 @@ export const Wrapper = styled.nav`
     padding-block: 50px;
     overflow: hidden;
     transform: ${({ toggle }) =>
-        toggle ? 'translateX(0)' : 'translateX(-100%)'};
-    transition: transform 0.7s cubic-bezier(0.3, 0, 0, 1);
+        toggle ? 'translateX(0)' : 'translateX(-110%)'};
     box-shadow: 0px 0px 50px -33px rgba(0, 0, 0, 1);
+
+    transition: transform 0.7s cubic-bezier(0.3, 0, 0, 1);
 
     ul {
         list-style: none;
