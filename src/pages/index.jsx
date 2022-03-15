@@ -1,7 +1,12 @@
 import * as React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { getImage } from 'gatsby-plugin-image';
-import { StyledBgImage } from './index.styles';
+import ArrowHome from 'assets/images/SVG/arrowHome.svg';
+import { StaticImage } from 'gatsby-plugin-image';
+import Heading from 'components/heading/heading';
+import ContentWrapper from 'components/ContentWrapper/ContentWrapper';
+
+import { StyledBgImage, StyledPyramid } from './index.styles';
 
 const IndexPage = () => {
     const { placeholderImage } = useStaticQuery(
@@ -24,8 +29,33 @@ const IndexPage = () => {
     const pluginImage = getImage(placeholderImage);
 
     return (
-        <main style={{ height: '150vh' }}>
-            <StyledBgImage image={pluginImage} />
+        <main>
+            <StyledBgImage image={pluginImage}>
+                <div>
+                    <h1>Magiczny Świat Orientu</h1>
+                    <p>Zapraszam do baśni 1000 i jednej nocy</p>
+                    <StaticImage
+                        src="../assets/images/ornHero.png"
+                        alt="title ornament"
+                        placeholder="blurred"
+                        width={200}
+                    />
+                </div>
+
+                <StyledPyramid>
+                    <ArrowHome />
+                </StyledPyramid>
+            </StyledBgImage>
+
+            <ContentWrapper>
+                <section>
+                    <Heading label={'O mnie'} />
+                </section>
+
+                <section></section>
+
+                <section></section>
+            </ContentWrapper>
         </main>
     );
 };

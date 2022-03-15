@@ -6,7 +6,7 @@ export const theme = {
     },
     fontSize: {
         heading: '3.6rem',
-        headingMobile: '2.8rem',
+        headingMobile: '3rem',
         paragraph: '1.6rem',
         caption: '1.35rem',
     },

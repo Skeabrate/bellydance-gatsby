@@ -2,8 +2,9 @@ import styled from 'styled-components';
 import { Link } from 'gatsby';
 
 export const Wrapper = styled.footer`
-    margin: 50px 0;
+    margin: 50px 20px;
     display: flex;
+    text-align: center;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
@@ -15,16 +16,16 @@ export const Wrapper = styled.footer`
 `;
 
 export const StyledLogo = styled(Link)`
-    font-family: ${({ theme }) => theme.fontFamily.greatVibes};
     text-decoration: none;
-    color: ${({ theme }) => theme.colors.black};
 
     h1 {
+        color: ${({ theme }) => theme.colors.black};
+        font-family: ${({ theme }) => theme.fontFamily.greatVibes};
         font-size: ${({ theme }) => theme.fontSize.headingMobile};
         font-weight: 400;
     }
 
-    ${({ theme }) => theme.mq.desktop} {
+    ${({ theme }) => theme.mq.tablet} {
         h1 {
             font-size: ${({ theme }) => theme.fontSize.heading};
         }

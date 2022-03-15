@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import Facebook from 'assets/images/SVG/fb.svg';
 import Instagram from 'assets/images/SVG/insta.svg';
 import X from 'assets/images/SVG/x.svg';
@@ -18,12 +19,16 @@ const activeLinkStyles = {
     textUnderlineOffset: '0.05em',
 };
 
-const SlideNav = ({ toggle, setToggle, handleCloseMenu }) => {
+const SlideNav = ({
+    toggle,
+    setToggle = () => {},
+    handleCloseMenu = () => {},
+}) => {
     useEffect(() => {
         return globalHistory.listen(({ action }) => {
             if (action === 'PUSH') setToggle(false);
         });
-    }, []);
+    }, [setToggle]);
 
     return (
         <Wrapper toggle={toggle}>
@@ -95,6 +100,12 @@ const SlideNav = ({ toggle, setToggle, handleCloseMenu }) => {
             </StyledSocials>
         </Wrapper>
     );
+};
+
+SlideNav.propTypes = {
+    toggle: PropTypes.bool.isRequired,
+    setToggle: PropTypes.func.isRequired,
+    handleCloseMenu: PropTypes.func.isRequired,
 };
 
 export default SlideNav;

@@ -38,10 +38,10 @@ const colorChangeHelper = css`
 export const StyledLogo = styled(Link)`
     font-family: ${({ theme }) => theme.fontFamily.greatVibes};
     ${colorChangeHelper};
-    text-shadow: ${({ changeColor, isOnTop }) => {
-        if (changeColor && isOnTop) return '1px 1px 2px black';
+    /* text-shadow: ${({ changeColor, isOnTop }) => {
+        if (changeColor && isOnTop) return '1px 1px 1px black';
         else return 'none';
-    }};
+    }}; */
 
     h1 {
         font-size: ${({ theme }) => theme.fontSize.headingMobile};
