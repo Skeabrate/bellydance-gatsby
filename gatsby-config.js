@@ -15,6 +15,7 @@ module.exports = {
             options: {
                 assets: path.join(__dirname, 'src', 'assets'),
                 components: path.join(__dirname, 'src', 'components'),
+                data: path.join(__dirname, 'src', 'data'),
             },
         },
         {
@@ -36,7 +37,7 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-manifest',
             options: {
-                icon: 'src/assets/images/icon.png',
+                icon: 'src/assets/images/favicon.png',
             },
         },
         'gatsby-plugin-sharp',
