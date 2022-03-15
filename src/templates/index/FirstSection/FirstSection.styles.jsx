@@ -14,9 +14,8 @@ export const StyledFirstSection = styled.div`
 
 export const StyledFirstSectionImg = styled.div`
     display: grid;
-    grid-template-columns: 1fr;
     column-gap: 50px;
-    row-gap: 30px;
+    row-gap: 20px;
 
     ${({ theme }) => theme.mq.tablet} {
         grid-template-columns: 1fr 1fr;
