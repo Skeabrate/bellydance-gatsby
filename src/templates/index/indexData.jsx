@@ -30,7 +30,7 @@ export const secondSection = [
     {
         id: 1,
         title: 'Lorem ipsum dolor sit!',
-        desc: 'Agnieszka Leyla Świeczkowska posiada państwowe uprawnienia do wykonywania zawodu instruktora belly dance.',
+        desc: 'Agnieszka Leyla Świeczkowska posiada państwowe uprawnienia do wykonywania zawodu instruktora belly dance. Jest dyplomowaną Instruktorką Tańca Sportowego o specjalności belly dance oraz dyplomowanym Instruktorem Sportu.',
     },
 ];
 

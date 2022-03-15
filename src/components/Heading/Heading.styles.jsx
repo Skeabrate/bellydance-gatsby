@@ -5,7 +5,7 @@ export const StyledHeader = styled.header`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 100px 0 50px;
+    margin: 120px 0 60px;
 
     ${({ theme }) => theme.mq.tablet} {
         margin: 150px 0 80px;
