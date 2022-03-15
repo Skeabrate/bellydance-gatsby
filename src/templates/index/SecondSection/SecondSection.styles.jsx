@@ -8,6 +8,7 @@ export const StyledSecondSection = styled.div`
     ${({ theme }) => theme.mq.bigDesktop} {
         grid-template-columns: 1fr 1fr;
         align-items: flex-end;
+        column-gap: 80px;
     }
 `;
 

@@ -10,6 +10,10 @@ export const StyledFirstSection = styled.div`
     ${({ theme }) => theme.mq.desktop} {
         margin-bottom: 120px;
     }
+
+    ${({ theme }) => theme.mq.bigDesktop} {
+        column-gap: 80px;
+    }
 `;
 
 export const StyledFirstSectionImg = styled.div`
@@ -19,5 +23,9 @@ export const StyledFirstSectionImg = styled.div`
 
     ${({ theme }) => theme.mq.tablet} {
         grid-template-columns: 1fr 1fr;
+    }
+
+    ${({ theme }) => theme.mq.bigDesktop} {
+        column-gap: 80px;
     }
 `;

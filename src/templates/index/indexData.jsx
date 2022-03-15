@@ -38,6 +38,6 @@ export const thirdSection = [
     {
         id: 0,
         title: 'Lorem ipsum dolor sit!',
-        desc: 'Swoją technikę taneczną nieustannie rozwijam uczestnicząc w największych festiwalach tanecznych i warsztatach prowadzonych przez wybitnych nauczycieli i żyjących legend tańca orientalnego, m.in: Lubna Emam, Kazafy.',
+        desc: 'Swoją technikę taneczną nieustannie rozwijam uczestnicząc w największych festiwalach tanecznych i warsztatach prowadzonych przez wybitnych nauczycieli i żyjących legend tańca orientalnego, m.in: Lubna Emam, Kazafy, Khaled Mahmoud, Tito, Randa Kamel, Camelia, Hosseny El Masry, Beata & Horacio Cifuentes, Bozenka, Mercedes Nieto, Margarita Darina.',
     },
 ];
