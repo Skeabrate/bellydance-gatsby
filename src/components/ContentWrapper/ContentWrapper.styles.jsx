@@ -9,10 +9,14 @@ export const Wrapper = styled.div`
     }
 
     ${({ theme }) => theme.mq.tablet} {
-        padding: 0 40px;
+        padding: 0 50px;
     }
 
     ${({ theme }) => theme.mq.desktop} {
         padding: 0 100px;
+    }
+
+    ${({ theme }) => theme.mq.huge} {
+        padding: 0 140px;
     }
 `;

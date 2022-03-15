@@ -5,9 +5,9 @@ export const StyledFirstSection = styled.div`
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     column-gap: 50px;
     row-gap: 50px;
-    margin-bottom: 80px;
+    margin-bottom: 60px;
 
-    ${({ theme }) => theme.mq.tablet} {
+    ${({ theme }) => theme.mq.desktop} {
         margin-bottom: 120px;
     }
 `;
