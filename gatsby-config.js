@@ -1,5 +1,9 @@
 const path = require('path');
 
+require('dotenv').config({
+    path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
     siteMetadata: {
         title: ``,
@@ -16,7 +20,7 @@ module.exports = {
         {
             resolve: 'gatsby-source-datocms',
             options: {
-                apiToken: '7b5b2e0ee488417a1b81695b42d356',
+                apiToken: process.env.DATOCMS_API,
             },
         },
         'gatsby-plugin-styled-components',

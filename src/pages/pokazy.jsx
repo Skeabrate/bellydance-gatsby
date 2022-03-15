@@ -1,14 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const pokazy = (props) => {
+const pokazy = () => {
     return (
         <div>
             <h1>Pokazy</h1>
         </div>
     );
 };
-
-pokazy.propTypes = {};
 
 export default pokazy;

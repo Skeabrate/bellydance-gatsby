@@ -5,6 +5,7 @@ import ArrowHome from 'assets/images/SVG/arrowHome.svg';
 import { StaticImage } from 'gatsby-plugin-image';
 import Heading from 'components/heading/heading';
 import ContentWrapper from 'components/ContentWrapper/ContentWrapper';
+import { firstSection, secondSection, thirdSection } from 'data/indexData';
 
 import { StyledBgImage, StyledPyramid } from './index.styles';
 
@@ -50,6 +51,13 @@ const IndexPage = () => {
             <ContentWrapper>
                 <section>
                     <Heading label={'O mnie'} />
+
+                    {firstSection.map(({ id, title, desc }) => (
+                        <article key={id}>
+                            <h2>{title}</h2>
+                            <p>{desc}</p>
+                        </article>
+                    ))}
                 </section>
 
                 <section></section>

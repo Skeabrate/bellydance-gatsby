@@ -1,14 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const zajecia = (props) => {
+const zajecia = () => {
     return (
         <div>
             <h1>Zajecia</h1>
         </div>
     );
 };
-
-zajecia.propTypes = {};
 
 export default zajecia;
