@@ -7,7 +7,14 @@ import Heading from 'components/heading/heading';
 import ContentWrapper from 'components/ContentWrapper/ContentWrapper';
 import { firstSection, secondSection, thirdSection } from 'data/indexData';
 
-import { StyledBgImage, StyledPyramid } from './index.styles';
+import {
+    StyledBgImage,
+    StyledPyramid,
+    StyledFirstSection,
+    StyledDarken,
+    StyledBgTitle,
+    StyledFirstSectionImg,
+} from './index.styles';
 
 const IndexPage = () => {
     const { placeholderImage } = useStaticQuery(
@@ -17,11 +24,7 @@ const IndexPage = () => {
                     relativePath: { eq: "Homepage/homepageBaner.jpg" }
                 ) {
                     childImageSharp {
-                        gatsbyImageData(
-                            width: 2000
-                            placeholder: BLURRED
-                            formats: WEBP
-                        )
+                        gatsbyImageData(placeholder: BLURRED, formats: WEBP)
                     }
                 }
             }
@@ -32,7 +35,8 @@ const IndexPage = () => {
     return (
         <main>
             <StyledBgImage image={pluginImage}>
-                <div>
+                <StyledDarken />
+                <StyledBgTitle>
                     <h1>Magiczny Świat Orientu</h1>
                     <p>Zapraszam do baśni 1000 i jednej nocy</p>
                     <StaticImage
@@ -41,7 +45,7 @@ const IndexPage = () => {
                         placeholder="blurred"
                         width={200}
                     />
-                </div>
+                </StyledBgTitle>
 
                 <StyledPyramid>
                     <ArrowHome />
@@ -52,17 +56,44 @@ const IndexPage = () => {
                 <section>
                     <Heading label={'O mnie'} />
 
-                    {firstSection.map(({ id, title, desc }) => (
-                        <article key={id}>
-                            <h2>{title}</h2>
-                            <p>{desc}</p>
-                        </article>
-                    ))}
+                    <StyledFirstSection>
+                        {firstSection.map(({ id, title, desc }) => (
+                            <article key={id}>
+                                <header>
+                                    <h2>{title}</h2>
+                                </header>
+                                <p>{desc}</p>
+                            </article>
+                        ))}
+                    </StyledFirstSection>
+
+                    <StyledFirstSectionImg>
+                        <StaticImage
+                            src="../assets/images/Homepage/homepage1.jpg"
+                            alt="Agnieszka Świeczkowska - legitymacja instruktora"
+                            placeholder="blurred"
+                        />
+                        <StaticImage
+                            src="../assets/images/Homepage/homepage2.jpg"
+                            alt="Agnieszka Świeczkowska - legitymacja instruktora"
+                            placeholder="blurred"
+                        />
+                    </StyledFirstSectionImg>
                 </section>
 
-                <section></section>
+                {/* <section>
+                    <Heading label={'Moje Osiągnięcia'} />
 
-                <section></section>
+					
+					<article>
+						<header>{}</header>
+						<p>{}</p>
+					</article>
+                </section>
+
+                <section>
+                    <Heading label={'Wspieram'} />
+                </section> */}
             </ContentWrapper>
         </main>
     );

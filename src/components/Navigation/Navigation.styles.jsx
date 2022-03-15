@@ -48,7 +48,7 @@ export const StyledLogo = styled(Link)`
         font-weight: 400;
     }
 
-    ${({ theme }) => theme.mq.desktop} {
+    ${({ theme }) => theme.mq.tablet} {
         h1 {
             font-size: ${({ theme }) => theme.fontSize.heading};
         }

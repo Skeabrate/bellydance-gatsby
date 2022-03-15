@@ -5,6 +5,15 @@ export const StyledHeader = styled.header`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 60px;
+
+    ${({ theme }) => theme.mq.tablet} {
+        margin-bottom: 80px;
+    }
+
+    ${({ theme }) => theme.mq.desktop} {
+        margin-bottom: 100px;
+    }
 `;
 
 export const StyledTitle = styled.h1`
