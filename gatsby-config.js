@@ -15,7 +15,7 @@ module.exports = {
             options: {
                 assets: path.join(__dirname, 'src', 'assets'),
                 components: path.join(__dirname, 'src', 'components'),
-                data: path.join(__dirname, 'src', 'data'),
+                templates: path.join(__dirname, 'src', 'templates'),
             },
         },
         {

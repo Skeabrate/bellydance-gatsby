@@ -1,13 +1,18 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-    padding: 80px 20px;
+    padding: 0 20px;
+
+    h2 {
+        font-size: ${({ theme }) => theme.fontSize.paragraph};
+        margin-bottom: 8px;
+    }
 
     ${({ theme }) => theme.mq.tablet} {
-        padding: 110px 40px;
+        padding: 0 40px;
     }
 
     ${({ theme }) => theme.mq.desktop} {
-        padding: 140px 100px;
+        padding: 0 100px;
     }
 `;

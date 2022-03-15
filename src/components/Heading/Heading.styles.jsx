@@ -5,14 +5,14 @@ export const StyledHeader = styled.header`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 60px;
+    margin: 100px 0 50px;
 
     ${({ theme }) => theme.mq.tablet} {
-        margin-bottom: 80px;
+        margin: 150px 0 80px;
     }
 
     ${({ theme }) => theme.mq.desktop} {
-        margin-bottom: 100px;
+        margin: 200px 0 120px;
     }
 `;
 
