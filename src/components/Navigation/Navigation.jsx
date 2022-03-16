@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import SlideNav from './SlideNav/SlideNav';
 import Facebook from 'assets/images/SVG/fb.svg';
 import Instagram from 'assets/images/SVG/insta.svg';
-import { globalHistory } from '@reach/router';
+import { useLocation } from '@reach/router';
 
 import {
     Wrapper,
@@ -22,33 +22,45 @@ const Navigation = () => {
     const [toggle, setToggle] = useState(false);
     const [isOnTop, setIsOnTop] = useState(true);
     const [hideNav, setHideNav] = useState(false);
-    const [changeColor, setChangeColor] = useState(true);
+    const [changeColor, setChangeColor] = useState(false);
+
+    const location = useLocation();
 
     const handleCloseMenu = () => setToggle(!toggle);
 
     useEffect(() => {
+        const abortController = new AbortController();
+        const { signal } = abortController;
+
         var lastScrollTop = 0;
 
-        window.addEventListener('scroll', function () {
-            var st = window.pageYOffset || document.documentElement.scrollTop;
+        window.addEventListener(
+            'scroll',
+            function () {
+                var st =
+                    window.pageYOffset || document.documentElement.scrollTop;
 
-            if (st < 20) setIsOnTop(true);
-            else setIsOnTop(false);
+                if (st < 40) setIsOnTop(true);
+                else setIsOnTop(false);
 
-            if (st > lastScrollTop) {
-                if (lastScrollTop > 20) {
-                    setHideNav(true);
-                }
-            } else setHideNav(false);
+                if (st > lastScrollTop) {
+                    if (lastScrollTop > 40) {
+                        setHideNav(true);
+                    }
+                } else setHideNav(false);
 
-            lastScrollTop = st <= 0 ? 0 : st;
-        });
+                lastScrollTop = st <= 0 ? 0 : st;
+            },
+            { signal: signal }
+        );
 
-        return globalHistory.listen((props) => {
-            if (props.location.pathname === '/') setChangeColor(true);
-            else setChangeColor(false);
-        });
+        return () => abortController.abort();
     }, []);
+
+    useEffect(() => {
+        if (location.pathname === '/') setChangeColor(true);
+        else setChangeColor(false);
+    }, [location.pathname]);
 
     return (
         <>

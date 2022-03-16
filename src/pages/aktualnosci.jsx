@@ -1,31 +1,16 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import HeroImage from 'templates/aktualnosci/HeroImage/HeroImage';
+import MainWrapper from 'components/MainWrapper/MainWrapper';
+import Content from 'templates/aktualnosci/Content/Content';
 
 const aktualnosci = ({ data }) => {
     return (
-        <div style={{ margin: '140px 60px' }}>
-            <h1>Aktualnosci</h1>
+        <MainWrapper>
+            <HeroImage />
 
-            <h3>Posty:</h3>
-            <section>
-                {data.allDatoCmsPost.edges.map(
-                    ({
-                        node: { id, title, date, description, assets, video },
-                    }) => (
-                        <article key={id} style={{ marginBottom: '50px' }}>
-                            <p>{date}</p>
-                            <h2>{title}</h2>
-
-                            {description.value.document.children.map(
-                                ({ children }) => (
-                                    <p>{children[0].value}</p>
-                                )
-                            )}
-                        </article>
-                    )
-                )}
-            </section>
-        </div>
+            <Content posts={data} />
+        </MainWrapper>
     );
 };
 
