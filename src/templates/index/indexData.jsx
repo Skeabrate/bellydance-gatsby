@@ -1,4 +1,4 @@
-export const firstSection = [
+export const firstSectionData = [
     {
         id: 0,
         title: 'Uprawnienia państwowe',
@@ -21,7 +21,7 @@ export const firstSection = [
     },
 ];
 
-export const secondSection = [
+export const secondSectionData = [
     {
         id: 0,
         title: 'Lorem ipsum dolor sit!',
@@ -34,7 +34,7 @@ export const secondSection = [
     },
 ];
 
-export const thirdSection = [
+export const thirdSectionData = [
     {
         id: 0,
         title: 'Lorem ipsum dolor sit!',

@@ -1,8 +1,8 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import HeroImage from 'templates/aktualnosci/HeroImage/HeroImage';
 import MainWrapper from 'components/MainWrapper/MainWrapper';
-import Content from 'templates/aktualnosci/Content/Content';
+import HeroImage from 'templates/Aktualnosci/HeroImage/HeroImage';
+import Content from 'templates/Aktualnosci/Content/Content';
 
 const aktualnosci = ({ data }) => {
     return (

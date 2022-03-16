@@ -1,8 +1,8 @@
 import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
-import Heading from 'components/heading/heading';
+import Heading from 'components/Heading/Heading';
 import Frame from 'components/Frame/Frame';
-import { secondSection } from '../indexData';
+import { secondSectionData } from '../indexData';
 
 import {
     StyledSecondSection,
@@ -19,17 +19,17 @@ const SecondSection = () => {
                 <div>
                     <article>
                         <header>
-                            <h2>{secondSection[0].title}</h2>
+                            <h2>{secondSectionData[0].title}</h2>
                         </header>
-                        <p>{secondSection[0].desc}</p>
+                        <p>{secondSectionData[0].desc}</p>
                     </article>
 
                     <Frame upMobile>
                         <StyledSandArticle>
                             <header>
-                                <h2>{secondSection[1].title}</h2>
+                                <h2>{secondSectionData[1].title}</h2>
                             </header>
-                            <p>{secondSection[1].desc}</p>
+                            <p>{secondSectionData[1].desc}</p>
                         </StyledSandArticle>
                     </Frame>
                 </div>

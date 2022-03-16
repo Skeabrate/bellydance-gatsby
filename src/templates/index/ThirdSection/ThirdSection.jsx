@@ -1,6 +1,6 @@
 import React from 'react';
-import Heading from 'components/heading/heading';
-import { thirdSection } from '../indexData';
+import Heading from 'components/Heading/Heading';
+import { thirdSectionData } from '../indexData';
 
 import { StyledThridArticle } from './ThirdSection.styles';
 
@@ -11,8 +11,8 @@ const ThirdSection = () => {
 
             <StyledThridArticle>
                 <header>
-                    <h2>{thirdSection[0].title}</h2>
-                    <p>{thirdSection[0].desc}</p>
+                    <h2>{thirdSectionData[0].title}</h2>
+                    <p>{thirdSectionData[0].desc}</p>
                 </header>
             </StyledThridArticle>
         </section>

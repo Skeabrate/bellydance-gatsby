@@ -1,5 +1,5 @@
 import React from 'react';
-import Content from 'templates/zajecia/Content/Content';
+import Content from 'templates/Zajecia/Content/Content';
 
 const zajecia = () => {
     return (

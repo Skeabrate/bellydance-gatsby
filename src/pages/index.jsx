@@ -1,9 +1,9 @@
 import * as React from 'react';
 import ContentWrapper from 'components/ContentWrapper/ContentWrapper';
-import HeroImage from 'templates/index/HeroImage/HeroImage';
-import FirstSection from 'templates/index/FirstSection/FirstSection';
-import SecondSection from 'templates/index/SecondSection/SecondSection';
-import ThirdSection from 'templates/index/ThirdSection/ThirdSection';
+import HeroImage from 'templates/Index/HeroImage/HeroImage';
+import FirstSection from 'templates/Index/FirstSection/FirstSection';
+import SecondSection from 'templates/Index/SecondSection/SecondSection';
+import ThirdSection from 'templates/Index/ThirdSection/ThirdSection';
 
 const IndexPage = () => {
     return (

@@ -1,8 +1,8 @@
 import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
-import Heading from 'components/heading/heading';
+import Heading from 'components/Heading/Heading';
 import Frame from 'components/Frame/Frame';
-import { firstSection } from '../indexData';
+import { firstSectionData } from '../indexData';
 
 import {
     StyledFirstSection,
@@ -15,7 +15,7 @@ const FirstSection = () => {
             <Heading label={'O mnie'} />
 
             <StyledFirstSection>
-                {firstSection.map(({ id, title, desc }) => (
+                {firstSectionData.map(({ id, title, desc }) => (
                     <article key={id}>
                         <header>
                             <h2>{title}</h2>
