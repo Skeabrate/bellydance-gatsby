@@ -6,6 +6,7 @@ export const StyledHeader = styled.header`
     justify-content: center;
     align-items: center;
     margin: 140px 0 60px;
+    text-align: center;
 
     ${({ theme }) => theme.mq.tablet} {
         margin: 180px 0 80px;

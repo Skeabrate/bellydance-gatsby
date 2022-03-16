@@ -1,10 +1,11 @@
 import React from 'react';
+import Content from 'templates/zajecia/Content/Content';
 
 const zajecia = () => {
     return (
-        <div>
-            <h1>Zajecia</h1>
-        </div>
+        <main>
+            <Content />
+        </main>
     );
 };
 

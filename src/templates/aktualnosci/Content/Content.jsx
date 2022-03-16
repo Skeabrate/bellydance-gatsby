@@ -1,20 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Heading from 'components/Heading/Heading';
 
 const Content = ({ posts }) => {
     return (
         <div>
-            <h1>Aktualnosci</h1>
+            <Heading label="Co słychać w królestwie tańca orientalnego?" />
 
-            <h3>Posty:</h3>
             <section>
                 {posts.allDatoCmsPost.edges.map(
                     ({
                         node: { id, title, date, description, assets, video },
                     }) => (
                         <article key={id} style={{ marginBottom: '50px' }}>
-                            <p>{date}</p>
                             <h2>{title}</h2>
+                            <p>{date}</p>
 
                             {description.value.document.children.map(
                                 ({ children }) => (

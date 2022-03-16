@@ -4,7 +4,7 @@ import Heading from 'components/Heading/Heading';
 const Content = () => {
     return (
         <div>
-            <Heading label="Kontakt" />
+            <Heading label="Taniec orientalny jest dla każdej z nas" />
         </div>
     );
 };

@@ -1,10 +1,11 @@
 import React from 'react';
+import Content from 'templates/pokazy/Content/Content';
 
 const pokazy = () => {
     return (
-        <div>
-            <h1>Pokazy</h1>
-        </div>
+        <main>
+            <Content />
+        </main>
     );
 };
 
