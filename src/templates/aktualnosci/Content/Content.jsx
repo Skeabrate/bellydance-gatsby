@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Content = ({ posts }) => {
     return (
@@ -26,6 +27,10 @@ const Content = ({ posts }) => {
             </section>
         </div>
     );
+};
+
+Content.propTypes = {
+    posts: PropTypes.object.isRequired,
 };
 
 export default Content;

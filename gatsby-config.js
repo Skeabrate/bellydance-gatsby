@@ -16,6 +16,7 @@ module.exports = {
                 assets: path.join(__dirname, 'src', 'assets'),
                 components: path.join(__dirname, 'src', 'components'),
                 templates: path.join(__dirname, 'src', 'templates'),
+                globalStyles: path.join(__dirname, 'src', 'globalStyles'),
             },
         },
         {

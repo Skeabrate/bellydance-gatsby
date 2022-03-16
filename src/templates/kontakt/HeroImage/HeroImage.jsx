@@ -8,7 +8,7 @@ const HeroImage = () => {
         graphql`
             query {
                 placeholderImage: file(
-                    relativePath: { eq: "Aktualnosci/banerAktualnosci.jpg" }
+                    relativePath: { eq: "Kontakt/banerKontakt.jpg" }
                 ) {
                     childImageSharp {
                         gatsbyImageData(placeholder: BLURRED, formats: WEBP)
