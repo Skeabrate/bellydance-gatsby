@@ -5,7 +5,7 @@ import { StyledTitle, StyledHeader } from './Heading.styles';
 
 const Heading = ({ label, isMain }) => {
     return (
-        <StyledHeader isMain={isMain}>
+        <StyledHeader isMain={isMain} id={`${isMain ? 'heading' : 'other'}`}>
             <StyledTitle>{label}</StyledTitle>
             <StaticImage
                 src="../../assets/images/ornParag.png"
