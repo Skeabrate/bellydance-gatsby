@@ -5,7 +5,10 @@ import Heading from 'components/Heading/Heading';
 const Content = ({ posts }) => {
     return (
         <div>
-            <Heading label="Co słychać w królestwie tańca orientalnego?" />
+            <Heading
+                label="Co słychać w królestwie tańca orientalnego?"
+                isMain
+            />
 
             <section>
                 {posts.allDatoCmsPost.edges.map(

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const StyledMainWrapper = styled.main`
-    margin-top: 120px;
+    padding-top: 120px;
 `;
 
 const MainWrapper = ({ children }) => {

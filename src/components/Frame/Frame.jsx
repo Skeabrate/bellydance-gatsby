@@ -58,6 +58,7 @@ const Frame = ({ children, upMobile }) => {
 
 Frame.propTypes = {
     children: PropTypes.node.isRequired,
+    upMobile: PropTypes.bool,
 };
 
 export default Frame;

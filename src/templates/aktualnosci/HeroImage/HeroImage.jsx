@@ -1,7 +1,6 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { getImage } from 'gatsby-plugin-image';
-import { StyledBgImage } from 'globalStyles/StyledBgImage.styles';
+import HeroImageContainer from 'components/HeroImageContainer/HeroImageContainer';
 
 const HeroImage = () => {
     const { placeholderImage } = useStaticQuery(
@@ -18,9 +17,7 @@ const HeroImage = () => {
         `
     );
 
-    const pluginImage = getImage(placeholderImage);
-
-    return <StyledBgImage image={pluginImage} />;
+    return <HeroImageContainer placeholderImage={placeholderImage} />;
 };
 
 export default HeroImage;

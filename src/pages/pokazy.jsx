@@ -1,11 +1,12 @@
 import React from 'react';
 import Content from 'templates/Pokazy/Content/Content';
+import MainWrapper from 'components/MainWrapper/MainWrapper';
 
 const pokazy = () => {
     return (
-        <main>
+        <MainWrapper>
             <Content />
-        </main>
+        </MainWrapper>
     );
 };
 

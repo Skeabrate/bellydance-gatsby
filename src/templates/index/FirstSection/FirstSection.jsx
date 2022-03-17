@@ -12,7 +12,7 @@ import {
 const FirstSection = () => {
     return (
         <section>
-            <Heading label={'O mnie'} />
+            <Heading label="O mnie" isMain />
 
             <StyledFirstSection>
                 {firstSectionData.map(({ id, title, desc }) => (

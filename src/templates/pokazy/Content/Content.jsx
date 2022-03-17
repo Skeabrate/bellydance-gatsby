@@ -4,7 +4,7 @@ import Heading from 'components/Heading/Heading';
 const Content = () => {
     return (
         <div>
-            <Heading label="Moje Pokazy" />
+            <Heading label="Moje Pokazy" isMain />
         </div>
     );
 };

@@ -1,11 +1,12 @@
 import React from 'react';
 import Content from 'templates/Zajecia/Content/Content';
+import MainWrapper from 'components/MainWrapper/MainWrapper';
 
 const zajecia = () => {
     return (
-        <main>
+        <MainWrapper>
             <Content />
-        </main>
+        </MainWrapper>
     );
 };
 

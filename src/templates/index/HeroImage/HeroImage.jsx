@@ -1,15 +1,10 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { getImage } from 'gatsby-plugin-image';
-import ArrowHome from 'assets/images/SVG/arrowHome.svg';
 import { StaticImage } from 'gatsby-plugin-image';
+import PyramidScroll from 'components/PyramidScroll/PyramidScroll';
 
-import {
-    StyledBgImage,
-    StyledDarken,
-    StyledBgTitle,
-    StyledPyramid,
-} from './HeroImage.styles';
+import { StyledBgImage, StyledDarken, StyledBgTitle } from './HeroImage.styles';
 
 const HeroImage = () => {
     const { placeholderImage } = useStaticQuery(
@@ -42,9 +37,7 @@ const HeroImage = () => {
                 />
             </StyledBgTitle>
 
-            <StyledPyramid>
-                <ArrowHome />
-            </StyledPyramid>
+            <PyramidScroll />
         </StyledBgImage>
     );
 };
