@@ -30,13 +30,15 @@ export const query = graphql`
                         value
                     }
                     id
-                    date
                     title
                     video {
                         height
                         url
                         width
                         thumbnailUrl
+                    }
+                    meta {
+                        firstPublishedAt
                     }
                 }
             }

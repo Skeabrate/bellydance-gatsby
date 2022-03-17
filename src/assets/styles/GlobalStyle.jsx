@@ -29,8 +29,7 @@ export const GlobalStyle = createGlobalStyle`
         }
     }
 
-    body{
-        margin: 0;
+    body, button, a{
         font-size: ${({ theme }) => theme.fontSize.paragraph};
 		font-family: ${({ theme }) => theme.fontFamily.noto};
     }
