@@ -1,15 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Heading from 'components/Heading/Heading';
 import ContentWrapper from 'components/ContentWrapper/ContentWrapper';
-import SkipButton from 'components/SkipButton/SkipButton';
+import Combobox from 'components/Combobox/Combobox';
 
 const Content = ({ posts }) => {
-    posts.allDatoCmsPost.edges.sort(
-        (a, b) =>
-            Date.parse(b.node.meta.firstPublishedAt) -
-            Date.parse(a.node.meta.firstPublishedAt)
-    );
+    const [sortDescending, setSortDescending] = useState(true);
+
+    (function () {
+        posts.allDatoCmsPost.edges.sort((a, b) =>
+            sortDescending
+                ? Date.parse(b.node.meta.firstPublishedAt) -
+                  Date.parse(a.node.meta.firstPublishedAt)
+                : Date.parse(a.node.meta.firstPublishedAt) -
+                  Date.parse(b.node.meta.firstPublishedAt)
+        );
+    })();
 
     return (
         <ContentWrapper>
@@ -18,7 +24,7 @@ const Content = ({ posts }) => {
                 isMain
             />
 
-            <SkipButton label="Program pokazów" />
+            <Combobox setSortDescending={setSortDescending} />
 
             <section style={{ marginTop: '100px' }}>
                 {posts.allDatoCmsPost.edges.map(
@@ -30,8 +36,8 @@ const Content = ({ posts }) => {
                             <p>{meta.firstPublishedAt.slice(0, 10)}</p>
 
                             {description.value.document.children.map(
-                                ({ children }) => (
-                                    <p>{children[0].value}</p>
+                                ({ children }, index) => (
+                                    <p key={index}>{children[0].value}</p>
                                 )
                             )}
                         </article>
