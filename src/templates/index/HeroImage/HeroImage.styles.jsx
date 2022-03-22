@@ -21,7 +21,7 @@ export const StyledBgTitle = styled.div`
         font-family: ${({ theme }) => theme.fontFamily.greatVibes};
         font-weight: 400;
         font-size: 3.8rem;
-        /* text-shadow: 1px 1px 1px black; */
+        text-shadow: 5px 5px 10px hsla(0, 0%, 0%, 0.15);
 
         ${({ theme }) => theme.mq.tablet} {
             font-size: 5.4rem;
@@ -30,6 +30,7 @@ export const StyledBgTitle = styled.div`
 
     p {
         margin: 0 0 15px;
+        text-shadow: 5px 5px 10px hsla(0, 0%, 0%, 0.15);
     }
 `;
 
