@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { Link } from 'gatsby';
 
 export const Wrapper = styled.div`
@@ -26,22 +26,14 @@ export const Wrapper = styled.div`
     }
 `;
 
-const colorChangeHelper = css`
+export const StyledLogo = styled(Link)`
+    font-family: ${({ theme }) => theme.fontFamily.greatVibes};
     text-decoration: none;
     color: ${({ theme, changeColor, isOnTop }) => {
         if (changeColor && isOnTop) return theme.colors.white;
         else return theme.colors.black;
     }};
     transition: all 0.2s ease-in-out;
-`;
-
-export const StyledLogo = styled(Link)`
-    font-family: ${({ theme }) => theme.fontFamily.greatVibes};
-    ${colorChangeHelper};
-    /* text-shadow: ${({ changeColor, isOnTop }) => {
-        if (changeColor && isOnTop) return '1px 1px 1px black';
-        else return 'none';
-    }}; */
 
     h1 {
         font-size: ${({ theme }) => theme.fontSize.headingMobile};
@@ -52,89 +44,5 @@ export const StyledLogo = styled(Link)`
         h1 {
             font-size: ${({ theme }) => theme.fontSize.heading};
         }
-    }
-`;
-
-export const StyledNav = styled.nav`
-    display: none;
-
-    ${({ theme }) => theme.mq.desktop} {
-        display: initial;
-    }
-
-    ul {
-        list-style: none;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        column-gap: 30px;
-    }
-`;
-
-export const StyledNavItem = styled(Link)`
-    ${colorChangeHelper};
-`;
-
-export const StyledSocials = styled.a`
-    svg {
-        height: 26px;
-        width: 26px;
-
-        path {
-            fill: ${({ theme, changeColor, isOnTop }) => {
-                if (changeColor && isOnTop) return theme.colors.white;
-                else return theme.colors.sand;
-            }};
-        }
-    }
-`;
-
-export const StyledHamburger = styled.button`
-    ${({ theme }) => theme.mq.desktop} {
-        display: none;
-    }
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    background: transparent;
-    border: none;
-
-    div {
-        width: 30px;
-        height: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-
-        span {
-            display: block;
-            height: 4px;
-            width: 30px;
-            background-color: ${({ theme, changeColor, isOnTop }) => {
-                if (changeColor && isOnTop) return theme.colors.white;
-                else return theme.colors.black;
-            }};
-            transition: all 0.25s ease-in-out;
-
-            &:nth-child(1) {
-                width: 14px;
-            }
-
-            &:nth-child(2) {
-                width: 22px;
-            }
-        }
-    }
-
-    &:hover div span:nth-child(1) {
-        width: 30px;
-    }
-
-    &:hover div span:nth-child(2) {
-        width: 30px;
     }
 `;

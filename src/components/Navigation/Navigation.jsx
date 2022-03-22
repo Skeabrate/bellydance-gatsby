@@ -1,22 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import SlideNav from './SlideNav/SlideNav';
-import Facebook from 'assets/images/SVG/fb.svg';
-import Instagram from 'assets/images/SVG/insta.svg';
 import { useLocation } from '@reach/router';
+import NavigationItems from './NavigationItems/NavigationItems';
+import Hamburger from './Hamburger/Hamburger';
 
-import {
-    Wrapper,
-    StyledLogo,
-    StyledNav,
-    StyledNavItem,
-    StyledHamburger,
-    StyledSocials,
-} from './Navigation.styles';
-
-const activeLinkStyles = {
-    textDecoration: 'underline',
-    textUnderlineOffset: '0.05em',
-};
+import { Wrapper, StyledLogo } from './Navigation.styles';
 
 const Navigation = () => {
     const [toggle, setToggle] = useState(false);
@@ -63,111 +50,25 @@ const Navigation = () => {
     }, [location.pathname]);
 
     return (
-        <>
-            <Wrapper hideNav={hideNav} isOnTop={isOnTop}>
-                <StyledLogo to="/" isOnTop={isOnTop} changeColor={changeColor}>
-                    <header>
-                        <h1>Leyla Bellydance</h1>
-                    </header>
-                </StyledLogo>
+        <Wrapper hideNav={hideNav} isOnTop={isOnTop}>
+            <StyledLogo to="/" isOnTop={isOnTop} changeColor={changeColor}>
+                <header>
+                    <h1>Leyla Bellydance</h1>
+                </header>
+            </StyledLogo>
 
-                <StyledNav>
-                    <ul>
-                        <li>
-                            <StyledNavItem
-                                to="/"
-                                activeStyle={activeLinkStyles}
-                                isOnTop={isOnTop}
-                                changeColor={changeColor}
-                            >
-                                Home
-                            </StyledNavItem>
-                        </li>
-                        <li>
-                            <StyledNavItem
-                                to="/aktualnosci"
-                                activeStyle={activeLinkStyles}
-                                isOnTop={isOnTop}
-                                changeColor={changeColor}
-                            >
-                                Aktualności
-                            </StyledNavItem>
-                        </li>
-                        <li>
-                            <StyledNavItem
-                                to="/pokazy"
-                                activeStyle={activeLinkStyles}
-                                isOnTop={isOnTop}
-                                changeColor={changeColor}
-                            >
-                                Pokazy
-                            </StyledNavItem>
-                        </li>
-                        <li>
-                            <StyledNavItem
-                                to="/zajecia"
-                                activeStyle={activeLinkStyles}
-                                isOnTop={isOnTop}
-                                changeColor={changeColor}
-                            >
-                                Zajęcia
-                            </StyledNavItem>
-                        </li>
-                        <li>
-                            <StyledNavItem
-                                to="/kontakt"
-                                activeStyle={activeLinkStyles}
-                                isOnTop={isOnTop}
-                                changeColor={changeColor}
-                            >
-                                Kontakt
-                            </StyledNavItem>
-                        </li>
-                        <li>
-                            <StyledSocials
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                href="https://www.facebook.com/agnieszka.swieczkowska.9"
-                                isOnTop={isOnTop}
-                                changeColor={changeColor}
-                            >
-                                <Facebook />
-                            </StyledSocials>
-                        </li>
-                        <li>
-                            <StyledSocials
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                href="https://www.instagram.com/bellydance_leyla/"
-                                isOnTop={isOnTop}
-                                changeColor={changeColor}
-                            >
-                                <Instagram />
-                            </StyledSocials>
-                        </li>
-                    </ul>
-                </StyledNav>
-
-                <StyledHamburger
-                    onClick={handleCloseMenu}
-                    isOnTop={isOnTop}
-                    changeColor={changeColor}
-                    aria-label="open navigation"
-                >
-                    <div>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </StyledHamburger>
-            </Wrapper>
-
-            <SlideNav
-                toggle={toggle}
-                setToggle={setToggle}
+            <NavigationItems
+                isOnTop={isOnTop}
+                changeColor={changeColor}
                 handleCloseMenu={handleCloseMenu}
             />
-        </>
+
+            <Hamburger
+                handleCloseMenu={handleCloseMenu}
+                isOnTop={isOnTop}
+                changeColor={changeColor}
+            />
+        </Wrapper>
     );
 };
 
