@@ -10,7 +10,7 @@ const Footer = () => {
         <Wrapper>
             <StyledLogo to="/">
                 <header>
-                    <h1>Leyla Bellydance</h1>
+                    <h1 translate="no">Leyla Bellydance</h1>
                 </header>
             </StyledLogo>
 

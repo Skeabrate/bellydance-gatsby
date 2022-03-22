@@ -39,8 +39,8 @@ const Content = ({ posts }) => {
                     ({
                         node: { id, title, description, assets, video, meta },
                     }) => (
-                        <Frame>
-                            <article key={id}>
+                        <Frame key={id}>
+                            <article>
                                 <StaticImage
                                     src="../../../assets/images/Pokazy/img2.jpg"
                                     alt="title ornament"

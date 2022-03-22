@@ -11,6 +11,7 @@ import {
     StyledLink,
     StyledCloseButton,
     StyledSocials,
+    StyledSocialsItem,
 } from './NavigationItems.styles';
 
 const items = [
@@ -20,19 +21,19 @@ const items = [
     },
     {
         title: 'Aktualności',
-        path: 'aktualnosci',
+        path: '/aktualnosci',
     },
     {
         title: 'Pokazy',
-        path: 'pokazy',
+        path: '/pokazy',
     },
     {
         title: 'Zajęcia',
-        path: 'zajecia',
+        path: '/zajecia',
     },
     {
         title: 'Kontakt',
-        path: 'kontakt',
+        path: '/kontakt',
     },
 ];
 
@@ -41,16 +42,21 @@ const activeLinkStyles = {
     textUnderlineOffset: '0.05em',
 };
 
-const NavigationItems = ({ isOnTop, changeColor, handleCloseMenu }) => {
+const NavigationItems = ({
+    toggle,
+    isOnTop,
+    changeColor,
+    handleCloseMenu = () => {},
+}) => {
     return (
-        <Wrapper>
+        <Wrapper toggle={toggle}>
             <StyledLogo to="/">
-                <h1>Leyla Bellydance</h1>
+                <h1 translate="no">Leyla Bellydance</h1>
             </StyledLogo>
 
             <StyledNav>
-                {items.map(({ title, path }, index) => (
-                    <li key={index}>
+                {items.map(({ title, path }) => (
+                    <li key={title}>
                         <StyledLink
                             to={path}
                             activeStyle={activeLinkStyles}
@@ -73,7 +79,7 @@ const NavigationItems = ({ isOnTop, changeColor, handleCloseMenu }) => {
             </StyledNav>
 
             <StyledSocials>
-                <a
+                <StyledSocialsItem
                     target="_blank"
                     rel="noopener noreferrer"
                     href="https://www.facebook.com/agnieszka.swieczkowska.9"
@@ -81,9 +87,9 @@ const NavigationItems = ({ isOnTop, changeColor, handleCloseMenu }) => {
                     changeColor={changeColor}
                 >
                     <Facebook />
-                </a>
+                </StyledSocialsItem>
 
-                <a
+                <StyledSocialsItem
                     target="_blank"
                     rel="noopener noreferrer"
                     href="https://www.instagram.com/bellydance_leyla/"
@@ -91,16 +97,17 @@ const NavigationItems = ({ isOnTop, changeColor, handleCloseMenu }) => {
                     changeColor={changeColor}
                 >
                     <Instagram />
-                </a>
+                </StyledSocialsItem>
             </StyledSocials>
         </Wrapper>
     );
 };
 
 NavigationItems.propTypes = {
-    handleCloseMenu: PropTypes.func,
-    isOnTop: PropTypes.bool,
-    changeColor: PropTypes.bool,
+    toggle: PropTypes.bool.isRequired,
+    handleCloseMenu: PropTypes.func.isRequired,
+    isOnTop: PropTypes.bool.isRequired,
+    changeColor: PropTypes.bool.isRequired,
 };
 
 export default NavigationItems;
