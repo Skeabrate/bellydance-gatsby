@@ -17,8 +17,10 @@ export const Wrapper = styled.div`
     padding: 0 20px;
     z-index: 9999;
 
-    transform: ${({ hideNav }) =>
-        hideNav ? 'translateY(-100%)' : 'translateX(0)'};
+    transform: ${({ toggle, hideNav }) => {
+        if (!toggle && hideNav) return 'translateY(-100%)';
+        else if (!toggle && !hideNav) return 'translateX(0)';
+    }};
     transition: all 0.3s ease-in-out;
 
     ${({ theme }) => theme.mq.desktop} {
