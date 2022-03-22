@@ -9,7 +9,7 @@ export const StyledBgImage = styled(BgImage)`
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    row-gap: 100px;
+    row-gap: 10rem;
 `;
 
 export const StyledBgTitle = styled.div`

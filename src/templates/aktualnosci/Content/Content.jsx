@@ -3,6 +3,14 @@ import PropTypes from 'prop-types';
 import Heading from 'components/Heading/Heading';
 import ContentWrapper from 'components/ContentWrapper/ContentWrapper';
 import Combobox from 'components/Combobox/Combobox';
+import Frame from 'components/Frame/Frame';
+import { StaticImage } from 'gatsby-plugin-image';
+import {
+    StyledPostsContainer,
+    StyledPyramidDate,
+    StyledStaticImage,
+    StyledPostContent,
+} from './Content.styles';
 
 const Content = ({ posts }) => {
     const [sortDescending, setSortDescending] = useState(true);
@@ -26,24 +34,38 @@ const Content = ({ posts }) => {
 
             <Combobox setSortDescending={setSortDescending} />
 
-            <section style={{ marginTop: '100px' }}>
+            <StyledPostsContainer>
                 {posts.allDatoCmsPost.edges.map(
                     ({
                         node: { id, title, description, assets, video, meta },
                     }) => (
-                        <article key={id} style={{ marginBottom: '50px' }}>
-                            <h2>{title}</h2>
-                            <p>{meta.firstPublishedAt.slice(0, 10)}</p>
+                        <Frame>
+                            <article key={id}>
+                                <StaticImage
+                                    src="../../../assets/images/Pokazy/img2.jpg"
+                                    alt="title ornament"
+                                    placeholder="blurred"
+                                />
+                                <StyledPostContent>
+                                    <h2>{title}</h2>
 
-                            {description.value.document.children.map(
-                                ({ children }, index) => (
-                                    <p key={index}>{children[0].value}</p>
-                                )
-                            )}
-                        </article>
+                                    {description.value.document.children.map(
+                                        ({ children }, index) => (
+                                            <p key={index}>
+                                                {children[0].value}
+                                            </p>
+                                        )
+                                    )}
+                                </StyledPostContent>
+
+                                <StyledPyramidDate>
+                                    {meta.firstPublishedAt.slice(0, 10)}
+                                </StyledPyramidDate>
+                            </article>
+                        </Frame>
                     )
                 )}
-            </section>
+            </StyledPostsContainer>
         </ContentWrapper>
     );
 };
