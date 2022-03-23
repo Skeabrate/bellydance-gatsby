@@ -6,21 +6,21 @@ export const StyledHeader = styled.header`
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: ${({ $isMain }) => ($isMain ? '60px 0 60px' : '120px 0 60px')};
+    padding: ${({ $isMain }) => ($isMain ? '6rem 0 6rem' : '12rem 0 6rem')};
 
     ${({ theme }) => theme.mq.tablet} {
         padding: ${({ $isMain }) =>
-            $isMain ? '100px 0 80px' : '180px 0 80px'};
+            $isMain ? '10rem 0 8rem' : '18rem 0 8rem'};
     }
 
     ${({ theme }) => theme.mq.desktop} {
         padding: ${({ $isMain }) =>
-            $isMain ? '130px 0 80px' : '200px 0 80px'};
+            $isMain ? '13rem 0 8rem' : '20rem 0 8rem'};
     }
 
     ${({ theme }) => theme.mq.bigDesktop} {
         padding: ${({ $isMain }) =>
-            $isMain ? '160px 0 80px' : '240px 0 80px'};
+            $isMain ? '16rem 0 8rem' : '24rem 0 8rem'};
     }
 `;
 

@@ -45,6 +45,7 @@ const Content = ({ posts }) => {
                                     src="../../../assets/images/Pokazy/img2.jpg"
                                     alt="title ornament"
                                     placeholder="blurred"
+                                    layout="fullWidth"
                                 />
                                 <StyledPostContent>
                                     <h2>{title}</h2>

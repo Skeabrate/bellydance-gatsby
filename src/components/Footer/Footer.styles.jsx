@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'gatsby';
 
 export const Wrapper = styled.footer`
-    margin: 50px 20px;
+    margin: 5rem 2rem;
     display: flex;
     text-align: center;
     flex-direction: column;
@@ -35,7 +35,7 @@ export const StyledLogo = styled(Link)`
 export const StyledSocials = styled.ul`
     list-style: none;
     display: flex;
-    column-gap: 25px;
+    column-gap: 2.5rem;
 
     svg {
         height: 26px;

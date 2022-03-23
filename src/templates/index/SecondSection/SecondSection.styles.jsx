@@ -2,43 +2,43 @@ import styled from 'styled-components';
 
 export const StyledSecondSection = styled.div`
     display: grid;
-    row-gap: 50px;
-    column-gap: 50px;
+    row-gap: 5rem;
+    column-gap: 5rem;
 
     ${({ theme }) => theme.mq.bigDesktop} {
         grid-template-columns: 1fr 1fr;
         align-items: flex-end;
-        column-gap: 80px;
+        column-gap: 8rem;
     }
 `;
 
 export const StyledSandArticle = styled.article`
     background-color: ${({ theme }) => theme.colors.sand};
     color: ${({ theme }) => theme.colors.white};
-    padding: 20px;
-    margin-top: 50px;
+    padding: 2rem;
+    margin-top: 5rem;
 
     ${({ theme }) => theme.mq.tablet} {
-        padding: 30px;
-        margin-top: 30px;
+        padding: 3rem;
+        margin-top: 3rem;
     }
 
     ${({ theme }) => theme.mq.bigDesktop} {
-        padding: 40px;
-        margin-top: 40px;
+        padding: 4rem;
+        margin-top: 4rem;
     }
 `;
 
 export const StyledImgs = styled.div`
     display: grid;
-    column-gap: 50px;
-    row-gap: 20px;
+    column-gap: 5rem;
+    row-gap: 2rem;
 
     ${({ theme }) => theme.mq.tablet} {
         grid-template-columns: 1fr 1fr;
     }
 
     ${({ theme }) => theme.mq.bigDesktop} {
-        column-gap: 10px;
+        column-gap: 1rem;
     }
 `;

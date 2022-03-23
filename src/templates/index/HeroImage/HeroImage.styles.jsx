@@ -9,7 +9,7 @@ export const StyledBgImage = styled(BgImage)`
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    row-gap: 10rem;
+    row-gap: 8rem;
 `;
 
 export const StyledBgTitle = styled.div`
@@ -29,7 +29,7 @@ export const StyledBgTitle = styled.div`
     }
 
     p {
-        margin: 0 0 15px;
+        margin: 1rem 0 1.5rem;
         text-shadow: 5px 5px 10px hsla(0, 0%, 0%, 0.15);
     }
 `;

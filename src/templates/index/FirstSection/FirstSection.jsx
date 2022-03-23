@@ -31,6 +31,7 @@ const FirstSection = () => {
                         src="../../../assets/images/Homepage/homepage1.jpg"
                         alt="Agnieszka Świeczkowska - legitymacja instruktora"
                         placeholder="blurred"
+                        layout="fullWidth"
                     />
                 </Frame>
 
@@ -39,6 +40,7 @@ const FirstSection = () => {
                         src="../../../assets/images/Homepage/homepage2.jpg"
                         alt="Agnieszka Świeczkowska - legitymacja instruktora"
                         placeholder="blurred"
+                        layout="fullWidth"
                     />
                 </Frame>
             </StyledFirstSectionImg>

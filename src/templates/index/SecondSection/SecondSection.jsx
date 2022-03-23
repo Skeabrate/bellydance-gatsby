@@ -39,6 +39,7 @@ const SecondSection = () => {
                         src="../../../assets/images/Homepage/homepage3.jpg"
                         alt="Agnieszka Świeczkowska - dyplom"
                         placeholder="blurred"
+                        layout="fullWidth"
                     />
 
                     <Frame>
@@ -46,6 +47,7 @@ const SecondSection = () => {
                             src="../../../assets/images/Homepage/homepage4.jpg"
                             alt="Agnieszka Świeczkowska - dyplom"
                             placeholder="blurred"
+                            layout="fullWidth"
                         />
                     </Frame>
                 </StyledImgs>
