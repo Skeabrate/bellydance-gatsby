@@ -49,7 +49,7 @@ const NavigationItems = ({
     handleCloseMenu = () => {},
 }) => {
     return (
-        <Wrapper toggle={toggle}>
+        <Wrapper $toggle={toggle}>
             <StyledLogo to="/">
                 <h1 translate="no">Leyla Bellydance</h1>
             </StyledLogo>
@@ -60,8 +60,8 @@ const NavigationItems = ({
                         <StyledLink
                             to={path}
                             activeStyle={activeLinkStyles}
-                            isOnTop={isOnTop}
-                            changeColor={changeColor}
+                            $isOnTop={isOnTop}
+                            $changeColor={changeColor}
                         >
                             {title}
                         </StyledLink>
@@ -83,8 +83,8 @@ const NavigationItems = ({
                     target="_blank"
                     rel="noopener noreferrer"
                     href="https://www.facebook.com/agnieszka.swieczkowska.9"
-                    isOnTop={isOnTop}
-                    changeColor={changeColor}
+                    $isOnTop={isOnTop}
+                    $changeColor={changeColor}
                 >
                     <Facebook />
                 </StyledSocialsItem>
@@ -93,8 +93,8 @@ const NavigationItems = ({
                     target="_blank"
                     rel="noopener noreferrer"
                     href="https://www.instagram.com/bellydance_leyla/"
-                    isOnTop={isOnTop}
-                    changeColor={changeColor}
+                    $isOnTop={isOnTop}
+                    $changeColor={changeColor}
                 >
                     <Instagram />
                 </StyledSocialsItem>

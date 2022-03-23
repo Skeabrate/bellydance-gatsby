@@ -24,8 +24,8 @@ const Navigation = () => {
     }, [location.pathname]);
 
     return (
-        <Wrapper hideNav={hideNav} isOnTop={isOnTop} toggle={toggle}>
-            <StyledLogo to="/" isOnTop={isOnTop} changeColor={changeColor}>
+        <Wrapper $hideNav={hideNav} $isOnTop={isOnTop} $toggle={toggle}>
+            <StyledLogo to="/" $isOnTop={isOnTop} $changeColor={changeColor}>
                 <header>
                     <h1 translate="no">Leyla Bellydance</h1>
                 </header>

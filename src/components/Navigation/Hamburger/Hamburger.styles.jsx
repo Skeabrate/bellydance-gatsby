@@ -25,8 +25,8 @@ export const StyledHamburger = styled.button`
             display: block;
             height: 4px;
             width: 30px;
-            background-color: ${({ theme, changeColor, isOnTop }) => {
-                if (changeColor && isOnTop) return theme.colors.white;
+            background-color: ${({ theme, $changeColor, $isOnTop }) => {
+                if ($changeColor && $isOnTop) return theme.colors.white;
                 else return theme.colors.black;
             }};
             transition: all 0.25s ease-in-out;

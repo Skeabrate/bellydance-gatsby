@@ -7,8 +7,8 @@ const Hamburger = ({ handleCloseMenu, isOnTop, changeColor }) => {
         <StyledHamburger
             onClick={handleCloseMenu}
             aria-label="open navigation"
-            isOnTop={isOnTop}
-            changeColor={changeColor}
+            $isOnTop={isOnTop}
+            $changeColor={changeColor}
         >
             <div>
                 <span></span>

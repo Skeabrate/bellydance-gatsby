@@ -43,10 +43,12 @@ const StyledFrame = styled.div`
     }
 `;
 
+/* clip-path: polygon(0 0, 100% 0, 100% 100%, 80% 100%, 80% 18%, 0 18%); */
+
 const Frame = ({ children, upMobile }) => {
     return (
         <Wrapper>
-            <StyledFrame upMobile={upMobile}>
+            <StyledFrame $upMobile={upMobile}>
                 <div></div>
                 <p></p>
             </StyledFrame>

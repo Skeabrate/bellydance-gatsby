@@ -22,7 +22,7 @@ const Combobox = ({ setSortDescending = () => {} }) => {
     }, [selectedItem, setSortDescending]);
 
     return (
-        <Wrapper isOpen={isOpen}>
+        <Wrapper $isOpen={isOpen}>
             <button type="button" {...getToggleButtonProps()}>
                 <Pyramid />
                 <span>Od:</span>

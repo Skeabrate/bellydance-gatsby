@@ -18,14 +18,14 @@ export const Wrapper = styled.div`
         justify-content: center;
         align-items: center;
         border: 2px solid ${({ theme }) => theme.colors.white};
-        border-color: ${({ theme, isOpen }) =>
-            isOpen ? theme.colors.black : theme.colors.white};
+        border-color: ${({ theme, $isOpen }) =>
+            $isOpen ? theme.colors.black : theme.colors.white};
     }
 
     svg {
         width: 18px;
         height: 18px;
-        transform: ${({ isOpen }) => isOpen && 'rotate(180deg)'};
+        transform: ${({ $isOpen }) => $isOpen && 'rotate(180deg)'};
     }
 
     ul {
@@ -33,8 +33,8 @@ export const Wrapper = styled.div`
         list-style-type: none;
         position: absolute;
         border: 2px solid black;
-        border-color: ${({ theme, isOpen }) =>
-            isOpen ? theme.colors.black : theme.colors.white};
+        border-color: ${({ theme, $isOpen }) =>
+            $isOpen ? theme.colors.black : theme.colors.white};
         width: 100%;
         border-top: none;
         text-align: center;

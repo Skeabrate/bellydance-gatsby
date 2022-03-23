@@ -13,8 +13,8 @@ export const Wrapper = styled.nav`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    transform: ${({ toggle }) =>
-        toggle ? 'translateX(0)' : 'translateX(-100%)'};
+    transform: ${({ $toggle }) =>
+        $toggle ? 'translateX(0)' : 'translateX(-100%)'};
     box-shadow: 0px 0px 50px -33px rgba(0, 0, 0, 1);
 
     transition: transform 0.7s cubic-bezier(0.3, 0, 0, 1);
@@ -67,8 +67,8 @@ export const StyledLink = styled(Link)`
     color: ${({ theme }) => theme.colors.black};
 
     ${({ theme }) => theme.mq.desktop} {
-        color: ${({ theme, changeColor, isOnTop }) => {
-            if (changeColor && isOnTop) return theme.colors.white;
+        color: ${({ theme, $changeColor, $isOnTop }) => {
+            if ($changeColor && $isOnTop) return theme.colors.white;
             else return theme.colors.black;
         }};
         transition: all 0.2s ease-in-out;
@@ -95,8 +95,8 @@ export const StyledSocialsItem = styled.a`
             width: 26px;
 
             path {
-                fill: ${({ theme, changeColor, isOnTop }) => {
-                    if (changeColor && isOnTop) return theme.colors.white;
+                fill: ${({ theme, $changeColor, $isOnTop }) => {
+                    if ($changeColor && $isOnTop) return theme.colors.white;
                     else return theme.colors.sand;
                 }};
             }
