@@ -22,9 +22,10 @@ export const query = graphql`
             edges {
                 node {
                     assets {
-                        height
-                        width
-                        url
+                        gatsbyImageData(
+                            layout: FULL_WIDTH
+                            placeholder: BLURRED
+                        )
                     }
                     description {
                         value

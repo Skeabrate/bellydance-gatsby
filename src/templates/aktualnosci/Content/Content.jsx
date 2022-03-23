@@ -4,13 +4,9 @@ import Heading from 'components/Heading/Heading';
 import ContentWrapper from 'components/ContentWrapper/ContentWrapper';
 import Combobox from 'components/Combobox/Combobox';
 import Frame from 'components/Frame/Frame';
-import { StaticImage } from 'gatsby-plugin-image';
-import {
-    StyledPostsContainer,
-    StyledPyramidDate,
-    StyledStaticImage,
-    StyledPostContent,
-} from './Content.styles';
+import Post from './Post/Post';
+
+import { StyledPostsContainer } from './Content.styles';
 
 const Content = ({ posts }) => {
     const [sortDescending, setSortDescending] = useState(true);
@@ -40,29 +36,13 @@ const Content = ({ posts }) => {
                         node: { id, title, description, assets, video, meta },
                     }) => (
                         <Frame key={id}>
-                            <article>
-                                <StaticImage
-                                    src="../../../assets/images/Pokazy/img2.jpg"
-                                    alt="title ornament"
-                                    placeholder="blurred"
-                                    layout="fullWidth"
-                                />
-                                <StyledPostContent>
-                                    <h2>{title}</h2>
-
-                                    {description.value.document.children.map(
-                                        ({ children }, index) => (
-                                            <p key={index}>
-                                                {children[0].value}
-                                            </p>
-                                        )
-                                    )}
-                                </StyledPostContent>
-
-                                <StyledPyramidDate>
-                                    {meta.firstPublishedAt.slice(0, 10)}
-                                </StyledPyramidDate>
-                            </article>
+                            <Post
+                                title={title}
+                                description={description}
+                                assets={assets}
+                                video={video}
+                                meta={meta}
+                            />
                         </Frame>
                     )
                 )}
