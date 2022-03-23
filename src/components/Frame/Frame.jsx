@@ -7,17 +7,12 @@ const Wrapper = styled.div`
 `;
 
 const StyledFrame = styled.div`
-    position: absolute;
-    width: 80px;
-    height: 10px;
-    background-color: ${({ theme }) => theme.colors.sand};
-
-    top: ${({ $upMobile }) => $upMobile && '-20px'};
-    right: ${({ $upMobile }) => $upMobile && '0px'};
-    bottom: ${({ $upMobile }) => !$upMobile && '-20px'};
-    left: ${({ $upMobile }) => !$upMobile && '0px'};
+    display: none;
 
     ${({ theme }) => theme.mq.tablet} {
+        display: initial;
+        position: absolute;
+        background-color: ${({ theme }) => theme.colors.sand};
         width: 100px;
         height: 100px;
         clip-path: polygon(0 0, 100% 0, 100% 100%, 90% 100%, 90% 10%, 0 10%);
