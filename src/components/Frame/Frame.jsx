@@ -17,18 +17,28 @@ const StyledFrame = styled.div`
         height: 100px;
         clip-path: polygon(0 0, 100% 0, 100% 100%, 90% 100%, 90% 10%, 0 10%);
 
-        top: ${({ $upMobile }) => (!$upMobile ? '-20px' : 'unset')};
-        right: ${({ $upMobile }) => (!$upMobile ? '-20px' : 'unset')};
-        bottom: ${({ $upMobile }) => ($upMobile ? '-20px' : 'unset')};
-        left: ${({ $upMobile }) => ($upMobile ? '-20px' : 'unset')};
-        transform: ${({ $upMobile }) => $upMobile && 'rotate(-180deg)'};
+        top: ${({ $upRight }) => ($upRight ? '-20px' : 'unset')};
+        right: ${({ $upRight, $downRight }) =>
+            $upRight || $downRight ? '-20px' : 'unset'};
+        bottom: ${({ $upRight }) => (!$upRight ? '-20px' : 'unset')};
+        left: ${({ $upRight, $downRight }) => {
+            if ($upRight || $downRight) return 'unset';
+            else return '-20px';
+        }};
+        transform: ${({ $upRight, $downRight }) => {
+            if ($downRight) return 'rotate(90deg)';
+            if (!$upRight) return 'rotate(-180deg)';
+        }};
     }
 `;
 
-const Frame = ({ children, upMobile }) => {
+const Frame = ({ children, upRight, downRight }) => {
     return (
         <Wrapper>
-            <StyledFrame $upMobile={upMobile}></StyledFrame>
+            <StyledFrame
+                $upRight={upRight}
+                $downRight={downRight}
+            ></StyledFrame>
             {children}
         </Wrapper>
     );
@@ -36,7 +46,8 @@ const Frame = ({ children, upMobile }) => {
 
 Frame.propTypes = {
     children: PropTypes.node.isRequired,
-    upMobile: PropTypes.bool,
+    upRight: PropTypes.bool,
+    downRight: PropTypes.bool,
 };
 
 export default Frame;

@@ -26,7 +26,7 @@ const FirstSection = () => {
             </StyledFirstSection>
 
             <StyledFirstSectionImg>
-                <Frame upMobile>
+                <Frame>
                     <StaticImage
                         src="../../../assets/images/Homepage/homepage1.jpg"
                         alt="Agnieszka Świeczkowska - legitymacja instruktora"
@@ -35,7 +35,7 @@ const FirstSection = () => {
                     />
                 </Frame>
 
-                <Frame>
+                <Frame upRight>
                     <StaticImage
                         src="../../../assets/images/Homepage/homepage2.jpg"
                         alt="Agnieszka Świeczkowska - legitymacja instruktora"

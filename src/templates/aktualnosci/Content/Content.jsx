@@ -35,7 +35,7 @@ const Content = ({ posts }) => {
                     ({
                         node: { id, title, description, assets, video, meta },
                     }) => (
-                        <Frame key={id}>
+                        <Frame key={id} upRight>
                             <Post
                                 title={title}
                                 description={description}

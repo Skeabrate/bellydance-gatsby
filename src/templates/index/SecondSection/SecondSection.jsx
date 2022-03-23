@@ -24,7 +24,7 @@ const SecondSection = () => {
                         <p>{secondSectionData[0].desc}</p>
                     </article>
 
-                    <Frame upMobile>
+                    <Frame>
                         <StyledSandArticle>
                             <header>
                                 <h2>{secondSectionData[1].title}</h2>
@@ -42,7 +42,7 @@ const SecondSection = () => {
                         layout="fullWidth"
                     />
 
-                    <Frame>
+                    <Frame upRight>
                         <StaticImage
                             src="../../../assets/images/Homepage/homepage4.jpg"
                             alt="Agnieszka Świeczkowska - dyplom"
