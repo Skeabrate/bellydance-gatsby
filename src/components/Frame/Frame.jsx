@@ -8,51 +8,32 @@ const Wrapper = styled.div`
 
 const StyledFrame = styled.div`
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 80px;
+    height: 10px;
+    background-color: ${({ theme }) => theme.colors.sand};
 
-    div {
-        position: absolute;
-        background-color: ${({ theme }) => theme.colors.sand};
-        top: ${({ upMobile }) => upMobile && '-20px'};
-        bottom: ${({ upMobile }) => !upMobile && '-20px'};
-        right: 0;
-        left: ${({ upMobile }) => !upMobile && '0px'};
-        width: 80px;
-        height: 10px;
+    top: ${({ $upMobile }) => $upMobile && '-20px'};
+    right: ${({ $upMobile }) => $upMobile && '0px'};
+    bottom: ${({ $upMobile }) => !$upMobile && '-20px'};
+    left: ${({ $upMobile }) => !$upMobile && '0px'};
 
-        ${({ theme }) => theme.mq.tablet} {
-            top: ${({ upMobile }) => (!upMobile ? '-20px' : 'unset')};
-            bottom: ${({ upMobile }) => upMobile && '-20px'};
-            right: ${({ upMobile }) => (!upMobile ? '-20px' : 'unset')};
-            left: ${({ upMobile }) => (upMobile ? '-20px' : 'unset')};
-        }
-    }
+    ${({ theme }) => theme.mq.tablet} {
+        width: 100px;
+        height: 100px;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 90% 100%, 90% 10%, 0 10%);
 
-    p {
-        ${({ theme }) => theme.mq.tablet} {
-            position: absolute;
-            top: ${({ upMobile }) => (!upMobile ? '-20px' : 'unset')};
-            bottom: ${({ upMobile }) => upMobile && '-20px'};
-            right: ${({ upMobile }) => (!upMobile ? '-20px' : 'unset')};
-            left: ${({ upMobile }) => (upMobile ? '-20px' : 'unset')};
-            width: 10px;
-            height: 80px;
-            background-color: ${({ theme }) => theme.colors.sand};
-        }
+        top: ${({ $upMobile }) => (!$upMobile ? '-20px' : 'unset')};
+        right: ${({ $upMobile }) => (!$upMobile ? '-20px' : 'unset')};
+        bottom: ${({ $upMobile }) => ($upMobile ? '-20px' : 'unset')};
+        left: ${({ $upMobile }) => ($upMobile ? '-20px' : 'unset')};
+        transform: ${({ $upMobile }) => $upMobile && 'rotate(-180deg)'};
     }
 `;
-
-/* clip-path: polygon(0 0, 100% 0, 100% 100%, 80% 100%, 80% 18%, 0 18%); */
 
 const Frame = ({ children, upMobile }) => {
     return (
         <Wrapper>
-            <StyledFrame $upMobile={upMobile}>
-                <div></div>
-                <p></p>
-            </StyledFrame>
-
+            <StyledFrame $upMobile={upMobile}></StyledFrame>
             {children}
         </Wrapper>
     );
