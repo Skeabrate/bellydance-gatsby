@@ -49,23 +49,12 @@ export const StyledContent = styled.div`
             }
         }
 
-        ${({ theme }) => theme.mq.desktop} {
-            /* column-gap: 8rem; */
-        }
-
         ${({ theme }) => theme.mq.huge} {
             column-gap: 8rem;
+
             article {
-                padding-bottom: 6rem;
+                padding-bottom: 2rem;
             }
         }
     }
-`;
-
-export const StyledImg = styled.div`
-    /*  width: 600px; */
-
-    /* ${({ theme }) => theme.mq.tablet} {
-        width: 100%;
-    } */
 `;

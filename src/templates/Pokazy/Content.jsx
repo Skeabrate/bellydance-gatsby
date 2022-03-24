@@ -6,7 +6,7 @@ import SkipButton from 'components/SkipButton/SkipButton';
 import Frame from 'components/Frame/Frame';
 import PyramidPointer from 'components/PyramidPointer/PyramidPointer';
 
-import { StyledContent, StyledImg } from './Content.styles';
+import { StyledContent } from './Content.styles';
 
 const Content = () => {
     return (
@@ -38,24 +38,26 @@ const Content = () => {
                         </footer>
                     </article>
 
-                    <Frame downRight>
-                        <StyledImg>
-                            <StaticImage
-                                src="../../../assets/images/Pokazy/img11.jpg"
-                                alt="Agnieszka Świeczkowska belly dance, taniec brzucha - pokazy"
-                                placeholder="blurred"
-                                layout="fullWidth"
-                            />
-                        </StyledImg>
+                    <Frame>
+                        <StaticImage
+                            src="../../../assets/images/Pokazy/img11.jpg"
+                            alt="Agnieszka Świeczkowska belly dance, taniec brzucha - pokazy"
+                            placeholder="blurred"
+                            layout="fullWidth"
+                        />
                     </Frame>
                 </section>
 
                 <section id="program-pokazow">
                     <article>
+                        <header>
+                            <h2>Program i repertuar</h2>
+                        </header>
+
                         <p>
                             Program i charakter pokazu może być dostosowany do
                             rodzaju imprezy okolicznościowej oraz oczekiwań
-                            Klienta, gdyż w moim repertuarze znajdują się:
+                            Klienta. W moim repertuarze znajdują się:
                         </p>
 
                         <ul>
@@ -86,15 +88,13 @@ const Content = () => {
                         </ul>
                     </article>
 
-                    <Frame>
-                        <StyledImg>
-                            <StaticImage
-                                src="../../../assets/images/Pokazy/img9.jpg"
-                                alt="Agnieszka Świeczkowska belly dance, taniec brzucha - pokazy"
-                                placeholder="blurred"
-                                layout="fullWidth"
-                            />
-                        </StyledImg>
+                    <Frame downRight>
+                        <StaticImage
+                            src="../../../assets/images/Pokazy/img9.jpg"
+                            alt="Agnieszka Świeczkowska belly dance, taniec brzucha - pokazy"
+                            placeholder="blurred"
+                            layout="fullWidth"
+                        />
                     </Frame>
                 </section>
 
@@ -119,15 +119,13 @@ const Content = () => {
                         </footer>
                     </article>
 
-                    <Frame downRight>
-                        <StyledImg>
-                            <StaticImage
-                                src="../../../assets/images/Pokazy/img10.jpg"
-                                alt="Agnieszka Świeczkowska belly dance, taniec brzucha - pokazy"
-                                placeholder="blurred"
-                                layout="fullWidth"
-                            />
-                        </StyledImg>
+                    <Frame>
+                        <StaticImage
+                            src="../../../assets/images/Pokazy/img10.jpg"
+                            alt="Agnieszka Świeczkowska belly dance, taniec brzucha - pokazy"
+                            placeholder="blurred"
+                            layout="fullWidth"
+                        />
                     </Frame>
                 </section>
             </StyledContent>
