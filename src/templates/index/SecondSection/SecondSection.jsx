@@ -42,7 +42,7 @@ const SecondSection = () => {
                         layout="fullWidth"
                     />
 
-                    <Frame upRight>
+                    <Frame upRight hideMobile>
                         <StaticImage
                             src="../../../assets/images/Homepage/homepage4.jpg"
                             alt="Agnieszka Świeczkowska - dyplom"

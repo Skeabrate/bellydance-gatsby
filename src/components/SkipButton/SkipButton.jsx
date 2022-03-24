@@ -2,21 +2,23 @@ import React from 'react';
 import styled from 'styled-components';
 import Pyramid from 'assets/images/SVG/piramidka.svg';
 import PropTypes from 'prop-types';
+import scrollTo from 'gatsby-plugin-smoothscroll';
 
 const Wrapper = styled.button`
     display: none;
     justify-content: center;
     align-items: center;
-    column-gap: 12px;
+    column-gap: 10px;
     font-weight: bold;
     position: relative;
     width: max-content;
     background: transparent;
     border: none;
+    margin-top: 8rem;
 
     svg {
-        width: 20px;
-        height: 20px;
+        width: 18px;
+        height: 18px;
     }
 
     &::after {
@@ -38,11 +40,15 @@ const Wrapper = styled.button`
     ${({ theme }) => theme.mq.desktop} {
         display: flex;
     }
+
+    ${({ theme }) => theme.mq.huge} {
+        margin-top: 10rem;
+    }
 `;
 
-const SkipButton = ({ label }) => {
+const SkipButton = ({ label, scrollId = '#id' }) => {
     return (
-        <Wrapper>
+        <Wrapper onClick={() => scrollTo(scrollId)}>
             <Pyramid />
             {label}
         </Wrapper>
@@ -51,6 +57,7 @@ const SkipButton = ({ label }) => {
 
 SkipButton.propTypes = {
     label: PropTypes.string.isRequired,
+    scrollId: PropTypes.string.isRequired,
 };
 
 export default SkipButton;

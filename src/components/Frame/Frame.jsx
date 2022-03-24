@@ -7,12 +7,18 @@ const Wrapper = styled.div`
 `;
 
 const StyledFrame = styled.div`
-    display: none;
+    display: ${({ $hideMobile }) => ($hideMobile ? 'none' : 'initial')};
+    position: absolute;
+    background-color: ${({ theme }) => theme.colors.sand};
+    width: 160px;
+    height: 5px;
+    left: ${({ $hideMobile }) => !$hideMobile && '50%'};
+    transform: ${({ $hideMobile }) =>
+        !$hideMobile ? 'translateX(-50%)' : 'unset'};
+    bottom: ${({ $hideMobile }) => !$hideMobile && '-10px'};
 
     ${({ theme }) => theme.mq.tablet} {
         display: initial;
-        position: absolute;
-        background-color: ${({ theme }) => theme.colors.sand};
         width: 100px;
         height: 100px;
         clip-path: polygon(0 0, 100% 0, 100% 100%, 90% 100%, 90% 10%, 0 10%);
@@ -28,16 +34,18 @@ const StyledFrame = styled.div`
         transform: ${({ $upRight, $downRight }) => {
             if ($downRight) return 'rotate(90deg)';
             if (!$upRight) return 'rotate(-180deg)';
+            else return 'unset';
         }};
     }
 `;
 
-const Frame = ({ children, upRight, downRight }) => {
+const Frame = ({ children, upRight, downRight, hideMobile }) => {
     return (
-        <Wrapper>
+        <Wrapper $upRight={upRight} $downRight={downRight}>
             <StyledFrame
                 $upRight={upRight}
                 $downRight={downRight}
+                $hideMobile={hideMobile}
             ></StyledFrame>
             {children}
         </Wrapper>
@@ -48,6 +56,7 @@ Frame.propTypes = {
     children: PropTypes.node.isRequired,
     upRight: PropTypes.bool,
     downRight: PropTypes.bool,
+    hideMobile: PropTypes.bool,
 };
 
 export default Frame;

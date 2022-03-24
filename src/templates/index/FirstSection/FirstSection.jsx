@@ -26,7 +26,7 @@ const FirstSection = () => {
             </StyledFirstSection>
 
             <StyledFirstSectionImg>
-                <Frame>
+                <Frame hideMobile>
                     <StaticImage
                         src="../../../assets/images/Homepage/homepage1.jpg"
                         alt="Agnieszka Świeczkowska - legitymacja instruktora"

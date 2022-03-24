@@ -24,14 +24,14 @@ export const StyledFirstSection = styled.div`
 
 export const StyledFirstSectionImg = styled.div`
     display: grid;
-    column-gap: 5rem;
+    column-gap: 6rem;
     row-gap: 2rem;
 
     ${({ theme }) => theme.mq.tablet} {
         grid-template-columns: 1fr 1fr;
     }
 
-    ${({ theme }) => theme.mq.bigDesktop} {
+    ${({ theme }) => theme.mq.huge} {
         column-gap: 8rem;
     }
 `;

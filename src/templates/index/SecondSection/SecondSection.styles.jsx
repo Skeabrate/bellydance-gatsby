@@ -10,7 +10,7 @@ export const StyledSecondSection = styled.div`
         grid-template-columns: 1fr 1fr;
     }
 
-    ${({ theme }) => theme.mq.bigDesktop} {
+    ${({ theme }) => theme.mq.huge} {
         column-gap: 8rem;
     }
 `;
