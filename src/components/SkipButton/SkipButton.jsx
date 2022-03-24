@@ -4,7 +4,7 @@ import Pyramid from 'assets/images/SVG/piramidka.svg';
 import PropTypes from 'prop-types';
 
 const Wrapper = styled.button`
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     column-gap: 12px;
@@ -33,6 +33,10 @@ const Wrapper = styled.button`
 
     &:hover::after {
         width: 100%;
+    }
+
+    ${({ theme }) => theme.mq.desktop} {
+        display: flex;
     }
 `;
 
