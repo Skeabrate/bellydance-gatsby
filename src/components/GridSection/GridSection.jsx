@@ -6,7 +6,7 @@ const StyledSection = styled.section`
     display: grid;
     align-items: ${({ $isSand }) => ($isSand ? 'flex-end' : 'center')};
     column-gap: 6rem;
-    row-gap: 2rem;
+    row-gap: ${({ $isSand }) => ($isSand ? '5rem' : '3rem')};
 
     ul {
         list-style: none;
@@ -27,7 +27,7 @@ const StyledSection = styled.section`
     ${({ theme }) => theme.mq.tablet} {
         grid-template-columns: ${({ $isBig }) => ($isBig ? '1fr' : '1fr 1fr')};
 
-        &:nth-child(2) {
+        &:nth-child(2n) {
             article {
                 grid-column: ${({ $isBig }) => ($isBig ? '1' : '2')};
                 grid-row: 1;
@@ -37,6 +37,12 @@ const StyledSection = styled.section`
 
     ${({ theme }) => theme.mq.desktop} {
         grid-template-columns: 1fr 1fr;
+
+        &:nth-child(2n) {
+            article {
+                grid-column: 2;
+            }
+        }
     }
 
     ${({ theme }) => theme.mq.huge} {
