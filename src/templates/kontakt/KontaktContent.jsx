@@ -1,7 +1,7 @@
 import React from 'react';
 import Heading from 'components/Heading/Heading';
 
-const Content = () => {
+const KontaktContent = () => {
     return (
         <div>
             <Heading label="Kontakt" isMain />
@@ -9,4 +9,4 @@ const Content = () => {
     );
 };
 
-export default Content;
+export default KontaktContent;

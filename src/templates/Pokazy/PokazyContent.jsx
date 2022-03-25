@@ -5,16 +5,16 @@ import { StaticImage } from 'gatsby-plugin-image';
 import SkipButton from 'components/SkipButton/SkipButton';
 import Frame from 'components/Frame/Frame';
 import PyramidPointer from 'components/PyramidPointer/PyramidPointer';
+import GridContent from 'components/GridContent/GridContent';
+import GridSection from 'components/GridSection/GridSection';
 
-import { StyledContent } from './Content.styles';
-
-const Content = () => {
+const PokazyContent = () => {
     return (
         <ContentWrapper>
             <Heading label="Moje Pokazy" isMain />
 
-            <StyledContent>
-                <section>
+            <GridContent>
+                <GridSection>
                     <article>
                         <header>
                             <h2>
@@ -46,10 +46,10 @@ const Content = () => {
                             layout="fullWidth"
                         />
                     </Frame>
-                </section>
+                </GridSection>
 
-                <section id="program-pokazow">
-                    <article>
+                <GridSection>
+                    <article id="program-pokazow">
                         <header>
                             <h2>Program i repertuar</h2>
                         </header>
@@ -96,9 +96,9 @@ const Content = () => {
                             layout="fullWidth"
                         />
                     </Frame>
-                </section>
+                </GridSection>
 
-                <section>
+                <GridSection>
                     <article>
                         <header>
                             <h2>Na zakończenie, wspólna zabawa</h2>
@@ -127,8 +127,8 @@ const Content = () => {
                             layout="fullWidth"
                         />
                     </Frame>
-                </section>
-            </StyledContent>
+                </GridSection>
+            </GridContent>
 
             <div id="galeria">
                 <Heading label="Galeria" />
@@ -137,4 +137,4 @@ const Content = () => {
     );
 };
 
-export default Content;
+export default PokazyContent;

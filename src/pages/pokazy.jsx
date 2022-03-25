@@ -1,11 +1,11 @@
 import React from 'react';
-import Content from 'templates/Pokazy/Content';
+import PokazyContent from 'templates/Pokazy/PokazyContent';
 import MainWrapper from 'components/MainWrapper/MainWrapper';
 
 const pokazy = () => {
     return (
         <MainWrapper>
-            <Content />
+            <PokazyContent />
         </MainWrapper>
     );
 };

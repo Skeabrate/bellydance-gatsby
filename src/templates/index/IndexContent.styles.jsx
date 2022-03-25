@@ -51,18 +51,6 @@ export const StyledSecondSection = styled.div`
     }
 `;
 
-export const StyledSandArticle = styled.article`
-    background-color: ${({ theme }) => theme.colors.sand};
-    color: ${({ theme }) => theme.colors.white};
-    padding: 2rem;
-    margin-top: 2rem;
-
-    ${({ theme }) => theme.mq.tablet} {
-        padding: 3rem;
-        margin-top: 3rem;
-    }
-`;
-
 export const StyledSecondSectionImg = styled.div`
     display: grid;
     column-gap: 1rem;

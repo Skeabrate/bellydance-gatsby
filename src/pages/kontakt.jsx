@@ -1,14 +1,14 @@
 import React from 'react';
 import HeroImage from 'templates/Kontakt/HeroImage/HeroImage';
 import MainWrapper from 'components/MainWrapper/MainWrapper';
-import Content from 'templates/Kontakt/Content';
+import KontaktContent from 'templates/Kontakt/KontaktContent';
 
 const kontakt = () => {
     return (
         <MainWrapper>
             <HeroImage />
 
-            <Content />
+            <KontaktContent />
         </MainWrapper>
     );
 };

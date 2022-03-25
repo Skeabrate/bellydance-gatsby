@@ -1,11 +1,11 @@
 import React from 'react';
 import MainWrapper from 'components/MainWrapper/MainWrapper';
-import Content from 'templates/Zajecia/Content';
+import ZajeciaContent from 'templates/Zajecia/ZajeciaContent';
 
 const zajecia = () => {
     return (
         <MainWrapper>
-            <Content />
+            <ZajeciaContent />
         </MainWrapper>
     );
 };

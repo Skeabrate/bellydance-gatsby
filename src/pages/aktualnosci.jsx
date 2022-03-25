@@ -2,14 +2,14 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import MainWrapper from 'components/MainWrapper/MainWrapper';
 import HeroImage from 'templates/Aktualnosci/HeroImage/HeroImage';
-import Content from 'templates/Aktualnosci/Content';
+import AktualnosciContent from 'templates/Aktualnosci/AktualnosciContent';
 
 const aktualnosci = ({ data }) => {
     return (
         <MainWrapper>
             <HeroImage />
 
-            <Content posts={data} />
+            <AktualnosciContent posts={data} />
         </MainWrapper>
     );
 };

@@ -1,13 +1,13 @@
 import * as React from 'react';
 import HeroImage from 'templates/Index/HeroImage/HeroImage';
-import Content from 'templates/Index/Content';
+import IndexContent from 'templates/Index/IndexContent';
 
 const IndexPage = () => {
     return (
         <main>
             <HeroImage />
 
-            <Content />
+            <IndexContent />
         </main>
     );
 };

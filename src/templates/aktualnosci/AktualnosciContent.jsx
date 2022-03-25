@@ -6,9 +6,9 @@ import Combobox from 'components/Combobox/Combobox';
 import Frame from 'components/Frame/Frame';
 import Post from './Post/Post';
 
-import { StyledPostsContainer } from './Content.styles';
+import { StyledPostsContainer } from './AktualnosciContent.styles';
 
-const Content = ({ posts }) => {
+const AktualnosciContent = ({ posts }) => {
     const [sortDescending, setSortDescending] = useState(true);
 
     (function () {
@@ -51,8 +51,8 @@ const Content = ({ posts }) => {
     );
 };
 
-Content.propTypes = {
+AktualnosciContent.propTypes = {
     posts: PropTypes.object.isRequired,
 };
 
-export default Content;
+export default AktualnosciContent;
