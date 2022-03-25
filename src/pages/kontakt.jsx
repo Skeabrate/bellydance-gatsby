@@ -1,7 +1,7 @@
 import React from 'react';
 import HeroImage from 'templates/Kontakt/HeroImage/HeroImage';
 import MainWrapper from 'components/MainWrapper/MainWrapper';
-import Content from 'templates/Kontakt/Content/Content';
+import Content from 'templates/Kontakt/Content';
 
 const kontakt = () => {
     return (

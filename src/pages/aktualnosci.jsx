@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import MainWrapper from 'components/MainWrapper/MainWrapper';
 import HeroImage from 'templates/Aktualnosci/HeroImage/HeroImage';
-import Content from 'templates/Aktualnosci/Content/Content';
+import Content from 'templates/Aktualnosci/Content';
 
 const aktualnosci = ({ data }) => {
     return (

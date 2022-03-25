@@ -38,7 +38,7 @@ const Content = () => {
                         </footer>
                     </article>
 
-                    <Frame>
+                    <Frame downRight>
                         <StaticImage
                             src="../../../assets/images/Pokazy/img11.jpg"
                             alt="Agnieszka Świeczkowska belly dance, taniec brzucha - pokazy"
@@ -88,7 +88,7 @@ const Content = () => {
                         </ul>
                     </article>
 
-                    <Frame downRight>
+                    <Frame>
                         <StaticImage
                             src="../../../assets/images/Pokazy/img9.jpg"
                             alt="Agnieszka Świeczkowska belly dance, taniec brzucha - pokazy"
@@ -119,7 +119,7 @@ const Content = () => {
                         </footer>
                     </article>
 
-                    <Frame>
+                    <Frame downRight>
                         <StaticImage
                             src="../../../assets/images/Pokazy/img10.jpg"
                             alt="Agnieszka Świeczkowska belly dance, taniec brzucha - pokazy"

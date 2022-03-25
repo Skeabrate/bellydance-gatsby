@@ -1,6 +1,6 @@
 import React from 'react';
-import Content from 'templates/Zajecia/Content/Content';
 import MainWrapper from 'components/MainWrapper/MainWrapper';
+import Content from 'templates/Zajecia/Content';
 
 const zajecia = () => {
     return (
