@@ -10,6 +10,7 @@ import {
 } from './Post.styles';
 
 const Post = ({ title, description, meta, assets, video }) => {
+    console.log(video);
     return (
         <Wrapper>
             <StyledImgContainer>
@@ -39,6 +40,12 @@ const Post = ({ title, description, meta, assets, video }) => {
     );
 };
 
-Post.propTypes = {};
+Post.propTypes = {
+    title: PropTypes.string.isRequired,
+    description: PropTypes.object.isRequired,
+    meta: PropTypes.object.isRequired,
+    assets: PropTypes.array,
+    video: PropTypes.object,
+};
 
 export default Post;
