@@ -15,12 +15,11 @@ const KontaktContent = () => {
             <StyledSection>
                 <article>
                     <header>
-                        <h2>Lorem ipsum dolor sit!</h2>
-                        <p>
+                        <h2>
                             Nieustannie rozwijam swoją technikę taneczną,
                             uczestnicząc w warsztatach prowadzonych przez
-                            wybitnych nauczycieli tańca orientalnego.
-                        </p>
+                            wybitnych nauczycieli.
+                        </h2>
 
                         <p>
                             <Phone /> Telefon:{' '}
@@ -34,21 +33,29 @@ const KontaktContent = () => {
                     </header>
 
                     <StyledForm>
-                        <input type="text" placeholder="Imię" />
-                        <input type="email" placeholder="Adres e-mail" />
+                        <input
+                            aria-label="imię"
+                            type="text"
+                            placeholder="Imię"
+                        />
+                        <input
+                            aria-label="adres e-mail"
+                            type="email"
+                            placeholder="Adres e-mail"
+                        />
                         <textarea
+                            aria-label="wiadomość"
                             name="message"
                             id="message"
-                            cols="30"
-                            rows="10"
                             placeholder="Wiadomość"
                         ></textarea>
+                        <input type="submit" value="Wyślij" />
                     </StyledForm>
                 </article>
 
                 <Frame>
                     <StaticImage
-                        src="../../assets/images/Pokazy/img7.jpg"
+                        src="../../assets/images/Kontakt/kontakt.jpg"
                         alt="Agnieszka Świeczkowska - kontakt"
                         placeholder="blurred"
                         layout="fullWidth"

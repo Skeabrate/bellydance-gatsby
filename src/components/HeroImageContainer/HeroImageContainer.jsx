@@ -29,7 +29,7 @@ const StyledBgImage = styled(BgImage)`
     }
 
     ${({ theme }) => theme.mq.huge} {
-        height: 70vh;
+        height: calc(100vh - 120px);
     }
 `;
 

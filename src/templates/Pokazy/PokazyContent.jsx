@@ -7,6 +7,7 @@ import Frame from 'components/Frame/Frame';
 import PyramidPointer from 'components/PyramidPointer/PyramidPointer';
 import GridContent from 'components/GridContent/GridContent';
 import GridSection from 'components/GridSection/GridSection';
+import DanceVid from 'assets/images/Pokazy/Videos/agunia.mp4';
 
 const PokazyContent = () => {
     return (
@@ -40,7 +41,7 @@ const PokazyContent = () => {
 
                     <Frame downRight>
                         <StaticImage
-                            src="../../../assets/images/Pokazy/img11.jpg"
+                            src="../../assets/images/Pokazy/img11.jpg"
                             alt="Agnieszka Świeczkowska belly dance, taniec brzucha - pokazy"
                             placeholder="blurred"
                             layout="fullWidth"
@@ -89,12 +90,9 @@ const PokazyContent = () => {
                     </article>
 
                     <Frame>
-                        <StaticImage
-                            src="../../../assets/images/Pokazy/img9.jpg"
-                            alt="Agnieszka Świeczkowska belly dance, taniec brzucha - pokazy"
-                            placeholder="blurred"
-                            layout="fullWidth"
-                        />
+                        <video controls width="100%" height="100%">
+                            <source src={DanceVid} type="video/mp4" />
+                        </video>
                     </Frame>
                 </GridSection>
 
@@ -121,7 +119,7 @@ const PokazyContent = () => {
 
                     <Frame downRight>
                         <StaticImage
-                            src="../../../assets/images/Pokazy/img10.jpg"
+                            src="../../assets/images/Pokazy/img10.jpg"
                             alt="Agnieszka Świeczkowska belly dance, taniec brzucha - pokazy"
                             placeholder="blurred"
                             layout="fullWidth"

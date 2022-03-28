@@ -6,7 +6,7 @@ const Hamburger = ({ handleCloseMenu, isOnTop, changeColor }) => {
     return (
         <StyledHamburger
             onClick={handleCloseMenu}
-            aria-label="open navigation"
+            aria-label="otwórz nawigację"
             $isOnTop={isOnTop}
             $changeColor={changeColor}
         >

@@ -71,7 +71,7 @@ const NavigationItems = ({
                 <StyledCloseButton>
                     <button
                         onClick={handleCloseMenu}
-                        aria-label="close navigation"
+                        aria-label="zamknij nawigację"
                     >
                         <X />
                     </button>
@@ -80,6 +80,7 @@ const NavigationItems = ({
 
             <StyledSocials>
                 <StyledSocialsItem
+                    title="facebook"
                     target="_blank"
                     rel="noopener noreferrer"
                     href="https://www.facebook.com/agnieszka.swieczkowska.9"
@@ -90,6 +91,7 @@ const NavigationItems = ({
                 </StyledSocialsItem>
 
                 <StyledSocialsItem
+                    title="instagram"
                     target="_blank"
                     rel="noopener noreferrer"
                     href="https://www.instagram.com/bellydance_leyla/"

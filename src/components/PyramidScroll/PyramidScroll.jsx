@@ -22,7 +22,10 @@ const StyledPyramid = styled.button`
 
 const PyramidScroll = () => {
     return (
-        <StyledPyramid onClick={() => scrollTo('#heading')}>
+        <StyledPyramid
+            aria-label="idź do głównej sekcji"
+            onClick={() => scrollTo('#heading')}
+        >
             <ArrowHome />
         </StyledPyramid>
     );
