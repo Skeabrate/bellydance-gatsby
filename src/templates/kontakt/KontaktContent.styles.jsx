@@ -41,6 +41,7 @@ export const StyledSection = styled.section`
 
     ${({ theme }) => theme.mq.huge} {
         column-gap: 8rem;
+        align-items: center;
     }
 `;
 

@@ -3,8 +3,10 @@ import { Link } from 'gatsby';
 
 export const Wrapper = styled.div`
     position: fixed;
-    background-color: ${({ theme, $isOnTop }) =>
-        $isOnTop ? 'transparent' : theme.colors.white};
+    background-color: ${({ theme, $isOnTop, $changeColor }) => {
+        if ($changeColor && $isOnTop) return 'transparent';
+        else return theme.colors.white;
+    }};
     box-shadow: ${({ $isOnTop }) =>
         $isOnTop ? 'none' : '0px 0px 50px -33px rgba(0, 0, 0, 1)'};
     height: ${({ $isOnTop }) => ($isOnTop ? '120px' : '80px')};
