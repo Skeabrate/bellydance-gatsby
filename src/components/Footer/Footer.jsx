@@ -17,6 +17,7 @@ const Footer = () => {
             <StyledSocials>
                 <li>
                     <a
+                        title="youtube"
                         target="_blank"
                         rel="noopener noreferrer"
                         href="https://www.instagram.com/bellydance_leyla/"
@@ -26,6 +27,7 @@ const Footer = () => {
                 </li>
                 <li>
                     <a
+                        title="facebook"
                         target="_blank"
                         rel="noopener noreferrer"
                         href="https://www.facebook.com/agnieszka.swieczkowska.9"
@@ -35,6 +37,7 @@ const Footer = () => {
                 </li>
                 <li>
                     <a
+                        title="instagram"
                         target="_blank"
                         rel="noopener noreferrer"
                         href="https://www.instagram.com/bellydance_leyla/"
