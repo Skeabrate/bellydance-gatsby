@@ -4,7 +4,7 @@ export const StyledSection = styled.section`
     display: grid;
     column-gap: 6rem;
     row-gap: 3rem;
-    align-items: flex-end;
+    align-items: flex-start;
 
     h2 {
         font-size: ${({ theme }) => theme.fontSize.paragraph};
