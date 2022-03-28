@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const StyledSection = styled.section`
     display: grid;
@@ -8,14 +8,18 @@ export const StyledSection = styled.section`
 
     h2 {
         font-size: ${({ theme }) => theme.fontSize.paragraph};
-        font-weight: 400;
-        margin-bottom: 0;
+        margin-bottom: 0.6rem;
+
+        ${({ theme }) => theme.mq.desktop} {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
     }
 
-    p {
+    p:last-child {
         display: flex;
         align-items: center;
-        margin-block: 1.8rem;
+        margin-block: 3rem;
 
         a {
             margin-left: 0.6rem;
@@ -40,12 +44,41 @@ export const StyledSection = styled.section`
     }
 `;
 
+const inputStyles = css`
+    padding: 1.4rem;
+    border: 1px solid ${({ theme }) => theme.colors.black};
+    margin-bottom: 2rem;
+
+    &:focus {
+        outline: none;
+        border: 1px solid ${({ theme }) => theme.colors.sand};
+        box-shadow: 0px 8px 15px -10px rgba(115, 124, 142, 0.3);
+    }
+`;
+
 export const StyledForm = styled.form`
     display: flex;
     flex-direction: column;
 
+    input {
+        ${inputStyles};
+
+        &:last-child {
+            width: 200px;
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.15s ease-in-out;
+
+            &:hover {
+                border: 1px solid ${({ theme }) => theme.colors.sand};
+                box-shadow: 0px 8px 15px -10px rgba(115, 124, 142, 0.3);
+            }
+        }
+    }
+
     textarea {
         resize: none;
-        height: 200px;
+        height: 250px;
+        ${inputStyles};
     }
 `;

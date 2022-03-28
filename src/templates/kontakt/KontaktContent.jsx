@@ -8,6 +8,10 @@ import Frame from 'components/Frame/Frame';
 import { StyledSection, StyledForm } from './KontaktContent.styles';
 
 const KontaktContent = () => {
+    const submitHandler = (e) => {
+        e.preventDefault();
+    };
+
     return (
         <ContentWrapper>
             <Heading label="Kontakt" isMain />
@@ -15,11 +19,13 @@ const KontaktContent = () => {
             <StyledSection>
                 <article>
                     <header>
-                        <h2>
+                        <h2>Zapraszam do kontaktu</h2>
+
+                        <p>
                             Nieustannie rozwijam swoją technikę taneczną,
                             uczestnicząc w warsztatach prowadzonych przez
                             wybitnych nauczycieli.
-                        </h2>
+                        </p>
 
                         <p>
                             <Phone /> Telefon:{' '}
@@ -49,11 +55,15 @@ const KontaktContent = () => {
                             id="message"
                             placeholder="Wiadomość"
                         ></textarea>
-                        <input type="submit" value="Wyślij" />
+                        <input
+                            type="submit"
+                            value="Wyślij"
+                            onClick={(e) => submitHandler(e)}
+                        />
                     </StyledForm>
                 </article>
 
-                <Frame>
+                <Frame downRight>
                     <StaticImage
                         src="../../assets/images/Kontakt/kontakt.jpg"
                         alt="Agnieszka Świeczkowska - kontakt"
