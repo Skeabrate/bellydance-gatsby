@@ -3,7 +3,7 @@ import { StaticImage } from 'gatsby-plugin-image';
 import Heading from 'components/Heading/Heading';
 import Frame from 'components/Frame/Frame';
 import ContentWrapper from 'components/ContentWrapper/ContentWrapper';
-import SandArticle from 'components/SandArticle/SandArticle';
+import SandSection from 'components/SandSection/SandSection';
 import {
     firstSectionData,
     secondSectionData,
@@ -13,7 +13,6 @@ import {
 import {
     StyledFirstSection,
     StyledFirstSectionImg,
-    StyledSecondSection,
     StyledSecondSectionImg,
     StyledThridArticle,
 } from './IndexContent.styles';
@@ -59,23 +58,7 @@ const IndexContent = () => {
             <section>
                 <Heading label={'Moje Osiągnięcia'} />
 
-                <StyledSecondSection>
-                    <div>
-                        <article>
-                            <header>
-                                <h2>{secondSectionData[0].title}</h2>
-                            </header>
-                            <p>{secondSectionData[0].desc}</p>
-                        </article>
-
-                        <SandArticle>
-                            <header>
-                                <h2>{secondSectionData[1].title}</h2>
-                            </header>
-                            <p>{secondSectionData[1].desc}</p>
-                        </SandArticle>
-                    </div>
-
+                <SandSection data={secondSectionData}>
                     <StyledSecondSectionImg>
                         <StaticImage
                             src="../../../assets/images/Homepage/homepage3.jpg"
@@ -93,7 +76,7 @@ const IndexContent = () => {
                             />
                         </Frame>
                     </StyledSecondSectionImg>
-                </StyledSecondSection>
+                </SandSection>
             </section>
 
             <section>

@@ -4,9 +4,9 @@ import styled from 'styled-components';
 
 const StyledSection = styled.section`
     display: grid;
-    align-items: ${({ $isSand }) => ($isSand ? 'flex-end' : 'center')};
+    align-items: center
     column-gap: ${({ theme }) => theme.spacing.columnMobile};
-    row-gap: ${({ $isSand }) => ($isSand ? '4rem' : '3rem')};
+    row-gap: 3rem;
 
     ul {
         list-style: none;
@@ -50,18 +50,13 @@ const StyledSection = styled.section`
     }
 `;
 
-const GridSection = ({ children, isBig, isSand }) => {
-    return (
-        <StyledSection $isBig={isBig} $isSand={isSand}>
-            {children}
-        </StyledSection>
-    );
+const GridSection = ({ children, isBig }) => {
+    return <StyledSection $isBig={isBig}>{children}</StyledSection>;
 };
 
 GridSection.propTypes = {
     children: PropTypes.node.isRequired,
     isBig: PropTypes.bool,
-    isSand: PropTypes.bool,
 };
 
 export default GridSection;

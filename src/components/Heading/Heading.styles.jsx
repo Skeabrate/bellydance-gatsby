@@ -6,19 +6,19 @@ export const StyledHeader = styled.header`
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: ${({ $isMain }) => ($isMain ? '6rem 0 6rem' : '12rem 0 6rem')};
+    padding: ${({ $isMain }) => ($isMain ? '6rem 0 4rem' : '10rem 0 4rem')};
 
     ${({ theme }) => theme.mq.tablet} {
         padding: ${({ $isMain }) =>
-            $isMain ? '10rem 0 8rem' : '18rem 0 8rem'};
+            $isMain ? '10rem 0 6rem' : '16rem 0 6rem'};
     }
 
     ${({ theme }) => theme.mq.desktop} {
         padding: ${({ $isMain }) =>
-            $isMain ? '13rem 0 8rem' : '20rem 0 8rem'};
+            $isMain ? '14rem 0 8rem' : '20rem 0 8rem'};
     }
 
-    ${({ theme }) => theme.mq.bigDesktop} {
+    ${({ theme }) => theme.mq.huge} {
         padding: ${({ $isMain }) =>
             $isMain ? '16rem 0 8rem' : '24rem 0 8rem'};
     }

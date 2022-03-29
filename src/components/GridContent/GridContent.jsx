@@ -4,10 +4,10 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
     display: grid;
-    row-gap: 8rem;
+    row-gap: 10rem;
 
     ${({ theme }) => theme.mq.tablet} {
-        row-gap: 14rem;
+        row-gap: 16rem;
     }
 
     ${({ theme }) => theme.mq.desktop} {

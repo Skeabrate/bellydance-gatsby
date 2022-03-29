@@ -47,3 +47,16 @@ export const secondSectionData = [
         val: 'w sposób przyjemny pozbyć się zbędnych kilogramów - tańcząc w takt orientalnej muzyki spalamy ok. 500kc/h !',
     },
 ];
+
+export const thirdSectionData = [
+    {
+        id: 0,
+        title: 'Dzieki wymaganej systematyczności w treningach taniec orientalny uczy nas cierpliwości, wytrwałości i szacunku dla swojego ciała.',
+        desc: 'Jednocześnie jest lekcją pokory wobec nieznanej nam wiedzy, wymagającą naszego zaangażowania i pracy, jeśli chcemy rozwijać się w tym wyjątkowym tańcu. Poprzez pracę z emocjami i wysiłek fizyczny pozwala uwolnić się od napięć i skupić się na samej sobie - tym, co czuje nasze ciało - na własnych odczuciach, emocjach.',
+    },
+    {
+        id: 1,
+        title: 'Taniec w gronie innych kobiet doskonale wpływa na nasz nastrój i samopoczucie',
+        desc: 'pozwala rozwijać swą pasję , mieć satysfakcje z osobistych postępów, a nawet dzielić się nią podczas wspólnych występów na scenie, czy tanecznym parkiecie.',
+    },
+];

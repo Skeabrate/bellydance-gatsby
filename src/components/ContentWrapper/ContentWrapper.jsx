@@ -24,7 +24,7 @@ const Wrapper = styled.div`
     }
 
     ${({ theme }) => theme.mq.huge} {
-        padding: 0 14rem;
+        padding: 0 8vw;
     }
 `;
 
