@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const StyledSection = styled.section`
     display: grid;
-    align-items: center
+    align-items: center;
     column-gap: ${({ theme }) => theme.spacing.columnMobile};
     row-gap: 3rem;
 

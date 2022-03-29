@@ -5,9 +5,9 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
     display: grid;
-    row-gap: 4rem;
-    column-gap: ${({ theme }) => theme.spacing.columnMobile};
     align-items: flex-end;
+    row-gap: 1rem;
+    column-gap: ${({ theme }) => theme.spacing.columnMobile};
 
     article:last-child {
         background-color: ${({ theme }) => theme.colors.sand};
@@ -17,6 +17,8 @@ const Wrapper = styled.div`
     }
 
     ${({ theme }) => theme.mq.tablet} {
+        row-gap: 6rem;
+
         article:last-child {
             padding: 3rem;
             margin-top: 3rem;
@@ -32,7 +34,7 @@ const Wrapper = styled.div`
     }
 `;
 
-const SandSection = ({ data, children }) => {
+const SandSection = ({ data = [], children }) => {
     return (
         <Frame>
             <Wrapper>
