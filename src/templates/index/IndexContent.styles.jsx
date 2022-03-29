@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const StyledFirstSection = styled.div`
     display: grid;
     grid-template-columns: 1fr;
-    column-gap: 6rem;
+    column-gap: ${({ theme }) => theme.spacing.columnMobile};
     row-gap: 3rem;
     margin-bottom: 5rem;
 
@@ -24,7 +24,7 @@ export const StyledFirstSection = styled.div`
 
 export const StyledFirstSectionImg = styled.div`
     display: grid;
-    column-gap: 6rem;
+    column-gap: ${({ theme }) => theme.spacing.columnMobile};
     row-gap: 2rem;
 
     ${({ theme }) => theme.mq.tablet} {
@@ -32,14 +32,14 @@ export const StyledFirstSectionImg = styled.div`
     }
 
     ${({ theme }) => theme.mq.huge} {
-        column-gap: 8rem;
+        column-gap: ${({ theme }) => theme.spacing.columnHuge};
     }
 `;
 
 export const StyledSecondSection = styled.div`
     display: grid;
     row-gap: 5rem;
-    column-gap: 6rem;
+    column-gap: ${({ theme }) => theme.spacing.columnMobile};
     align-items: flex-end;
 
     ${({ theme }) => theme.mq.desktop} {
@@ -47,7 +47,7 @@ export const StyledSecondSection = styled.div`
     }
 
     ${({ theme }) => theme.mq.huge} {
-        column-gap: 8rem;
+        column-gap: ${({ theme }) => theme.spacing.columnHuge};
     }
 `;
 

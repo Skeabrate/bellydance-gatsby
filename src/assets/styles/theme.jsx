@@ -10,6 +10,10 @@ export const theme = {
         paragraph: '1.6rem',
         caption: '1.35rem',
     },
+    spacing: {
+        columnMobile: '6rem',
+        columnHuge: '8rem',
+    },
     fontFamily: {
         greatVibes: '"Great Vibes", cursiv',
         noto: '"Noto Serif", serif',

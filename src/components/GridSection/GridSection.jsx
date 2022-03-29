@@ -5,8 +5,8 @@ import styled from 'styled-components';
 const StyledSection = styled.section`
     display: grid;
     align-items: ${({ $isSand }) => ($isSand ? 'flex-end' : 'center')};
-    column-gap: 6rem;
-    row-gap: ${({ $isSand }) => ($isSand ? '5rem' : '3rem')};
+    column-gap: ${({ theme }) => theme.spacing.columnMobile};
+    row-gap: ${({ $isSand }) => ($isSand ? '4rem' : '3rem')};
 
     ul {
         list-style: none;
@@ -46,7 +46,7 @@ const StyledSection = styled.section`
     }
 
     ${({ theme }) => theme.mq.huge} {
-        column-gap: 8rem;
+        column-gap: ${({ theme }) => theme.spacing.columnHuge};
     }
 `;
 

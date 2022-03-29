@@ -1,8 +1,8 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const StyledSection = styled.section`
     display: grid;
-    column-gap: 6rem;
+    column-gap: ${({ theme }) => theme.spacing.columnMobile};
     row-gap: 3rem;
     align-items: flex-start;
 
@@ -40,20 +40,8 @@ export const StyledSection = styled.section`
     }
 
     ${({ theme }) => theme.mq.huge} {
-        column-gap: 8rem;
+        column-gap: ${({ theme }) => theme.spacing.columnHuge};
         align-items: center;
-    }
-`;
-
-const inputStyles = css`
-    padding: 1.4rem;
-    border: 1px solid ${({ theme }) => theme.colors.black};
-    margin-bottom: 2rem;
-
-    &:focus {
-        outline: none;
-        border: 1px solid ${({ theme }) => theme.colors.sand};
-        box-shadow: 0px 8px 15px -10px rgba(115, 124, 142, 0.3);
     }
 `;
 
@@ -61,25 +49,33 @@ export const StyledForm = styled.form`
     display: flex;
     flex-direction: column;
 
-    input {
-        ${inputStyles};
+    input,
+    textarea {
+        padding: 1.4rem;
+        border: 1px solid ${({ theme }) => theme.colors.black};
+        margin-bottom: 2rem;
 
-        &:last-child {
-            width: 200px;
-            background: transparent;
-            cursor: pointer;
-            transition: all 0.15s ease-in-out;
+        &:focus {
+            outline: none;
+            border: 1px solid ${({ theme }) => theme.colors.sand};
+            box-shadow: 0px 8px 15px -10px rgba(115, 124, 142, 0.3);
+        }
+    }
 
-            &:hover {
-                border: 1px solid ${({ theme }) => theme.colors.sand};
-                box-shadow: 0px 8px 15px -10px rgba(115, 124, 142, 0.3);
-            }
+    input:last-child {
+        width: 200px;
+        background: transparent;
+        cursor: pointer;
+        transition: all 0.15s ease-in-out;
+
+        &:hover {
+            border: 1px solid ${({ theme }) => theme.colors.sand};
+            box-shadow: 0px 8px 15px -10px rgba(115, 124, 142, 0.3);
         }
     }
 
     textarea {
         resize: none;
         height: 250px;
-        ${inputStyles};
     }
 `;
