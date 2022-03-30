@@ -37,7 +37,7 @@ const IndexContent = () => {
                 <StyledFirstSectionImg>
                     <Frame hideMobile>
                         <StaticImage
-                            src="../../../assets/images/Homepage/homepage1.jpg"
+                            src="../../assets/images/Homepage/homepage1.jpg"
                             alt="Agnieszka Świeczkowska - legitymacja instruktora"
                             placeholder="blurred"
                             layout="fullWidth"
@@ -46,7 +46,7 @@ const IndexContent = () => {
 
                     <Frame upRight>
                         <StaticImage
-                            src="../../../assets/images/Homepage/homepage2.jpg"
+                            src="../../assets/images/Homepage/homepage2.jpg"
                             alt="Agnieszka Świeczkowska - legitymacja instruktora"
                             placeholder="blurred"
                             layout="fullWidth"
@@ -61,7 +61,7 @@ const IndexContent = () => {
                 <SandSection data={secondSectionData}>
                     <StyledSecondSectionImg>
                         <StaticImage
-                            src="../../../assets/images/Homepage/homepage3.jpg"
+                            src="../../assets/images/Homepage/homepage3.jpg"
                             alt="Agnieszka Świeczkowska - dyplom"
                             placeholder="blurred"
                             layout="fullWidth"
@@ -69,7 +69,7 @@ const IndexContent = () => {
 
                         <Frame upRight hideMobile>
                             <StaticImage
-                                src="../../../assets/images/Homepage/homepage4.jpg"
+                                src="../../assets/images/Homepage/homepage4.jpg"
                                 alt="Agnieszka Świeczkowska - dyplom"
                                 placeholder="blurred"
                                 layout="fullWidth"
