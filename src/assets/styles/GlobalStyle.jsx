@@ -20,12 +20,14 @@ export const GlobalStyle = createGlobalStyle`
             background-color: ${({ theme }) => theme.colors.white};
         }
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 14px;
             height: 8px;
         }
         ::-webkit-scrollbar-thumb {
             background: linear-gradient(0deg, rgba(153,138,116,1) 0%, rgba(219,196,161,1) 50%);
             border-radius: 100px;
+			border: 3px solid ${({ theme }) => theme.colors.white};
+			background-clip: padding-box;
         }
     }
 
