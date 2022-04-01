@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { useAktualnosci } from 'hooks/useAktualnosci';
+
 import MainWrapper from 'components/MainWrapper/MainWrapper';
 import ContentWrapper from 'components/ContentWrapper/ContentWrapper';
 import HeroImageContainer from 'components/HeroImageContainer/HeroImageContainer';
