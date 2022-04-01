@@ -16,7 +16,7 @@ import {
     thirdSectionData,
 } from '../data/zajeciaData';
 
-const zajecia = () => {
+const Zajecia = () => {
     return (
         <MainWrapper>
             <ContentWrapper>
@@ -108,4 +108,4 @@ const zajecia = () => {
     );
 };
 
-export default zajecia;
+export default Zajecia;

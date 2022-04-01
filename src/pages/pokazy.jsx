@@ -10,7 +10,7 @@ import GridContent from 'components/GridContent/GridContent';
 import GridSection from 'components/GridSection/GridSection';
 import DanceVid from 'assets/images/Pokazy/Videos/agunia.mp4';
 
-const pokazy = () => {
+const Pokazy = () => {
     return (
         <MainWrapper>
             <ContentWrapper>
@@ -141,4 +141,4 @@ const pokazy = () => {
     );
 };
 
-export default pokazy;
+export default Pokazy;
