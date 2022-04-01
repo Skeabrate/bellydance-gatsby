@@ -1,12 +1,11 @@
 import { graphql, useStaticQuery } from 'gatsby';
-import { getImage } from 'gatsby-plugin-image';
 
-export const useIndex = () => {
+export const useKontaktQuery = () => {
     const { placeholderImage } = useStaticQuery(
         graphql`
             query {
                 placeholderImage: file(
-                    relativePath: { eq: "Homepage/homepageBaner.jpg" }
+                    relativePath: { eq: "Kontakt/banerKontakt.jpg" }
                 ) {
                     childImageSharp {
                         gatsbyImageData(placeholder: BLURRED, formats: WEBP)
@@ -16,7 +15,5 @@ export const useIndex = () => {
         `
     );
 
-    const pluginImage = getImage(placeholderImage);
-
-    return { pluginImage };
+    return { placeholderImage };
 };

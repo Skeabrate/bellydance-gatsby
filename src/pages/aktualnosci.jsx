@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { useAktualnosci } from 'hooks/useAktualnosci';
+import { useAktualnosciQuery } from 'hooks/useAktualnosciQuery';
+import { useAktualnosciSort } from 'hooks/useAktualnosciSort';
 
 import MainWrapper from 'templates/MainWrapper';
 import ContentWrapper from 'templates/ContentWrapper';
@@ -13,7 +14,8 @@ import Post from 'components/Post/Post';
 import { StyledPostsContainer } from 'assets/styles/pages/aktualnosci.styles';
 
 const Aktualnosci = ({ data }) => {
-    const { placeholderImage, setSortDescending } = useAktualnosci(data);
+    const { placeholderImage } = useAktualnosciQuery();
+    const { setSortDescending } = useAktualnosciSort(data);
 
     return (
         <MainWrapper>

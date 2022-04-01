@@ -1,11 +1,11 @@
 import { graphql, useStaticQuery } from 'gatsby';
 
-export const useKontakt = () => {
+export const useAktualnosciQuery = () => {
     const { placeholderImage } = useStaticQuery(
         graphql`
             query {
                 placeholderImage: file(
-                    relativePath: { eq: "Kontakt/banerKontakt.jpg" }
+                    relativePath: { eq: "Aktualnosci/banerAktualnosci.jpg" }
                 ) {
                     childImageSharp {
                         gatsbyImageData(placeholder: BLURRED, formats: WEBP)
@@ -15,9 +15,5 @@ export const useKontakt = () => {
         `
     );
 
-    const submitHandler = (e) => {
-        e.preventDefault();
-    };
-
-    return { placeholderImage, submitHandler };
+    return { placeholderImage };
 };

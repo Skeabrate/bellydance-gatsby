@@ -11,7 +11,7 @@ const Navigation = () => {
     const [toggle, setToggle] = useState(false);
     const [changeColor, setChangeColor] = useState(false);
 
-    const [isOnTop, hideNav] = useHideNav();
+    const { isOnTop, hideNav } = useHideNav();
 
     const location = useLocation();
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
-import { useKontakt } from 'hooks/useKontakt';
+import { useKontaktQuery } from 'hooks/useKontaktQuery';
+import { submitFormHandler } from 'utils/submitFormHandler';
 
 import MainWrapper from 'templates/MainWrapper';
 import ContentWrapper from 'templates/ContentWrapper';
@@ -12,7 +13,7 @@ import Frame from 'components/Frame/Frame';
 import { StyledSection, StyledForm } from 'assets/styles/pages/kontakt.styles';
 
 const Kontakt = () => {
-    const { placeholderImage, submitHandler } = useKontakt();
+    const { placeholderImage } = useKontaktQuery();
 
     return (
         <MainWrapper>
@@ -63,7 +64,7 @@ const Kontakt = () => {
                             <input
                                 type="submit"
                                 value="Wyślij"
-                                onClick={(e) => submitHandler(e)}
+                                onClick={(e) => submitFormHandler(e)}
                             />
                         </StyledForm>
                     </article>

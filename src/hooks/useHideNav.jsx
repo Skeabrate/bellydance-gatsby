@@ -33,5 +33,5 @@ export const useHideNav = () => {
         return () => abortController.abort();
     }, []);
 
-    return [isOnTop, hideNav];
+    return { isOnTop, hideNav };
 };

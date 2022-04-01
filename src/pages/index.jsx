@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
-import { useIndex } from 'hooks/useIndex';
+import { useIndexQuery } from 'hooks/useIndexQuery';
 
 import ContentWrapper from 'templates/ContentWrapper';
 import PyramidScroll from 'components/PyramidScroll/PyramidScroll';
@@ -25,7 +25,7 @@ import {
 } from 'assets/styles/pages/index.styles';
 
 const Index = () => {
-    const { pluginImage } = useIndex();
+    const { pluginImage } = useIndexQuery();
 
     return (
         <main>
