@@ -1,20 +1,61 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import { useAktualnosci } from 'hooks/useAktualnosci';
 import MainWrapper from 'components/MainWrapper/MainWrapper';
-import HeroImage from 'templates/Aktualnosci/HeroImage/HeroImage';
-import AktualnosciContent from 'templates/Aktualnosci/AktualnosciContent';
+import ContentWrapper from 'components/ContentWrapper/ContentWrapper';
+import HeroImageContainer from 'components/HeroImageContainer/HeroImageContainer';
+import Heading from 'components/Heading/Heading';
+import Combobox from 'components/Combobox/Combobox';
+import Frame from 'components/Frame/Frame';
+import Post from 'components/Post/Post';
 
-const aktualnosci = ({ data }) => {
+import { StyledPostsContainer } from 'assets/styles/pages/aktualnosci.styles';
+
+const Aktualnosci = ({ data }) => {
+    const { placeholderImage, setSortDescending } = useAktualnosci(data);
+
     return (
         <MainWrapper>
-            <HeroImage />
+            <HeroImageContainer placeholderImage={placeholderImage} />
 
-            <AktualnosciContent posts={data} />
+            <ContentWrapper>
+                <Heading
+                    label="Co słychać w królestwie tańca orientalnego?"
+                    isMain
+                />
+
+                <Combobox setSortDescending={setSortDescending} />
+
+                <StyledPostsContainer>
+                    {data.allDatoCmsPost.edges.map(
+                        ({
+                            node: {
+                                id,
+                                title,
+                                description,
+                                assets,
+                                video,
+                                meta,
+                            },
+                        }) => (
+                            <Frame key={id} upRight>
+                                <Post
+                                    title={title}
+                                    description={description}
+                                    assets={assets}
+                                    video={video}
+                                    meta={meta}
+                                />
+                            </Frame>
+                        )
+                    )}
+                </StyledPostsContainer>
+            </ContentWrapper>
         </MainWrapper>
     );
 };
 
-export default aktualnosci;
+export default Aktualnosci;
 
 export const query = graphql`
     query MyQuery {
