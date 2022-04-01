@@ -1,8 +1,7 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import HeroImageContainer from 'components/HeroImageContainer/HeroImageContainer';
 
-const HeroImage = () => {
+export const useKontakt = () => {
     const { placeholderImage } = useStaticQuery(
         graphql`
             query {
@@ -17,7 +16,9 @@ const HeroImage = () => {
         `
     );
 
-    return <HeroImageContainer placeholderImage={placeholderImage} />;
-};
+    const submitHandler = (e) => {
+        e.preventDefault();
+    };
 
-export default HeroImage;
+    return { placeholderImage, submitHandler };
+};
