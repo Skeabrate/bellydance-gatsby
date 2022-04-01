@@ -4,6 +4,8 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
     padding: 0 2rem;
+    margin: 0 auto;
+    max-width: 1500px;
 
     h2 {
         font-size: ${({ theme }) => theme.fontSize.paragraph};
@@ -21,10 +23,6 @@ const Wrapper = styled.div`
             font-size: 1.8rem;
             margin-bottom: 1rem;
         }
-    }
-
-    ${({ theme }) => theme.mq.huge} {
-        padding: 0 8vw;
     }
 `;
 

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const StyledSection = styled.section`
     display: grid;
-    column-gap: ${({ theme }) => theme.spacing.columnMobile};
+    column-gap: ${({ theme }) => theme.spacing.columnGap};
     row-gap: 3rem;
     align-items: flex-start;
 
@@ -40,7 +40,6 @@ export const StyledSection = styled.section`
     }
 
     ${({ theme }) => theme.mq.huge} {
-        column-gap: ${({ theme }) => theme.spacing.columnHuge};
         align-items: center;
     }
 `;

@@ -7,7 +7,7 @@ const Wrapper = styled.div`
     display: grid;
     align-items: flex-end;
     row-gap: 1rem;
-    column-gap: ${({ theme }) => theme.spacing.columnMobile};
+    column-gap: ${({ theme }) => theme.spacing.columnGap};
 
     article:last-child {
         background-color: ${({ theme }) => theme.colors.sand};
@@ -27,10 +27,6 @@ const Wrapper = styled.div`
 
     ${({ theme }) => theme.mq.desktop} {
         grid-template-columns: 1fr 1fr;
-    }
-
-    ${({ theme }) => theme.mq.huge} {
-        column-gap: ${({ theme }) => theme.spacing.columnHuge};
     }
 `;
 

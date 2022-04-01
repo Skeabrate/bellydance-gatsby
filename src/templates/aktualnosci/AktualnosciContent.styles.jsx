@@ -3,12 +3,12 @@ import styled from 'styled-components';
 export const StyledPostsContainer = styled.section`
     display: grid;
     grid-template-columns: 1fr;
-    column-gap: 8rem;
-    row-gap: 12rem;
+    column-gap: ${({ theme }) => theme.spacing.columnGap};
+    row-gap: 4rem;
     margin-top: 6rem;
 
     ${({ theme }) => theme.mq.tablet} {
-        margin-top: 8rem;
+        row-gap: 8rem;
     }
 
     ${({ theme }) => theme.mq.bigDesktop} {

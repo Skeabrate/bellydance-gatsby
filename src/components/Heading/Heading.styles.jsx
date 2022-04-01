@@ -17,11 +17,6 @@ export const StyledHeader = styled.header`
         padding: ${({ $isMain }) =>
             $isMain ? '14rem 0 8rem' : '20rem 0 8rem'};
     }
-
-    ${({ theme }) => theme.mq.huge} {
-        padding: ${({ $isMain }) =>
-            $isMain ? '16rem 0 8rem' : '24rem 0 8rem'};
-    }
 `;
 
 export const StyledTitle = styled.h1`

@@ -11,8 +11,7 @@ export const theme = {
         caption: '1.35rem',
     },
     spacing: {
-        columnMobile: '6rem',
-        columnHuge: '8rem',
+        columnGap: '6rem',
     },
     fontFamily: {
         greatVibes: '"Great Vibes", cursiv',

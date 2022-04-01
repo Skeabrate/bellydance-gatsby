@@ -13,10 +13,6 @@ export const Wrapper = styled.div`
     ${({ theme }) => theme.mq.desktop} {
         row-gap: 20rem;
     }
-
-    ${({ theme }) => theme.mq.huge} {
-        row-gap: 24rem;
-    }
 `;
 
 const GridContent = ({ children }) => {

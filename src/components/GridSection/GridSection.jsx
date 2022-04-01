@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const StyledSection = styled.section`
     display: grid;
     align-items: center;
-    column-gap: ${({ theme }) => theme.spacing.columnMobile};
+    column-gap: ${({ theme }) => theme.spacing.columnGap};
     row-gap: 3rem;
 
     ul {
@@ -43,10 +43,6 @@ const StyledSection = styled.section`
                 grid-column: 2;
             }
         }
-    }
-
-    ${({ theme }) => theme.mq.huge} {
-        column-gap: ${({ theme }) => theme.spacing.columnHuge};
     }
 `;
 
