@@ -1,14 +1,14 @@
 import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 
-import MainWrapper from 'components/MainWrapper/MainWrapper';
-import ContentWrapper from 'components/ContentWrapper/ContentWrapper';
+import MainWrapper from 'templates/MainWrapper';
+import ContentWrapper from 'templates/ContentWrapper';
+import GridSection from 'templates/GridSection';
+import GridContent from 'templates/GridContent';
 import Heading from 'components/Heading/Heading';
-import GridContent from 'components/GridContent/GridContent';
 import Frame from 'components/Frame/Frame';
 import PyramidPointer from 'components/PyramidPointer/PyramidPointer';
 import SkipButton from 'components/SkipButton/SkipButton';
-import GridSection from 'components/GridSection/GridSection';
 import SandSection from 'components/SandSection/SandSection';
 
 import {

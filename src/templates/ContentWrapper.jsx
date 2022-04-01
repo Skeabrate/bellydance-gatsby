@@ -7,22 +7,12 @@ const Wrapper = styled.div`
     margin: 0 auto;
     max-width: 1500px;
 
-    h2 {
-        font-size: ${({ theme }) => theme.fontSize.paragraph};
-        margin-bottom: 0.6rem;
-    }
-
     ${({ theme }) => theme.mq.tablet} {
         padding: 0 4rem;
     }
 
     ${({ theme }) => theme.mq.desktop} {
         padding: 0 6rem;
-
-        h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
     }
 `;
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StaticImage } from 'gatsby-plugin-image';
+
 import { StyledTitle, StyledHeader } from './Heading.styles';
 
 const Heading = ({ label, isMain }) => {

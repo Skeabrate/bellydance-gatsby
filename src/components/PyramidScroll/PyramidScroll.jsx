@@ -1,7 +1,8 @@
 import React from 'react';
-import ArrowHome from 'assets/images/SVG/arrowHome.svg';
-import scrollTo from 'gatsby-plugin-smoothscroll';
 import styled from 'styled-components';
+import scrollTo from 'gatsby-plugin-smoothscroll';
+
+import ArrowHome from 'assets/images/SVG/arrowHome.svg';
 
 const StyledPyramid = styled.button`
     width: 180px;

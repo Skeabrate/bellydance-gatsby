@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { getImage } from 'gatsby-plugin-image';
 import { BgImage } from 'gbimage-bridge';
+
 import PyramidScroll from 'components/PyramidScroll/PyramidScroll';
 
 const StyledBgImage = styled(BgImage)`

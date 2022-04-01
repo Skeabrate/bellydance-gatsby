@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Frame from 'components/Frame/Frame';
 import styled from 'styled-components';
+
+import Frame from 'components/Frame/Frame';
 
 const Wrapper = styled.div`
     display: grid;

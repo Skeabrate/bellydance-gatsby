@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import X from 'assets/images/SVG/x.svg';
 import Facebook from 'assets/images/SVG/fb.svg';
 import Instagram from 'assets/images/SVG/insta.svg';

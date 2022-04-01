@@ -2,8 +2,8 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { useAktualnosci } from 'hooks/useAktualnosci';
 
-import MainWrapper from 'components/MainWrapper/MainWrapper';
-import ContentWrapper from 'components/ContentWrapper/ContentWrapper';
+import MainWrapper from 'templates/MainWrapper';
+import ContentWrapper from 'templates/ContentWrapper';
 import HeroImageContainer from 'components/HeroImageContainer/HeroImageContainer';
 import Heading from 'components/Heading/Heading';
 import Combobox from 'components/Combobox/Combobox';

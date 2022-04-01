@@ -39,4 +39,14 @@ export const GlobalStyle = createGlobalStyle`
 	button, a{
 		cursor: pointer;
 	}
+
+	h2, h3, h4, h5, h6{
+		font-size: ${({ theme }) => theme.fontSize.paragraph};
+        margin-bottom: 0.6rem;
+
+		${({ theme }) => theme.mq.desktop} {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+    	}
+	}
 `;

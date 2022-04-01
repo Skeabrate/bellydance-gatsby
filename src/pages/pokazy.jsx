@@ -1,14 +1,14 @@
 import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 
-import MainWrapper from 'components/MainWrapper/MainWrapper';
-import ContentWrapper from 'components/ContentWrapper/ContentWrapper';
+import MainWrapper from 'templates/MainWrapper';
+import ContentWrapper from 'templates/ContentWrapper';
+import GridContent from 'templates/GridContent';
+import GridSection from 'templates/GridSection';
 import Heading from 'components/Heading/Heading';
 import SkipButton from 'components/SkipButton/SkipButton';
 import Frame from 'components/Frame/Frame';
 import PyramidPointer from 'components/PyramidPointer/PyramidPointer';
-import GridContent from 'components/GridContent/GridContent';
-import GridSection from 'components/GridSection/GridSection';
 import DanceVid from 'assets/images/Pokazy/Videos/agunia.mp4';
 
 const Pokazy = () => {

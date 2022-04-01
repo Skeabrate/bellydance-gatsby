@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import NavigationItems from './NavigationItems/NavigationItems';
-import Hamburger from './Hamburger/Hamburger';
 import { useLocation } from '@reach/router';
 import { useHideNav } from 'hooks/useHideNav';
+
+import NavigationItems from './NavigationItems/NavigationItems';
+import Hamburger from './Hamburger/Hamburger';
 
 import { Wrapper, StyledLogo } from './Navigation.styles';
 

@@ -2,10 +2,10 @@ import * as React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import { useIndex } from 'hooks/useIndex';
 
+import ContentWrapper from 'templates/ContentWrapper';
 import PyramidScroll from 'components/PyramidScroll/PyramidScroll';
 import Heading from 'components/Heading/Heading';
 import Frame from 'components/Frame/Frame';
-import ContentWrapper from 'components/ContentWrapper/ContentWrapper';
 import SandSection from 'components/SandSection/SandSection';
 
 import {
@@ -36,7 +36,7 @@ const Index = () => {
                     <h1>Magiczny Świat Orientu</h1>
                     <p>Zapraszam do baśni 1000 i jednej nocy</p>
                     <StaticImage
-                        src="../../../assets/images/ornHero.png"
+                        src="../assets/images/ornHero.png"
                         alt="title ornament"
                         placeholder="blurred"
                         width={200}
@@ -65,7 +65,7 @@ const Index = () => {
                     <StyledFirstSectionImg>
                         <Frame hideMobile>
                             <StaticImage
-                                src="../../assets/images/Homepage/homepage1.jpg"
+                                src="../assets/images/Homepage/homepage1.jpg"
                                 alt="Agnieszka Świeczkowska - legitymacja instruktora"
                                 placeholder="blurred"
                                 layout="fullWidth"
@@ -74,7 +74,7 @@ const Index = () => {
 
                         <Frame upRight>
                             <StaticImage
-                                src="../../assets/images/Homepage/homepage2.jpg"
+                                src="../assets/images/Homepage/homepage2.jpg"
                                 alt="Agnieszka Świeczkowska - legitymacja instruktora"
                                 placeholder="blurred"
                                 layout="fullWidth"
@@ -89,7 +89,7 @@ const Index = () => {
                     <SandSection data={secondSectionData}>
                         <StyledSecondSectionImg>
                             <StaticImage
-                                src="../../assets/images/Homepage/homepage3.jpg"
+                                src="../assets/images/Homepage/homepage3.jpg"
                                 alt="Agnieszka Świeczkowska - dyplom"
                                 placeholder="blurred"
                                 layout="fullWidth"
@@ -97,7 +97,7 @@ const Index = () => {
 
                             <Frame upRight hideMobile>
                                 <StaticImage
-                                    src="../../assets/images/Homepage/homepage4.jpg"
+                                    src="../assets/images/Homepage/homepage4.jpg"
                                     alt="Agnieszka Świeczkowska - dyplom"
                                     placeholder="blurred"
                                     layout="fullWidth"

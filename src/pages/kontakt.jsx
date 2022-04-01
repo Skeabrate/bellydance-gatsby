@@ -2,10 +2,10 @@ import React from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import { useKontakt } from 'hooks/useKontakt';
 
-import MainWrapper from 'components/MainWrapper/MainWrapper';
+import MainWrapper from 'templates/MainWrapper';
+import ContentWrapper from 'templates/ContentWrapper';
 import HeroImageContainer from 'components/HeroImageContainer/HeroImageContainer';
 import Heading from 'components/Heading/Heading';
-import ContentWrapper from 'components/ContentWrapper/ContentWrapper';
 import Phone from 'assets/images/svg/telefon.svg';
 import Frame from 'components/Frame/Frame';
 
