@@ -44,8 +44,8 @@ export const GlobalStyle = createGlobalStyle`
 		font-size: ${({ theme }) => theme.fontSize.paragraph};
         margin-bottom: 0.6rem;
 
-		${({ theme }) => theme.mq.desktop} {
-            font-size: 1.8rem;
+		${({ theme }) => theme.mq.bigDesktop} {
+            font-size: 2.2rem;
             margin-bottom: 1rem;
     	}
 	}

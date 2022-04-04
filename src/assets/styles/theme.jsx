@@ -7,7 +7,7 @@ export const theme = {
     fontSize: {
         heading: '3.6rem',
         headingMobile: '3rem',
-        paragraph: '1.6rem',
+        paragraph: '2rem',
         caption: '1.35rem',
     },
     spacing: {
@@ -15,7 +15,7 @@ export const theme = {
     },
     fontFamily: {
         greatVibes: '"Great Vibes", cursiv',
-        noto: '"Noto Serif", serif',
+        noto: '"EB Garamond", serif',
     },
     mq: {
         tablet: '@media (min-width: 768px)',

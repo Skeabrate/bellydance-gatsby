@@ -7,7 +7,7 @@ export const firstSectionData = [
     {
         id: 1,
         title: 'Dyplomowany instruktor',
-        desc: 'Jestem dyplomowaną Instruktorką Tańca Sportowego o specjalności belly danceoraz dyplomowanym Instruktorem Sportu.',
+        desc: 'Jestem dyplomowaną Instruktorką Tańca Sportowego o specjalności belly dance oraz dyplomowanym Instruktorem Sportu.',
     },
     {
         id: 2,

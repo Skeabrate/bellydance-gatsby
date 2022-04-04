@@ -6,16 +6,6 @@ export const StyledSection = styled.section`
     row-gap: 3rem;
     align-items: flex-start;
 
-    h2 {
-        font-size: ${({ theme }) => theme.fontSize.paragraph};
-        margin-bottom: 0.6rem;
-
-        ${({ theme }) => theme.mq.desktop} {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-    }
-
     p:last-child {
         display: flex;
         align-items: center;
