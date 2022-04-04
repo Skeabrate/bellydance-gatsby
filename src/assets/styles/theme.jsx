@@ -7,7 +7,7 @@ export const theme = {
     fontSize: {
         heading: '3.6rem',
         headingMobile: '3rem',
-        paragraph: '2rem',
+        paragraph: '1.8rem',
         caption: '1.35rem',
     },
     spacing: {

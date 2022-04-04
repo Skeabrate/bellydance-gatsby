@@ -56,7 +56,7 @@ module.exports = {
         {
             resolve: `gatsby-plugin-google-fonts`,
             options: {
-                fonts: ['Great Vibes', 'EB Garamond:500,800'],
+                fonts: ['Great Vibes', 'EB Garamond:500,700'],
                 display: 'swap',
             },
         },
