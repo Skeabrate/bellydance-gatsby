@@ -10,13 +10,12 @@ import {
 } from './Post.styles';
 
 const Post = ({ title, description, meta, assets, video }) => {
-    console.log(video);
     return (
         <Wrapper>
             <StyledImgContainer>
-                {assets?.map((item) => (
+                {assets?.map((item, index) => (
                     <GatsbyImage
-                        key={item.gatsbyImageData.placeholder.fallback}
+                        key={index}
                         image={item.gatsbyImageData}
                         alt={title}
                     />
