@@ -20,6 +20,10 @@ const Wrapper = styled.button`
     svg {
         width: 18px;
         height: 18px;
+
+        path {
+            fill: ${({ theme }) => theme.colors.sand};
+        }
     }
 
     &::after {
@@ -29,7 +33,7 @@ const Wrapper = styled.button`
         bottom: -10px;
         width: 70%;
         height: 2px;
-        background-color: ${({ theme }) => theme.colors.black};
+        background-color: ${({ theme }) => theme.colors.sand};
         border-radius: 100px;
         transition: all 0.3s ease-in-out;
     }

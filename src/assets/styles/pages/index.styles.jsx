@@ -69,7 +69,11 @@ export const StyledFirstSection = styled.div`
 export const StyledFirstSectionImg = styled.div`
     display: grid;
     column-gap: ${({ theme }) => theme.spacing.columnGap};
-    row-gap: 2rem;
+    row-gap: 1rem;
+
+    @media (min-width: 500px) {
+        row-gap: 3rem;
+    }
 
     ${({ theme }) => theme.mq.tablet} {
         grid-template-columns: 1fr 1fr;
@@ -79,10 +83,11 @@ export const StyledFirstSectionImg = styled.div`
 export const StyledSecondSectionImg = styled.div`
     display: grid;
     column-gap: 1rem;
-    row-gap: 2rem;
+    row-gap: 1rem;
 
     @media (min-width: 500px) {
         grid-template-columns: 1fr 1fr;
+        row-gap: 3rem;
     }
 `;
 
