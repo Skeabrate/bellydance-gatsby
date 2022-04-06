@@ -7,6 +7,7 @@ import {
     StyledPyramidDate,
     StyledPostContent,
     StyledImgContainer,
+    StyledLegend,
 } from './Post.styles';
 
 const Post = ({
@@ -37,9 +38,15 @@ const Post = ({
                         image={assets[0].gatsbyImageData}
                         alt="Agnieszka Świeczkowska Leyla bellydance"
                     />
-                    {/* {assets.map((item, index) => (
-						<div></div>
-					))} */}
+
+                    <StyledLegend>
+                        {assets.map(({ gatsbyImageData }, index) => (
+                            <img
+                                src={gatsbyImageData.images.fallback.src}
+                                alt="Agnieszka Świeczkowska Leyla bellydance"
+                            />
+                        ))}
+                    </StyledLegend>
                 </StyledImgContainer>
             )}
 
@@ -58,7 +65,7 @@ const Post = ({
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        Filmik
+                        Sprawdź filmik
                     </a>
                 )}
             </StyledPostContent>

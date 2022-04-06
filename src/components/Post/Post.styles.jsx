@@ -53,6 +53,25 @@ export const StyledImgContainer = styled.div`
     }
 `;
 
+export const StyledLegend = styled.div`
+    position: absolute !important;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    column-gap: 6px;
+    max-width: 300px;
+    overflow-x: hidden;
+
+    img {
+        width: 30px;
+        height: 30px;
+        object-fit: cover;
+        border: 2px solid ${({ theme }) => theme.colors.sand};
+        border-radius: 100px;
+    }
+`;
+
 export const StyledPostContent = styled.div`
     padding: 2rem;
     margin-bottom: 7rem;
