@@ -39,7 +39,7 @@ export const Wrapper = styled.div`
     }
 
     img {
-        transition: transform 0.3s ease-in-out !important;
+        transition: all 0.3s ease-in-out !important;
     }
 
     ${({ theme }) => theme.mq.tablet} {

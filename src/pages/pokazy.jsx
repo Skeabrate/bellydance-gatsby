@@ -11,7 +11,7 @@ import SkipButton from 'components/SkipButton/SkipButton';
 import Frame from 'components/Frame/Frame';
 import PyramidPointer from 'components/PyramidPointer/PyramidPointer';
 import DanceVid from 'assets/images/Pokazy/Videos/agunia.mp4';
-import Gallery from '../components/Gallery/Gallery';
+import Gallery from 'components/Gallery/Gallery';
 
 const Pokazy = ({ data }) => {
     return (

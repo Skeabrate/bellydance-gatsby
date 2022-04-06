@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { graphql } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import { useIndexQuery } from 'hooks/useIndexQuery';
 
@@ -7,6 +8,7 @@ import PyramidScroll from 'components/PyramidScroll/PyramidScroll';
 import Heading from 'components/Heading/Heading';
 import Frame from 'components/Frame/Frame';
 import SandSection from 'components/SandSection/SandSection';
+import Gallery from 'components/Gallery/Gallery';
 
 import {
     firstSectionData,
@@ -24,7 +26,7 @@ import {
     StyledThridArticle,
 } from 'assets/styles/pages/index.styles';
 
-const Index = () => {
+const Index = ({ data }) => {
     const { pluginImage } = useIndexQuery();
 
     return (
@@ -117,6 +119,8 @@ const Index = () => {
 
                         <p>{thirdSectionData[0].desc}</p>
                     </StyledThridArticle>
+
+                    <Gallery data={data} />
                 </section>
             </ContentWrapper>
         </main>
@@ -124,3 +128,20 @@ const Index = () => {
 };
 
 export default Index;
+
+export const query = graphql`
+    query InxedQuery {
+        allFile(filter: { relativeDirectory: { eq: "Homepage/p3" } }) {
+            edges {
+                node {
+                    childImageSharp {
+                        gatsbyImageData(placeholder: BLURRED)
+                        original {
+                            src
+                        }
+                    }
+                }
+            }
+        }
+    }
+`;
