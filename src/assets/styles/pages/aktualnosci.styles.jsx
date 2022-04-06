@@ -11,7 +11,7 @@ export const StyledPostsContainer = styled.section`
         row-gap: 8rem;
     }
 
-    ${({ theme }) => theme.mq.bigDesktop} {
+    ${({ theme }) => theme.mq.desktop} {
         grid-template-columns: 1fr 1fr;
     }
 `;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
@@ -9,16 +9,42 @@ import {
     StyledImgContainer,
 } from './Post.styles';
 
-const Post = ({ title, description, meta, assets, video }) => {
+const Post = ({
+    title,
+    description,
+    meta,
+    assets,
+    video,
+    setImgData,
+    setIsOpen,
+    setPhotoIndex,
+}) => {
+    const lightBoxHandler = (index) => {
+        setIsOpen(true);
+        setPhotoIndex(index);
+        setImgData(
+            assets.map(
+                ({ gatsbyImageData }) => gatsbyImageData.images.fallback.src
+            )
+        );
+    };
+    console.log(video);
+
     return (
         <Wrapper>
             <StyledImgContainer>
                 {assets?.map((item, index) => (
-                    <GatsbyImage
+                    <button
                         key={index}
-                        image={item.gatsbyImageData}
-                        alt={title}
-                    />
+                        type="button"
+                        onClick={() => lightBoxHandler(index)}
+                    >
+                        <GatsbyImage
+                            key={index}
+                            image={item.gatsbyImageData}
+                            alt="Agnieszka Świeczkowska Leyla bellydance"
+                        />
+                    </button>
                 ))}
             </StyledImgContainer>
 
@@ -45,6 +71,9 @@ Post.propTypes = {
     meta: PropTypes.object.isRequired,
     assets: PropTypes.array,
     video: PropTypes.object,
+    setImgData: PropTypes.func.isRequired,
+    setIsOpen: PropTypes.func.isRequired,
+    setPhotoIndex: PropTypes.func.isRequired,
 };
 
 export default Post;

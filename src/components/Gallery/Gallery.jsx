@@ -44,7 +44,7 @@ const Gallery = ({ data }) => {
                         <GatsbyImage
                             key={index}
                             image={node.childImageSharp.gatsbyImageData}
-                            alt="image"
+                            alt="Agnieszka Świeczkowska Leyla bellydance"
                         />
                     </button>
                 ))}

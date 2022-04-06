@@ -6,32 +6,34 @@ export const Wrapper = styled.article`
 `;
 
 export const StyledImgContainer = styled.div`
+    height: 40px;
     overflow: hidden;
     cursor: pointer;
+    height: 40vh;
 
-    ${({ theme }) => theme.mq.bigDesktop} {
-        height: 350px;
+    img {
+        height: 40vh;
     }
 
     div {
-        ${({ theme }) => theme.mq.bigDesktop} {
-            position: static;
-        }
+        position: static;
     }
 
-    img {
-        ${({ theme }) => theme.mq.bigDesktop} {
+    ${({ theme }) => theme.mq.bigDesktop} {
+        height: 350px;
+
+        img {
             height: 350px;
         }
     }
 `;
 
 export const StyledPostContent = styled.div`
-    padding: 20px;
-    margin-bottom: 70px;
+    padding: 2rem;
+    margin-bottom: 7rem;
 
     ${({ theme }) => theme.mq.tablet} {
-        padding: 40px;
+        padding: 4rem;
     }
 `;
 
