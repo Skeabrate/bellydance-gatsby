@@ -1,87 +1,81 @@
-import React, { Component } from 'react';
+import React, { useState, useCallback } from 'react';
+import PropTypes from 'prop-types';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
 
 import { Wrapper } from './Gallery.styles';
 
-export default class Gallery extends Component {
-    constructor(props) {
-        super(props);
+const Gallery = ({ data }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    const [photoIndex, setPhotoIndex] = useState(0);
 
-        this.state = {
-            photoIndex: 0,
-            isOpen: false,
-        };
+    const imgData = data.allFile.edges.map(
+        ({ node }) => node.childImageSharp.original.src
+    );
 
-        this.props = props;
-    }
+    useCallback(
+        () =>
+            data.allFile.edges.sort((a, b) => {
+                const first = a.node.childImageSharp.original.src.split('-')[0];
+                const second =
+                    b.node.childImageSharp.original.src.split('-')[0];
 
-    render() {
-        const { photoIndex, isOpen } = this.state;
-        const { data } = this.props;
-        const imgData = data.allFile.edges.map(
-            ({ node }) => node.childImageSharp.original.src
-        );
+                return (
+                    first.split('/static/img')[1] -
+                    second.split('/static/img')[1]
+                );
+            }),
+        [data.allFile.edges]
+    )();
 
-        data.allFile.edges.sort((a, b) => {
-            const first = a.node.childImageSharp.original.src.split('-')[0];
-            const second = b.node.childImageSharp.original.src.split('-')[0];
-
-            return (
-                first.split('/static/img')[1] - second.split('/static/img')[1]
-            );
-        });
-
-        return (
-            <div>
-                <Wrapper>
-                    {data.allFile.edges.map(({ node }, index) => (
-                        <button
+    return (
+        <div>
+            <Wrapper>
+                {data.allFile.edges.map(({ node }, index) => (
+                    <button
+                        key={index}
+                        type="button"
+                        onClick={() => {
+                            setIsOpen(true);
+                            setPhotoIndex(index);
+                        }}
+                    >
+                        <GatsbyImage
                             key={index}
-                            type="button"
-                            onClick={() =>
-                                this.setState({
-                                    isOpen: true,
-                                    photoIndex: index,
-                                })
-                            }
-                        >
-                            <GatsbyImage
-                                key={index}
-                                image={node.childImageSharp.gatsbyImageData}
-                                alt="image"
-                            />
-                        </button>
-                    ))}
-                </Wrapper>
+                            image={node.childImageSharp.gatsbyImageData}
+                            alt="image"
+                        />
+                    </button>
+                ))}
+            </Wrapper>
 
-                {isOpen && (
-                    <Lightbox
-                        mainSrc={imgData[photoIndex]}
-                        nextSrc={imgData[(photoIndex + 1) % imgData.length]}
-                        prevSrc={
-                            imgData[
-                                (photoIndex + imgData.length - 1) %
-                                    imgData.length
-                            ]
-                        }
-                        onCloseRequest={() => this.setState({ isOpen: false })}
-                        onMovePrevRequest={() =>
-                            this.setState({
-                                photoIndex:
-                                    (photoIndex + imgData.length - 1) %
-                                    imgData.length,
-                            })
-                        }
-                        onMoveNextRequest={() =>
-                            this.setState({
-                                photoIndex: (photoIndex + 1) % imgData.length,
-                            })
-                        }
-                    />
-                )}
-            </div>
-        );
-    }
-}
+            {isOpen && (
+                <Lightbox
+                    mainSrc={imgData[photoIndex]}
+                    nextSrc={imgData[(photoIndex + 1) % imgData.length]}
+                    prevSrc={
+                        imgData[
+                            (photoIndex + imgData.length - 1) % imgData.length
+                        ]
+                    }
+                    onCloseRequest={() => setIsOpen(false)}
+                    onMovePrevRequest={() =>
+                        setPhotoIndex(
+                            (photoIndex + imgData.length - 1) % imgData.length
+                        )
+                    }
+                    onMoveNextRequest={() =>
+                        setPhotoIndex((photoIndex + 1) % imgData.length)
+                    }
+                />
+            )}
+        </div>
+    );
+};
+
+Gallery.propTypes = {
+    data: PropTypes.object.isRequired,
+};
+
+export default Gallery;
