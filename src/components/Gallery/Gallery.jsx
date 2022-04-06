@@ -35,7 +35,6 @@ const Gallery = ({ data }) => {
                 {data.allFile.edges.map(({ node }, index) => (
                     <button
                         key={index}
-                        type="button"
                         onClick={() => {
                             setIsOpen(true);
                             setPhotoIndex(index);

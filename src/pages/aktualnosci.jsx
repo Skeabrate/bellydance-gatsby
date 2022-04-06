@@ -62,34 +62,32 @@ const Aktualnosci = ({ data }) => {
                         )
                     )}
                 </StyledPostsContainer>
-
-                {isOpen && (
-                    <Lightbox
-                        mainSrc={imgData[photoIndex]}
-                        nextSrc={
-                            imgData.length > 1 &&
-                            imgData[(photoIndex + 1) % imgData.length]
-                        }
-                        prevSrc={
-                            imgData.length > 1 &&
-                            imgData[
-                                (photoIndex + imgData.length - 1) %
-                                    imgData.length
-                            ]
-                        }
-                        onCloseRequest={() => setIsOpen(false)}
-                        onMovePrevRequest={() =>
-                            setPhotoIndex(
-                                (photoIndex + imgData.length - 1) %
-                                    imgData.length
-                            )
-                        }
-                        onMoveNextRequest={() =>
-                            setPhotoIndex((photoIndex + 1) % imgData.length)
-                        }
-                    />
-                )}
             </ContentWrapper>
+
+            {isOpen && (
+                <Lightbox
+                    mainSrc={imgData[photoIndex]}
+                    nextSrc={
+                        imgData.length > 1 &&
+                        imgData[(photoIndex + 1) % imgData.length]
+                    }
+                    prevSrc={
+                        imgData.length > 1 &&
+                        imgData[
+                            (photoIndex + imgData.length - 1) % imgData.length
+                        ]
+                    }
+                    onCloseRequest={() => setIsOpen(false)}
+                    onMovePrevRequest={() =>
+                        setPhotoIndex(
+                            (photoIndex + imgData.length - 1) % imgData.length
+                        )
+                    }
+                    onMoveNextRequest={() =>
+                        setPhotoIndex((photoIndex + 1) % imgData.length)
+                    }
+                />
+            )}
         </MainWrapper>
     );
 };
@@ -102,10 +100,7 @@ export const query = graphql`
             edges {
                 node {
                     assets {
-                        gatsbyImageData(
-                            layout: FULL_WIDTH
-                            placeholder: BLURRED
-                        )
+                        gatsbyImageData(placeholder: BLURRED)
                     }
                     description {
                         value

@@ -6,20 +6,45 @@ export const Wrapper = styled.article`
 `;
 
 export const StyledImgContainer = styled.div`
-    height: 40px;
     overflow: hidden;
     cursor: pointer;
-    height: 40vh;
+    border: none;
+    background: transparent;
+    position: relative;
 
-    img {
-        height: 40vh;
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
     }
 
-    div {
-        position: static;
+    &:hover {
+        ::after {
+            opacity: 0.1;
+        }
     }
 
-    ${({ theme }) => theme.mq.bigDesktop} {
+    @media (min-width: 450px) {
+        height: 450px;
+
+        img {
+            height: 450px;
+        }
+
+        div {
+            position: static;
+        }
+    }
+
+    ${({ theme }) => theme.mq.desktop} {
         height: 350px;
 
         img {

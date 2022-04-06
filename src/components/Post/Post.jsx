@@ -19,9 +19,9 @@ const Post = ({
     setIsOpen,
     setPhotoIndex,
 }) => {
-    const lightBoxHandler = (index) => {
+    const lightBoxHandler = () => {
         setIsOpen(true);
-        setPhotoIndex(index);
+        setPhotoIndex(0);
         setImgData(
             assets.map(
                 ({ gatsbyImageData }) => gatsbyImageData.images.fallback.src
@@ -31,21 +31,17 @@ const Post = ({
 
     return (
         <Wrapper>
-            <StyledImgContainer>
-                {assets?.map((item, index) => (
-                    <button
-                        key={index}
-                        type="button"
-                        onClick={() => lightBoxHandler(index)}
-                    >
-                        <GatsbyImage
-                            key={index}
-                            image={item.gatsbyImageData}
-                            alt="Agnieszka Świeczkowska Leyla bellydance"
-                        />
-                    </button>
-                ))}
-            </StyledImgContainer>
+            {assets && (
+                <StyledImgContainer onClick={lightBoxHandler}>
+                    <GatsbyImage
+                        image={assets[0].gatsbyImageData}
+                        alt="Agnieszka Świeczkowska Leyla bellydance"
+                    />
+                    {/* {assets.map((item, index) => (
+						<div></div>
+					))} */}
+                </StyledImgContainer>
+            )}
 
             <StyledPostContent>
                 <h2>{title}</h2>
@@ -62,7 +58,7 @@ const Post = ({
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        {video.url}
+                        Filmik
                     </a>
                 )}
             </StyledPostContent>

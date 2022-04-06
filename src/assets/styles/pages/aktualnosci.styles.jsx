@@ -4,11 +4,11 @@ export const StyledPostsContainer = styled.section`
     display: grid;
     grid-template-columns: 1fr;
     column-gap: ${({ theme }) => theme.spacing.columnGap};
-    row-gap: 4rem;
+    row-gap: 6rem;
     margin-top: 6rem;
 
     ${({ theme }) => theme.mq.tablet} {
-        row-gap: 8rem;
+        row-gap: 10rem;
     }
 
     ${({ theme }) => theme.mq.desktop} {
