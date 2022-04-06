@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
-    z-index: 9999;
+    z-index: 100;
 
     transform: ${({ $toggle, $hideNav }) => {
         if (!$toggle && $hideNav) return 'translateY(-100%)';

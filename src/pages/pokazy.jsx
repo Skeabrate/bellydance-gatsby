@@ -1,4 +1,5 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 
 import MainWrapper from 'templates/MainWrapper';
@@ -10,8 +11,9 @@ import SkipButton from 'components/SkipButton/SkipButton';
 import Frame from 'components/Frame/Frame';
 import PyramidPointer from 'components/PyramidPointer/PyramidPointer';
 import DanceVid from 'assets/images/Pokazy/Videos/agunia.mp4';
+import Gallery from '../components/Gallery/Gallery';
 
-const Pokazy = () => {
+const Pokazy = ({ data }) => {
     return (
         <MainWrapper>
             <ContentWrapper>
@@ -136,6 +138,8 @@ const Pokazy = () => {
 
                 <div id="galeria">
                     <Heading label="Galeria" />
+
+                    <Gallery data={data} />
                 </div>
             </ContentWrapper>
         </MainWrapper>
@@ -143,3 +147,20 @@ const Pokazy = () => {
 };
 
 export default Pokazy;
+
+export const query = graphql`
+    query PokazyQuery {
+        allFile(filter: { relativeDirectory: { eq: "Pokazy" } }) {
+            edges {
+                node {
+                    childImageSharp {
+                        gatsbyImageData(placeholder: BLURRED)
+                        original {
+                            src
+                        }
+                    }
+                }
+            }
+        }
+    }
+`;
