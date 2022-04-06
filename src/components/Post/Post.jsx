@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
@@ -28,7 +28,6 @@ const Post = ({
             )
         );
     };
-    console.log(video);
 
     return (
         <Wrapper>
@@ -55,6 +54,16 @@ const Post = ({
                     ({ children }, index) => (
                         <p key={index}>{children[0].value}</p>
                     )
+                )}
+
+                {video && (
+                    <a
+                        href={video.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        {video.url}
+                    </a>
                 )}
             </StyledPostContent>
 

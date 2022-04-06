@@ -66,8 +66,12 @@ const Aktualnosci = ({ data }) => {
                 {isOpen && (
                     <Lightbox
                         mainSrc={imgData[photoIndex]}
-                        nextSrc={imgData[(photoIndex + 1) % imgData.length]}
+                        nextSrc={
+                            imgData.length > 1 &&
+                            imgData[(photoIndex + 1) % imgData.length]
+                        }
                         prevSrc={
+                            imgData.length > 1 &&
                             imgData[
                                 (photoIndex + imgData.length - 1) %
                                     imgData.length
