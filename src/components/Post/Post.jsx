@@ -42,6 +42,7 @@ const Post = ({
                     <StyledLegend>
                         {assets.map(({ gatsbyImageData }, index) => (
                             <img
+                                key={index}
                                 src={gatsbyImageData.images.fallback.src}
                                 alt="Agnieszka Świeczkowska Leyla bellydance"
                             />
@@ -60,13 +61,15 @@ const Post = ({
                 )}
 
                 {video && (
-                    <a
-                        href={video.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Sprawdź filmik
-                    </a>
+                    <div style={{ paddingTop: '6px' }}>
+                        <a
+                            href={video.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Sprawdź filmik
+                        </a>
+                    </div>
                 )}
             </StyledPostContent>
 
