@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'gatsby';
 
 export const Wrapper = styled.footer`
-    margin: 20rem 2rem 5rem;
+    margin: 15rem 2rem 5rem;
     display: flex;
     text-align: center;
     flex-direction: column;
@@ -12,6 +12,10 @@ export const Wrapper = styled.footer`
 
     p {
         font-size: ${({ theme }) => theme.fontSize.caption};
+    }
+
+    ${({ theme }) => theme.mq.tablet} {
+        margin: 25rem 2rem 5rem;
     }
 `;
 
