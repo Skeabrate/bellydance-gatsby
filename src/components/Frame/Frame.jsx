@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
     position: relative;
+    display: ${({ $isFlex }) => $isFlex && 'flex'};
 `;
 
 const StyledFrame = styled.div`
@@ -39,9 +40,9 @@ const StyledFrame = styled.div`
     }
 `;
 
-const Frame = ({ children, upRight, downRight, hideMobile }) => {
+const Frame = ({ children, upRight, downRight, hideMobile, isFlex }) => {
     return (
-        <Wrapper $upRight={upRight} $downRight={downRight}>
+        <Wrapper $upRight={upRight} $downRight={downRight} $isFlex={isFlex}>
             <StyledFrame
                 $upRight={upRight}
                 $downRight={downRight}

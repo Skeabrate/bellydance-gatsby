@@ -96,7 +96,7 @@ const Pokazy = ({ data }) => {
                             </ul>
                         </article>
 
-                        <Frame>
+                        <Frame isFlex>
                             <video controls width="100%" height="100%">
                                 <source src={DanceVid} type="video/mp4" />
                             </video>
