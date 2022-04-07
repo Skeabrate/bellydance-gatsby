@@ -4,16 +4,26 @@ export const Wrapper = styled.div`
     columns: 1;
     column-gap: 6px;
 
-    button {
-        border: none;
-        background: transparent;
-        position: relative;
-        margin-bottom: 6px;
-        display: flex;
-        overflow: hidden;
-        cursor: pointer;
+    ${({ theme }) => theme.mq.tablet} {
+        columns: 2;
+    }
 
-        &::after {
+    ${({ theme }) => theme.mq.desktop} {
+        columns: 3;
+    }
+
+    ${({ theme }) => theme.mq.bigDesktop} {
+        columns: 4;
+    }
+`;
+
+export const StyledItem = styled.div`
+    position: relative;
+    margin-bottom: 6px;
+    overflow: hidden;
+    cursor: pointer;
+
+	&::after {
             content: '';
             position: absolute;
             top: 0;
@@ -40,17 +50,5 @@ export const Wrapper = styled.div`
 
     img {
         transition: all 0.3s ease-in-out !important;
-    }
-
-    ${({ theme }) => theme.mq.tablet} {
-        columns: 2;
-    }
-
-    ${({ theme }) => theme.mq.desktop} {
-        columns: 3;
-    }
-
-    ${({ theme }) => theme.mq.bigDesktop} {
-        columns: 4;
     }
 `;

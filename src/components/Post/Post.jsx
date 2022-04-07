@@ -1,54 +1,48 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { GatsbyImage } from 'gatsby-plugin-image';
+import { LightgalleryProvider, LightgalleryItem } from 'react-lightgallery';
+import 'lightgallery.js/dist/css/lightgallery.css';
 
 import {
     Wrapper,
     StyledPyramidDate,
     StyledPostContent,
     StyledImgContainer,
+    StyledImg,
     StyledLegend,
 } from './Post.styles';
 
-const Post = ({
-    title,
-    description,
-    meta,
-    assets,
-    video,
-    setImgData,
-    setIsOpen,
-    setPhotoIndex,
-}) => {
-    const lightBoxHandler = () => {
-        setIsOpen(true);
-        setPhotoIndex(0);
-        setImgData(
-            assets.map(
-                ({ gatsbyImageData }) => gatsbyImageData.images.fallback.src
-            )
-        );
-    };
-
+const Post = ({ title, description, meta, assets, video }) => {
     return (
         <Wrapper>
             {assets && (
-                <StyledImgContainer onClick={lightBoxHandler}>
-                    <GatsbyImage
-                        image={assets[0].gatsbyImageData}
-                        alt="Agnieszka Świeczkowska Leyla bellydance"
-                    />
-
-                    <StyledLegend>
+                <LightgalleryProvider>
+                    <StyledImgContainer>
                         {assets.map(({ gatsbyImageData }, index) => (
-                            <img
+                            <LightgalleryItem
+                                group="posts"
                                 key={index}
                                 src={gatsbyImageData.images.fallback.src}
-                                alt="Agnieszka Świeczkowska Leyla bellydance"
-                            />
+                            >
+                                {!index && (
+                                    <StyledImg>
+                                        <GatsbyImage
+                                            image={gatsbyImageData}
+                                            alt="Agnieszka Świeczkowska Leyla bellydance"
+                                        />
+                                    </StyledImg>
+                                )}
+                            </LightgalleryItem>
                         ))}
-                    </StyledLegend>
-                </StyledImgContainer>
+
+                        <StyledLegend>
+                            {assets.map((item, index) => (
+                                <div key={index}></div>
+                            ))}
+                        </StyledLegend>
+                    </StyledImgContainer>
+                </LightgalleryProvider>
             )}
 
             <StyledPostContent>
@@ -86,9 +80,6 @@ Post.propTypes = {
     meta: PropTypes.object.isRequired,
     assets: PropTypes.array,
     video: PropTypes.object,
-    setImgData: PropTypes.func.isRequired,
-    setIsOpen: PropTypes.func.isRequired,
-    setPhotoIndex: PropTypes.func.isRequired,
 };
 
 export default Post;
