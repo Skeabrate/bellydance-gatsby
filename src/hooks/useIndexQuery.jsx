@@ -6,7 +6,7 @@ export const useIndexQuery = () => {
         graphql`
             query {
                 placeholderImage: file(
-                    relativePath: { eq: "Homepage/homepageBaner.jpg" }
+                    relativePath: { eq: "Homepage/homepageBaner.jpeg" }
                 ) {
                     childImageSharp {
                         gatsbyImageData(placeholder: BLURRED, formats: WEBP)

@@ -5,7 +5,7 @@ export const useKontaktQuery = () => {
         graphql`
             query {
                 placeholderImage: file(
-                    relativePath: { eq: "Kontakt/banerKontakt.jpg" }
+                    relativePath: { eq: "Kontakt/banerKontakt.jpeg" }
                 ) {
                     childImageSharp {
                         gatsbyImageData(placeholder: BLURRED, formats: WEBP)
