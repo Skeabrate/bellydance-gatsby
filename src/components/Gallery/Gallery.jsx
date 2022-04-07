@@ -49,7 +49,7 @@ const Gallery = ({ data }) => {
                 ))}
             </Wrapper>
 
-            {isOpen && (
+            {/*  {isOpen && (
                 <Lightbox
                     mainSrc={imgData[photoIndex]}
                     nextSrc={imgData[(photoIndex + 1) % imgData.length]}
@@ -68,7 +68,7 @@ const Gallery = ({ data }) => {
                         setPhotoIndex((photoIndex + 1) % imgData.length)
                     }
                 />
-            )}
+            )} */}
         </div>
     );
 };
