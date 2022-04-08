@@ -120,7 +120,9 @@ const Index = ({ data }) => {
                         <p>{thirdSectionData[0].desc}</p>
                     </StyledThridArticle>
 
-                    {/*  <Gallery data={data} /> */}
+                    <Gallery
+                        data={data?.allDatoCmsWspieram?.edges[0].node.gallery}
+                    />
                 </section>
             </ContentWrapper>
         </main>
@@ -129,19 +131,19 @@ const Index = ({ data }) => {
 
 export default Index;
 
-/* export const query = graphql`
-    query InxedQuery {
-        allFile(filter: { relativeDirectory: { eq: "Homepage/p3" } }) {
+export const query = graphql`
+    query WspieramQuery {
+        allDatoCmsWspieram {
             edges {
                 node {
-                    childImageSharp {
-                        gatsbyImageData(placeholder: BLURRED)
-                        original {
-                            src
-                        }
+                    gallery {
+                        gatsbyImageData(
+                            placeholder: BLURRED
+                            layout: FULL_WIDTH
+                        )
                     }
                 }
             }
         }
     }
-`; */
+`;

@@ -139,7 +139,9 @@ const Pokazy = ({ data }) => {
                 <div id="galeria">
                     <Heading label="Galeria" />
 
-                    {/*  <Gallery data={data} /> */}
+                    <Gallery
+                        data={data?.allDatoCmsPokazy?.edges[0].node.gallery}
+                    />
                 </div>
             </ContentWrapper>
         </MainWrapper>
@@ -148,19 +150,19 @@ const Pokazy = ({ data }) => {
 
 export default Pokazy;
 
-/* export const query = graphql`
+export const query = graphql`
     query PokazyQuery {
-        allFile(filter: { relativeDirectory: { eq: "Pokazy" } }) {
+        allDatoCmsPokazy {
             edges {
                 node {
-                    childImageSharp {
-                        gatsbyImageData(placeholder: BLURRED)
-                        original {
-                            src
-                        }
+                    gallery {
+                        gatsbyImageData(
+                            placeholder: BLURRED
+                            layout: FULL_WIDTH
+                        )
                     }
                 }
             }
         }
     }
-`; */
+`;

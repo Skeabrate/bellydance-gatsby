@@ -11,15 +11,15 @@ export default function Gallery({ data }) {
         <div>
             <LightgalleryProvider>
                 <Wrapper>
-                    {data.allFile.edges.map(({ node }, index) => (
+                    {data.map(({ gatsbyImageData }, index) => (
                         <LightgalleryItem
                             group="gallery"
                             key={index}
-                            src={node.childImageSharp.original.src}
+                            src={gatsbyImageData.images.fallback.src}
                         >
                             <StyledItem>
                                 <GatsbyImage
-                                    image={node.childImageSharp.gatsbyImageData}
+                                    image={gatsbyImageData}
                                     alt="Agnieszka Świeczkowska Leyla bellydance"
                                 />
                             </StyledItem>
@@ -32,5 +32,5 @@ export default function Gallery({ data }) {
 }
 
 Gallery.propTypes = {
-    data: PropTypes.object.isRequired,
+    data: PropTypes.array.isRequired,
 };
