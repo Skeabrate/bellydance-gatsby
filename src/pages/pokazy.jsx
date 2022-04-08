@@ -11,6 +11,7 @@ import SkipButton from 'components/SkipButton/SkipButton';
 import Frame from 'components/Frame/Frame';
 import PyramidPointer from 'components/PyramidPointer/PyramidPointer';
 import Gallery from 'components/Gallery/Gallery';
+import DanceVid from 'assets/images/Pokazy/Videos/agunia.mp4';
 
 const Pokazy = ({ data }) => {
     return (
@@ -95,11 +96,11 @@ const Pokazy = ({ data }) => {
                             </ul>
                         </article>
 
-                        {/* <Frame isFlex>
+                        <Frame isFlex>
                             <video controls width="100%" height="100%">
                                 <source src={DanceVid} type="video/mp4" />
                             </video>
-                        </Frame> */}
+                        </Frame>
                     </GridSection>
 
                     <GridSection>
