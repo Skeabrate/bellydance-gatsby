@@ -7,7 +7,7 @@ import MainWrapper from 'templates/MainWrapper';
 import ContentWrapper from 'templates/ContentWrapper';
 import HeroImageContainer from 'components/HeroImageContainer/HeroImageContainer';
 import Heading from 'components/Heading/Heading';
-import Phone from 'assets/images/svg/telefon.svg';
+import Phone from 'assets/images/SVG/telefon.svg';
 import Frame from 'components/Frame/Frame';
 
 import { StyledSection, StyledForm } from 'assets/styles/pages/kontakt.styles';
