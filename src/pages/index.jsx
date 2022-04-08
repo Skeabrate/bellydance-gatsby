@@ -120,7 +120,7 @@ const Index = ({ data }) => {
                         <p>{thirdSectionData[0].desc}</p>
                     </StyledThridArticle>
 
-                    <Gallery data={data} />
+                    {/*  <Gallery data={data} /> */}
                 </section>
             </ContentWrapper>
         </main>
@@ -129,7 +129,7 @@ const Index = ({ data }) => {
 
 export default Index;
 
-export const query = graphql`
+/* export const query = graphql`
     query InxedQuery {
         allFile(filter: { relativeDirectory: { eq: "Homepage/p3" } }) {
             edges {
@@ -144,4 +144,4 @@ export const query = graphql`
             }
         }
     }
-`;
+`; */
