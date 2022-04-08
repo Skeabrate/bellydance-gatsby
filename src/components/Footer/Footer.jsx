@@ -21,7 +21,7 @@ const Footer = () => {
                         title="youtube"
                         target="_blank"
                         rel="noopener noreferrer"
-                        href="https://www.instagram.com/bellydance_leyla/"
+                        href="https://www.youtube.com/channel/UCcej2QdrmTszAKN5IwrtEKw"
                     >
                         <Youtube />
                     </a>
