@@ -39,7 +39,7 @@ export const Wrapper = styled.div`
         border-top: none;
         text-align: center;
         box-shadow: 0px 10px 40px -30px rgba(0, 0, 0, 1);
-        z-index: 1;
+        z-index: 10;
         background-color: ${({ theme }) => theme.colors.white};
 
         li {

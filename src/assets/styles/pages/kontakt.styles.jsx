@@ -43,6 +43,7 @@ export const StyledForm = styled.form`
         padding: 1.4rem;
         border: 1px solid ${({ theme }) => theme.colors.black};
         margin-bottom: 2rem;
+        border-radius: 0px;
 
         &:focus {
             outline: none;
@@ -56,6 +57,7 @@ export const StyledForm = styled.form`
         background: transparent;
         cursor: pointer;
         transition: all 0.15s ease-in-out;
+        color: ${({ theme }) => theme.colors.black};
 
         &:hover {
             border: 1px solid ${({ theme }) => theme.colors.sand};
