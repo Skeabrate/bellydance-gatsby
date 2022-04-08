@@ -11,6 +11,7 @@ export const Wrapper = styled.div`
 
     button {
         background: ${({ theme }) => theme.colors.white};
+        color: ${({ theme }) => theme.colors.black};
         font-weight: bold;
         width: 190px;
         height: 44px;

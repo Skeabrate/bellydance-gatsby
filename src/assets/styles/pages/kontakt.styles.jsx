@@ -58,6 +58,7 @@ export const StyledForm = styled.form`
         cursor: pointer;
         transition: all 0.15s ease-in-out;
         color: ${({ theme }) => theme.colors.black};
+        font-weight: 400;
 
         &:hover {
             border: 1px solid ${({ theme }) => theme.colors.sand};
