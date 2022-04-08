@@ -52,8 +52,10 @@ const Wrapper = styled.button`
 `;
 
 const SkipButton = ({ label, scrollId = '#id' }) => {
+    const scrollHandler = () => scrollTo(scrollId);
+
     return (
-        <Wrapper onClick={() => scrollTo(scrollId)}>
+        <Wrapper onClick={scrollHandler}>
             <Pyramid />
             {label}
         </Wrapper>

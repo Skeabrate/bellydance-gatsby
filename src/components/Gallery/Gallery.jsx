@@ -8,26 +8,24 @@ import { Wrapper, StyledItem } from './Gallery.styles';
 
 export default function Gallery({ data }) {
     return (
-        <div>
-            <LightgalleryProvider>
-                <Wrapper>
-                    {data.map(({ gatsbyImageData }, index) => (
-                        <LightgalleryItem
-                            group="gallery"
-                            key={index}
-                            src={gatsbyImageData.images.fallback.src}
-                        >
-                            <StyledItem>
-                                <GatsbyImage
-                                    image={gatsbyImageData}
-                                    alt="Agnieszka Świeczkowska Leyla bellydance"
-                                />
-                            </StyledItem>
-                        </LightgalleryItem>
-                    ))}
-                </Wrapper>
-            </LightgalleryProvider>
-        </div>
+        <LightgalleryProvider>
+            <Wrapper>
+                {data.map(({ gatsbyImageData }, index) => (
+                    <LightgalleryItem
+                        group="gallery"
+                        key={index}
+                        src={gatsbyImageData.images.fallback.src}
+                    >
+                        <StyledItem>
+                            <GatsbyImage
+                                image={gatsbyImageData}
+                                alt="Agnieszka Świeczkowska Leyla bellydance"
+                            />
+                        </StyledItem>
+                    </LightgalleryItem>
+                ))}
+            </Wrapper>
+        </LightgalleryProvider>
     );
 }
 
