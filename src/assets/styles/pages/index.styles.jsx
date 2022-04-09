@@ -10,7 +10,11 @@ export const StyledBgImage = styled(BgImage)`
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    row-gap: 8rem;
+    row-gap: 6rem;
+
+    ${({ theme }) => theme.mq.bigDesktop} {
+        row-gap: 8rem;
+    }
 `;
 
 export const StyledBgTitle = styled.div`
@@ -24,7 +28,11 @@ export const StyledBgTitle = styled.div`
         font-size: 3.8rem;
         text-shadow: 5px 5px 10px hsla(0, 0%, 0%, 0.5);
 
-        ${({ theme }) => theme.mq.tablet} {
+        ${({ theme }) => theme.mq.desktop} {
+            font-size: 4.2rem;
+        }
+
+        ${({ theme }) => theme.mq.bigDesktop} {
             font-size: 5.4rem;
         }
     }

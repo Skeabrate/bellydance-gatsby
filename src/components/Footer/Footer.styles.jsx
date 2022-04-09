@@ -29,7 +29,7 @@ export const StyledLogo = styled(Link)`
         font-weight: 400;
     }
 
-    ${({ theme }) => theme.mq.tablet} {
+    ${({ theme }) => theme.mq.desktop} {
         h1 {
             font-size: ${({ theme }) => theme.fontSize.heading};
         }

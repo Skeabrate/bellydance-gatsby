@@ -12,6 +12,7 @@ const StyledBgImage = styled(BgImage)`
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
+    background-position: top;
 
     button {
         display: none;
