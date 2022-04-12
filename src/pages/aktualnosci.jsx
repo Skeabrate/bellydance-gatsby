@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { graphql } from 'gatsby';
 import { useAktualnosciQuery } from 'hooks/useAktualnosciQuery';
 import { useAktualnosciSort } from 'hooks/useAktualnosciSort';
+import { usePaginate } from 'hooks/usePaginate';
 
 import MainWrapper from 'templates/MainWrapper';
 import ContentWrapper from 'templates/ContentWrapper';
@@ -14,8 +15,11 @@ import Post from 'components/Post/Post';
 import { StyledPostsContainer } from 'assets/styles/pages/aktualnosci.styles';
 
 const Aktualnosci = ({ data }) => {
+    const loadingRef = useRef(null);
+
     const { placeholderImage } = useAktualnosciQuery();
     const { setSortDescending } = useAktualnosciSort(data);
+    const { currentData } = usePaginate(data, loadingRef);
 
     return (
         <MainWrapper>
@@ -30,7 +34,7 @@ const Aktualnosci = ({ data }) => {
                 <Combobox setSortDescending={setSortDescending} />
 
                 <StyledPostsContainer>
-                    {data.allDatoCmsPost.edges.map(
+                    {currentData.map(
                         ({
                             node: {
                                 id,
@@ -53,6 +57,10 @@ const Aktualnosci = ({ data }) => {
                         )
                     )}
                 </StyledPostsContainer>
+
+                {currentData.length < data.allDatoCmsPost.edges.length && (
+                    <div ref={loadingRef} />
+                )}
             </ContentWrapper>
         </MainWrapper>
     );

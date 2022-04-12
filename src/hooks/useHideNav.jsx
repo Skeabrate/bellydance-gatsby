@@ -24,7 +24,7 @@ export const useHideNav = () => {
         window.addEventListener('scroll', handleScroll);
 
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     return { isOnTop, hideNav };
 };
