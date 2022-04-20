@@ -8,49 +8,49 @@ import Hamburger from './Hamburger/Hamburger';
 import { Wrapper, StyledLogo } from './Navigation.styles';
 
 const Navigation = () => {
-    const [toggle, setToggle] = useState(false);
-    const [changeColor, setChangeColor] = useState(false);
+  const [toggle, setToggle] = useState(false);
+  const [changeColor, setChangeColor] = useState(false);
 
-    const { isOnTop, hideNav } = useHideNav();
+  const { isOnTop, hideNav } = useHideNav();
 
-    const location = useLocation();
+  const location = useLocation();
 
-    const handleCloseMenu = () => setToggle(!toggle);
+  const handleCloseMenu = () => setToggle(!toggle);
 
-    useEffect(() => {
-        if (location.pathname === '/') setChangeColor(true);
-        else setChangeColor(false);
+  useEffect(() => {
+    if (location.pathname === '/') setChangeColor(true);
+    else setChangeColor(false);
 
-        setToggle(false);
-    }, [location.pathname]);
+    setToggle(false);
+  }, [location.pathname]);
 
-    return (
-        <Wrapper
-            $hideNav={hideNav}
-            $isOnTop={isOnTop}
-            $toggle={toggle}
-            $changeColor={changeColor}
-        >
-            <StyledLogo to="/" $isOnTop={isOnTop} $changeColor={changeColor}>
-                <header>
-                    <h1 translate="no">Leyla Bellydance</h1>
-                </header>
-            </StyledLogo>
+  return (
+    <Wrapper
+      $hideNav={hideNav}
+      $isOnTop={isOnTop}
+      $toggle={toggle}
+      $changeColor={changeColor}
+    >
+      <StyledLogo to="/" $isOnTop={isOnTop} $changeColor={changeColor}>
+        <header>
+          <h1 translate="no">Leyla Bellydance</h1>
+        </header>
+      </StyledLogo>
 
-            <NavigationItems
-                isOnTop={isOnTop}
-                changeColor={changeColor}
-                toggle={toggle}
-                handleCloseMenu={handleCloseMenu}
-            />
+      <NavigationItems
+        isOnTop={isOnTop}
+        changeColor={changeColor}
+        toggle={toggle}
+        handleCloseMenu={handleCloseMenu}
+      />
 
-            <Hamburger
-                handleCloseMenu={handleCloseMenu}
-                isOnTop={isOnTop}
-                changeColor={changeColor}
-            />
-        </Wrapper>
-    );
+      <Hamburger
+        handleCloseMenu={handleCloseMenu}
+        isOnTop={isOnTop}
+        changeColor={changeColor}
+      />
+    </Wrapper>
+  );
 };
 
 export default Navigation;

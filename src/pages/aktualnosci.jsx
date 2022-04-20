@@ -15,83 +15,71 @@ import Post from 'components/Post/Post';
 import { StyledPostsContainer } from 'assets/styles/pages/aktualnosci.styles';
 
 const Aktualnosci = ({ data }) => {
-    const loadingRef = useRef(null);
+  const loadingRef = useRef(null);
 
-    const { placeholderImage } = useAktualnosciQuery();
-    const { setSortDescending } = useAktualnosciSort(data);
-    const { currentData } = usePaginate(data, loadingRef);
+  const { placeholderImage } = useAktualnosciQuery();
+  const { setSortDescending } = useAktualnosciSort(data);
+  const { currentData } = usePaginate(data, loadingRef);
 
-    return (
-        <MainWrapper>
-            <HeroImageContainer placeholderImage={placeholderImage} />
+  return (
+    <MainWrapper>
+      <HeroImageContainer placeholderImage={placeholderImage} />
 
-            <ContentWrapper>
-                <Heading
-                    label="Co słychać w królestwie tańca orientalnego?"
-                    isMain
+      <ContentWrapper>
+        <Heading label="Co słychać w królestwie tańca orientalnego?" isMain />
+
+        <Combobox setSortDescending={setSortDescending} />
+
+        <StyledPostsContainer>
+          {currentData.map(
+            ({ node: { id, title, description, assets, video, meta } }) => (
+              <Frame key={id} upRight>
+                <Post
+                  title={title}
+                  description={description}
+                  assets={assets}
+                  video={video}
+                  meta={meta}
                 />
+              </Frame>
+            )
+          )}
+        </StyledPostsContainer>
 
-                <Combobox setSortDescending={setSortDescending} />
-
-                <StyledPostsContainer>
-                    {currentData.map(
-                        ({
-                            node: {
-                                id,
-                                title,
-                                description,
-                                assets,
-                                video,
-                                meta,
-                            },
-                        }) => (
-                            <Frame key={id} upRight>
-                                <Post
-                                    title={title}
-                                    description={description}
-                                    assets={assets}
-                                    video={video}
-                                    meta={meta}
-                                />
-                            </Frame>
-                        )
-                    )}
-                </StyledPostsContainer>
-
-                {currentData.length < data.allDatoCmsPost.edges.length && (
-                    <div ref={loadingRef} />
-                )}
-            </ContentWrapper>
-        </MainWrapper>
-    );
+        {currentData.length < data.allDatoCmsPost.edges.length && (
+          <div ref={loadingRef} />
+        )}
+      </ContentWrapper>
+    </MainWrapper>
+  );
 };
 
 export default Aktualnosci;
 
 export const query = graphql`
-    query AktualnosciQuery {
-        allDatoCmsPost {
-            edges {
-                node {
-                    assets {
-                        gatsbyImageData(placeholder: BLURRED)
-                    }
-                    description {
-                        value
-                    }
-                    id
-                    title
-                    video {
-                        height
-                        url
-                        width
-                        thumbnailUrl
-                    }
-                    meta {
-                        firstPublishedAt
-                    }
-                }
-            }
+  query AktualnosciQuery {
+    allDatoCmsPost {
+      edges {
+        node {
+          assets {
+            gatsbyImageData(placeholder: BLURRED)
+          }
+          description {
+            value
+          }
+          id
+          title
+          video {
+            height
+            url
+            width
+            thumbnailUrl
+          }
+          meta {
+            firstPublishedAt
+          }
         }
+      }
     }
+  }
 `;

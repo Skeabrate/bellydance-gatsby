@@ -14,155 +14,136 @@ import Gallery from 'components/Gallery/Gallery';
 import DanceVid from 'assets/images/Pokazy/Videos/agunia.mp4';
 
 const Pokazy = ({ data }) => {
-    return (
-        <MainWrapper>
-            <ContentWrapper>
-                <Heading label="Moje Pokazy" isMain />
+  return (
+    <MainWrapper>
+      <ContentWrapper>
+        <Heading label="Moje Pokazy" isMain />
 
-                <GridContent>
-                    <GridSection>
-                        <article>
-                            <header>
-                                <h2>
-                                    Magia tańca orientalnego podczas Państwa
-                                    uroczystości
-                                </h2>
-                            </header>
+        <GridContent>
+          <GridSection>
+            <article>
+              <header>
+                <h2>Magia tańca orientalnego podczas Państwa uroczystości</h2>
+              </header>
 
-                            <p>
-                                W ten egzotyczny świat wprowadzi Cię tancerka
-                                Leyla, która może zatańczyć na Państwa weselu,
-                                imprezie okolicznościowej, czy ofiarować w
-                                imieniu Państwa, taniec dla gości imprezy.
-                            </p>
+              <p>
+                W ten egzotyczny świat wprowadzi Cię tancerka Leyla, która może
+                zatańczyć na Państwa weselu, imprezie okolicznościowej, czy
+                ofiarować w imieniu Państwa, taniec dla gości imprezy.
+              </p>
 
-                            <footer>
-                                <SkipButton
-                                    label="Program pokazów"
-                                    scrollId="#program-pokazow"
-                                />
-                            </footer>
-                        </article>
+              <footer>
+                <SkipButton
+                  label="Program pokazów"
+                  scrollId="#program-pokazow"
+                />
+              </footer>
+            </article>
 
-                        <Frame downRight>
-                            <StaticImage
-                                src="../assets/images/Pokazy/img11.jpg"
-                                alt="Agnieszka Świeczkowska belly dance, taniec brzucha - pokazy"
-                                placeholder="blurred"
-                                layout="fullWidth"
-                            />
-                        </Frame>
-                    </GridSection>
+            <Frame downRight>
+              <StaticImage
+                src="../assets/images/Pokazy/img11.jpg"
+                alt="Agnieszka Świeczkowska belly dance, taniec brzucha - pokazy"
+                placeholder="blurred"
+                layout="fullWidth"
+              />
+            </Frame>
+          </GridSection>
 
-                    <GridSection>
-                        <article id="program-pokazow">
-                            <header>
-                                <h2>Program i repertuar</h2>
-                            </header>
+          <GridSection>
+            <article id="program-pokazow">
+              <header>
+                <h2>Program i repertuar</h2>
+              </header>
 
-                            <p>
-                                Program i charakter pokazu może być dostosowany
-                                do rodzaju imprezy okolicznościowej oraz
-                                oczekiwań Klienta. W moim repertuarze znajdują
-                                się:
-                            </p>
+              <p>
+                Program i charakter pokazu może być dostosowany do rodzaju
+                imprezy okolicznościowej oraz oczekiwań Klienta. W moim
+                repertuarze znajdują się:
+              </p>
 
-                            <ul>
-                                <li>
-                                    <PyramidPointer />
-                                    <strong>nowoczesny pop</strong>
-                                </li>
-                                <li>
-                                    <PyramidPointer />
-                                    <span>
-                                        <strong>
-                                            pokazy z gatunku fantasy belly
-                                            dance,
-                                        </strong>{' '}
-                                        czyli taneczne show z rekwizytami:
-                                        skrzydłami Izydy, woalem, wachlarzami
-                                    </span>
-                                </li>
-                                <li>
-                                    <PyramidPointer />
-                                    <strong>zmysłowa klasyka</strong>
-                                </li>
-                                <li>
-                                    <PyramidPointer />
-                                    <strong>
-                                        radosny folklor do wesołej muzyki
-                                    </strong>
-                                </li>
-                            </ul>
-                        </article>
+              <ul>
+                <li>
+                  <PyramidPointer />
+                  <strong>nowoczesny pop</strong>
+                </li>
+                <li>
+                  <PyramidPointer />
+                  <span>
+                    <strong>pokazy z gatunku fantasy belly dance,</strong> czyli
+                    taneczne show z rekwizytami: skrzydłami Izydy, woalem,
+                    wachlarzami
+                  </span>
+                </li>
+                <li>
+                  <PyramidPointer />
+                  <strong>zmysłowa klasyka</strong>
+                </li>
+                <li>
+                  <PyramidPointer />
+                  <strong>radosny folklor do wesołej muzyki</strong>
+                </li>
+              </ul>
+            </article>
 
-                        <Frame isFlex>
-                            <video controls width="100%" height="100%">
-                                <source src={DanceVid} type="video/mp4" />
-                            </video>
-                        </Frame>
-                    </GridSection>
+            <Frame isFlex>
+              <video controls width="100%" height="100%">
+                <source src={DanceVid} type="video/mp4" />
+              </video>
+            </Frame>
+          </GridSection>
 
-                    <GridSection>
-                        <article>
-                            <header>
-                                <h2>Na zakończenie, wspólna zabawa</h2>
-                            </header>
+          <GridSection>
+            <article>
+              <header>
+                <h2>Na zakończenie, wspólna zabawa</h2>
+              </header>
 
-                            <p>
-                                Na zakończenie pokazu proponujemy wspólną zabawę
-                                z Gośćmi przy dźwiękach znanych piosenek
-                                Shakiry, Tarkana, czy Arasha. Nauka podstawowych
-                                ruchów belly dance rozweseli nawet najmniej
-                                roztańczonych Gości!
-                            </p>
+              <p>
+                Na zakończenie pokazu proponujemy wspólną zabawę z Gośćmi przy
+                dźwiękach znanych piosenek Shakiry, Tarkana, czy Arasha. Nauka
+                podstawowych ruchów belly dance rozweseli nawet najmniej
+                roztańczonych Gości!
+              </p>
 
-                            <footer>
-                                <SkipButton
-                                    label="Galeria zdjęć"
-                                    scrollId="#galeria"
-                                />
-                            </footer>
-                        </article>
+              <footer>
+                <SkipButton label="Galeria zdjęć" scrollId="#galeria" />
+              </footer>
+            </article>
 
-                        <Frame downRight>
-                            <StaticImage
-                                src="../assets/images/Pokazy/img10.jpg"
-                                alt="Agnieszka Świeczkowska belly dance, taniec brzucha - pokazy"
-                                placeholder="blurred"
-                                layout="fullWidth"
-                            />
-                        </Frame>
-                    </GridSection>
-                </GridContent>
+            <Frame downRight>
+              <StaticImage
+                src="../assets/images/Pokazy/img10.jpg"
+                alt="Agnieszka Świeczkowska belly dance, taniec brzucha - pokazy"
+                placeholder="blurred"
+                layout="fullWidth"
+              />
+            </Frame>
+          </GridSection>
+        </GridContent>
 
-                <div id="galeria">
-                    <Heading label="Galeria" />
+        <div id="galeria">
+          <Heading label="Galeria" />
 
-                    <Gallery
-                        data={data?.allDatoCmsPokazy?.edges[0].node.gallery}
-                    />
-                </div>
-            </ContentWrapper>
-        </MainWrapper>
-    );
+          <Gallery data={data?.allDatoCmsPokazy?.edges[0].node.gallery} />
+        </div>
+      </ContentWrapper>
+    </MainWrapper>
+  );
 };
 
 export default Pokazy;
 
 export const query = graphql`
-    query PokazyQuery {
-        allDatoCmsPokazy {
-            edges {
-                node {
-                    gallery {
-                        gatsbyImageData(
-                            placeholder: BLURRED
-                            layout: FULL_WIDTH
-                        )
-                    }
-                }
-            }
+  query PokazyQuery {
+    allDatoCmsPokazy {
+      edges {
+        node {
+          gallery {
+            gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
+          }
         }
+      }
     }
+  }
 `;

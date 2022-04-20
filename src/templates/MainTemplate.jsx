@@ -10,16 +10,16 @@ import Navigation from 'components/Navigation/Navigation';
 import Footer from 'components/Footer/Footer';
 
 export const MainTemplate = ({ children }) => {
-    return (
-        <ThemeProvider theme={theme}>
-            <GlobalStyle />
-            <Navigation />
-            {children}
-            <Footer />
-        </ThemeProvider>
-    );
+  return (
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <Navigation />
+      {children}
+      <Footer />
+    </ThemeProvider>
+  );
 };
 
 MainTemplate.propTypes = {
-    children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired,
 };

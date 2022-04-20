@@ -1,3 +1,3 @@
 export const submitFormHandler = (e) => {
-    e.preventDefault();
+  e.preventDefault();
 };
