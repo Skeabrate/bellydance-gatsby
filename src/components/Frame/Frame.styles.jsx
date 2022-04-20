@@ -22,7 +22,7 @@ export const StyledFrame = styled.div`
     width: 100px;
     height: 100px;
     transform: unset;
-    transition: transform 0.3s 0.25s ease-in-out;
+    transition: transform 0.3s 0.2s ease-in-out;
 
     ${({ $upRight, $downRight, $startAnimation }) => {
       if ($upRight)
