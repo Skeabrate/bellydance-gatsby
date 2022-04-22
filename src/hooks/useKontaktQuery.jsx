@@ -8,7 +8,7 @@ export const useKontaktQuery = () => {
           relativePath: { eq: "Kontakt/banerKontakt.jpeg" }
         ) {
           childImageSharp {
-            gatsbyImageData(placeholder: BLURRED, formats: WEBP)
+            gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
           }
         }
       }
