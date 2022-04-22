@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
   position: sticky;
   background-color: white;
-  zindex: 1;
+  zindex: 10;
 `;
 
 const ParalaxWrapper = ({ children }) => {
