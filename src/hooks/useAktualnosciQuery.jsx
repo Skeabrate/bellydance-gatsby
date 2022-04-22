@@ -8,7 +8,7 @@ export const useAktualnosciQuery = () => {
           relativePath: { eq: "Aktualnosci/banerAktualnosci.jpg" }
         ) {
           childImageSharp {
-            gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+            gatsbyImageData(placeholder: BLURRED, formats: WEBP)
           }
         }
       }

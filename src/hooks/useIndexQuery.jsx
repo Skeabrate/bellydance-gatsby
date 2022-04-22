@@ -9,7 +9,7 @@ export const useIndexQuery = () => {
           relativePath: { eq: "Homepage/homepageBaner.jpeg" }
         ) {
           childImageSharp {
-            gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+            gatsbyImageData(placeholder: BLURRED, formats: WEBP)
           }
         }
       }
