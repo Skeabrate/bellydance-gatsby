@@ -24,6 +24,12 @@ const StyledPyramid = styled.button`
   svg {
     height: 24px;
     width: 24px;
+    transition: all 0.2s ease-in-out;
+  }
+
+  &:hover svg {
+    transform: scale(1.2);
+    fill: ${({ theme }) => theme.colors.sand};
   }
 `;
 

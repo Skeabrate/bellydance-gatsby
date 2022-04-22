@@ -56,6 +56,11 @@ export const StyledNav = styled.ul`
   column-gap: 35px;
   row-gap: 35px;
 
+  li:hover a {
+    color: ${({ theme }) => theme.colors.sand};
+    text-decoration: underline;
+  }
+
   ${({ theme }) => theme.mq.desktop} {
     flex-direction: row;
     margin-right: 30px;
@@ -71,7 +76,7 @@ export const StyledLink = styled(Link)`
       if ($changeColor && $isOnTop) return theme.colors.white;
       else return theme.colors.black;
     }};
-    transition: all 0.2s ease-in-out;
+    transition: all 0.1s ease-in-out;
   }
 `;
 
@@ -99,6 +104,15 @@ export const StyledSocialsItem = styled.a`
           if ($changeColor && $isOnTop) return theme.colors.white;
           else return theme.colors.sand;
         }};
+        transition: all 0.1s ease-in-out;
+      }
+
+      &:hover {
+        path {
+          fill: ${({ theme, $changeColor, $isOnTop }) => {
+            if ($changeColor && $isOnTop) return theme.colors.sand;
+          }};
+        }
       }
     }
   }
