@@ -15,7 +15,6 @@ export const StyledFrame = styled.div`
   bottom: -10px;
   right: 50%;
   transform: translateX(50%);
-  z-index: -1;
 
   ${({ theme }) => theme.mq.tablet} {
     display: initial;

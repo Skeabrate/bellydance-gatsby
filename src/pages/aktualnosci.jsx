@@ -13,6 +13,7 @@ import Frame from 'components/Frame/Frame';
 import Post from 'components/Post/Post';
 
 import { StyledPostsContainer } from 'assets/styles/pages/aktualnosci.styles';
+import ParalaxWrapper from '../templates/ParalaxWrapper';
 
 const Aktualnosci = ({ data }) => {
   const loadingRef = useRef(null);
@@ -25,31 +26,33 @@ const Aktualnosci = ({ data }) => {
     <MainWrapper>
       <HeroImageContainer placeholderImage={placeholderImage} />
 
-      <ContentWrapper>
-        <Heading label="Co słychać w królestwie tańca orientalnego?" isMain />
+      <ParalaxWrapper>
+        <ContentWrapper>
+          <Heading label="Co słychać w królestwie tańca orientalnego?" isMain />
 
-        <Combobox setSortDescending={setSortDescending} />
+          <Combobox setSortDescending={setSortDescending} />
 
-        <StyledPostsContainer>
-          {currentData.map(
-            ({ node: { id, title, description, assets, video, meta } }) => (
-              <Frame key={id} upRight>
-                <Post
-                  title={title}
-                  description={description}
-                  assets={assets}
-                  video={video}
-                  meta={meta}
-                />
-              </Frame>
-            )
+          <StyledPostsContainer>
+            {currentData.map(
+              ({ node: { id, title, description, assets, video, meta } }) => (
+                <Frame key={id} upRight>
+                  <Post
+                    title={title}
+                    description={description}
+                    assets={assets}
+                    video={video}
+                    meta={meta}
+                  />
+                </Frame>
+              )
+            )}
+          </StyledPostsContainer>
+
+          {currentData.length < data.allDatoCmsPost.edges.length && (
+            <div ref={loadingRef} />
           )}
-        </StyledPostsContainer>
-
-        {currentData.length < data.allDatoCmsPost.edges.length && (
-          <div ref={loadingRef} />
-        )}
-      </ContentWrapper>
+        </ContentWrapper>
+      </ParalaxWrapper>
     </MainWrapper>
   );
 };
