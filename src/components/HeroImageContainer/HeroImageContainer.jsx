@@ -24,6 +24,8 @@ const HeroImageContainer = ({ placeholderImage }) => {
 
   useEffect(() => {
     document.addEventListener('scroll', handleSCroll, { passive: true });
+
+    return () => document.removeEventListener('scroll', handleSCroll);
   }, [handleSCroll]);
 
   const style = {
