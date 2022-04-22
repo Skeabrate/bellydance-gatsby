@@ -21,7 +21,7 @@ export const useHideNav = () => {
   }, 250);
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
