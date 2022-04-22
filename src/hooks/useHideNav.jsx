@@ -13,7 +13,7 @@ export const useHideNav = () => {
     if (st < 50) setIsOnTop(true);
     else setIsOnTop(false);
 
-    if (st > lastScrollTop && lastScrollTop > 30) {
+    if (st > lastScrollTop && st > 50) {
       setHideNav(true);
     } else setHideNav(false);
 
