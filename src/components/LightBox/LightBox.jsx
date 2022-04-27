@@ -37,11 +37,11 @@ const LightBox = () => {
       <CloseButton onClick={handleCloseGallery}>
         <Close />
       </CloseButton>
-      {imgIndex && (
+      {imgIndex ? (
         <SwitchButtonLeft onClick={previous} left>
           <LeftArrow />
         </SwitchButtonLeft>
-      )}
+      ) : null}
       {imgIndex !== lightBoxData?.length - 1 && (
         <SwitchButtonRight onClick={next} right>
           <RightArrow />
