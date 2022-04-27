@@ -11,7 +11,6 @@ export const GlobalStyle = createGlobalStyle`
 	
 	html{
 		font-size: 62.5%;
-		scroll-behavior: smooth;
 		
 		*::selection {
 			background-color: ${({ theme }) => theme.colors.sand};
