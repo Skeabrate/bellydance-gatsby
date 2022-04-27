@@ -3,6 +3,7 @@ export const theme = {
     sand: '#D1B892',
     white: '#FFF',
     black: '#000',
+    arrows: '#9c9c9c',
   },
   fontSize: {
     heading: '3.6rem',

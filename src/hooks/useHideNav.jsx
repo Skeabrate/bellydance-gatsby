@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { throttle } from 'utils/throttle';
 
 export const useHideNav = () => {
   const [isOnTop, setIsOnTop] = useState(true);
@@ -7,7 +6,7 @@ export const useHideNav = () => {
 
   let lastScrollTop = 0;
 
-  const handleScroll = throttle(() => {
+  const handleScroll = () => {
     let st = window.pageYOffset || document.documentElement.scrollTop;
 
     if (st < 50) setIsOnTop(true);
@@ -18,7 +17,7 @@ export const useHideNav = () => {
     } else setHideNav(false);
 
     lastScrollTop = st <= 0 ? 0 : st;
-  }, 250);
+  };
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll, { passive: true });

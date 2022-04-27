@@ -1,31 +1,31 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import LightBoxContext from 'context/LightBoxContext';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import { LightgalleryProvider, LightgalleryItem } from 'react-lightgallery';
-import 'lightgallery.js/dist/css/lightgallery.css';
-
 import { Wrapper, StyledItem } from './Gallery.styles';
 
 export default function Gallery({ data }) {
+  const { setImgIndex, setLightBoxData } = useContext(LightBoxContext);
+
+  const passIndexToLightBox = (index) => setImgIndex(index);
+
+  useEffect(() => {
+    setLightBoxData(data);
+
+    return () => setLightBoxData([]);
+  }, [data, setLightBoxData]);
+
   return (
-    <LightgalleryProvider>
-      <Wrapper>
-        {data.map(({ gatsbyImageData }, index) => (
-          <LightgalleryItem
-            group="gallery"
-            key={index}
-            src={gatsbyImageData.images.fallback.src}
-          >
-            <StyledItem>
-              <GatsbyImage
-                image={gatsbyImageData}
-                alt="Agnieszka Świeczkowska Leyla bellydance"
-              />
-            </StyledItem>
-          </LightgalleryItem>
-        ))}
-      </Wrapper>
-    </LightgalleryProvider>
+    <Wrapper>
+      {data.map(({ gatsbyImageData }, index) => (
+        <StyledItem key={index} onClick={() => passIndexToLightBox(index)}>
+          <GatsbyImage
+            image={gatsbyImageData}
+            alt="Agnieszka Świeczkowska Leyla bellydance"
+          />
+        </StyledItem>
+      ))}
+    </Wrapper>
   );
 }
 
