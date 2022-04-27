@@ -52,8 +52,6 @@ const LightBox = () => {
         onSlideComplete={setFinishedIndex}
         activeIndex={imgIndex}
         threshHold={100}
-        transition={0.5}
-        scaleOnDrag={true}
       >
         {lightBoxData.map(({ gatsbyImageData }, index) => (
           <div key={index} style={{ position: 'relative' }}>
