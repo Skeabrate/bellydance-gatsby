@@ -1,9 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import { LightgalleryProvider, LightgalleryItem } from 'react-lightgallery';
-import 'lightgallery.js/dist/css/lightgallery.css';
-
+import LightBoxContext from 'context/LightBoxContext';
 import {
   Wrapper,
   StyledPyramidDate,
@@ -11,38 +9,36 @@ import {
   StyledImgContainer,
   StyledImg,
   StyledLegend,
+  StyledVideo,
 } from './Post.styles';
 
 const Post = ({ title, description, meta, assets, video }) => {
+  const { setImgIndex, setLightBoxData } = useContext(LightBoxContext);
+
+  const handleOpenLightBox = () => {
+    setImgIndex(0);
+    setLightBoxData(assets);
+    document.body.style.overflow = 'hidden';
+    document.getElementsByTagName('html')[0].style.overflow = 'hidden';
+  };
+
   return (
     <Wrapper>
       {assets && (
-        <LightgalleryProvider>
-          <StyledImgContainer>
-            {assets.map(({ gatsbyImageData }, index) => (
-              <LightgalleryItem
-                group="posts"
-                key={index}
-                src={gatsbyImageData.images.fallback.src}
-              >
-                {!index && (
-                  <StyledImg>
-                    <GatsbyImage
-                      image={gatsbyImageData}
-                      alt="Agnieszka Świeczkowska Leyla bellydance"
-                    />
-                  </StyledImg>
-                )}
-              </LightgalleryItem>
-            ))}
+        <StyledImgContainer>
+          <StyledImg onClick={handleOpenLightBox}>
+            <GatsbyImage
+              image={assets[0].gatsbyImageData}
+              alt="Agnieszka Świeczkowska Leyla bellydance"
+            />
+          </StyledImg>
 
-            <StyledLegend>
-              {assets.map((item, index) => (
-                <div key={index}></div>
-              ))}
-            </StyledLegend>
-          </StyledImgContainer>
-        </LightgalleryProvider>
+          <StyledLegend>
+            {assets.map((item, index) => (
+              <div key={index}></div>
+            ))}
+          </StyledLegend>
+        </StyledImgContainer>
       )}
 
       <StyledPostContent>
@@ -53,11 +49,12 @@ const Post = ({ title, description, meta, assets, video }) => {
         ))}
 
         {video && (
-          <div style={{ paddingTop: '6px' }}>
+          <StyledVideo>
+            <p>Sprawdź filmik:</p>
             <a href={video.url} target="_blank" rel="noopener noreferrer">
-              Sprawdź filmik
+              {video.url}
             </a>
-          </div>
+          </StyledVideo>
         )}
       </StyledPostContent>
 

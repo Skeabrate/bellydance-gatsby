@@ -105,3 +105,14 @@ export const StyledPyramidDate = styled.p`
   height: 60px;
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 `;
+
+export const StyledVideo = styled.div`
+  padding-top: 10px;
+  p {
+    font-weight: bold;
+  }
+
+  a {
+    word-break: break-all;
+  }
+`;
