@@ -64,6 +64,12 @@ export const SliderWrapper = styled.div`
     position: relative;
     z-index: 1;
   }
+
+  ${({ theme }) => theme.mq.tablet} {
+    &::after {
+      opacity: 0.9;
+    }
+  }
 `;
 
 export const SwitchButtonLeft = styled.button`
