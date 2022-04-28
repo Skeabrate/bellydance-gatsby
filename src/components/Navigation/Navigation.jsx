@@ -20,9 +20,12 @@ const Navigation = () => {
   useEffect(() => {
     if (location.pathname === '/') setChangeColor(true);
     else setChangeColor(false);
-
-    setToggle(false);
   }, [location.pathname]);
+
+  useEffect(() => {
+    if (toggle) document.body.style.overflow = 'hidden';
+    else document.body.style.overflow = 'unset';
+  }, [toggle]);
 
   return (
     <Wrapper

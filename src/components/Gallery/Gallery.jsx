@@ -7,7 +7,10 @@ import { Wrapper, StyledItem } from './Gallery.styles';
 export default function Gallery({ data }) {
   const { setImgIndex, setLightBoxData } = useContext(LightBoxContext);
 
-  const passIndexToLightBox = (index) => setImgIndex(index);
+  const passIndexToLightBox = (index) => {
+    document.body.style.overflow = 'hidden';
+    setImgIndex(index);
+  };
 
   useEffect(() => {
     setLightBoxData(data);

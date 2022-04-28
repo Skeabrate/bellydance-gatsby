@@ -17,7 +17,10 @@ const LightBox = () => {
   const { lightBoxData, setImgIndex, imgIndex } = useContext(LightBoxContext);
   const [isLoaded, setIsLoaded] = useState({});
 
-  const handleCloseGallery = () => setImgIndex(false);
+  const handleCloseGallery = () => {
+    document.body.style.overflow = 'unset';
+    setImgIndex(false);
+  };
   const setFinishedIndex = (i) => setImgIndex(i);
 
   const handleLoad = (index) => {
