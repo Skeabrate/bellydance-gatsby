@@ -20,6 +20,8 @@ const Navigation = () => {
   useEffect(() => {
     if (location.pathname === '/') setChangeColor(true);
     else setChangeColor(false);
+
+    setToggle(false);
   }, [location.pathname]);
 
   useEffect(() => {

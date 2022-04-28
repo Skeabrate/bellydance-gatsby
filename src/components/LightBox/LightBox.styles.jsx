@@ -96,3 +96,10 @@ export const StyledLoader = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
 `;
+
+export const StyledCounter = styled.div`
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: ${({ theme }) => theme.colors.white};
+`;

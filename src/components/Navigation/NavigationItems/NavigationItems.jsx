@@ -63,7 +63,6 @@ const NavigationItems = ({
               activeStyle={activeLinkStyles}
               $isOnTop={isOnTop}
               $changeColor={changeColor}
-              onClick={handleCloseMenu}
             >
               {title}
             </StyledLink>

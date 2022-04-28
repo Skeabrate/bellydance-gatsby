@@ -11,6 +11,7 @@ import {
   SwitchButtonRight,
   CloseButton,
   StyledLoader,
+  StyledCounter,
 } from './LightBox.styles';
 
 const LightBox = () => {
@@ -37,6 +38,9 @@ const LightBox = () => {
 
   return (
     <SliderWrapper>
+      <StyledCounter>{`${imgIndex + 1} / ${
+        lightBoxData.length
+      }`}</StyledCounter>
       <CloseButton onClick={handleCloseGallery}>
         <Close />
       </CloseButton>
