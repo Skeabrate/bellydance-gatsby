@@ -9,6 +9,7 @@ export default function Gallery({ data }) {
 
   const passIndexToLightBox = (index) => {
     document.body.style.overflow = 'hidden';
+    document.getElementsByTagName('html')[0].style.overflow = 'hidden';
     setImgIndex(index);
   };
 

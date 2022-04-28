@@ -20,6 +20,7 @@ const LightBox = () => {
 
   const handleCloseGallery = () => {
     document.body.style.overflow = 'unset';
+    document.getElementsByTagName('html')[0].style.overflow = 'unset';
     setImgIndex(false);
   };
   const setFinishedIndex = (i) => setImgIndex(i);

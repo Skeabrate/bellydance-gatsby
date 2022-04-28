@@ -25,8 +25,13 @@ const Navigation = () => {
   }, [location.pathname]);
 
   useEffect(() => {
-    if (toggle) document.body.style.overflow = 'hidden';
-    else document.body.style.overflow = 'unset';
+    if (toggle) {
+      document.body.style.overflow = 'hidden';
+      document.getElementsByTagName('html')[0].style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+      document.getElementsByTagName('html')[0].style.overflow = 'unset';
+    }
   }, [toggle]);
 
   return (
