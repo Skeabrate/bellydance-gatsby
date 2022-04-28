@@ -29,8 +29,8 @@ export const SliderWrapper = styled.div`
     width: 100%;
     height: 100%;
     background-color: black;
-    opacity: 0.9;
-    z-index: -1;
+    opacity: 1;
+    z-index: 0;
   }
 
   button {
@@ -61,6 +61,8 @@ export const SliderWrapper = styled.div`
 
   * {
     padding: 0 !important;
+    position: relative;
+    z-index: 1;
   }
 `;
 
