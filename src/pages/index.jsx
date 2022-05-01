@@ -39,7 +39,8 @@ const Index = ({ data }) => {
           <p>Zapraszam do baśni 1000 i jednej nocy</p>
           <StaticImage
             src="../assets/images/ornHero.png"
-            alt="title ornament"
+            aria-hidden="true"
+            alt=""
             placeholder="blurred"
             width={200}
           />

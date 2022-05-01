@@ -10,7 +10,8 @@ const Heading = ({ label, isMain }) => {
       <StyledTitle>{label}</StyledTitle>
       <StaticImage
         src="../../assets/images/ornParag.png"
-        alt="title ornament"
+        aria-hidden="true"
+        alt=""
         placeholder="blurred"
         width={200}
       />
