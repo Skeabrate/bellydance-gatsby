@@ -2,20 +2,21 @@ import styled from 'styled-components';
 import { Link } from 'gatsby';
 
 export const Wrapper = styled.footer`
-  margin: 15rem 2rem 5rem;
   display: flex;
   text-align: center;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 5rem;
   row-gap: 15px;
+  height: 30vh;
 
   p {
     font-size: ${({ theme }) => theme.fontSize.caption};
   }
 
   ${({ theme }) => theme.mq.tablet} {
-    margin: 25rem 2rem 5rem;
+    height: 40vh;
   }
 `;
 
