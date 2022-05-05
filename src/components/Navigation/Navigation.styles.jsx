@@ -7,8 +7,7 @@ export const Wrapper = styled.div`
     if ($changeColor && $isOnTop) return 'transparent';
     else return theme.colors.white;
   }};
-  box-shadow: ${({ $isOnTop }) =>
-    $isOnTop ? 'none' : '0px 0px 50px -33px rgba(0, 0, 0, 1)'};
+  box-shadow: ${({ $isOnTop }) => ($isOnTop ? 'none' : '0px 0px 50px -38px rgba(0, 0, 0, 1)')};
   height: ${({ $isOnTop }) => ($isOnTop ? '120px' : '80px')};
   top: 0;
   left: 0;
