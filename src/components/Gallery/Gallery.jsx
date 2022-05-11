@@ -8,8 +8,9 @@ export default function Gallery({ data }) {
   const { setImgIndex, setLightBoxData } = useContext(LightBoxContext);
 
   const passIndexToLightBox = (index) => {
-    document.body.style.overflow = 'hidden';
-    document.getElementsByTagName('html')[0].style.overflow = 'hidden';
+    document.body.setAttribute('style', 'overflow:hidden !important;');
+    document.getElementsByTagName('html')[0].setAttribute('style', 'overflow:hidden !important;');
+
     setImgIndex(index);
   };
 
@@ -23,10 +24,7 @@ export default function Gallery({ data }) {
     <Wrapper>
       {data.map(({ gatsbyImageData }, index) => (
         <StyledItem key={index} onClick={() => passIndexToLightBox(index)}>
-          <GatsbyImage
-            image={gatsbyImageData}
-            alt="Agnieszka Świeczkowska Leyla bellydance"
-          />
+          <GatsbyImage image={gatsbyImageData} alt='Agnieszka Świeczkowska Leyla bellydance' />
         </StyledItem>
       ))}
     </Wrapper>

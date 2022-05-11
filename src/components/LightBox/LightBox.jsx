@@ -19,8 +19,8 @@ const LightBox = () => {
   const [isLoaded, setIsLoaded] = useState({});
 
   const handleCloseGallery = () => {
-    document.body.style.overflow = 'unset';
-    document.getElementsByTagName('html')[0].style.overflow = 'unset';
+    document.body.setAttribute('style', 'overflow:unset;');
+    document.getElementsByTagName('html')[0].setAttribute('style', 'overflow:unset;');
     setImgIndex(false);
   };
   const setFinishedIndex = (i) => setImgIndex(i);
@@ -32,16 +32,13 @@ const LightBox = () => {
     }));
   };
 
-  const next = () =>
-    imgIndex < lightBoxData?.length - 1 && setImgIndex((state) => state + 1);
+  const next = () => imgIndex < lightBoxData?.length - 1 && setImgIndex((state) => state + 1);
 
   const previous = () => imgIndex > 0 && setImgIndex((state) => state - 1);
 
   return (
     <SliderWrapper>
-      <StyledCounter>{`${imgIndex + 1} / ${
-        lightBoxData.length
-      }`}</StyledCounter>
+      <StyledCounter>{`${imgIndex + 1} / ${lightBoxData.length}`}</StyledCounter>
       <CloseButton onClick={handleCloseGallery}>
         <Close />
       </CloseButton>
@@ -56,21 +53,17 @@ const LightBox = () => {
         </SwitchButtonRight>
       )}
 
-      <Slider
-        onSlideComplete={setFinishedIndex}
-        activeIndex={imgIndex}
-        threshHold={100}
-      >
+      <Slider onSlideComplete={setFinishedIndex} activeIndex={imgIndex} threshHold={100}>
         {lightBoxData.map(({ gatsbyImageData }, index) => (
           <div key={index} style={{ position: 'relative' }}>
             <img
               src={gatsbyImageData.images.fallback.src}
-              alt="Agnieszka Świeczkowska - Leyla Bellydance"
+              alt='Agnieszka Świeczkowska - Leyla Bellydance'
               onLoad={() => handleLoad(index)}
             />
             {!isLoaded[index] && (
               <StyledLoader>
-                <ClipLoader color="#9c9c9c" />
+                <ClipLoader color='#9c9c9c' />
               </StyledLoader>
             )}
           </div>
