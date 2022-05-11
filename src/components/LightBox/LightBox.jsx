@@ -5,7 +5,6 @@ import LeftArrow from 'assets/images/SVG/leftArrow.svg';
 import RightArrow from 'assets/images/SVG/rightArrow.svg';
 import Slider from 'react-touch-drag-slider';
 import ClipLoader from 'react-spinners/ClipLoader';
-import { useScrollPosition } from 'hooks/useScrollPosition';
 import {
   SliderWrapper,
   SwitchButtonLeft,

@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import LightBoxContext from 'context/LightBoxContext';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { Wrapper, StyledItem } from './Gallery.styles';
-import { useScrollPosition } from 'hooks/useScrollPosition';
+import { useHideNav } from 'hooks/useHideNav';
 
 export default function Gallery({ data }) {
   const { setImgIndex, setLightBoxData } = useContext(LightBoxContext);
-  const { position } = useScrollPosition();
+  const { position } = useHideNav();
 
   const passIndexToLightBox = (index) => {
     document.body.setAttribute(
