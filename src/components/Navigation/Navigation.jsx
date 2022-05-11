@@ -24,26 +24,11 @@ const Navigation = () => {
     setToggle(false);
   }, [location.pathname]);
 
-  useEffect(() => {
-    if (toggle) {
-      document.body.style.overflow = 'hidden';
-      document.getElementsByTagName('html')[0].style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-      document.getElementsByTagName('html')[0].style.overflow = 'unset';
-    }
-  }, [toggle]);
-
   return (
-    <Wrapper
-      $hideNav={hideNav}
-      $isOnTop={isOnTop}
-      $toggle={toggle}
-      $changeColor={changeColor}
-    >
-      <StyledLogo to="/" $isOnTop={isOnTop} $changeColor={changeColor}>
+    <Wrapper $hideNav={hideNav} $isOnTop={isOnTop} $toggle={toggle} $changeColor={changeColor}>
+      <StyledLogo to='/' $isOnTop={isOnTop} $changeColor={changeColor}>
         <header>
-          <h1 translate="no">Leyla Bellydance</h1>
+          <h1 translate='no'>Leyla Bellydance</h1>
         </header>
       </StyledLogo>
 
@@ -54,11 +39,7 @@ const Navigation = () => {
         handleCloseMenu={handleCloseMenu}
       />
 
-      <Hamburger
-        handleCloseMenu={handleCloseMenu}
-        isOnTop={isOnTop}
-        changeColor={changeColor}
-      />
+      <Hamburger handleCloseMenu={handleCloseMenu} isOnTop={isOnTop} changeColor={changeColor} />
     </Wrapper>
   );
 };
