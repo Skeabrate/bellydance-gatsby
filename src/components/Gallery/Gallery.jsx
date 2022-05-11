@@ -3,13 +3,17 @@ import PropTypes from 'prop-types';
 import LightBoxContext from 'context/LightBoxContext';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { Wrapper, StyledItem } from './Gallery.styles';
+import { useScrollPosition } from 'hooks/useScrollPosition';
 
 export default function Gallery({ data }) {
   const { setImgIndex, setLightBoxData } = useContext(LightBoxContext);
+  const { position } = useScrollPosition();
 
   const passIndexToLightBox = (index) => {
-    document.body.setAttribute('style', 'overflow:hidden !important;');
-    document.getElementsByTagName('html')[0].setAttribute('style', 'overflow:hidden !important;');
+    document.body.setAttribute(
+      'style',
+      `overflow:hidden !important; position: fixed !important; top: -${position}px`
+    );
 
     setImgIndex(index);
   };

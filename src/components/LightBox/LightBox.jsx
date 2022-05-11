@@ -5,6 +5,7 @@ import LeftArrow from 'assets/images/SVG/leftArrow.svg';
 import RightArrow from 'assets/images/SVG/rightArrow.svg';
 import Slider from 'react-touch-drag-slider';
 import ClipLoader from 'react-spinners/ClipLoader';
+import { useScrollPosition } from 'hooks/useScrollPosition';
 import {
   SliderWrapper,
   SwitchButtonLeft,
@@ -15,12 +16,16 @@ import {
 } from './LightBox.styles';
 
 const LightBox = () => {
-  const { lightBoxData, setImgIndex, imgIndex } = useContext(LightBoxContext);
   const [isLoaded, setIsLoaded] = useState({});
 
+  const { lightBoxData, setImgIndex, imgIndex } = useContext(LightBoxContext);
+  const scrollY = document.body.style.top;
+
   const handleCloseGallery = () => {
-    document.body.setAttribute('style', 'overflow:unset;');
-    document.getElementsByTagName('html')[0].setAttribute('style', 'overflow:unset;');
+    document.body.style.overflow = 'unset';
+    document.body.style.position = '';
+    document.body.style.top = '';
+    window.scrollTo(0, parseInt(scrollY || '0') * -1);
     setImgIndex(false);
   };
   const setFinishedIndex = (i) => setImgIndex(i);
