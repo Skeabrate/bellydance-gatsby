@@ -12,7 +12,7 @@ export default function Gallery({ data }) {
   const passIndexToLightBox = (index) => {
     document.body.setAttribute(
       'style',
-      `overflow:hidden !important; position: fixed !important; top: -${position}px`
+      `overflow:hidden !important; position: fixed !important; top: -${position}px; width:100% !important`
     );
 
     setImgIndex(index);
