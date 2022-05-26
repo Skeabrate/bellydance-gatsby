@@ -10,11 +10,7 @@ import Frame from 'components/Frame/Frame';
 import SandSection from 'components/SandSection/SandSection';
 import Gallery from 'components/Gallery/Gallery';
 
-import {
-  firstSectionData,
-  secondSectionData,
-  thirdSectionData,
-} from 'data/indexData';
+import { firstSectionData, secondSectionData, thirdSectionData } from 'data/indexData';
 
 import {
   StyledBgImage,
@@ -38,10 +34,10 @@ const Index = ({ data }) => {
           <h1>Magiczny Świat Orientu</h1>
           <p>Zapraszam do baśni 1000 i jednej nocy</p>
           <StaticImage
-            src="../assets/images/ornHero.png"
-            aria-hidden="true"
-            alt=""
-            placeholder="blurred"
+            src='../assets/images/ornHero.png'
+            aria-hidden='true'
+            alt=''
+            placeholder='blurred'
             width={200}
           />
         </StyledBgTitle>
@@ -52,7 +48,7 @@ const Index = ({ data }) => {
       {/* Content */}
       <ContentWrapper>
         <section>
-          <Heading label="O mnie" isMain />
+          <Heading label='O mnie' isMain />
 
           <StyledFirstSection>
             {firstSectionData.map(({ id, title, desc }) => (
@@ -68,19 +64,19 @@ const Index = ({ data }) => {
           <StyledFirstSectionImg>
             <Frame hideMobile>
               <StaticImage
-                src="../assets/images/Homepage/homepage1.jpg"
-                alt="Agnieszka Świeczkowska - legitymacja instruktora"
-                placeholder="blurred"
-                layout="fullWidth"
+                src='../assets/images/Homepage/homepage1.jpg'
+                alt='Agnieszka Świeczkowska - legitymacja instruktora'
+                placeholder='blurred'
+                layout='fullWidth'
               />
             </Frame>
 
             <Frame upRight>
               <StaticImage
-                src="../assets/images/Homepage/homepage2.jpg"
-                alt="Agnieszka Świeczkowska - legitymacja instruktora"
-                placeholder="blurred"
-                layout="fullWidth"
+                src='../assets/images/Homepage/homepage2.jpg'
+                alt='Agnieszka Świeczkowska - legitymacja instruktora'
+                placeholder='blurred'
+                layout='fullWidth'
               />
             </Frame>
           </StyledFirstSectionImg>
@@ -92,18 +88,18 @@ const Index = ({ data }) => {
           <SandSection data={secondSectionData}>
             <StyledSecondSectionImg>
               <StaticImage
-                src="../assets/images/Homepage/homepage3.jpg"
-                alt="Agnieszka Świeczkowska - dyplom"
-                placeholder="blurred"
-                layout="fullWidth"
+                src='../assets/images/Homepage/homepage3.jpg'
+                alt='Agnieszka Świeczkowska - dyplom'
+                placeholder='blurred'
+                layout='fullWidth'
               />
 
               <Frame upRight hideMobile>
                 <StaticImage
-                  src="../assets/images/Homepage/homepage4.jpg"
-                  alt="Agnieszka Świeczkowska - dyplom"
-                  placeholder="blurred"
-                  layout="fullWidth"
+                  src='../assets/images/Homepage/homepage4.jpg'
+                  alt='Agnieszka Świeczkowska - dyplom'
+                  placeholder='blurred'
+                  layout='fullWidth'
                 />
               </Frame>
             </StyledSecondSectionImg>
@@ -121,7 +117,7 @@ const Index = ({ data }) => {
             <p>{thirdSectionData[0].desc}</p>
           </StyledThridArticle>
 
-          <Gallery data={data?.allDatoCmsWspieram?.edges[0].node.gallery} />
+          {/* <Gallery data={data?.allDatoCmsWspieram?.edges[0].node.gallery} /> */}
         </section>
       </ContentWrapper>
     </main>

@@ -17,7 +17,7 @@ const Pokazy = ({ data }) => {
   return (
     <MainWrapper>
       <ContentWrapper>
-        <Heading label="Moje Pokazy" isMain />
+        <Heading label='Moje Pokazy' isMain />
 
         <GridContent>
           <GridSection>
@@ -27,39 +27,35 @@ const Pokazy = ({ data }) => {
               </header>
 
               <p>
-                W ten egzotyczny świat wprowadzi Cię tancerka Leyla, która może
-                zatańczyć na Państwa weselu, imprezie okolicznościowej, czy
-                ofiarować w imieniu Państwa, taniec dla gości imprezy.
+                W ten egzotyczny świat wprowadzi Cię tancerka Leyla, która może zatańczyć na Państwa
+                weselu, imprezie okolicznościowej, czy ofiarować w imieniu Państwa, taniec dla gości
+                imprezy.
               </p>
 
               <footer>
-                <SkipButton
-                  label="Program pokazów"
-                  scrollId="#program-pokazow"
-                />
+                <SkipButton label='Program pokazów' scrollId='#program-pokazow' />
               </footer>
             </article>
 
             <Frame downRight>
               <StaticImage
-                src="../assets/images/Pokazy/img11.jpg"
-                alt="Agnieszka Świeczkowska belly dance, taniec brzucha - pokazy"
-                placeholder="blurred"
-                layout="fullWidth"
+                src='../assets/images/Pokazy/img11.jpg'
+                alt='Agnieszka Świeczkowska belly dance, taniec brzucha - pokazy'
+                placeholder='blurred'
+                layout='fullWidth'
               />
             </Frame>
           </GridSection>
 
           <GridSection>
-            <article id="program-pokazow">
+            <article id='program-pokazow'>
               <header>
                 <h2>Program i repertuar</h2>
               </header>
 
               <p>
-                Program i charakter pokazu może być dostosowany do rodzaju
-                imprezy okolicznościowej oraz oczekiwań Klienta. W moim
-                repertuarze znajdują się:
+                Program i charakter pokazu może być dostosowany do rodzaju imprezy okolicznościowej
+                oraz oczekiwań Klienta. W moim repertuarze znajdują się:
               </p>
 
               <ul>
@@ -70,9 +66,8 @@ const Pokazy = ({ data }) => {
                 <li>
                   <PyramidPointer />
                   <span>
-                    <strong>pokazy z gatunku fantasy belly dance,</strong> czyli
-                    taneczne show z rekwizytami: skrzydłami Izydy, woalem,
-                    wachlarzami
+                    <strong>pokazy z gatunku fantasy belly dance,</strong> czyli taneczne show z
+                    rekwizytami: skrzydłami Izydy, woalem, wachlarzami
                   </span>
                 </li>
                 <li>
@@ -87,13 +82,8 @@ const Pokazy = ({ data }) => {
             </article>
 
             <Frame isFlex>
-              <video
-                controls
-                width="100%"
-                height="100%"
-                style={{ zIndex: '1' }}
-              >
-                <source src={DanceVid} type="video/mp4" />
+              <video controls width='100%' height='100%' style={{ zIndex: '1' }}>
+                <source src={DanceVid} type='video/mp4' />
               </video>
             </Frame>
           </GridSection>
@@ -105,33 +95,32 @@ const Pokazy = ({ data }) => {
               </header>
 
               <p>
-                Na zakończenie pokazu proponujemy wspólną zabawę z Gośćmi przy
-                dźwiękach znanych piosenek Shakiry, Tarkana, czy Arasha. Nauka
-                podstawowych ruchów belly dance rozweseli nawet najmniej
-                roztańczonych Gości!
+                Na zakończenie pokazu proponujemy wspólną zabawę z Gośćmi przy dźwiękach znanych
+                piosenek Shakiry, Tarkana, czy Arasha. Nauka podstawowych ruchów belly dance
+                rozweseli nawet najmniej roztańczonych Gości!
               </p>
 
               <footer>
-                <SkipButton label="Galeria zdjęć" scrollId="#galeria" />
+                <SkipButton label='Galeria zdjęć' scrollId='#galeria' />
               </footer>
             </article>
 
             <Frame downRight>
               <StaticImage
-                src="../assets/images/Pokazy/img10.jpg"
-                alt="Agnieszka Świeczkowska belly dance, taniec brzucha - pokazy"
-                placeholder="blurred"
-                layout="fullWidth"
+                src='../assets/images/Pokazy/img10.jpg'
+                alt='Agnieszka Świeczkowska belly dance, taniec brzucha - pokazy'
+                placeholder='blurred'
+                layout='fullWidth'
               />
             </Frame>
           </GridSection>
         </GridContent>
 
-        <div id="galeria">
+        {/* <div id="galeria">
           <Heading label="Galeria" />
 
           <Gallery data={data?.allDatoCmsPokazy?.edges[0].node.gallery} />
-        </div>
+        </div> */}
       </ContentWrapper>
     </MainWrapper>
   );
