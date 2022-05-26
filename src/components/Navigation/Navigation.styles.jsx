@@ -18,9 +18,10 @@ export const Wrapper = styled.div`
   padding: 0 20px;
   z-index: 100;
 
-  transform: ${({ $toggle, $hideNav }) => {
+  transform: ${({ $toggle, $hideNav, $imgIndex }) => {
     if (!$toggle && $hideNav) return 'translateY(-100%)';
-    else if (!$toggle && !$hideNav) return 'translateX(0)';
+    else if ($imgIndex) return 'translateY(-100%)';
+    else if (!$toggle && !$hideNav) return 'translateY(0)';
   }};
   transition: all 0.3s ease-in-out;
 
