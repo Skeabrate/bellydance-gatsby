@@ -10,8 +10,6 @@ const StyledSection = styled.section`
 
   ul {
     list-style: none;
-    width: 100%;
-    word-break: break-word;
 
     li {
       display: grid;
@@ -19,6 +17,8 @@ const StyledSection = styled.section`
       column-gap: 6px;
       align-items: baseline;
       margin-top: 12px;
+      width: 100%;
+      word-break: break-word;
 
       ${({ theme }) => theme.mq.bigDesktop} {
         margin-top: 2rem;
