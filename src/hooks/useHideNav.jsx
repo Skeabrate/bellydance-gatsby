@@ -8,7 +8,7 @@ export const useHideNav = () => {
   let lastScrollTop = 0;
 
   const handleScroll = () => {
-    setPosition(window.scrollY);
+    /* setPosition(window.scrollY); */
     let st = window.pageYOffset || document.documentElement.scrollTop;
 
     if (st < 50) setIsOnTop(true);

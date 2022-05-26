@@ -21,10 +21,10 @@ const LightBox = () => {
   const scrollY = document.body.style.top;
 
   const handleCloseGallery = () => {
-    document.body.style.overflow = 'unset';
+    /* document.body.style.overflow = 'unset';
     document.body.style.position = '';
     document.body.style.top = '';
-    window.scrollTo(0, parseInt(scrollY || '0') * -1);
+    window.scrollTo(0, parseInt(scrollY || '0') * -1); */
     setImgIndex(false);
   };
   const setFinishedIndex = (i) => setImgIndex(i);

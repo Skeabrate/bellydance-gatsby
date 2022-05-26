@@ -10,10 +10,10 @@ export default function Gallery({ data }) {
   const { position } = useHideNav();
 
   const passIndexToLightBox = (index) => {
-    document.body.setAttribute(
+    /* document.body.setAttribute(
       'style',
       `overflow:hidden !important; position: fixed !important; top: -${position}px; width:100% !important`
-    );
+    ); */
 
     setImgIndex(index);
   };

@@ -17,10 +17,6 @@ const StyledSection = styled.section`
       column-gap: 6px;
       align-items: baseline;
       margin-top: 12px;
-      width: 80% !important;
-      word-break: break-word !important;
-      overflow: hidden !important;
-      background: red;
 
       ${({ theme }) => theme.mq.bigDesktop} {
         margin-top: 2rem;

@@ -28,5 +28,6 @@ export const StyledBgImage = styled(BgImage)`
 
   ${({ theme }) => theme.mq.huge} {
     height: calc(100vh - 120px);
+    background-attachment: fixed;
   }
 `;
