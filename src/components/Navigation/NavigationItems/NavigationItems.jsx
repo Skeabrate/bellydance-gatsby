@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import X from 'assets/images/SVG/x.svg';
 import Facebook from 'assets/images/SVG/fb.svg';
 import Instagram from 'assets/images/SVG/insta.svg';
-
 import {
   Wrapper,
   StyledLogo,
@@ -43,16 +41,11 @@ const activeLinkStyles = {
   textUnderlineOffset: '0.05em',
 };
 
-const NavigationItems = ({
-  toggle,
-  isOnTop,
-  changeColor,
-  handleCloseMenu = () => {},
-}) => {
+const NavigationItems = ({ toggle, isOnTop, changeColor, handleCloseMenu = () => {} }) => {
   return (
     <Wrapper $toggle={toggle}>
-      <StyledLogo to="/">
-        <h1 translate="no">Leyla Bellydance</h1>
+      <StyledLogo to='/'>
+        <h1 translate='no'>Leyla Bellydance</h1>
       </StyledLogo>
 
       <StyledNav>
@@ -70,7 +63,7 @@ const NavigationItems = ({
         ))}
 
         <StyledCloseButton>
-          <button onClick={handleCloseMenu} aria-label="zamknij nawigację">
+          <button onClick={handleCloseMenu} aria-label='zamknij nawigację'>
             <X />
           </button>
         </StyledCloseButton>
@@ -78,10 +71,10 @@ const NavigationItems = ({
 
       <StyledSocials>
         <StyledSocialsItem
-          title="facebook"
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.facebook.com/agnieszka.swieczkowska.9"
+          title='facebook'
+          target='_blank'
+          rel='noopener noreferrer'
+          href='https://www.facebook.com/agnieszka.swieczkowska.9'
           $isOnTop={isOnTop}
           $changeColor={changeColor}
         >
@@ -89,10 +82,10 @@ const NavigationItems = ({
         </StyledSocialsItem>
 
         <StyledSocialsItem
-          title="instagram"
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.instagram.com/bellydance_leyla/"
+          title='instagram'
+          target='_blank'
+          rel='noopener noreferrer'
+          href='https://www.instagram.com/bellydance_leyla/'
           $isOnTop={isOnTop}
           $changeColor={changeColor}
         >

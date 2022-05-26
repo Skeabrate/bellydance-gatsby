@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import LightBoxContext from 'context/LightBoxContext';
+import { useScroll } from 'hooks/useScroll';
 import {
   Wrapper,
   StyledPyramidDate,
@@ -14,12 +15,12 @@ import {
 
 const Post = ({ title, description, meta, assets, video }) => {
   const { setImgIndex, setLightBoxData } = useContext(LightBoxContext);
+  const { setBodyOverflowToHidden } = useScroll();
 
   const handleOpenLightBox = () => {
     setImgIndex(0);
     setLightBoxData(assets);
-    document.body.style.overflow = 'hidden';
-    document.getElementsByTagName('html')[0].style.overflow = 'hidden';
+    setBodyOverflowToHidden();
   };
 
   return (
@@ -29,7 +30,7 @@ const Post = ({ title, description, meta, assets, video }) => {
           <StyledImg onClick={handleOpenLightBox}>
             <GatsbyImage
               image={assets[0].gatsbyImageData}
-              alt="Agnieszka Świeczkowska Leyla bellydance"
+              alt='Agnieszka Świeczkowska Leyla bellydance'
             />
           </StyledImg>
 
@@ -51,16 +52,14 @@ const Post = ({ title, description, meta, assets, video }) => {
         {video && (
           <StyledVideo>
             <p>Sprawdź filmik:</p>
-            <a href={video.url} target="_blank" rel="noopener noreferrer">
+            <a href={video.url} target='_blank' rel='noopener noreferrer'>
               {video.url}
             </a>
           </StyledVideo>
         )}
       </StyledPostContent>
 
-      <StyledPyramidDate>
-        {meta.firstPublishedAt.slice(0, 10)}
-      </StyledPyramidDate>
+      <StyledPyramidDate>{meta.firstPublishedAt.slice(0, 10)}</StyledPyramidDate>
     </Wrapper>
   );
 };

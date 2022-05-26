@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from '@reach/router';
-import { useHideNav } from 'hooks/useHideNav';
-
+import { useScroll } from 'hooks/useScroll';
 import NavigationItems from './NavigationItems/NavigationItems';
 import Hamburger from './Hamburger/Hamburger';
-
 import { Wrapper, StyledLogo } from './Navigation.styles';
 
 const Navigation = () => {
   const [toggle, setToggle] = useState(false);
   const [changeColor, setChangeColor] = useState(false);
 
-  const { isOnTop, hideNav } = useHideNav();
+  const { isOnTop, hideNav } = useScroll();
 
   const location = useLocation();
 

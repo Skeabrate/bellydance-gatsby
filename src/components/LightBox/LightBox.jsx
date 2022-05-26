@@ -16,18 +16,18 @@ import {
 
 const LightBox = () => {
   const [isLoaded, setIsLoaded] = useState({});
-
   const { lightBoxData, setImgIndex, imgIndex } = useContext(LightBoxContext);
-  const scrollY = document.body.style.top;
 
+  const scrollY = document.body.style.top;
   const handleCloseGallery = () => {
-    /* document.body.style.overflow = 'unset';
+    document.body.style.overflow = 'unset';
     document.body.style.position = '';
     document.body.style.top = '';
-    window.scrollTo(0, parseInt(scrollY || '0') * -1); */
+    window.scrollTo(0, parseInt(scrollY || '0') * -1);
     setImgIndex(false);
   };
-  const setFinishedIndex = (i) => setImgIndex(i);
+
+  const handleFinishedIndex = (i) => setImgIndex(i);
 
   const handleLoad = (index) => {
     setIsLoaded((state) => ({
@@ -57,7 +57,7 @@ const LightBox = () => {
         </SwitchButtonRight>
       )}
 
-      <Slider onSlideComplete={setFinishedIndex} activeIndex={imgIndex} threshHold={100}>
+      <Slider onSlideComplete={handleFinishedIndex} activeIndex={imgIndex} threshHold={100}>
         {lightBoxData.map(({ gatsbyImageData }, index) => (
           <div key={index} style={{ position: 'relative' }}>
             <img
