@@ -117,7 +117,7 @@ const Index = ({ data }) => {
             <p>{thirdSectionData[0].desc}</p>
           </StyledThridArticle>
 
-          {/* <Gallery data={data?.allDatoCmsWspieram?.edges[0].node.gallery} /> */}
+          <Gallery data={data?.allDatoCmsWspieram?.edges[0].node.gallery} />
         </section>
       </ContentWrapper>
     </main>

@@ -9,14 +9,14 @@ export const Wrapper = styled.footer`
   justify-content: flex-end;
   padding-bottom: 5rem;
   row-gap: 15px;
-  height: 30vh;
+  height: 260px;
 
   p {
     font-size: ${({ theme }) => theme.fontSize.caption};
   }
 
   ${({ theme }) => theme.mq.tablet} {
-    height: 40vh;
+    height: 400px;
   }
 `;
 

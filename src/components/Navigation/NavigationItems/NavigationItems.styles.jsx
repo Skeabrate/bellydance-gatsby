@@ -7,14 +7,13 @@ export const Wrapper = styled.nav`
   left: 0;
   width: 100%;
   height: 100vh;
-  padding-block: 50px;
+  padding-block: 5vh;
   background-color: ${({ theme }) => theme.colors.white};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  transform: ${({ $toggle }) =>
-    $toggle ? 'translateX(0)' : 'translateX(-100%)'};
+  transform: ${({ $toggle }) => ($toggle ? 'translateX(0)' : 'translateX(-100%)')};
   box-shadow: 0px 0px 50px -33px rgba(0, 0, 0, 1);
 
   transition: transform 0.7s cubic-bezier(0.3, 0, 0, 1);
@@ -54,7 +53,7 @@ export const StyledNav = styled.ul`
   justify-content: center;
   align-items: center;
   column-gap: 35px;
-  row-gap: 35px;
+  row-gap: 4vh;
 
   li:hover a {
     color: ${({ theme }) => theme.colors.sand};

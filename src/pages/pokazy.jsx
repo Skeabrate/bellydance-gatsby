@@ -116,11 +116,11 @@ const Pokazy = ({ data }) => {
           </GridSection>
         </GridContent>
 
-        {/* <div id="galeria">
-          <Heading label="Galeria" />
+        <div id='galeria'>
+          <Heading label='Galeria' />
 
           <Gallery data={data?.allDatoCmsPokazy?.edges[0].node.gallery} />
-        </div> */}
+        </div>
       </ContentWrapper>
     </MainWrapper>
   );

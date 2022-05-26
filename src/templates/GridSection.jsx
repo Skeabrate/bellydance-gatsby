@@ -7,10 +7,11 @@ const StyledSection = styled.section`
   align-items: center;
   column-gap: ${({ theme }) => theme.spacing.columnGap};
   row-gap: 3rem;
-  width: 100%;
 
   ul {
     list-style: none;
+    width: 100%;
+    word-break: break-word;
 
     li {
       display: grid;
