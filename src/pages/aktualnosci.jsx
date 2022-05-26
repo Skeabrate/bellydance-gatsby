@@ -3,17 +3,16 @@ import { graphql } from 'gatsby';
 import { useAktualnosciQuery } from 'hooks/useAktualnosciQuery';
 import { useAktualnosciSort } from 'hooks/useAktualnosciSort';
 import { usePaginate } from 'hooks/usePaginate';
-
 import MainWrapper from 'templates/MainWrapper';
-import ContentWrapper from 'templates/ContentWrapper';
 import HeroImageContainer from 'components/HeroImageContainer/HeroImageContainer';
 import Heading from 'components/Heading/Heading';
 import Combobox from 'components/Combobox/Combobox';
 import Frame from 'components/Frame/Frame';
 import Post from 'components/Post/Post';
-
-import { StyledPostsContainer } from 'assets/styles/pages/aktualnosci.styles';
-import ParalaxWrapper from '../templates/ParalaxWrapper';
+import {
+  StyledPostsContainer,
+  AktualnosciContentWrapper,
+} from 'assets/styles/pages/aktualnosci.styles';
 
 const Aktualnosci = ({ data }) => {
   const loadingRef = useRef(null);
@@ -26,33 +25,27 @@ const Aktualnosci = ({ data }) => {
     <MainWrapper>
       <HeroImageContainer placeholderImage={placeholderImage} />
 
-      <ParalaxWrapper>
-        <ContentWrapper>
-          <Heading label="Co słychać w królestwie tańca orientalnego?" isMain />
+      <AktualnosciContentWrapper>
+        <Heading label='Co słychać w królestwie tańca orientalnego?' isMain />
 
-          <Combobox setSortDescending={setSortDescending} />
+        <Combobox setSortDescending={setSortDescending} />
 
-          <StyledPostsContainer>
-            {currentData.map(
-              ({ node: { id, title, description, assets, video, meta } }) => (
-                <Frame key={id} upRight>
-                  <Post
-                    title={title}
-                    description={description}
-                    assets={assets}
-                    video={video}
-                    meta={meta}
-                  />
-                </Frame>
-              )
-            )}
-          </StyledPostsContainer>
+        <StyledPostsContainer>
+          {currentData.map(({ node: { id, title, description, assets, video, meta } }) => (
+            <Frame key={id} upRight>
+              <Post
+                title={title}
+                description={description}
+                assets={assets}
+                video={video}
+                meta={meta}
+              />
+            </Frame>
+          ))}
+        </StyledPostsContainer>
 
-          {currentData.length < data.allDatoCmsPost.edges.length && (
-            <div ref={loadingRef} />
-          )}
-        </ContentWrapper>
-      </ParalaxWrapper>
+        {currentData.length < data.allDatoCmsPost.edges.length && <div ref={loadingRef} />}
+      </AktualnosciContentWrapper>
     </MainWrapper>
   );
 };

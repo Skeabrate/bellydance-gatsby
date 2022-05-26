@@ -4,6 +4,7 @@ export const Wrapper = styled.div`
   font-weight: bold;
   position: relative;
   width: max-content;
+  margin: 0 20px;
 
   span {
     margin: 0 2px 0 8px;
@@ -19,8 +20,7 @@ export const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
     border: 2px solid ${({ theme }) => theme.colors.white};
-    border-color: ${({ theme, $isOpen }) =>
-      $isOpen ? theme.colors.black : theme.colors.white};
+    border-color: ${({ theme, $isOpen }) => ($isOpen ? theme.colors.black : theme.colors.white)};
   }
 
   svg {
@@ -34,8 +34,7 @@ export const Wrapper = styled.div`
     list-style-type: none;
     position: absolute;
     border: 2px solid black;
-    border-color: ${({ theme, $isOpen }) =>
-      $isOpen ? theme.colors.black : theme.colors.white};
+    border-color: ${({ theme, $isOpen }) => ($isOpen ? theme.colors.black : theme.colors.white)};
     width: 100%;
     border-top: none;
     text-align: center;

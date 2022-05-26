@@ -29,7 +29,7 @@ export const SliderWrapper = styled.div`
     width: 100%;
     height: 100%;
     background-color: black;
-    opacity: 1;
+    opacity: 0.85;
     z-index: 0;
   }
 
@@ -63,12 +63,6 @@ export const SliderWrapper = styled.div`
     padding: 0 !important;
     position: relative;
     z-index: 1;
-  }
-
-  ${({ theme }) => theme.mq.tablet} {
-    &::after {
-      opacity: 0.9;
-    }
   }
 `;
 

@@ -15,3 +15,16 @@ export const StyledPostsContainer = styled.section`
     grid-template-columns: 1fr 1fr;
   }
 `;
+
+export const AktualnosciContentWrapper = styled.div`
+  margin: 0 auto;
+  max-width: 1500px;
+
+  ${({ theme }) => theme.mq.tablet} {
+    padding: 0 4rem;
+  }
+
+  ${({ theme }) => theme.mq.desktop} {
+    padding: 0 6rem;
+  }
+`;

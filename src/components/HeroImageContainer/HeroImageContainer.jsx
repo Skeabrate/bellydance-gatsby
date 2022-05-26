@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { getImage } from 'gatsby-plugin-image';
 import { StyledBgImage } from './HeroImageContainer.styles';
