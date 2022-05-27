@@ -41,7 +41,7 @@ const activeLinkStyles = {
   textUnderlineOffset: '0.05em',
 };
 
-const NavigationItems = ({ toggle, isOnTop, changeColor, handleCloseMenu = () => {} }) => {
+const NavigationItems = ({ toggle, isOnTop, changeColor, toggleNav = () => {} }) => {
   return (
     <Wrapper $toggle={toggle}>
       <StyledLogo to='/'>
@@ -63,7 +63,7 @@ const NavigationItems = ({ toggle, isOnTop, changeColor, handleCloseMenu = () =>
         ))}
 
         <StyledCloseButton>
-          <button onClick={handleCloseMenu} aria-label='zamknij nawigację'>
+          <button onClick={toggleNav} aria-label='zamknij nawigację'>
             <X />
           </button>
         </StyledCloseButton>
@@ -98,7 +98,7 @@ const NavigationItems = ({ toggle, isOnTop, changeColor, handleCloseMenu = () =>
 
 NavigationItems.propTypes = {
   toggle: PropTypes.bool.isRequired,
-  handleCloseMenu: PropTypes.func.isRequired,
+  toggleNav: PropTypes.func.isRequired,
   isOnTop: PropTypes.bool.isRequired,
   changeColor: PropTypes.bool.isRequired,
 };

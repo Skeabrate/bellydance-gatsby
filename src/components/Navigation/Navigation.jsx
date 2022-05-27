@@ -5,33 +5,22 @@ import NavigationItems from './NavigationItems/NavigationItems';
 import Hamburger from './Hamburger/Hamburger';
 import { Wrapper, StyledLogo } from './Navigation.styles';
 import LightBoxContext from 'context/LightBoxContext';
-import { closeModal } from 'utils/closeModal';
-import { document } from 'browser-monads';
 
 const Navigation = () => {
   const [toggle, setToggle] = useState(false);
   const [changeColor, setChangeColor] = useState(false);
 
   const { imgIndex } = useContext(LightBoxContext);
-  const { isOnTop, hideNav, setBodyOverflowToHidden } = useScroll();
+  const { isOnTop, hideNav } = useScroll();
   const location = useLocation();
-  const bodyStyleTop = document.body.style.top;
 
-  const handleCloseMenu = () => {
-    closeModal(bodyStyleTop);
-    setToggle(false);
-  };
-
-  const handleOpenMenu = () => {
-    setBodyOverflowToHidden();
-    setToggle(true);
-  };
+  const toggleNav = () => setToggle(!toggle);
 
   useEffect(() => {
     if (location.pathname === '/') setChangeColor(true);
     else setChangeColor(false);
 
-    handleCloseMenu();
+    setToggle(false);
   }, [location.pathname]);
 
   return (
@@ -52,10 +41,10 @@ const Navigation = () => {
         isOnTop={isOnTop}
         changeColor={changeColor}
         toggle={toggle}
-        handleCloseMenu={handleCloseMenu}
+        toggleNav={toggleNav}
       />
 
-      <Hamburger handleOpenMenu={handleOpenMenu} isOnTop={isOnTop} changeColor={changeColor} />
+      <Hamburger toggleNav={toggleNav} isOnTop={isOnTop} changeColor={changeColor} />
     </Wrapper>
   );
 };

@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StyledHamburger } from './Hamburger.styles';
 
-const Hamburger = ({ handleOpenMenu, isOnTop, changeColor }) => {
+const Hamburger = ({ toggleNav, isOnTop, changeColor }) => {
   return (
     <StyledHamburger
-      onClick={handleOpenMenu}
+      onClick={toggleNav}
       aria-label='otwórz nawigację'
       $isOnTop={isOnTop}
       $changeColor={changeColor}
@@ -20,7 +20,7 @@ const Hamburger = ({ handleOpenMenu, isOnTop, changeColor }) => {
 };
 
 Hamburger.propTypes = {
-  handleOpenMenu: PropTypes.func.isRequired,
+  toggleNav: PropTypes.func.isRequired,
   isOnTop: PropTypes.bool.isRequired,
   changeColor: PropTypes.bool.isRequired,
 };
