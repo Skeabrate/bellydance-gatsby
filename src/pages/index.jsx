@@ -2,16 +2,13 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import { useIndexQuery } from 'hooks/useIndexQuery';
-
 import ContentWrapper from 'templates/ContentWrapper';
 import PyramidScroll from 'components/PyramidScroll/PyramidScroll';
 import Heading from 'components/Heading/Heading';
 import Frame from 'components/Frame/Frame';
 import SandSection from 'components/SandSection/SandSection';
 import Gallery from 'components/Gallery/Gallery';
-
 import { firstSectionData, secondSectionData, thirdSectionData } from 'data/indexData';
-
 import {
   StyledBgImage,
   StyledDarken,

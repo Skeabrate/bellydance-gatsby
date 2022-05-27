@@ -5,6 +5,7 @@ import LeftArrow from 'assets/images/SVG/leftArrow.svg';
 import RightArrow from 'assets/images/SVG/rightArrow.svg';
 import Slider from 'react-touch-drag-slider';
 import ClipLoader from 'react-spinners/ClipLoader';
+import { closeModal } from 'utils/closeModal';
 import {
   SliderWrapper,
   SwitchButtonLeft,
@@ -17,13 +18,10 @@ import {
 const LightBox = () => {
   const [isLoaded, setIsLoaded] = useState({});
   const { lightBoxData, setImgIndex, imgIndex } = useContext(LightBoxContext);
+  const bodyStyleTop = document.body.style.top;
 
-  const scrollY = document.body.style.top;
   const handleCloseGallery = () => {
-    document.body.style.overflow = 'unset';
-    document.body.style.position = '';
-    document.body.style.top = '';
-    window.scrollTo(0, parseInt(scrollY || '0') * -1);
+    closeModal(bodyStyleTop);
     setImgIndex(false);
   };
 

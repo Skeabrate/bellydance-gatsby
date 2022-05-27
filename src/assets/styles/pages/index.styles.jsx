@@ -103,7 +103,6 @@ export const StyledThridArticle = styled.article`
   margin-bottom: 4rem;
 
   ${({ theme }) => theme.mq.tablet} {
-    text-align: center;
     margin-bottom: 6rem;
   }
 `;

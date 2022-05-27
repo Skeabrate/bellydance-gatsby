@@ -7,6 +7,7 @@ const StyledSection = styled.section`
   align-items: center;
   column-gap: ${({ theme }) => theme.spacing.columnGap};
   row-gap: 3rem;
+  padding-bottom: ${({ $noPadding }) => ($noPadding ? '0' : '10rem')};
 
   ul {
     list-style: none;
@@ -26,6 +27,7 @@ const StyledSection = styled.section`
 
   ${({ theme }) => theme.mq.tablet} {
     grid-template-columns: ${({ $isBig }) => ($isBig ? '1fr' : '1fr 1fr')};
+    padding-bottom: ${({ $noPadding }) => ($noPadding ? '0' : '16rem')};
 
     &:nth-child(2n) {
       article {
@@ -37,6 +39,7 @@ const StyledSection = styled.section`
 
   ${({ theme }) => theme.mq.desktop} {
     grid-template-columns: 1fr 1fr;
+    padding-bottom: ${({ $noPadding }) => ($noPadding ? '0' : '20rem')};
 
     &:nth-child(2n) {
       article {
@@ -46,8 +49,12 @@ const StyledSection = styled.section`
   }
 `;
 
-const GridSection = ({ children, isBig }) => {
-  return <StyledSection $isBig={isBig}>{children}</StyledSection>;
+const GridSection = ({ children, isBig, noPadding }) => {
+  return (
+    <StyledSection $isBig={isBig} $noPadding={noPadding}>
+      {children}
+    </StyledSection>
+  );
 };
 
 GridSection.propTypes = {

@@ -5,16 +5,26 @@ import NavigationItems from './NavigationItems/NavigationItems';
 import Hamburger from './Hamburger/Hamburger';
 import { Wrapper, StyledLogo } from './Navigation.styles';
 import LightBoxContext from 'context/LightBoxContext';
+import { closeModal } from 'utils/closeModal';
 
 const Navigation = () => {
   const [toggle, setToggle] = useState(false);
   const [changeColor, setChangeColor] = useState(false);
 
   const { imgIndex } = useContext(LightBoxContext);
-  const { isOnTop, hideNav } = useScroll();
+  const { isOnTop, hideNav, setBodyOverflowToHidden } = useScroll();
   const location = useLocation();
+  const bodyStyleTop = document.body.style.top;
 
-  const handleCloseMenu = () => setToggle(!toggle);
+  const handleCloseMenu = () => {
+    closeModal(bodyStyleTop);
+    setToggle(false);
+  };
+
+  const handleOpenMenu = () => {
+    setBodyOverflowToHidden();
+    setToggle(true);
+  };
 
   useEffect(() => {
     if (location.pathname === '/') setChangeColor(true);
@@ -44,7 +54,7 @@ const Navigation = () => {
         handleCloseMenu={handleCloseMenu}
       />
 
-      <Hamburger handleCloseMenu={handleCloseMenu} isOnTop={isOnTop} changeColor={changeColor} />
+      <Hamburger handleOpenMenu={handleOpenMenu} isOnTop={isOnTop} changeColor={changeColor} />
     </Wrapper>
   );
 };
