@@ -31,7 +31,7 @@ const Navigation = () => {
     if (location.pathname === '/') setChangeColor(true);
     else setChangeColor(false);
 
-    setToggle(false);
+    handleCloseMenu();
   }, [location.pathname]);
 
   return (
