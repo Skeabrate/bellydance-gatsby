@@ -17,7 +17,7 @@ export const SliderWrapper = styled.div`
   width: 100%;
   height: 100vh;
   z-index: 999999;
-  animation: ${appear} 0.3s forwards;
+  animation: ${appear} 0.5s forwards;
 
   &::after {
     content: '';
@@ -29,7 +29,7 @@ export const SliderWrapper = styled.div`
     width: 100%;
     height: 100%;
     background-color: black;
-    opacity: 0.85;
+    opacity: 0.9;
     z-index: 0;
   }
 
