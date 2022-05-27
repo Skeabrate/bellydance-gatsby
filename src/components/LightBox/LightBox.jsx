@@ -18,7 +18,7 @@ import {
 const LightBox = () => {
   const [isLoaded, setIsLoaded] = useState({});
   const { lightBoxData, setImgIndex, imgIndex } = useContext(LightBoxContext);
-  const bodyStyleTop = document.body.style.top;
+  const bodyStyleTop = document?.body?.style?.top;
 
   const handleCloseGallery = () => {
     closeModal(bodyStyleTop);

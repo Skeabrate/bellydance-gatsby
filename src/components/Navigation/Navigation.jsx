@@ -14,7 +14,7 @@ const Navigation = () => {
   const { imgIndex } = useContext(LightBoxContext);
   const { isOnTop, hideNav, setBodyOverflowToHidden } = useScroll();
   const location = useLocation();
-  const bodyStyleTop = document.body.style.top;
+  const bodyStyleTop = document?.body?.style?.top;
 
   const handleCloseMenu = () => {
     closeModal(bodyStyleTop);
