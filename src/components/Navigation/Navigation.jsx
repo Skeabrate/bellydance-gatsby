@@ -6,6 +6,7 @@ import Hamburger from './Hamburger/Hamburger';
 import { Wrapper, StyledLogo } from './Navigation.styles';
 import LightBoxContext from 'context/LightBoxContext';
 import { closeModal } from 'utils/closeModal';
+import { document } from 'browser-monads';
 
 const Navigation = () => {
   const [toggle, setToggle] = useState(false);
@@ -14,7 +15,7 @@ const Navigation = () => {
   const { imgIndex } = useContext(LightBoxContext);
   const { isOnTop, hideNav, setBodyOverflowToHidden } = useScroll();
   const location = useLocation();
-  const bodyStyleTop = document?.body?.style?.top;
+  const bodyStyleTop = document.body.style.top;
 
   const handleCloseMenu = () => {
     closeModal(bodyStyleTop);

@@ -6,6 +6,7 @@ import RightArrow from 'assets/images/SVG/rightArrow.svg';
 import Slider from 'react-touch-drag-slider';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { closeModal } from 'utils/closeModal';
+import { document } from 'browser-monads';
 import {
   SliderWrapper,
   SwitchButtonLeft,
@@ -18,7 +19,7 @@ import {
 const LightBox = () => {
   const [isLoaded, setIsLoaded] = useState({});
   const { lightBoxData, setImgIndex, imgIndex } = useContext(LightBoxContext);
-  const bodyStyleTop = document?.body?.style?.top;
+  const bodyStyleTop = document.body.style.top;
 
   const handleCloseGallery = () => {
     closeModal(bodyStyleTop);
