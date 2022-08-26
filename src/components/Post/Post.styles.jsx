@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.article`
   height: 100%;
-  box-shadow: 0px 0px 40px -30px rgba(0, 0, 0, 1);
+  box-shadow: 0px 0px 30px -15px rgba(0, 0, 0, 1);
 `;
 
 export const StyledImgContainer = styled.div`
