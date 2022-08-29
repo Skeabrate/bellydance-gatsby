@@ -12,7 +12,7 @@ import { useForm } from '@formspree/react';
 import { StyledSection, StyledForm, StyledFormResponse } from 'assets/styles/pages/kontakt.styles';
 
 const Kontakt = () => {
-  const [state, handleSubmit] = useForm(process.env.FORMSPREE_API);
+  const [state, handleSubmit] = useForm(process.env.GATSBY_FORMSPREE_API);
 
   const { placeholderImage } = useKontaktQuery();
   const formRef = useRef(null);
