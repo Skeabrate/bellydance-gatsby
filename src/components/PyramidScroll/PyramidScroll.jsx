@@ -37,7 +37,7 @@ const PyramidScroll = () => {
   const scrollHandler = () => scrollTo('#heading');
 
   return (
-    <StyledPyramid aria-label="idź do głównej sekcji" onClick={scrollHandler}>
+    <StyledPyramid aria-label='idź do głównej sekcji' onClick={scrollHandler}>
       <ArrowHome />
     </StyledPyramid>
   );

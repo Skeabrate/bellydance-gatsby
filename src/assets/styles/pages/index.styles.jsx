@@ -5,6 +5,7 @@ import { BgImage } from 'gbimage-bridge';
 export const StyledBgImage = styled(BgImage)`
   position: relative;
   height: 100vh;
+  min-height: 600px;
   width: 100%;
   display: flex;
   flex-direction: column;

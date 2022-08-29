@@ -19,6 +19,7 @@ export const StyledPostsContainer = styled.section`
 export const AktualnosciContentWrapper = styled.div`
   margin: 0 auto;
   max-width: 1500px;
+  padding: 0 1rem;
 
   ${({ theme }) => theme.mq.tablet} {
     padding: 0 4rem;
