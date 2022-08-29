@@ -45,5 +45,13 @@ export const StyledSocials = styled.ul`
   svg {
     height: 26px;
     width: 26px;
+
+    path {
+      transition: all 0.1s ease-in-out;
+
+      &:hover {
+        fill: ${({ theme }) => theme.colors.sand};
+      }
+    }
   }
 `;
