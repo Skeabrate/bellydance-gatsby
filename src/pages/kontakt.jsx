@@ -1,17 +1,25 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import { useKontaktQuery } from 'hooks/useKontaktQuery';
-import { submitFormHandler } from 'utils/submitFormHandler';
 import MainWrapper from 'templates/MainWrapper';
 import ContentWrapper from 'templates/ContentWrapper';
 import HeroImageContainer from 'components/HeroImageContainer/HeroImageContainer';
 import Heading from 'components/Heading/Heading';
 import Phone from 'assets/images/SVG/telefon.svg';
 import Frame from 'components/Frame/Frame';
-import { StyledSection, StyledForm } from 'assets/styles/pages/kontakt.styles';
+import ClipLoader from 'react-spinners/ClipLoader';
+import { useForm } from '@formspree/react';
+import { StyledSection, StyledForm, StyledFormResponse } from 'assets/styles/pages/kontakt.styles';
 
 const Kontakt = () => {
+  const [state, handleSubmit] = useForm(process.env.FORMSPREE_API);
+
   const { placeholderImage } = useKontaktQuery();
+  const formRef = useRef(null);
+
+  useEffect(() => {
+    if (!state.submitting && state.succeeded) formRef.current.reset();
+  }, [state]);
 
   return (
     <MainWrapper>
@@ -34,20 +42,44 @@ const Kontakt = () => {
                 <Phone /> Telefon:{' '}
                 <a href="tel:'502 505 119" rel='noopener noreferrer'>
                   502 505 119
-                </a>{' '}
+                </a>
               </p>
             </header>
 
-            <StyledForm>
-              <input aria-label='imię' type='text' placeholder='Imię' />
-              <input aria-label='adres e-mail' type='email' placeholder='Adres e-mail' />
+            <StyledForm onSubmit={handleSubmit} ref={formRef}>
+              <input aria-label='Imię' id='imie' name='Imię' type='imie' placeholder='Imię' />
+              <input
+                aria-label='Adres e-mail'
+                id='email'
+                name='Email'
+                type='email'
+                placeholder='Adres e-mail'
+                required
+              />
+              {state.errors.length ? (
+                <StyledFormResponse>
+                  {state.errors[0]?.message === 'should be an email'
+                    ? 'Nieprawidłowy email.'
+                    : null}
+                </StyledFormResponse>
+              ) : null}
+
               <textarea
-                aria-label='wiadomość'
-                name='message'
-                id='message'
+                aria-label='Wiadomość'
+                id='wiadomosc'
+                name='Wiadomość'
                 placeholder='Wiadomość'
+                required
               ></textarea>
-              <input type='submit' value='Wyślij' onClick={(e) => submitFormHandler(e)} />
+
+              {state.succeeded ? (
+                <StyledFormResponse $succeeded>
+                  {state.succeeded ? 'Dziękuję za Twoją wiadomość.' : null}
+                </StyledFormResponse>
+              ) : null}
+              <button type='submit' disabled={state.submitting}>
+                {state.submitting ? <ClipLoader size={20} /> : 'Wyślij'}
+              </button>
             </StyledForm>
           </article>
 

@@ -39,11 +39,18 @@ export const StyledForm = styled.form`
   flex-direction: column;
 
   input,
-  textarea {
+  textarea,
+  button {
+    height: 51px;
     padding: 1.4rem;
     border: 1px solid ${({ theme }) => theme.colors.black};
-    margin-bottom: 2rem;
     border-radius: 0px;
+    background: transparent;
+  }
+
+  input,
+  textarea {
+    margin-bottom: 2rem;
 
     &:focus {
       outline: none;
@@ -52,13 +59,15 @@ export const StyledForm = styled.form`
     }
   }
 
-  input:last-child {
+  button {
     width: 200px;
-    background: transparent;
     cursor: pointer;
     transition: all 0.15s ease-in-out;
     color: ${({ theme }) => theme.colors.black};
     font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     &:hover {
       border: 1px solid ${({ theme }) => theme.colors.sand};
@@ -70,4 +79,9 @@ export const StyledForm = styled.form`
     resize: none;
     height: 250px;
   }
+`;
+
+export const StyledFormResponse = styled.div`
+  color: ${({ $succeeded }) => ($succeeded ? 'green' : 'red')};
+  padding-bottom: 20px;
 `;
