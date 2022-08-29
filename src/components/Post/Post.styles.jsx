@@ -3,6 +3,10 @@ import styled from 'styled-components';
 export const Wrapper = styled.article`
   height: 100%;
   box-shadow: 0px 0px 30px -15px rgba(0, 0, 0, 1);
+
+  ul {
+    padding-left: 20px;
+  }
 `;
 
 export const StyledImgContainer = styled.div`
@@ -104,15 +108,4 @@ export const StyledPyramidDate = styled.p`
   width: 130px;
   height: 60px;
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-`;
-
-export const StyledVideo = styled.div`
-  padding-top: 10px;
-  p {
-    font-weight: bold;
-  }
-
-  a {
-    word-break: break-all;
-  }
 `;

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import LightBoxContext from 'context/LightBoxContext';
 import { useScroll } from 'hooks/useScroll';
+import { StructuredText } from 'react-datocms';
 import {
   Wrapper,
   StyledPyramidDate,
@@ -10,7 +11,6 @@ import {
   StyledImgContainer,
   StyledImg,
   StyledLegend,
-  StyledVideo,
 } from './Post.styles';
 
 const Post = ({ title, description, meta, assets, video }) => {
@@ -25,7 +25,7 @@ const Post = ({ title, description, meta, assets, video }) => {
 
   return (
     <Wrapper>
-      {assets && (
+      {assets.length ? (
         <StyledImgContainer>
           <StyledImg onClick={handleOpenLightBox}>
             <GatsbyImage
@@ -40,23 +40,12 @@ const Post = ({ title, description, meta, assets, video }) => {
             ))}
           </StyledLegend>
         </StyledImgContainer>
-      )}
+      ) : null}
 
       <StyledPostContent>
         <h2>{title}</h2>
 
-        {description.value.document.children.map(({ children }, index) => (
-          <p key={index}>{children[0].value}</p>
-        ))}
-
-        {video && (
-          <StyledVideo>
-            <p>Sprawdź filmik:</p>
-            <a href={video.url} target='_blank' rel='noopener noreferrer'>
-              {video.url}
-            </a>
-          </StyledVideo>
-        )}
+        <StructuredText data={description} />
       </StyledPostContent>
 
       <StyledPyramidDate>{meta.firstPublishedAt.slice(0, 10)}</StyledPyramidDate>
@@ -69,7 +58,6 @@ Post.propTypes = {
   description: PropTypes.object.isRequired,
   meta: PropTypes.object.isRequired,
   assets: PropTypes.array,
-  video: PropTypes.object,
 };
 
 export default Post;

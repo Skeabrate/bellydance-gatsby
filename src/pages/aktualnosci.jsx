@@ -31,15 +31,9 @@ const Aktualnosci = ({ data }) => {
         <Combobox setSortDescending={setSortDescending} />
 
         <StyledPostsContainer>
-          {currentData.map(({ node: { id, title, description, assets, video, meta } }) => (
+          {currentData.map(({ node: { id, title, description, assets, meta } }) => (
             <Frame key={id} upRight>
-              <Post
-                title={title}
-                description={description}
-                assets={assets}
-                video={video}
-                meta={meta}
-              />
+              <Post title={title} description={description} assets={assets} meta={meta} />
             </Frame>
           ))}
         </StyledPostsContainer>
@@ -65,12 +59,6 @@ export const query = graphql`
           }
           id
           title
-          video {
-            height
-            url
-            width
-            thumbnailUrl
-          }
           meta {
             firstPublishedAt
           }
