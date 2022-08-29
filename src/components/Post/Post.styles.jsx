@@ -79,7 +79,7 @@ export const StyledLegend = styled.div`
     height: 12px;
     background-color: #eeeeee;
     border-radius: 100px;
-    border: 2px solid ${({ theme }) => theme.colors.sand};
+    border: 1px solid #c7c7c7;
   }
 `;
 
