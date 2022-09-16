@@ -23,7 +23,7 @@ export const Wrapper = styled.footer`
 export const StyledLogo = styled(Link)`
   text-decoration: none;
 
-  h1 {
+  h3 {
     color: ${({ theme }) => theme.colors.black};
     font-family: ${({ theme }) => theme.fontFamily.greatVibes};
     font-size: ${({ theme }) => theme.fontSize.headingMobile};
@@ -31,7 +31,7 @@ export const StyledLogo = styled(Link)`
   }
 
   ${({ theme }) => theme.mq.desktop} {
-    h1 {
+    h3 {
       font-size: ${({ theme }) => theme.fontSize.heading};
     }
   }

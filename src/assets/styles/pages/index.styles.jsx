@@ -107,3 +107,30 @@ export const StyledThridArticle = styled.article`
     margin-bottom: 6rem;
   }
 `;
+
+export const StyledCompetitions = styled.section`
+  display: grid;
+  align-items: center;
+  column-gap: ${({ theme }) => theme.spacing.columnGap};
+  row-gap: 3rem;
+  padding-bottom: 10rem;
+
+  ${({ theme }) => theme.mq.tablet} {
+    grid-template-columns: ${({ $isBig }) => ($isBig ? '1fr' : '1fr 1fr')};
+    padding-bottom: 16rem;
+
+    article {
+      grid-column: ${({ $isBig }) => ($isBig ? '1' : '2')};
+      grid-row: 1;
+    }
+  }
+
+  ${({ theme }) => theme.mq.desktop} {
+    grid-template-columns: 1fr 1fr;
+    padding-bottom: 20rem;
+
+    article {
+      grid-column: 2;
+    }
+  }
+`;

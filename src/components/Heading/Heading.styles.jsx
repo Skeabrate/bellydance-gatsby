@@ -17,7 +17,7 @@ export const StyledHeader = styled.header`
   }
 `;
 
-export const StyledTitle = styled.h1`
+export const StyledTitle = styled.h2`
   font-family: ${({ theme }) => theme.fontFamily.greatVibes};
   font-size: ${({ theme }) => theme.fontSize.headingMobile};
   font-weight: 400;

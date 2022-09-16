@@ -16,28 +16,28 @@ export const firstSectionData = [
   },
   {
     id: 3,
-    title: 'Ciągły rozwój',
-    desc: 'Nieustannie rozwijam swoją technikę taneczną, uczestnicząc w warsztatach prowadzonych przez wybitnych nauczycieli tańca orientalnego.',
+    title: 'Orientalne show!',
+    desc: 'Swoim barwnym tańcem staram się uświetnić ważne wydarzenia w Państwa życiu: jubileusze, rocznice, szampański Sylwester czy rodzinne festyny.',
   },
 ];
 
 export const secondSectionData = [
   {
     id: 0,
-    title: 'Lorem ipsum dolor sit!',
-    desc: 'Agnieszka Leyla Świeczkowska posiada państwowe uprawnienia do wykonywania zawodu instruktora belly dance. Jest dyplomowaną Instruktorką Tańca Sportowego o specjalności belly dance oraz dyplomowanym Instruktorem Sportu.',
+    title: 'Warsztaty',
+    desc: 'Swoją technikę taneczną nieustannie rozwijam uczestnicząc w największych festiwalach tanecznych i warsztatach prowadzonych przez wybitnych nauczycieli i żyjących legend tańca orientalnego. ',
   },
   {
     id: 1,
-    title: 'Lorem ipsum dolor sit!',
-    desc: 'Agnieszka Leyla Świeczkowska posiada państwowe uprawnienia do wykonywania zawodu instruktora belly dance. Jest dyplomowaną Instruktorką Tańca Sportowego o specjalności belly dance oraz dyplomowanym Instruktorem Sportu.',
+    title: 'Miałam zaszczyt uczyć się od:',
+    desc: 'm.in: Lubna Emam, Kazafy, Khaled Mahmoud, Tito, Randa Kamel, Camelia, Hosseny El Masry, Beata & Horacio Cifuentes, Bozenka, Mercedes Nieto, Margarita Darina, Alex Delora, Dariya Mitskevych, Julia Farid, Leandro Ferreyra, Wael Mansour, Sahar Samara, Azaad Khan.',
   },
 ];
 
 export const thirdSectionData = [
   {
     id: 0,
-    title: 'Lorem ipsum dolor sit!',
-    desc: 'Swoją technikę taneczną nieustannie rozwijam uczestnicząc w największych festiwalach tanecznych i warsztatach prowadzonych przez wybitnych nauczycieli i żyjących legend tańca orientalnego, m.in: Lubna Emam, Kazafy, Khaled Mahmoud, Tito, Randa Kamel, Camelia, Hosseny El Masry, Beata & Horacio Cifuentes, Bozenka, Mercedes Nieto, Margarita Darina.',
+    title: '',
+    desc: 'Dzielę sie swą pasją wspierając różne akcje i instytucje charytatywne: WOŚP, Eurointegrację oraz odwiedzam domy seniora, czy szkoły. ',
   },
 ];

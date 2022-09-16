@@ -9,49 +9,46 @@ import { Wrapper, StyledLogo, StyledSocials } from './Footer.styles';
 const Footer = () => {
   return (
     <Wrapper>
-      <StyledLogo to="/">
+      <StyledLogo to='/'>
         <header>
-          <h1 translate="no">Leyla Bellydance</h1>
+          <h3 translate='no'>Leyla Bellydance</h3>
         </header>
       </StyledLogo>
 
       <StyledSocials>
         <li>
           <a
-            title="youtube"
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.youtube.com/channel/UCcej2QdrmTszAKN5IwrtEKw"
+            title='youtube'
+            target='_blank'
+            rel='noopener noreferrer'
+            href='https://www.youtube.com/channel/UCcej2QdrmTszAKN5IwrtEKw'
           >
             <Youtube />
           </a>
         </li>
         <li>
           <a
-            title="facebook"
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.facebook.com/agnieszka.swieczkowska.9"
+            title='facebook'
+            target='_blank'
+            rel='noopener noreferrer'
+            href='https://www.facebook.com/agnieszka.swieczkowska.9'
           >
             <Facebook />
           </a>
         </li>
         <li>
           <a
-            title="instagram"
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.instagram.com/bellydance_leyla/"
+            title='instagram'
+            target='_blank'
+            rel='noopener noreferrer'
+            href='https://www.instagram.com/bellydance_leyla/'
           >
             <Instagram />
           </a>
         </li>
       </StyledSocials>
 
-      <p>
-        &copy; {new Date().getFullYear()} Agnieszka Świeczkowska All rights
-        reserved
-      </p>
+      <p>&copy; {new Date().getFullYear()} Agnieszka Świeczkowska All rights reserved</p>
     </Wrapper>
   );
 };

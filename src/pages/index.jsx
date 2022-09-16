@@ -17,6 +17,7 @@ import {
   StyledFirstSectionImg,
   StyledSecondSectionImg,
   StyledThridArticle,
+  StyledCompetitions,
 } from 'assets/styles/pages/index.styles';
 
 const Index = ({ data }) => {
@@ -79,29 +80,53 @@ const Index = ({ data }) => {
           </StyledFirstSectionImg>
         </section>
 
-        <section>
-          <Heading label={'Moje Osiągnięcia'} />
+        <Heading label={'Moja droga taneczna'} />
 
-          <SandSection data={secondSectionData}>
-            <StyledSecondSectionImg>
+        <StyledCompetitions>
+          <article>
+            <header>
+              <h2>Konkursy</h2>
+            </header>
+
+            <p>
+              Nieustanny rozwój taneczny to uczestnictwo w warsztatach, nauka u najlepszych
+              instruktorów tańca, a także konkursy tańca o rientalnego, w których oceniana jest
+              technika dango stylu, choreografia, strój i charyzma tancerki.{' '}
+              <strong>Pozwalają zaprezentować swój kunszt taneczny</strong> w kategoriach takich
+              jak: solo classic, solo pop song, solo folk, solo tabla CD, solo tabla live, solo
+              show, solo bollywood, solo tribal, tańce narodów świata.
+            </p>
+          </article>
+
+          <StyledSecondSectionImg>
+            <Frame hideMobile>
               <StaticImage
                 src='../assets/images/Homepage/homepage3.jpg'
                 alt='Agnieszka Świeczkowska - dyplom'
                 placeholder='blurred'
                 layout='fullWidth'
               />
+            </Frame>
 
-              <Frame upRight hideMobile>
-                <StaticImage
-                  src='../assets/images/Homepage/homepage4.jpg'
-                  alt='Agnieszka Świeczkowska - dyplom'
-                  placeholder='blurred'
-                  layout='fullWidth'
-                />
-              </Frame>
-            </StyledSecondSectionImg>
-          </SandSection>
-        </section>
+            <StaticImage
+              src='../assets/images/Homepage/homepage4.jpg'
+              alt='Agnieszka Świeczkowska - dyplom'
+              placeholder='blurred'
+              layout='fullWidth'
+            />
+          </StyledSecondSectionImg>
+        </StyledCompetitions>
+
+        <SandSection data={secondSectionData}>
+          <Frame upRight hideMobile>
+            <StaticImage
+              src='../assets/images/Homepage/homepage5.jpg'
+              alt='warsztaty'
+              placeholder='blurred'
+              layout='fullWidth'
+            />
+          </Frame>
+        </SandSection>
 
         <section>
           <Heading label={'Wspieram'} />

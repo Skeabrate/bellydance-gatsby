@@ -7,12 +7,12 @@ import { StyledTitle, StyledHeader } from './Heading.styles';
 const Heading = ({ label, isMain }) => {
   return (
     <StyledHeader $isMain={isMain} id={`${isMain ? 'heading' : 'other'}`}>
-      <StyledTitle>{label}</StyledTitle>
+      <StyledTitle as={isMain ? 'h1' : 'h2'}>{label}</StyledTitle>
       <StaticImage
-        src="../../assets/images/ornParag.png"
-        aria-hidden="true"
-        alt=""
-        placeholder="blurred"
+        src='../../assets/images/ornParag.png'
+        aria-hidden='true'
+        alt=''
+        placeholder='blurred'
         width={200}
       />
     </StyledHeader>
