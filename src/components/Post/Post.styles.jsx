@@ -86,6 +86,8 @@ export const StyledLegend = styled.div`
 export const StyledPostContent = styled.div`
   padding: 2rem;
   margin-bottom: 7rem;
+  position: relative;
+  z-index: 1;
 
   ${({ theme }) => theme.mq.tablet} {
     padding: 4rem;

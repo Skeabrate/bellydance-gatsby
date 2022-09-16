@@ -31,11 +31,17 @@ const Aktualnosci = ({ data }) => {
         <Combobox setSortDescending={setSortDescending} />
 
         <StyledPostsContainer>
-          {currentData.map(({ node: { id, title, description, assets, meta } }) => (
-            <Frame key={id} upRight>
-              <Post title={title} description={description} assets={assets} meta={meta} />
-            </Frame>
-          ))}
+          {currentData.length ? (
+            <>
+              {currentData.map(({ node: { id, title, description, assets, meta } }) => (
+                <Frame key={id} upRight>
+                  <Post title={title} description={description} assets={assets} meta={meta} />
+                </Frame>
+              ))}
+            </>
+          ) : (
+            <h2>Nie znaleziono postów.</h2>
+          )}
         </StyledPostsContainer>
 
         {currentData.length < data.allDatoCmsPost.edges.length && <div ref={loadingRef} />}
