@@ -12,7 +12,7 @@ import { useForm } from '@formspree/react';
 import { StyledSection, StyledForm, StyledFormResponse } from 'assets/styles/pages/kontakt.styles';
 
 const Kontakt = () => {
-  const [state, handleSubmit] = useForm(process.env.GATSBY_FORMSPREE_API);
+  const [state, handleSubmit] = useForm(process.env.GATSBY_FORMSPREE_API || 'apiKey');
 
   const { placeholderImage } = useKontaktQuery();
   const formRef = useRef(null);
@@ -34,8 +34,8 @@ const Kontakt = () => {
               <h2>Zapraszam do kontaktu</h2>
 
               <p>
-                Nieustannie rozwijam swoją technikę taneczną, uczestnicząc w warsztatach
-                prowadzonych przez wybitnych nauczycieli.
+                Z przyjemnością odpowiem na wszystkie Państwa pytania dotyczące pokazu, czy nauki
+                tańca.
               </p>
 
               <p>
