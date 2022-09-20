@@ -30,7 +30,7 @@ export const secondSectionData = [
   {
     id: 1,
     title: 'Miałam zaszczyt uczyć się od:',
-    desc: 'm.in: Lubna Emam, Kazafy, Khaled Mahmoud, Tito, Randa Kamel, Camelia, Hosseny El Masry, Beata & Horacio Cifuentes, Bozenka, Mercedes Nieto, Margarita Darina, Alex Delora, Dariya Mitskevych, Julia Farid, Leandro Ferreyra, Wael Mansour, Sahar Samara, Azaad Khan.',
+    desc: 'm.in: Lubna Emam, Kazafy, Eman Zaki, Jasirah, Zaina, Khaled Mahmoud, Tito, Randa Kamel, Camelia, Hosseny El Masry, Beata & Horacio Cifuentes, Bozenka, Mercedes Nieto, Margarita Darina, Alex Delora, Dariya Mitskevych, Julia Farid, Leandro Ferreyra, Wael Mansour, Sahar Samara, Azaad Khan.',
   },
 ];
 
