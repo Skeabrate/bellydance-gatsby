@@ -103,7 +103,7 @@ export const StyledPyramidDate = styled.p`
   justify-content: center;
   align-items: flex-end;
   padding-bottom: 5px;
-  font-weight: bold;
+  font-weight: 700;
   font-size: ${({ theme }) => theme.fontSize.caption};
   color: ${({ theme }) => theme.colors.white};
   background-color: ${({ theme }) => theme.colors.sand};

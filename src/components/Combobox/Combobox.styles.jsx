@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  font-weight: bold;
+  font-weight: 700;
   position: relative;
   width: max-content;
   margin: 0 20px;

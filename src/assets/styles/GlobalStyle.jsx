@@ -42,6 +42,7 @@ export const GlobalStyle = createGlobalStyle`
 	h2, h3, h4, h5, h6{
 		font-size: ${({ theme }) => theme.fontSize.paragraph};
 		margin-bottom: 0.6rem;
+		font-weight: 700;
 
 		${({ theme }) => theme.mq.bigDesktop} {
 			font-size: 2.2rem;

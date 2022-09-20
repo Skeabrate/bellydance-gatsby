@@ -1,3 +1,6 @@
+require('@fontsource/great-vibes');
+require('@fontsource/eb-garamond');
+
 const React = require('react');
 const { MainTemplate } = require('./src/templates/MainTemplate');
 

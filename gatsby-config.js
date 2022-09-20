@@ -7,7 +7,7 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     title: ``,
-    siteUrl: `https://www.yourdomain.tld`,
+    siteUrl: `https://bellydance.netlify.app/`,
   },
   plugins: [
     {
@@ -53,13 +53,6 @@ module.exports = {
         path: './src/assets/images/',
       },
       __key: 'images',
-    },
-    {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: ['Great Vibes', 'EB Garamond:500,700'],
-        display: 'swap',
-      },
     },
     {
       resolve: 'gatsby-plugin-react-svg',

@@ -10,7 +10,7 @@ const Wrapper = styled.button`
   justify-content: center;
   align-items: center;
   column-gap: 10px;
-  font-weight: bold;
+  font-weight: 700;
   position: relative;
   width: max-content;
   background: transparent;
