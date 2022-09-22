@@ -22,9 +22,15 @@ export default function Gallery({ data }) {
 
   return (
     <Wrapper>
-      {data.map(({ gatsbyImageData }, index) => (
-        <StyledItem key={index} onClick={() => passIndexToLightBox(index)}>
-          <GatsbyImage image={gatsbyImageData} alt='Agnieszka Świeczkowska Leyla bellydance' />
+      {data.map(({ gatsbyImageData, alt }, index) => (
+        <StyledItem
+          key={index}
+          onClick={() => passIndexToLightBox(index)}
+        >
+          <GatsbyImage
+            image={gatsbyImageData}
+            alt={alt || 'Agnieszka Świeczkowska Leyla bellydance'}
+          />
         </StyledItem>
       ))}
     </Wrapper>

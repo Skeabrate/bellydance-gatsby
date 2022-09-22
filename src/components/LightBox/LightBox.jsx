@@ -46,22 +46,35 @@ const LightBox = () => {
         <Close />
       </CloseButton>
       {imgIndex ? (
-        <SwitchButtonLeft onClick={previous} left>
+        <SwitchButtonLeft
+          onClick={previous}
+          left
+        >
           <LeftArrow />
         </SwitchButtonLeft>
       ) : null}
       {imgIndex !== lightBoxData?.length - 1 && (
-        <SwitchButtonRight onClick={next} right>
+        <SwitchButtonRight
+          onClick={next}
+          right
+        >
           <RightArrow />
         </SwitchButtonRight>
       )}
 
-      <Slider onSlideComplete={handleFinishedIndex} activeIndex={imgIndex} threshHold={100}>
-        {lightBoxData.map(({ gatsbyImageData }, index) => (
-          <div key={index} style={{ position: 'relative' }}>
+      <Slider
+        onSlideComplete={handleFinishedIndex}
+        activeIndex={imgIndex}
+        threshHold={100}
+      >
+        {lightBoxData.map(({ gatsbyImageData, alt }, index) => (
+          <div
+            key={index}
+            style={{ position: 'relative' }}
+          >
             <img
               src={gatsbyImageData.images.fallback.src}
-              alt='Agnieszka Świeczkowska - Leyla Bellydance'
+              alt={alt || 'Agnieszka Świeczkowska - Leyla Bellydance'}
               onLoad={() => handleLoad(index)}
             />
             {!isLoaded[index] && (

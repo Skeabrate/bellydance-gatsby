@@ -26,7 +26,10 @@ const Aktualnosci = ({ data }) => {
       <HeroImageContainer placeholderImage={placeholderImage} />
 
       <AktualnosciContentWrapper>
-        <Heading label='Co słychać w królestwie tańca orientalnego?' isMain />
+        <Heading
+          label='Co słychać w królestwie tańca orientalnego?'
+          isMain
+        />
 
         <Combobox setSortDescending={setSortDescending} />
 
@@ -34,8 +37,16 @@ const Aktualnosci = ({ data }) => {
           {currentData.length ? (
             <>
               {currentData.map(({ node: { id, title, description, assets, meta } }) => (
-                <Frame key={id} upRight>
-                  <Post title={title} description={description} assets={assets} meta={meta} />
+                <Frame
+                  key={id}
+                  upRight
+                >
+                  <Post
+                    title={title}
+                    description={description}
+                    assets={assets}
+                    meta={meta}
+                  />
                 </Frame>
               ))}
             </>
@@ -59,6 +70,7 @@ export const query = graphql`
         node {
           assets {
             gatsbyImageData(placeholder: BLURRED)
+            alt
           }
           description {
             value

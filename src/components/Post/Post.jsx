@@ -13,7 +13,7 @@ import {
   StyledLegend,
 } from './Post.styles';
 
-const Post = ({ title, description, meta, assets, video }) => {
+const Post = ({ title, description, meta, assets }) => {
   const { setImgIndex, setLightBoxData } = useContext(LightBoxContext);
   const { setBodyOverflowToHidden } = useScroll();
 
@@ -25,12 +25,12 @@ const Post = ({ title, description, meta, assets, video }) => {
 
   return (
     <Wrapper>
-      {assets.length ? (
+      {assets && assets.length ? (
         <StyledImgContainer>
           <StyledImg onClick={handleOpenLightBox}>
             <GatsbyImage
               image={assets[0].gatsbyImageData}
-              alt='Agnieszka Świeczkowska Leyla bellydance'
+              alt={assets[0].alt || 'Agnieszka Świeczkowska Leyla bellydance'}
             />
           </StyledImg>
 

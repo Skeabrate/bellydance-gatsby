@@ -15,7 +15,10 @@ const Pokazy = ({ data }) => {
   return (
     <MainWrapper>
       <ContentWrapper>
-        <Heading label='Moje Pokazy' isMain />
+        <Heading
+          label='Moje Pokazy'
+          isMain
+        />
 
         <GridSection>
           <article>
@@ -30,7 +33,10 @@ const Pokazy = ({ data }) => {
             </p>
 
             <footer>
-              <SkipButton label='Program pokazów' scrollId='#program-pokazow' />
+              <SkipButton
+                label='Program pokazów'
+                scrollId='#program-pokazow'
+              />
             </footer>
           </article>
 
@@ -79,8 +85,17 @@ const Pokazy = ({ data }) => {
           </article>
 
           <Frame isFlex>
-            <video preload='metadata' controls width='100%' height='100%' style={{ zIndex: '1' }}>
-              <source src={`${DanceVid}#t=0.1`} type='video/mp4' />
+            <video
+              preload='metadata'
+              controls
+              width='100%'
+              height='100%'
+              style={{ zIndex: '1' }}
+            >
+              <source
+                src={`${DanceVid}#t=0.1`}
+                type='video/mp4'
+              />
             </video>
           </Frame>
         </GridSection>
@@ -98,7 +113,10 @@ const Pokazy = ({ data }) => {
             </p>
 
             <footer>
-              <SkipButton label='Galeria zdjęć' scrollId='#galeria' />
+              <SkipButton
+                label='Galeria zdjęć'
+                scrollId='#galeria'
+              />
             </footer>
           </article>
 
@@ -131,6 +149,7 @@ export const query = graphql`
         node {
           gallery {
             gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
+            alt
           }
         }
       }
