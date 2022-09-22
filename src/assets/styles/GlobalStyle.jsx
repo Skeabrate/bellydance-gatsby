@@ -13,7 +13,7 @@ export const GlobalStyle = createGlobalStyle`
 		font-size: 62.5%;
 		
 		*::selection {
-			background-color: ${({ theme }) => theme.colors.sand};
+			background-color: #ED474A;
 		}
 		::-webkit-scrollbar-track {
 			background-color: ${({ theme }) => theme.colors.white};

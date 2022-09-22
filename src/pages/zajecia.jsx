@@ -6,7 +6,6 @@ import GridSection from 'templates/GridSection';
 import Heading from 'components/Heading/Heading';
 import Frame from 'components/Frame/Frame';
 import PyramidPointer from 'components/PyramidPointer/PyramidPointer';
-import SkipButton from 'components/SkipButton/SkipButton';
 import SandSection from 'components/SandSection/SandSection';
 import { firstSectionData, secondSectionData, thirdSectionData } from '../data/zajeciaData';
 
@@ -14,7 +13,10 @@ const Zajecia = () => {
   return (
     <MainWrapper>
       <ContentWrapper>
-        <Heading label='Taniec orientalny jest dla każdej z nas' isMain />
+        <Heading
+          label='Taniec orientalny jest dla każdej z nas'
+          isMain
+        />
 
         <GridSection isBig>
           <article>
@@ -61,8 +63,6 @@ const Zajecia = () => {
                 </li>
               ))}
             </ul>
-
-            <SkipButton label='Czego uczy nas bellydance?' scrollId='#nauka' />
           </article>
 
           <Frame>
@@ -75,9 +75,12 @@ const Zajecia = () => {
           </Frame>
         </GridSection>
 
-        <section id='nauka'>
+        <section>
           <SandSection data={thirdSectionData}>
-            <Frame upRight hideMobile>
+            <Frame
+              upRight
+              hideMobile
+            >
               <StaticImage
                 src='../assets/images/Zajecia/zajecia3.jpg'
                 alt='Agnieszka Świeczkowska belly dance, taniec brzucha - zajęcia'

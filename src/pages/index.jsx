@@ -8,6 +8,7 @@ import Heading from 'components/Heading/Heading';
 import Frame from 'components/Frame/Frame';
 import SandSection from 'components/SandSection/SandSection';
 import Gallery from 'components/Gallery/Gallery';
+import SkipButton from 'components/SkipButton/SkipButton';
 import { firstSectionData, secondSectionData, thirdSectionData } from 'data/indexData';
 import {
   StyledBgImage,
@@ -46,7 +47,10 @@ const Index = ({ data }) => {
       {/* Content */}
       <ContentWrapper>
         <section>
-          <Heading label='O mnie' isMain />
+          <Heading
+            label='O mnie'
+            isMain
+          />
 
           <StyledFirstSection>
             {firstSectionData.map(({ id, title, desc }) => (
@@ -85,7 +89,7 @@ const Index = ({ data }) => {
         <StyledCompetitions>
           <article>
             <header>
-              <h2>Konkursy</h2>
+              <h2>Biorę udział w konkursach</h2>
             </header>
 
             <p>
@@ -96,6 +100,13 @@ const Index = ({ data }) => {
               jak: solo classic, solo pop song, solo folk, solo tabla CD, solo tabla live, solo
               show, solo bollywood, solo tribal, tańce narodów świata.
             </p>
+
+            <footer>
+              <SkipButton
+                label='Szkolę się u najlepszych'
+                scrollId='#warsztaty'
+              />
+            </footer>
           </article>
 
           <StyledSecondSectionImg>
@@ -117,16 +128,21 @@ const Index = ({ data }) => {
           </StyledSecondSectionImg>
         </StyledCompetitions>
 
-        <SandSection data={secondSectionData}>
-          <Frame upRight hideMobile>
-            <StaticImage
-              src='../assets/images/Homepage/homepage5.jpg'
-              alt='warsztaty'
-              placeholder='blurred'
-              layout='fullWidth'
-            />
-          </Frame>
-        </SandSection>
+        <section id='warsztaty'>
+          <SandSection data={secondSectionData}>
+            <Frame
+              upRight
+              hideMobile
+            >
+              <StaticImage
+                src='../assets/images/Homepage/homepage5.jpg'
+                alt='warsztaty'
+                placeholder='blurred'
+                layout='fullWidth'
+              />
+            </Frame>
+          </SandSection>
+        </section>
 
         <section>
           <Heading label={'Wspieram'} />

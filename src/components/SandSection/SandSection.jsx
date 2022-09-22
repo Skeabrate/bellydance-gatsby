@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-
 import Frame from 'components/Frame/Frame';
 
 const Wrapper = styled.div`
