@@ -67,21 +67,37 @@ const LightBox = () => {
         activeIndex={imgIndex}
         threshHold={100}
       >
-        {lightBoxData.map(({ gatsbyImageData, alt }, index) => (
+        {lightBoxData.map(({ gatsbyImageData, alt, video }, index) => (
           <div
             key={index}
             style={{ position: 'relative' }}
           >
-            <img
-              src={gatsbyImageData.images.fallback.src}
-              alt={alt || 'Agnieszka Świeczkowska - Leyla Bellydance'}
-              onLoad={() => handleLoad(index)}
-            />
-            {!isLoaded[index] && (
-              <StyledLoader>
-                <ClipLoader color='#9c9c9c' />
-              </StyledLoader>
-            )}
+            {gatsbyImageData ? (
+              <>
+                <img
+                  src={gatsbyImageData.images.fallback.src}
+                  alt={alt || 'Agnieszka Świeczkowska - Leyla Bellydance'}
+                  onLoad={() => handleLoad(index)}
+                />
+                {!isLoaded[index] && (
+                  <StyledLoader>
+                    <ClipLoader color='#9c9c9c' />
+                  </StyledLoader>
+                )}
+              </>
+            ) : video ? (
+              <video
+                preload='metadata'
+                controls
+                width='100%'
+                height='100%'
+              >
+                <source
+                  src={`${video.mp4Url}#t=0.1`}
+                  type='video/mp4'
+                />
+              </video>
+            ) : null}
           </div>
         ))}
       </Slider>

@@ -54,7 +54,8 @@ export const SliderWrapper = styled.div`
     }
   }
 
-  img {
+  img,
+  video {
     max-width: 90%;
     max-height: 90%;
   }

@@ -197,6 +197,9 @@ export const query = graphql`
         node {
           gallery {
             gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
+            video {
+              mp4Url
+            }
           }
         }
       }

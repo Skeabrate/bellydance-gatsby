@@ -22,15 +22,29 @@ export default function Gallery({ data }) {
 
   return (
     <Wrapper>
-      {data.map(({ gatsbyImageData, alt }, index) => (
+      {data.map(({ gatsbyImageData, alt, video }, index) => (
         <StyledItem
           key={index}
           onClick={() => passIndexToLightBox(index)}
         >
-          <GatsbyImage
-            image={gatsbyImageData}
-            alt={alt || 'Agnieszka Świeczkowska Leyla bellydance'}
-          />
+          {gatsbyImageData ? (
+            <GatsbyImage
+              image={gatsbyImageData}
+              alt={alt || 'Agnieszka Świeczkowska Leyla bellydance'}
+            />
+          ) : video ? (
+            <video
+              preload='metadata'
+              controls
+              width='100%'
+              height='100%'
+            >
+              <source
+                src={`${video.mp4Url}#t=0.1`}
+                type='video/mp4'
+              />
+            </video>
+          ) : null}
         </StyledItem>
       ))}
     </Wrapper>

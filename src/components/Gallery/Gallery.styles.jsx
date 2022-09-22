@@ -15,7 +15,8 @@ export const StyledItem = styled.div`
   overflow: hidden;
   cursor: pointer;
 
-  img {
+  img,
+  video {
     transition: all 0.3s ease-in-out !important;
   }
 
@@ -38,7 +39,8 @@ export const StyledItem = styled.div`
       opacity: 0.1;
     }
 
-    img {
+    img,
+    video {
       transform: scale(1.05);
     }
   }
@@ -50,8 +52,13 @@ export const StyledItem = styled.div`
       position: static;
     }
 
-    img {
+    img,
+    video {
       height: 100%;
+    }
+
+    video {
+      object-fit: cover;
     }
   }
 `;
