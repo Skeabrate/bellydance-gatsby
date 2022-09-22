@@ -9,7 +9,7 @@ import Frame from 'components/Frame/Frame';
 import SandSection from 'components/SandSection/SandSection';
 import Gallery from 'components/Gallery/Gallery';
 import SkipButton from 'components/SkipButton/SkipButton';
-import { firstSectionData, secondSectionData, thirdSectionData } from 'data/indexData';
+import { sandSectionData } from 'data/indexData';
 import {
   StyledBgImage,
   StyledDarken,
@@ -53,14 +53,43 @@ const Index = ({ data }) => {
           />
 
           <StyledFirstSection>
-            {firstSectionData.map(({ id, title, desc }) => (
-              <article key={id}>
-                <header>
-                  <h2>{title}</h2>
-                </header>
-                <p>{desc}</p>
-              </article>
-            ))}
+            <article>
+              <header>
+                <h2>Uprawnienia państwowe</h2>
+              </header>
+
+              <p>Posiadam państwowe uprawnienia do wykonywania zawodu instruktora belly dance.</p>
+            </article>
+            <article>
+              <header>
+                <h2>Dyplomowany instruktor</h2>
+              </header>
+
+              <p>
+                Jestem dyplomowaną Instruktorką Tańca Sportowego o specjalności belly dance oraz
+                dyplomowanym Instruktorem Sportu.
+              </p>
+            </article>
+            <article>
+              <header>
+                <h2>Przekazywanie wiedzy innym</h2>
+              </header>
+
+              <p>
+                Nauczam różnych odmian tańca orientalnego. Zwracam uwagę na szlifowanie techniki,
+                grację i poprawę kondycji oraz sylwetki każdej z ćwiczących pań.
+              </p>
+            </article>
+            <article>
+              <header>
+                <h2>Orientalne show!</h2>
+              </header>
+
+              <p>
+                Swoim barwnym tańcem staram się uświetnić ważne wydarzenia w Państwa życiu:
+                jubileusze, rocznice, szampański Sylwester czy rodzinne festyny.
+              </p>
+            </article>
           </StyledFirstSection>
 
           <StyledFirstSectionImg>
@@ -129,7 +158,7 @@ const Index = ({ data }) => {
         </StyledCompetitions>
 
         <section id='warsztaty'>
-          <SandSection data={secondSectionData}>
+          <SandSection data={sandSectionData}>
             <Frame
               upRight
               hideMobile
@@ -148,11 +177,8 @@ const Index = ({ data }) => {
           <Heading label={'Wspieram'} />
 
           <StyledThridArticle>
-            <header>
-              <h2>{thirdSectionData[0].title}</h2>
-            </header>
-
-            <p>{thirdSectionData[0].desc}</p>
+            Dzielę sie swą pasją wspierając różne akcje i instytucje charytatywne: WOŚP,
+            Eurointegrację oraz odwiedzam domy seniora, czy szkoły.
           </StyledThridArticle>
 
           <Gallery data={data?.allDatoCmsWspieram?.edges[0].node.gallery} />

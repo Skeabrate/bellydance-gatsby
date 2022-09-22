@@ -48,7 +48,7 @@ export const secondSectionData = [
   },
 ];
 
-export const thirdSectionData = [
+export const sandSectionData = [
   {
     id: 0,
     title:
@@ -57,8 +57,7 @@ export const thirdSectionData = [
   },
   {
     id: 1,
-    title:
-      'Taniec w gronie innych kobiet doskonale wpływa na nasz nastrój i samopoczucie',
+    title: 'Taniec w gronie innych kobiet doskonale wpływa na nasz nastrój i samopoczucie',
     desc: 'pozwala rozwijać swą pasję , mieć satysfakcje z osobistych postępów, a nawet dzielić się nią podczas wspólnych występów na scenie, czy tanecznym parkiecie.',
   },
 ];
