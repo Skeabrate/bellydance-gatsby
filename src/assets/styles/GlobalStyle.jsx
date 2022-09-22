@@ -14,6 +14,7 @@ export const GlobalStyle = createGlobalStyle`
 		
 		*::selection {
 			background-color: #A833B9;
+			color: #FFF;
 		}
 		::-webkit-scrollbar-track {
 			background-color: ${({ theme }) => theme.colors.white};
