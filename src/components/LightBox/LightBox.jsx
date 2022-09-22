@@ -91,6 +91,7 @@ const LightBox = () => {
                 controls
                 width='100%'
                 height='100%'
+                onClick={(e) => e.preventDefault()}
               >
                 <source
                   src={`${video.mp4Url}#t=0.1`}
