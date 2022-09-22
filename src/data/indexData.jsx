@@ -2,7 +2,7 @@ export const sandSectionData = [
   {
     id: 0,
     title: 'Lifelong learning w tańcu ',
-    desc: 'Swoją technikę taneczną nieustannie rozwijam uczestnicząc w największych festiwalach tanecznych i warsztatach prowadzonych przez wybitnych nauczycieli i żyjących legend tańca orientalnego. W ślad za Konfucjuszem czy Sokratesem, którzy postulowali ideę stałego uczenia się i rozwoju również i ja nieustannie rozwijam się w tańcu. Ogromną przestrzenią do zdobywania wiedzy o tańcu orientalnym oraz szlifowania umiejętności są dla mnie warsztaty krajowe, zagraniczne, festiwale taneczne, podczas których mam możliwość uczenia się od wybitnych nauczycieli i żyjących legend tańca orientalnego. Nieustannie korzystam również z platform online, prowadzonych przez akademie taneczne i topowych instruktorów z całego świata. Lubię zgłębiać historię raqs sharki, jednocześnie śledząc najnowsze trendy i nieustanną ewolucję tego niezwykle barwnego tańca.',
+    desc: 'W ślad za Konfucjuszem czy Sokratesem, którzy postulowali ideę stałego uczenia się i rozwoju również i ja nieustannie rozwijam się w tańcu. Ogromną przestrzenią do zdobywania wiedzy o tańcu orientalnym oraz szlifowania umiejętności są dla mnie warsztaty krajowe, zagraniczne, festiwale taneczne, podczas których mam możliwość uczenia się od wybitnych nauczycieli i żyjących legend tańca orientalnego. Nieustannie korzystam również z platform online, prowadzonych przez akademie taneczne i topowych instruktorów z całego świata. Lubię zgłębiać historię raqs sharki, jednocześnie śledząc najnowsze trendy i nieustanną ewolucję tego niezwykle barwnego tańca.',
   },
   {
     id: 1,
