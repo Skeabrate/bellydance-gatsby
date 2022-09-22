@@ -28,10 +28,25 @@ const Post = ({ title, description, meta, assets }) => {
       {assets && assets.length ? (
         <StyledImgContainer>
           <StyledImg onClick={handleOpenLightBox}>
-            <GatsbyImage
-              image={assets[0].gatsbyImageData}
-              alt={assets[0].alt || 'Agnieszka Świeczkowska Leyla bellydance'}
-            />
+            {assets[0].gatsbyImageData ? (
+              <GatsbyImage
+                image={assets[0].gatsbyImageData}
+                alt={assets[0].alt || 'Agnieszka Świeczkowska Leyla bellydance'}
+              />
+            ) : assets[0].video ? (
+              <video
+                preload='metadata'
+                controls
+                width='100%'
+                height='100%'
+                style={{ zIndex: '1' }}
+              >
+                <source
+                  src={`${assets[0].video.mp4Url}#t=0.1`}
+                  type='video/mp4'
+                />
+              </video>
+            ) : null}
           </StyledImg>
 
           <StyledLegend>

@@ -71,6 +71,9 @@ export const query = graphql`
           assets {
             gatsbyImageData(placeholder: BLURRED)
             alt
+            video {
+              mp4Url
+            }
           }
           description {
             value
