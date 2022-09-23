@@ -17,7 +17,6 @@ module.exports = {
         components: path.join(__dirname, 'src', 'components'),
         templates: path.join(__dirname, 'src', 'templates'),
         hooks: path.join(__dirname, 'src', 'hooks'),
-        data: path.join(__dirname, 'src', 'data'),
         utils: path.join(__dirname, 'src', 'utils'),
         context: path.join(__dirname, 'src', 'context'),
       },
