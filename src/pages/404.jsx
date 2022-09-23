@@ -2,14 +2,14 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.main`
-  height: calc(100vh - 120px - 30vh);
+  height: calc(100vh - 120px - 260px);
+  min-height: 340px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding-bottom: 3rem;
+  justify-content: center;
   align-items: center;
+  padding-bottom: 3rem;
   margin-top: 120px;
-  box-shadow: inset 0px 100px 100px -80px ${({ theme }) => theme.colors.sand};
 
   h1 {
     font-size: 14rem;
@@ -24,7 +24,8 @@ const Wrapper = styled.main`
   }
 
   ${({ theme }) => theme.mq.tablet} {
-    height: calc(100vh - 120px - 40vh);
+    height: calc(100vh - 120px - 400px);
+    justify-content: flex-end;
   }
 `;
 
