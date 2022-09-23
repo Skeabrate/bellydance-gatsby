@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { graphql } from 'gatsby';
-import { useAktualnosciQuery } from 'hooks/useAktualnosciQuery';
-import { useAktualnosciSort } from 'hooks/useAktualnosciSort';
+import * as Styled from 'assets/styles/pages/aktualnosci.styles';
+import { useSortByDate } from 'hooks/useSortByDate';
 import { usePaginate } from 'hooks/usePaginate';
 import MainWrapper from 'templates/MainWrapper';
 import HeroImageContainer from 'components/HeroImageContainer/HeroImageContainer';
@@ -9,31 +9,26 @@ import Heading from 'components/Heading/Heading';
 import Combobox from 'components/Combobox/Combobox';
 import Frame from 'components/Frame/Frame';
 import Post from 'components/Post/Post';
-import {
-  StyledPostsContainer,
-  AktualnosciContentWrapper,
-} from 'assets/styles/pages/aktualnosci.styles';
 
 const Aktualnosci = ({ data }) => {
   const loadingRef = useRef(null);
 
-  const { placeholderImage } = useAktualnosciQuery();
-  const { setSortDescending } = useAktualnosciSort(data);
+  const { setSortByDate } = useSortByDate(data);
   const { currentData } = usePaginate(data, loadingRef);
 
   return (
     <MainWrapper>
-      <HeroImageContainer placeholderImage={placeholderImage} />
+      <HeroImageContainer placeholderImage={data.placeholderImage} />
 
-      <AktualnosciContentWrapper>
+      <Styled.Wrapper>
         <Heading
           label='Co słychać w królestwie tańca orientalnego?'
           isMain
         />
 
-        <Combobox setSortDescending={setSortDescending} />
+        <Combobox setSortByDate={setSortByDate} />
 
-        <StyledPostsContainer>
+        <Styled.PostsWrapper>
           {currentData.length ? (
             <>
               {currentData.map(({ node: { id, title, description, assets, meta } }) => (
@@ -53,10 +48,10 @@ const Aktualnosci = ({ data }) => {
           ) : (
             <h2>Nie znaleziono postów.</h2>
           )}
-        </StyledPostsContainer>
+        </Styled.PostsWrapper>
 
         {currentData.length < data.allDatoCmsPost.edges.length && <div ref={loadingRef} />}
-      </AktualnosciContentWrapper>
+      </Styled.Wrapper>
     </MainWrapper>
   );
 };
@@ -84,6 +79,12 @@ export const query = graphql`
             firstPublishedAt
           }
         }
+      }
+    }
+
+    placeholderImage: file(relativePath: { eq: "Aktualnosci/banerAktualnosci.jpg" }) {
+      childImageSharp {
+        gatsbyImageData(placeholder: BLURRED, formats: WEBP)
       }
     }
   }
