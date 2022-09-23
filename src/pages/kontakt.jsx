@@ -1,6 +1,8 @@
 import React, { useRef, useEffect } from 'react';
+import { graphql } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
-import { useKontaktQuery } from 'hooks/useKontaktQuery';
+import { useForm } from '@formspree/react';
+import * as Styled from 'assets/styles/pages/kontakt.styles';
 import MainWrapper from 'templates/MainWrapper';
 import ContentWrapper from 'templates/ContentWrapper';
 import HeroImageContainer from 'components/HeroImageContainer/HeroImageContainer';
@@ -8,13 +10,10 @@ import Heading from 'components/Heading/Heading';
 import Phone from 'assets/images/SVG/telefon.svg';
 import Frame from 'components/Frame/Frame';
 import ClipLoader from 'react-spinners/ClipLoader';
-import { useForm } from '@formspree/react';
-import { StyledSection, StyledForm, StyledFormResponse } from 'assets/styles/pages/kontakt.styles';
 
-const Kontakt = () => {
+const Kontakt = ({ data }) => {
   const [state, handleSubmit] = useForm(process.env.GATSBY_FORMSPREE_API || 'apiKey');
 
-  const { placeholderImage } = useKontaktQuery();
   const formRef = useRef(null);
 
   useEffect(() => {
@@ -23,12 +22,15 @@ const Kontakt = () => {
 
   return (
     <MainWrapper>
-      <HeroImageContainer placeholderImage={placeholderImage} />
+      <HeroImageContainer placeholderImage={data.placeholderImage} />
 
       <ContentWrapper>
-        <Heading label='Kontakt' isMain />
+        <Heading
+          label='Kontakt'
+          isMain
+        />
 
-        <StyledSection>
+        <Styled.ContactSection>
           <article>
             <header>
               <h2>Zapraszam do kontaktu</h2>
@@ -40,14 +42,26 @@ const Kontakt = () => {
 
               <p>
                 <Phone /> Telefon:{' '}
-                <a href="tel:'502 505 119" rel='noopener noreferrer'>
+                <a
+                  href="tel:'502 505 119"
+                  rel='noopener noreferrer'
+                >
                   502 505 119
                 </a>
               </p>
             </header>
 
-            <StyledForm onSubmit={handleSubmit} ref={formRef}>
-              <input aria-label='Imię' id='imie' name='Imię' type='imie' placeholder='Imię' />
+            <Styled.Form
+              onSubmit={handleSubmit}
+              ref={formRef}
+            >
+              <input
+                aria-label='Imię'
+                id='imie'
+                name='Imię'
+                type='imie'
+                placeholder='Imię'
+              />
               <input
                 aria-label='Adres e-mail'
                 id='email'
@@ -57,11 +71,11 @@ const Kontakt = () => {
                 required
               />
               {state.errors.length ? (
-                <StyledFormResponse>
+                <Styled.FormResponse>
                   {state.errors[0]?.message === 'should be an email'
                     ? 'Nieprawidłowy email.'
                     : null}
-                </StyledFormResponse>
+                </Styled.FormResponse>
               ) : null}
 
               <textarea
@@ -73,14 +87,17 @@ const Kontakt = () => {
               ></textarea>
 
               {state.succeeded ? (
-                <StyledFormResponse $succeeded>
+                <Styled.FormResponse $succeeded>
                   {state.succeeded ? 'Dziękuję za Twoją wiadomość.' : null}
-                </StyledFormResponse>
+                </Styled.FormResponse>
               ) : null}
-              <button type='submit' disabled={state.submitting}>
+              <button
+                type='submit'
+                disabled={state.submitting}
+              >
                 {state.submitting ? <ClipLoader size={20} /> : 'Wyślij'}
               </button>
-            </StyledForm>
+            </Styled.Form>
           </article>
 
           <Frame downRight>
@@ -91,10 +108,20 @@ const Kontakt = () => {
               layout='fullWidth'
             />
           </Frame>
-        </StyledSection>
+        </Styled.ContactSection>
       </ContentWrapper>
     </MainWrapper>
   );
 };
 
 export default Kontakt;
+
+export const query = graphql`
+  query KontaktQuery {
+    placeholderImage: file(relativePath: { eq: "Kontakt/banerKontakt.jpeg" }) {
+      childImageSharp {
+        gatsbyImageData(placeholder: BLURRED, formats: WEBP)
+      }
+    }
+  }
+`;

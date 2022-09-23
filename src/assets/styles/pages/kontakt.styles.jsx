@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledSection = styled.section`
+export const ContactSection = styled.section`
   display: grid;
   column-gap: ${({ theme }) => theme.spacing.columnGap};
   row-gap: 3rem;
@@ -34,7 +34,7 @@ export const StyledSection = styled.section`
   }
 `;
 
-export const StyledForm = styled.form`
+export const Form = styled.form`
   display: flex;
   flex-direction: column;
 
@@ -81,7 +81,7 @@ export const StyledForm = styled.form`
   }
 `;
 
-export const StyledFormResponse = styled.div`
+export const FormResponse = styled.div`
   color: ${({ $succeeded }) => ($succeeded ? 'green' : 'red')};
   padding-bottom: 20px;
 `;
