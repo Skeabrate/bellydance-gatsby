@@ -1,35 +1,23 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
+import { getImage } from 'gatsby-plugin-image';
 import { StaticImage } from 'gatsby-plugin-image';
-import { useIndexQuery } from 'hooks/useIndexQuery';
+import * as Styled from 'assets/styles/pages/index.styles';
 import ContentWrapper from 'templates/ContentWrapper';
 import PyramidScroll from 'components/PyramidScroll/PyramidScroll';
 import Heading from 'components/Heading/Heading';
 import Frame from 'components/Frame/Frame';
-import SandSection from 'components/SandSection/SandSection';
+import SandContent from 'components/SandContent/SandContent';
 import Gallery from 'components/Gallery/Gallery';
 import SkipButton from 'components/SkipButton/SkipButton';
-import { sandSectionData } from 'data/indexData';
-import {
-  StyledBgImage,
-  StyledDarken,
-  StyledBgTitle,
-  StyledFirstSection,
-  StyledFirstSectionImg,
-  StyledSecondSectionImg,
-  StyledThridArticle,
-  StyledCompetitions,
-} from 'assets/styles/pages/index.styles';
 
 const Index = ({ data }) => {
-  const { pluginImage } = useIndexQuery();
-
   return (
     <main>
       {/* HeroImage */}
-      <StyledBgImage image={pluginImage}>
-        <StyledDarken />
-        <StyledBgTitle>
+      <Styled.HeroImage image={getImage(data.placeholderImage)}>
+        <Styled.DarkerBackgroundImage />
+        <Styled.HeroTitle>
           <h1>Magiczny Świat Orientu</h1>
           <p>Zapraszam do baśni 1000 i jednej nocy</p>
           <StaticImage
@@ -39,10 +27,10 @@ const Index = ({ data }) => {
             placeholder='blurred'
             width={200}
           />
-        </StyledBgTitle>
+        </Styled.HeroTitle>
 
         <PyramidScroll />
-      </StyledBgImage>
+      </Styled.HeroImage>
 
       {/* Content */}
       <ContentWrapper>
@@ -52,7 +40,7 @@ const Index = ({ data }) => {
             isMain
           />
 
-          <StyledFirstSection>
+          <Styled.AboutMe>
             <article>
               <header>
                 <h2>Uprawnienia państwowe</h2>
@@ -60,6 +48,7 @@ const Index = ({ data }) => {
 
               <p>Posiadam państwowe uprawnienia do wykonywania zawodu instruktora belly dance.</p>
             </article>
+
             <article>
               <header>
                 <h2>Dyplomowany instruktor</h2>
@@ -70,6 +59,7 @@ const Index = ({ data }) => {
                 dyplomowanym Instruktorem Sportu.
               </p>
             </article>
+
             <article>
               <header>
                 <h2>Przekazywanie wiedzy innym</h2>
@@ -80,6 +70,7 @@ const Index = ({ data }) => {
                 grację i poprawę kondycji oraz sylwetki każdej z ćwiczących pań.
               </p>
             </article>
+
             <article>
               <header>
                 <h2>Orientalne show!</h2>
@@ -90,9 +81,9 @@ const Index = ({ data }) => {
                 jubileusze, rocznice, szampański Sylwester czy rodzinne festyny.
               </p>
             </article>
-          </StyledFirstSection>
+          </Styled.AboutMe>
 
-          <StyledFirstSectionImg>
+          <Styled.AboutMeImages>
             <Frame hideMobile>
               <StaticImage
                 src='../assets/images/Homepage/homepage1.jpg'
@@ -110,12 +101,12 @@ const Index = ({ data }) => {
                 layout='fullWidth'
               />
             </Frame>
-          </StyledFirstSectionImg>
+          </Styled.AboutMeImages>
         </section>
 
         <Heading label={'Moja droga taneczna'} />
 
-        <StyledCompetitions>
+        <Styled.Competitions>
           <article>
             <header>
               <h2>Biorę udział w konkursach</h2>
@@ -138,7 +129,7 @@ const Index = ({ data }) => {
             </footer>
           </article>
 
-          <StyledSecondSectionImg>
+          <Styled.CompetitionsImages>
             <Frame hideMobile>
               <StaticImage
                 src='../assets/images/Homepage/homepage3.jpg'
@@ -154,11 +145,24 @@ const Index = ({ data }) => {
               placeholder='blurred'
               layout='fullWidth'
             />
-          </StyledSecondSectionImg>
-        </StyledCompetitions>
+          </Styled.CompetitionsImages>
+        </Styled.Competitions>
 
         <section id='warsztaty'>
-          <SandSection data={sandSectionData}>
+          <SandContent
+            data={[
+              {
+                id: 0,
+                title: 'Lifelong learning w tańcu ',
+                desc: 'W ślad za Konfucjuszem czy Sokratesem, którzy postulowali ideę stałego uczenia się i rozwoju również i ja nieustannie rozwijam się w tańcu. Ogromną przestrzenią do zdobywania wiedzy o tańcu orientalnym oraz szlifowania umiejętności są dla mnie warsztaty krajowe, zagraniczne, festiwale taneczne, podczas których mam możliwość uczenia się od wybitnych nauczycieli i żyjących legend tańca orientalnego. Nieustannie korzystam również z platform online, prowadzonych przez akademie taneczne i topowych instruktorów z całego świata. Lubię zgłębiać historię raqs sharki, jednocześnie śledząc najnowsze trendy i nieustanną ewolucję tego niezwykle barwnego tańca.',
+              },
+              {
+                id: 1,
+                title: 'Miałam zaszczyt uczyć się u takich nauczycieli jak:',
+                desc: 'Sadie, Lubna Emam, Kazafy, Eman Zaki, Jasirah, Zaina, Khaled Mahmoud, Tito, Randa Kamel, Camelia, Hosseny El Masry, Beata & Horacio Cifuentes, Bozenka, Mercedes Nieto, Margarita Darina, Alex Delora, Dariya Mitskevych, Julia Farid, Leandro Ferreyra, Wael Mansour, Sahar Samara, Azaad Khan.',
+              },
+            ]}
+          >
             <Frame
               upRight
               hideMobile
@@ -170,16 +174,16 @@ const Index = ({ data }) => {
                 layout='fullWidth'
               />
             </Frame>
-          </SandSection>
+          </SandContent>
         </section>
 
         <section>
           <Heading label={'Wspieram'} />
 
-          <StyledThridArticle>
+          <Styled.Support>
             Dzielę sie swą pasją wspierając różne akcje i instytucje charytatywne: WOŚP,
             Eurointegrację oraz odwiedzam domy seniora, czy szkoły.
-          </StyledThridArticle>
+          </Styled.Support>
 
           <Gallery data={data?.allDatoCmsWspieram?.edges[0].node.gallery} />
         </section>
@@ -191,7 +195,7 @@ const Index = ({ data }) => {
 export default Index;
 
 export const query = graphql`
-  query WspieramQuery {
+  query IndexQuery {
     allDatoCmsWspieram {
       edges {
         node {
@@ -202,6 +206,12 @@ export const query = graphql`
             }
           }
         }
+      }
+    }
+
+    placeholderImage: file(relativePath: { eq: "Homepage/homepageBaner.jpeg" }) {
+      childImageSharp {
+        gatsbyImageData(placeholder: BLURRED, formats: WEBP)
       }
     }
   }

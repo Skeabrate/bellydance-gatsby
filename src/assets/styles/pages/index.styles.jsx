@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { BgImage } from 'gbimage-bridge';
 
 /* HeroImage */
-export const StyledBgImage = styled(BgImage)`
+export const HeroImage = styled(BgImage)`
   position: relative;
   height: 100vh;
   min-height: 600px;
@@ -18,7 +18,7 @@ export const StyledBgImage = styled(BgImage)`
   }
 `;
 
-export const StyledBgTitle = styled.div`
+export const HeroTitle = styled.div`
   position: relative;
   text-align: center;
   color: ${({ theme }) => theme.colors.white};
@@ -44,7 +44,7 @@ export const StyledBgTitle = styled.div`
   }
 `;
 
-export const StyledDarken = styled.div`
+export const DarkerBackgroundImage = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
@@ -57,7 +57,7 @@ export const StyledDarken = styled.div`
 `;
 
 /* Content */
-export const StyledFirstSection = styled.div`
+export const AboutMe = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   column-gap: ${({ theme }) => theme.spacing.columnGap};
@@ -75,7 +75,7 @@ export const StyledFirstSection = styled.div`
   }
 `;
 
-export const StyledFirstSectionImg = styled.div`
+export const AboutMeImages = styled.div`
   display: grid;
   column-gap: ${({ theme }) => theme.spacing.columnGap};
   row-gap: 1rem;
@@ -89,26 +89,7 @@ export const StyledFirstSectionImg = styled.div`
   }
 `;
 
-export const StyledSecondSectionImg = styled.div`
-  display: grid;
-  column-gap: 1rem;
-  row-gap: 1rem;
-
-  @media (min-width: 500px) {
-    grid-template-columns: 1fr 1fr;
-    row-gap: 3rem;
-  }
-`;
-
-export const StyledThridArticle = styled.article`
-  margin-bottom: 4rem;
-
-  ${({ theme }) => theme.mq.tablet} {
-    margin-bottom: 6rem;
-  }
-`;
-
-export const StyledCompetitions = styled.section`
+export const Competitions = styled.section`
   display: grid;
   align-items: center;
   column-gap: ${({ theme }) => theme.spacing.columnGap};
@@ -132,5 +113,24 @@ export const StyledCompetitions = styled.section`
     article {
       grid-column: 2;
     }
+  }
+`;
+
+export const CompetitionsImages = styled.div`
+  display: grid;
+  column-gap: 1rem;
+  row-gap: 1rem;
+
+  @media (min-width: 500px) {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 3rem;
+  }
+`;
+
+export const Support = styled.article`
+  margin-bottom: 4rem;
+
+  ${({ theme }) => theme.mq.tablet} {
+    margin-bottom: 6rem;
   }
 `;

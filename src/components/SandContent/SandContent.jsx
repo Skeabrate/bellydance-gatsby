@@ -30,7 +30,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const SandSection = ({ data = [], children }) => {
+const SandContent = ({ data = [], children }) => {
   return (
     <Frame>
       <Wrapper>
@@ -51,9 +51,9 @@ const SandSection = ({ data = [], children }) => {
   );
 };
 
-SandSection.propTypes = {
+SandContent.propTypes = {
   data: PropTypes.array.isRequired,
   children: PropTypes.node.isRequired,
 };
 
-export default SandSection;
+export default SandContent;

@@ -6,7 +6,7 @@ import GridSection from 'templates/GridSection';
 import Heading from 'components/Heading/Heading';
 import Frame from 'components/Frame/Frame';
 import PyramidPointer from 'components/PyramidPointer/PyramidPointer';
-import SandSection from 'components/SandSection/SandSection';
+import SandContent from 'components/SandContent/SandContent';
 import { firstSectionData, secondSectionData, sandSectionData } from '../data/zajeciaData';
 
 const Zajecia = () => {
@@ -76,7 +76,7 @@ const Zajecia = () => {
         </GridSection>
 
         <section>
-          <SandSection data={sandSectionData}>
+          <SandContent data={sandSectionData}>
             <Frame
               upRight
               hideMobile
@@ -88,7 +88,7 @@ const Zajecia = () => {
                 layout='fullWidth'
               />
             </Frame>
-          </SandSection>
+          </SandContent>
         </section>
       </ContentWrapper>
     </MainWrapper>
