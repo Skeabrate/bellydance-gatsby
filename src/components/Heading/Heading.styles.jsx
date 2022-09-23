@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledHeader = styled.header`
+export const Wrapper = styled.header`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,7 +17,7 @@ export const StyledHeader = styled.header`
   }
 `;
 
-export const StyledTitle = styled.h2`
+export const Title = styled.h2`
   font-family: ${({ theme }) => theme.fontFamily.greatVibes};
   font-size: ${({ theme }) => theme.fontSize.headingMobile};
   font-weight: 400;

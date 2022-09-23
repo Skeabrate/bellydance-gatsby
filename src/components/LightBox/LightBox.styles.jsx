@@ -8,7 +8,7 @@ const appear = keyframes`
 	}
 `;
 
-export const SliderWrapper = styled.div`
+export const Wrapper = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -93,14 +93,14 @@ export const CloseButton = styled.button`
   }
 `;
 
-export const StyledLoader = styled.div`
+export const Loader = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 `;
 
-export const StyledCounter = styled.div`
+export const Counter = styled.div`
   position: absolute;
   top: 20px;
   left: 20px;

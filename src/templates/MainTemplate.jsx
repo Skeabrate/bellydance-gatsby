@@ -16,9 +16,7 @@ export const MainTemplate = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <LightBoxContext.Provider
-        value={{ lightBoxData, setLightBoxData, imgIndex, setImgIndex }}
-      >
+      <LightBoxContext.Provider value={{ lightBoxData, setLightBoxData, imgIndex, setImgIndex }}>
         <Navigation />
         {children}
         <Footer />

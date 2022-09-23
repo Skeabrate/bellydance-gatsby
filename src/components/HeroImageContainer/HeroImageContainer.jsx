@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import * as Styled from './HeroImageContainer.styles';
 import { getImage } from 'gatsby-plugin-image';
-import { StyledBgImage } from './HeroImageContainer.styles';
 import PyramidScroll from 'components/PyramidScroll/PyramidScroll';
 
 const HeroImageContainer = ({ placeholderImage }) => {
   const pluginImage = getImage(placeholderImage);
 
   return (
-    <StyledBgImage image={pluginImage}>
+    <Styled.BackgroundImage image={pluginImage}>
       <PyramidScroll />
-    </StyledBgImage>
+    </Styled.BackgroundImage>
   );
 };
 

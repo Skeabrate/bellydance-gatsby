@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import scrollTo from 'gatsby-plugin-smoothscroll';
-
 import ArrowHome from 'assets/images/SVG/arrowHome.svg';
 
 const StyledPyramid = styled.button`
@@ -37,7 +36,10 @@ const PyramidScroll = () => {
   const scrollHandler = () => scrollTo('#heading');
 
   return (
-    <StyledPyramid aria-label='idź do głównej sekcji' onClick={scrollHandler}>
+    <StyledPyramid
+      aria-label='idź do głównej sekcji'
+      onClick={scrollHandler}
+    >
       <ArrowHome />
     </StyledPyramid>
   );

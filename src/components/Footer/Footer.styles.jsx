@@ -20,7 +20,7 @@ export const Wrapper = styled.footer`
   }
 `;
 
-export const StyledLogo = styled(Link)`
+export const Logo = styled(Link)`
   text-decoration: none;
 
   h3 {
@@ -37,7 +37,7 @@ export const StyledLogo = styled(Link)`
   }
 `;
 
-export const StyledSocials = styled.ul`
+export const Socials = styled.ul`
   list-style: none;
   display: flex;
   column-gap: 2.5rem;

@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StyledHamburger } from './Hamburger.styles';
+import * as Styled from './Hamburger.styles';
 
 const Hamburger = ({ toggleNav, isOnTop, changeColor }) => {
   return (
-    <StyledHamburger
+    <Styled.Wrapper
       onClick={toggleNav}
       aria-label='otwórz nawigację'
       $isOnTop={isOnTop}
@@ -15,7 +15,7 @@ const Hamburger = ({ toggleNav, isOnTop, changeColor }) => {
         <span></span>
         <span></span>
       </div>
-    </StyledHamburger>
+    </Styled.Wrapper>
   );
 };
 

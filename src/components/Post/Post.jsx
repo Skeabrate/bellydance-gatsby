@@ -1,17 +1,10 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import * as Styled from './Post.styles';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import LightBoxContext from 'context/LightBoxContext';
 import { useScroll } from 'hooks/useScroll';
 import { StructuredText } from 'react-datocms';
-import {
-  Wrapper,
-  StyledPyramidDate,
-  StyledPostContent,
-  StyledImgContainer,
-  StyledImg,
-  StyledLegend,
-} from './Post.styles';
+import LightBoxContext from 'context/LightBoxContext';
 
 const Post = ({ title, description, meta, assets }) => {
   const { setImgIndex, setLightBoxData } = useContext(LightBoxContext);
@@ -24,10 +17,10 @@ const Post = ({ title, description, meta, assets }) => {
   };
 
   return (
-    <Wrapper>
+    <Styled.Wrapper>
       {assets && assets.length ? (
-        <StyledImgContainer>
-          <StyledImg onClick={handleOpenLightBox}>
+        <Styled.MediaContainer>
+          <Styled.Media onClick={handleOpenLightBox}>
             {assets[0].gatsbyImageData ? (
               <GatsbyImage
                 image={assets[0].gatsbyImageData}
@@ -47,24 +40,24 @@ const Post = ({ title, description, meta, assets }) => {
                 />
               </video>
             ) : null}
-          </StyledImg>
+          </Styled.Media>
 
-          <StyledLegend>
+          <Styled.Legend>
             {assets.map((item, index) => (
               <div key={index}></div>
             ))}
-          </StyledLegend>
-        </StyledImgContainer>
+          </Styled.Legend>
+        </Styled.MediaContainer>
       ) : null}
 
-      <StyledPostContent>
+      <Styled.PostContent>
         <h2>{title}</h2>
 
         <StructuredText data={description} />
-      </StyledPostContent>
+      </Styled.PostContent>
 
-      <StyledPyramidDate>{meta.firstPublishedAt.slice(0, 10)}</StyledPyramidDate>
-    </Wrapper>
+      <Styled.PyramidDate>{meta.firstPublishedAt.slice(0, 10)}</Styled.PyramidDate>
+    </Styled.Wrapper>
   );
 };
 

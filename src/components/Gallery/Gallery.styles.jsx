@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const StyledItem = styled.div`
+export const GalleryItem = styled.div`
   position: relative;
   overflow: hidden;
   cursor: pointer;

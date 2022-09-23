@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledHamburger = styled.button`
+export const Wrapper = styled.button`
   ${({ theme }) => theme.mq.desktop} {
     display: none;
   }

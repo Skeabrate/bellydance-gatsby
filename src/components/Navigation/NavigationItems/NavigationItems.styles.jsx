@@ -7,7 +7,7 @@ export const Wrapper = styled.nav`
   left: 0;
   width: 100%;
   height: 100vh;
-  padding-block: 5vh;
+  padding-block: 50px;
   background-color: ${({ theme }) => theme.colors.white};
   display: flex;
   flex-direction: column;
@@ -31,7 +31,7 @@ export const Wrapper = styled.nav`
   }
 `;
 
-export const StyledLogo = styled(Link)`
+export const Logo = styled(Link)`
   font-family: ${({ theme }) => theme.fontFamily.greatVibes};
   text-decoration: none;
   color: ${({ theme }) => theme.colors.black};
@@ -46,14 +46,16 @@ export const StyledLogo = styled(Link)`
   }
 `;
 
-export const StyledNav = styled.ul`
+export const NavLinksList = styled.ul`
   list-style: none;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   column-gap: 35px;
-  row-gap: 4vh;
+  height: 100%;
+  min-height: 300px;
+  padding-block: 50px;
 
   li:hover a {
     color: ${({ theme }) => theme.colors.sand};
@@ -63,10 +65,11 @@ export const StyledNav = styled.ul`
   ${({ theme }) => theme.mq.desktop} {
     flex-direction: row;
     margin-right: 30px;
+    min-height: unset;
   }
 `;
 
-export const StyledLink = styled(Link)`
+export const NavLink = styled(Link)`
   text-decoration: none;
   color: ${({ theme }) => theme.colors.black};
 
@@ -79,13 +82,13 @@ export const StyledLink = styled(Link)`
   }
 `;
 
-export const StyledSocials = styled.div`
+export const Socials = styled.div`
   display: flex;
   column-gap: 35px;
   row-gap: 35px;
 `;
 
-export const StyledSocialsItem = styled.a`
+export const SocialsItem = styled.a`
   svg {
     height: 40px;
     width: 40px;
@@ -117,7 +120,7 @@ export const StyledSocialsItem = styled.a`
   }
 `;
 
-export const StyledCloseButton = styled.li`
+export const CloseButton = styled.li`
   ${({ theme }) => theme.mq.desktop} {
     display: none;
   }

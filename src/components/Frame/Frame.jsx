@@ -1,28 +1,27 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
+import * as Styled from './Frame.styles';
 import { useAnimation } from 'hooks/useAnimation';
-
-import { Wrapper, StyledFrame } from './Frame.styles';
 
 const Frame = ({ children, upRight, downRight, hideMobile, isFlex }) => {
   const frameRef = useRef(null);
   const { startAnimation } = useAnimation(frameRef);
 
   return (
-    <Wrapper
+    <Styled.Wrapper
       ref={frameRef}
       $upRight={upRight}
       $downRight={downRight}
       $isFlex={isFlex}
     >
-      <StyledFrame
+      <Styled.Frame
         $upRight={upRight}
         $downRight={downRight}
         $hideMobile={hideMobile}
         $startAnimation={startAnimation}
-      ></StyledFrame>
+      ></Styled.Frame>
       {children}
-    </Wrapper>
+    </Styled.Wrapper>
   );
 };
 

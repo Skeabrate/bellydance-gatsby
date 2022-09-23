@@ -1,17 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import * as Styled from './NavigationItems.styles';
 import X from 'assets/images/SVG/x.svg';
 import Facebook from 'assets/images/SVG/fb.svg';
 import Instagram from 'assets/images/SVG/insta.svg';
-import {
-  Wrapper,
-  StyledLogo,
-  StyledNav,
-  StyledLink,
-  StyledCloseButton,
-  StyledSocials,
-  StyledSocialsItem,
-} from './NavigationItems.styles';
 
 const items = [
   {
@@ -43,34 +35,37 @@ const activeLinkStyles = {
 
 const NavigationItems = ({ toggle, isOnTop, changeColor, toggleNav = () => {} }) => {
   return (
-    <Wrapper $toggle={toggle}>
-      <StyledLogo to='/'>
+    <Styled.Wrapper $toggle={toggle}>
+      <Styled.Logo to='/'>
         <h1 translate='no'>Leyla Bellydance</h1>
-      </StyledLogo>
+      </Styled.Logo>
 
-      <StyledNav>
+      <Styled.NavLinksList>
         {items.map(({ title, path }) => (
           <li key={title}>
-            <StyledLink
+            <Styled.NavLink
               to={path}
               activeStyle={activeLinkStyles}
               $isOnTop={isOnTop}
               $changeColor={changeColor}
             >
               {title}
-            </StyledLink>
+            </Styled.NavLink>
           </li>
         ))}
 
-        <StyledCloseButton>
-          <button onClick={toggleNav} aria-label='zamknij nawigację'>
+        <Styled.CloseButton>
+          <button
+            onClick={toggleNav}
+            aria-label='zamknij nawigację'
+          >
             <X />
           </button>
-        </StyledCloseButton>
-      </StyledNav>
+        </Styled.CloseButton>
+      </Styled.NavLinksList>
 
-      <StyledSocials>
-        <StyledSocialsItem
+      <Styled.Socials>
+        <Styled.SocialsItem
           title='facebook'
           target='_blank'
           rel='noopener noreferrer'
@@ -79,9 +74,9 @@ const NavigationItems = ({ toggle, isOnTop, changeColor, toggleNav = () => {} })
           $changeColor={changeColor}
         >
           <Facebook />
-        </StyledSocialsItem>
+        </Styled.SocialsItem>
 
-        <StyledSocialsItem
+        <Styled.SocialsItem
           title='instagram'
           target='_blank'
           rel='noopener noreferrer'
@@ -90,9 +85,9 @@ const NavigationItems = ({ toggle, isOnTop, changeColor, toggleNav = () => {} })
           $changeColor={changeColor}
         >
           <Instagram />
-        </StyledSocialsItem>
-      </StyledSocials>
-    </Wrapper>
+        </Styled.SocialsItem>
+      </Styled.Socials>
+    </Styled.Wrapper>
   );
 };
 

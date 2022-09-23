@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { BgImage } from 'gbimage-bridge';
 
-export const StyledBgImage = styled(BgImage)`
+export const BackgroundImage = styled(BgImage)`
   height: 240px;
   width: 100%;
   display: flex;

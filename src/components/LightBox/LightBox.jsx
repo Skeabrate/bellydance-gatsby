@@ -1,20 +1,13 @@
 import React, { useContext, useState } from 'react';
+import * as Styled from './LightBox.styles';
+import { document } from 'browser-monads';
+import { closeModal } from 'utils/closeModal';
 import LightBoxContext from 'context/LightBoxContext';
 import Close from 'assets/images/SVG/x.svg';
 import LeftArrow from 'assets/images/SVG/leftArrow.svg';
 import RightArrow from 'assets/images/SVG/rightArrow.svg';
 import Slider from 'react-touch-drag-slider';
 import ClipLoader from 'react-spinners/ClipLoader';
-import { closeModal } from 'utils/closeModal';
-import { document } from 'browser-monads';
-import {
-  SliderWrapper,
-  SwitchButtonLeft,
-  SwitchButtonRight,
-  CloseButton,
-  StyledLoader,
-  StyledCounter,
-} from './LightBox.styles';
 
 const LightBox = () => {
   const [isLoaded, setIsLoaded] = useState({});
@@ -40,26 +33,26 @@ const LightBox = () => {
   const previous = () => imgIndex > 0 && setImgIndex((state) => state - 1);
 
   return (
-    <SliderWrapper>
-      <StyledCounter>{`${imgIndex + 1} / ${lightBoxData.length}`}</StyledCounter>
-      <CloseButton onClick={handleCloseGallery}>
+    <Styled.Wrapper>
+      <Styled.Counter>{`${imgIndex + 1} / ${lightBoxData.length}`}</Styled.Counter>
+      <Styled.CloseButton onClick={handleCloseGallery}>
         <Close />
-      </CloseButton>
+      </Styled.CloseButton>
       {imgIndex ? (
-        <SwitchButtonLeft
+        <Styled.SwitchButtonLeft
           onClick={previous}
           left
         >
           <LeftArrow />
-        </SwitchButtonLeft>
+        </Styled.SwitchButtonLeft>
       ) : null}
       {imgIndex !== lightBoxData?.length - 1 && (
-        <SwitchButtonRight
+        <Styled.SwitchButtonRight
           onClick={next}
           right
         >
           <RightArrow />
-        </SwitchButtonRight>
+        </Styled.SwitchButtonRight>
       )}
 
       <Slider
@@ -80,9 +73,9 @@ const LightBox = () => {
                   onLoad={() => handleLoad(index)}
                 />
                 {!isLoaded[index] && (
-                  <StyledLoader>
+                  <Styled.Loader>
                     <ClipLoader color='#9c9c9c' />
-                  </StyledLoader>
+                  </Styled.Loader>
                 )}
               </>
             ) : video ? (
@@ -102,7 +95,7 @@ const LightBox = () => {
           </div>
         ))}
       </Slider>
-    </SliderWrapper>
+    </Styled.Wrapper>
   );
 };
 

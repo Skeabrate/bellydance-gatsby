@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import scrollTo from 'gatsby-plugin-smoothscroll';
-
 import Pyramid from 'assets/images/SVG/piramidka.svg';
 
 const Wrapper = styled.button`

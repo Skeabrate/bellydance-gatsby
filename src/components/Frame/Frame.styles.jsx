@@ -2,11 +2,10 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   position: relative;
-  display: ${({ $isFlex }) =>
-    $isFlex && 'flex'}; /* for video to fit container */
+  display: ${({ $isFlex }) => $isFlex && 'flex'}; /* for video to fit container */
 `;
 
-export const StyledFrame = styled.div`
+export const Frame = styled.div`
   display: ${({ $hideMobile }) => ($hideMobile ? 'none' : 'initial')};
   position: absolute;
   background-color: ${({ theme }) => theme.colors.sand};

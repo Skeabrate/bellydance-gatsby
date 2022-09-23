@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import * as Styled from './Heading.styles';
 import { StaticImage } from 'gatsby-plugin-image';
-
-import { StyledTitle, StyledHeader } from './Heading.styles';
 
 const Heading = ({ label, isMain }) => {
   return (
-    <StyledHeader $isMain={isMain} id={`${isMain ? 'heading' : 'other'}`}>
-      <StyledTitle as={isMain ? 'h1' : 'h2'}>{label}</StyledTitle>
+    <Styled.Wrapper
+      $isMain={isMain}
+      id={`${isMain ? 'heading' : 'other'}`}
+    >
+      <Styled.Title as={isMain ? 'h1' : 'h2'}>{label}</Styled.Title>
       <StaticImage
         src='../../assets/images/ornParag.png'
         aria-hidden='true'
@@ -15,7 +17,7 @@ const Heading = ({ label, isMain }) => {
         placeholder='blurred'
         width={200}
       />
-    </StyledHeader>
+    </Styled.Wrapper>
   );
 };
 

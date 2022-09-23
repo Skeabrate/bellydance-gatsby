@@ -9,7 +9,7 @@ export const Wrapper = styled.article`
   }
 `;
 
-export const StyledImgContainer = styled.div`
+export const MediaContainer = styled.div`
   cursor: pointer;
   background-color: ${({ theme }) => theme.colors.sand};
   position: relative;
@@ -42,7 +42,7 @@ export const StyledImgContainer = styled.div`
   }
 `;
 
-export const StyledImg = styled.div`
+export const Media = styled.div`
   &::after {
     content: '';
     position: absolute;
@@ -63,7 +63,7 @@ export const StyledImg = styled.div`
   }
 `;
 
-export const StyledLegend = styled.div`
+export const Legend = styled.div`
   position: absolute !important;
   z-index: 0;
   bottom: 10px;
@@ -83,7 +83,7 @@ export const StyledLegend = styled.div`
   }
 `;
 
-export const StyledPostContent = styled.div`
+export const PostContent = styled.div`
   padding: 2rem;
   margin-bottom: 7rem;
   position: relative;
@@ -94,7 +94,7 @@ export const StyledPostContent = styled.div`
   }
 `;
 
-export const StyledPyramidDate = styled.p`
+export const PyramidDate = styled.p`
   position: absolute;
   bottom: 0;
   left: 50%;

@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-
 import Pyramid from 'assets/images/SVG/piramidka.svg';
 
 const StyledPyramid = styled.div`

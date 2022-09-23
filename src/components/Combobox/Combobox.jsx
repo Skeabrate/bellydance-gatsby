@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import * as Styled from './Combobox.styles';
 import { useSelect } from 'downshift';
 import Pyramid from 'assets/images/SVG/piramidka.svg';
-import { Wrapper } from './Combobox.styles';
 
 const items = ['Najnowszych', 'Najstarszych'];
 
@@ -22,7 +22,7 @@ const Combobox = ({ setSortByDate = () => {} }) => {
   }, [selectedItem, setSortByDate]);
 
   return (
-    <Wrapper $isOpen={isOpen}>
+    <Styled.Wrapper $isOpen={isOpen}>
       <button
         type='button'
         {...getToggleButtonProps()}
@@ -43,7 +43,7 @@ const Combobox = ({ setSortByDate = () => {} }) => {
             </li>
           ))}
       </ul>
-    </Wrapper>
+    </Styled.Wrapper>
   );
 };
 

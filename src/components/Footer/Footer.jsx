@@ -1,21 +1,19 @@
 import React from 'react';
-
+import * as Styled from './Footer.styles';
 import Facebook from 'assets/images/SVG/fb.svg';
 import Instagram from 'assets/images/SVG/insta.svg';
 import Youtube from 'assets/images/SVG/yt.svg';
 
-import { Wrapper, StyledLogo, StyledSocials } from './Footer.styles';
-
 const Footer = () => {
   return (
-    <Wrapper>
-      <StyledLogo to='/'>
+    <Styled.Wrapper>
+      <Styled.Logo to='/'>
         <header>
           <h3 translate='no'>Leyla Bellydance</h3>
         </header>
-      </StyledLogo>
+      </Styled.Logo>
 
-      <StyledSocials>
+      <Styled.Socials>
         <li>
           <a
             title='youtube'
@@ -46,10 +44,10 @@ const Footer = () => {
             <Instagram />
           </a>
         </li>
-      </StyledSocials>
+      </Styled.Socials>
 
       <p>&copy; {new Date().getFullYear()} Agnieszka Świeczkowska All rights reserved</p>
-    </Wrapper>
+    </Styled.Wrapper>
   );
 };
 

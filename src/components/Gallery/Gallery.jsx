@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import LightBoxContext from 'context/LightBoxContext';
+import * as Styled from './Gallery.styles';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import { Wrapper, StyledItem } from './Gallery.styles';
+import LightBoxContext from 'context/LightBoxContext';
 import { useScroll } from 'hooks/useScroll';
 
 export default function Gallery({ data }) {
@@ -21,9 +21,9 @@ export default function Gallery({ data }) {
   }, [data, setLightBoxData]);
 
   return (
-    <Wrapper>
+    <Styled.Wrapper>
       {data.map(({ gatsbyImageData, alt, video }, index) => (
-        <StyledItem
+        <Styled.GalleryItem
           key={index}
           onClick={() => passIndexToLightBox(index)}
         >
@@ -45,9 +45,9 @@ export default function Gallery({ data }) {
               />
             </video>
           ) : null}
-        </StyledItem>
+        </Styled.GalleryItem>
       ))}
-    </Wrapper>
+    </Styled.Wrapper>
   );
 }
 

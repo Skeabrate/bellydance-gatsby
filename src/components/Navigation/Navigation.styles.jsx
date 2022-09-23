@@ -29,7 +29,7 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const StyledLogo = styled(Link)`
+export const Logo = styled(Link)`
   font-family: ${({ theme }) => theme.fontFamily.greatVibes};
   text-decoration: none;
   color: ${({ theme, $changeColor, $isOnTop }) => {

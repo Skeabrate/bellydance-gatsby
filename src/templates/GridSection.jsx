@@ -51,7 +51,10 @@ const StyledSection = styled.section`
 
 const GridSection = ({ children, isBig, noPadding }) => {
   return (
-    <StyledSection $isBig={isBig} $noPadding={noPadding}>
+    <StyledSection
+      $isBig={isBig}
+      $noPadding={noPadding}
+    >
       {children}
     </StyledSection>
   );
