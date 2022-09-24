@@ -19,6 +19,7 @@ module.exports = {
         lang: 'pl-PL',
       },
     },
+    'gatsby-plugin-preload-fonts',
     {
       resolve: 'gatsby-plugin-root-import',
       options: {
