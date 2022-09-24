@@ -8,7 +8,7 @@ import LightBoxContext from 'context/LightBoxContext';
 
 const Navigation = () => {
   const [toggle, setToggle] = useState(false);
-  const [changeColor, setChangeColor] = useState(false);
+  const [changeColor, setChangeColor] = useState(true);
 
   const { imgIndex } = useContext(LightBoxContext);
   const { isOnTop, hideNav } = useScroll();
