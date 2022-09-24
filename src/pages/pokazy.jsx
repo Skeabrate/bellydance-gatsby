@@ -10,133 +10,148 @@ import Frame from 'components/Frame/Frame';
 import PyramidPointer from 'components/PyramidPointer/PyramidPointer';
 import Gallery from 'components/Gallery/Gallery';
 import DanceVid from 'assets/images/Pokazy/Videos/agunia.mp4';
+import { Helmet } from 'react-helmet';
 
 const Pokazy = ({ data }) => {
   return (
-    <MainWrapper>
-      <ContentWrapper>
-        <Heading
-          label='Moje Pokazy'
-          isMain
-        />
+    <>
+      <Helmet
+        title='Leyla Bellydance - pokazy'
+        meta={[
+          {
+            name: 'description',
+            content:
+              'Posiadam państwowe uprawnienia do wykonywania zawodu instruktora belly dance. Jestem dyplomowaną Instruktorką Tańca Sportowego o specjalności belly dance oraz dyplomowanym Instruktorem Sportu. Nauczam różnych odmian tańca orientalnego. Zwracam uwagę na szlifowanie techniki, grację i poprawę kondycji oraz sylwetki każdej z ćwiczących pań. Swoim barwnym tańcem staram się uświetnić ważne wydarzenia w Państwa życiu: jubileusze, rocznice, szampański Sylwester czy rodzinne festyny.',
+          },
+        ]}
+        defer={false}
+      />
 
-        <GridSection>
-          <article>
-            <header>
-              <h2>Magia tańca orientalnego podczas Państwa uroczystości</h2>
-            </header>
+      <MainWrapper>
+        <ContentWrapper>
+          <Heading
+            label='Moje Pokazy'
+            isMain
+          />
 
-            <p>
-              W ten egzotyczny świat wprowadzi Cię tancerka Leyla, która może zatańczyć na Państwa
-              weselu, imprezie okolicznościowej, czy ofiarować w imieniu Państwa, taniec dla gości
-              imprezy.
-            </p>
+          <GridSection>
+            <article>
+              <header>
+                <h2>Magia tańca orientalnego podczas Państwa uroczystości</h2>
+              </header>
 
-            <footer>
-              <SkipButton
-                label='Program pokazów'
-                scrollId='#program-pokazow'
+              <p>
+                W ten egzotyczny świat wprowadzi Cię tancerka Leyla, która może zatańczyć na Państwa
+                weselu, imprezie okolicznościowej, czy ofiarować w imieniu Państwa, taniec dla gości
+                imprezy.
+              </p>
+
+              <footer>
+                <SkipButton
+                  label='Program pokazów'
+                  scrollId='#program-pokazow'
+                />
+              </footer>
+            </article>
+
+            <Frame downRight>
+              <StaticImage
+                src='../assets/images/Pokazy/img11.jpg'
+                alt='Agnieszka Świeczkowska belly dance, taniec brzucha - pokazy'
+                placeholder='blurred'
+                layout='fullWidth'
               />
-            </footer>
-          </article>
+            </Frame>
+          </GridSection>
 
-          <Frame downRight>
-            <StaticImage
-              src='../assets/images/Pokazy/img11.jpg'
-              alt='Agnieszka Świeczkowska belly dance, taniec brzucha - pokazy'
-              placeholder='blurred'
-              layout='fullWidth'
-            />
-          </Frame>
-        </GridSection>
+          <GridSection>
+            <article id='program-pokazow'>
+              <header>
+                <h2>Program i repertuar</h2>
+              </header>
 
-        <GridSection>
-          <article id='program-pokazow'>
-            <header>
-              <h2>Program i repertuar</h2>
-            </header>
+              <p>
+                Program i charakter pokazu może być dostosowany do rodzaju imprezy okolicznościowej
+                oraz oczekiwań Klienta. W moim repertuarze znajdują się:
+              </p>
 
-            <p>
-              Program i charakter pokazu może być dostosowany do rodzaju imprezy okolicznościowej
-              oraz oczekiwań Klienta. W moim repertuarze znajdują się:
-            </p>
+              <ul>
+                <li>
+                  <PyramidPointer />
+                  <strong>nowoczesny pop</strong>
+                </li>
+                <li>
+                  <PyramidPointer />
+                  <span>
+                    <strong>pokazy z gatunku fantasy belly dance,</strong> czyli taneczne show z
+                    rekwizytami: skrzydłami Izydy, woalem, wachlarzami
+                  </span>
+                </li>
+                <li>
+                  <PyramidPointer />
+                  <strong>zmysłowa klasyka</strong>
+                </li>
+                <li>
+                  <PyramidPointer />
+                  <strong>radosny folklor do wesołej muzyki</strong>
+                </li>
+              </ul>
+            </article>
 
-            <ul>
-              <li>
-                <PyramidPointer />
-                <strong>nowoczesny pop</strong>
-              </li>
-              <li>
-                <PyramidPointer />
-                <span>
-                  <strong>pokazy z gatunku fantasy belly dance,</strong> czyli taneczne show z
-                  rekwizytami: skrzydłami Izydy, woalem, wachlarzami
-                </span>
-              </li>
-              <li>
-                <PyramidPointer />
-                <strong>zmysłowa klasyka</strong>
-              </li>
-              <li>
-                <PyramidPointer />
-                <strong>radosny folklor do wesołej muzyki</strong>
-              </li>
-            </ul>
-          </article>
+            <Frame isFlex>
+              <video
+                preload='metadata'
+                controls
+                width='100%'
+                height='100%'
+                style={{ zIndex: '1' }}
+              >
+                <source
+                  src={`${DanceVid}#t=0.1`}
+                  type='video/mp4'
+                />
+              </video>
+            </Frame>
+          </GridSection>
 
-          <Frame isFlex>
-            <video
-              preload='metadata'
-              controls
-              width='100%'
-              height='100%'
-              style={{ zIndex: '1' }}
-            >
-              <source
-                src={`${DanceVid}#t=0.1`}
-                type='video/mp4'
+          <GridSection noPadding>
+            <article>
+              <header>
+                <h2>Na zakończenie, wspólna zabawa</h2>
+              </header>
+
+              <p>
+                Na zakończenie pokazu proponujemy wspólną zabawę z Gośćmi przy dźwiękach znanych
+                piosenek Shakiry, Tarkana, czy Arasha. Nauka podstawowych ruchów belly dance
+                rozweseli nawet najmniej roztańczonych Gości!
+              </p>
+
+              <footer>
+                <SkipButton
+                  label='Galeria zdjęć'
+                  scrollId='#galeria'
+                />
+              </footer>
+            </article>
+
+            <Frame downRight>
+              <StaticImage
+                src='../assets/images/Pokazy/img10.jpg'
+                alt='Agnieszka Świeczkowska belly dance, taniec brzucha - pokazy'
+                placeholder='blurred'
+                layout='fullWidth'
               />
-            </video>
-          </Frame>
-        </GridSection>
+            </Frame>
+          </GridSection>
 
-        <GridSection noPadding>
-          <article>
-            <header>
-              <h2>Na zakończenie, wspólna zabawa</h2>
-            </header>
+          <div id='galeria'>
+            <Heading label='Galeria' />
 
-            <p>
-              Na zakończenie pokazu proponujemy wspólną zabawę z Gośćmi przy dźwiękach znanych
-              piosenek Shakiry, Tarkana, czy Arasha. Nauka podstawowych ruchów belly dance rozweseli
-              nawet najmniej roztańczonych Gości!
-            </p>
-
-            <footer>
-              <SkipButton
-                label='Galeria zdjęć'
-                scrollId='#galeria'
-              />
-            </footer>
-          </article>
-
-          <Frame downRight>
-            <StaticImage
-              src='../assets/images/Pokazy/img10.jpg'
-              alt='Agnieszka Świeczkowska belly dance, taniec brzucha - pokazy'
-              placeholder='blurred'
-              layout='fullWidth'
-            />
-          </Frame>
-        </GridSection>
-
-        <div id='galeria'>
-          <Heading label='Galeria' />
-
-          <Gallery data={data?.allDatoCmsPokazy?.edges[0].node.gallery} />
-        </div>
-      </ContentWrapper>
-    </MainWrapper>
+            <Gallery data={data?.allDatoCmsPokazy?.edges[0].node.gallery} />
+          </div>
+        </ContentWrapper>
+      </MainWrapper>
+    </>
   );
 };
 

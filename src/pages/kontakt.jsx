@@ -10,6 +10,7 @@ import Heading from 'components/Heading/Heading';
 import Phone from 'assets/images/SVG/telefon.svg';
 import Frame from 'components/Frame/Frame';
 import ClipLoader from 'react-spinners/ClipLoader';
+import { Helmet } from 'react-helmet';
 
 const Kontakt = ({ data }) => {
   const [state, handleSubmit] = useForm(process.env.GATSBY_FORMSPREE_API || 'apiKey');
@@ -21,96 +22,110 @@ const Kontakt = ({ data }) => {
   }, [state]);
 
   return (
-    <MainWrapper>
-      <HeroImageContainer placeholderImage={data.placeholderImage} />
+    <>
+      <Helmet
+        title='Leyla Bellydance - kontakt'
+        meta={[
+          {
+            name: 'description',
+            content:
+              'Posiadam państwowe uprawnienia do wykonywania zawodu instruktora belly dance. Jestem dyplomowaną Instruktorką Tańca Sportowego o specjalności belly dance oraz dyplomowanym Instruktorem Sportu. Nauczam różnych odmian tańca orientalnego. Zwracam uwagę na szlifowanie techniki, grację i poprawę kondycji oraz sylwetki każdej z ćwiczących pań. Swoim barwnym tańcem staram się uświetnić ważne wydarzenia w Państwa życiu: jubileusze, rocznice, szampański Sylwester czy rodzinne festyny.',
+          },
+        ]}
+        defer={false}
+      />
 
-      <ContentWrapper>
-        <Heading
-          label='Kontakt'
-          isMain
-        />
+      <MainWrapper>
+        <HeroImageContainer placeholderImage={data.placeholderImage} />
 
-        <Styled.ContactSection>
-          <article>
-            <header>
-              <h2>Zapraszam do kontaktu</h2>
+        <ContentWrapper>
+          <Heading
+            label='Kontakt'
+            isMain
+          />
 
-              <p>
-                Z przyjemnością odpowiem na wszystkie Państwa pytania dotyczące pokazu, czy nauki
-                tańca.
-              </p>
+          <Styled.ContactSection>
+            <article>
+              <header>
+                <h2>Zapraszam do kontaktu</h2>
 
-              <p>
-                <Phone /> Telefon:{' '}
-                <a
-                  href="tel:'502 505 119"
-                  rel='noopener noreferrer'
-                >
-                  502 505 119
-                </a>
-              </p>
-            </header>
+                <p>
+                  Z przyjemnością odpowiem na wszystkie Państwa pytania dotyczące pokazu, czy nauki
+                  tańca.
+                </p>
 
-            <Styled.Form
-              onSubmit={handleSubmit}
-              ref={formRef}
-            >
-              <input
-                aria-label='Imię'
-                id='imie'
-                name='Imię'
-                type='imie'
-                placeholder='Imię'
-              />
-              <input
-                aria-label='Adres e-mail'
-                id='email'
-                name='Email'
-                type='email'
-                placeholder='Adres e-mail'
-                required
-              />
-              {state.errors.length ? (
-                <Styled.FormResponse>
-                  {state.errors[0]?.message === 'should be an email'
-                    ? 'Nieprawidłowy email.'
-                    : null}
-                </Styled.FormResponse>
-              ) : null}
+                <p>
+                  <Phone /> Telefon:{' '}
+                  <a
+                    href="tel:'502 505 119"
+                    rel='noopener noreferrer'
+                  >
+                    502 505 119
+                  </a>
+                </p>
+              </header>
 
-              <textarea
-                aria-label='Wiadomość'
-                id='wiadomosc'
-                name='Wiadomość'
-                placeholder='Wiadomość'
-                required
-              ></textarea>
-
-              {state.succeeded ? (
-                <Styled.FormResponse $succeeded>
-                  {state.succeeded ? 'Dziękuję za Twoją wiadomość.' : null}
-                </Styled.FormResponse>
-              ) : null}
-              <button
-                type='submit'
-                disabled={state.submitting}
+              <Styled.Form
+                onSubmit={handleSubmit}
+                ref={formRef}
               >
-                {state.submitting ? <ClipLoader size={20} /> : 'Wyślij'}
-              </button>
-            </Styled.Form>
-          </article>
+                <input
+                  aria-label='Imię'
+                  id='imie'
+                  name='Imię'
+                  type='imie'
+                  placeholder='Imię'
+                />
+                <input
+                  aria-label='Adres e-mail'
+                  id='email'
+                  name='Email'
+                  type='email'
+                  placeholder='Adres e-mail'
+                  required
+                />
+                {state.errors.length ? (
+                  <Styled.FormResponse>
+                    {state.errors[0]?.message === 'should be an email'
+                      ? 'Nieprawidłowy email.'
+                      : null}
+                  </Styled.FormResponse>
+                ) : null}
 
-          <Frame downRight>
-            <StaticImage
-              src='../assets/images/Kontakt/kontakt.jpg'
-              alt='Agnieszka Świeczkowska - kontakt'
-              placeholder='blurred'
-              layout='fullWidth'
-            />
-          </Frame>
-        </Styled.ContactSection>
-      </ContentWrapper>
-    </MainWrapper>
+                <textarea
+                  aria-label='Wiadomość'
+                  id='wiadomosc'
+                  name='Wiadomość'
+                  placeholder='Wiadomość'
+                  required
+                ></textarea>
+
+                {state.succeeded ? (
+                  <Styled.FormResponse $succeeded>
+                    {state.succeeded ? 'Dziękuję za Twoją wiadomość.' : null}
+                  </Styled.FormResponse>
+                ) : null}
+                <button
+                  type='submit'
+                  disabled={state.submitting}
+                >
+                  {state.submitting ? <ClipLoader size={20} /> : 'Wyślij'}
+                </button>
+              </Styled.Form>
+            </article>
+
+            <Frame downRight>
+              <StaticImage
+                src='../assets/images/Kontakt/kontakt.jpg'
+                alt='Agnieszka Świeczkowska - kontakt'
+                placeholder='blurred'
+                layout='fullWidth'
+              />
+            </Frame>
+          </Styled.ContactSection>
+        </ContentWrapper>
+      </MainWrapper>
+    </>
   );
 };
 

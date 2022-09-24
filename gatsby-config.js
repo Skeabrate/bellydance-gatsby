@@ -6,10 +6,19 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: ``,
-    siteUrl: `https://bellydance.netlify.app/`,
+    title: `Leyla Bellydance`,
+    description:
+      'Posiadam państwowe uprawnienia do wykonywania zawodu instruktora belly dance. Jestem dyplomowaną Instruktorką Tańca Sportowego o specjalności belly dance oraz dyplomowanym Instruktorem Sportu. Nauczam różnych odmian tańca orientalnego. Zwracam uwagę na szlifowanie techniki, grację i poprawę kondycji oraz sylwetki każdej z ćwiczących pań. Swoim barwnym tańcem staram się uświetnić ważne wydarzenia w Państwa życiu: jubileusze, rocznice, szampański Sylwester czy rodzinne festyny.',
+    siteUrl: `https://leyla-bellydance.pl/`,
   },
   plugins: [
+    'gatsby-plugin-react-helmet',
+    {
+      resolve: 'gatsby-plugin-html-attributes',
+      options: {
+        lang: 'pl-PL',
+      },
+    },
     {
       resolve: 'gatsby-plugin-root-import',
       options: {

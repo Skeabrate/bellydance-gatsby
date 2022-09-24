@@ -9,6 +9,7 @@ import Heading from 'components/Heading/Heading';
 import Combobox from 'components/Combobox/Combobox';
 import Frame from 'components/Frame/Frame';
 import Post from 'components/Post/Post';
+import { Helmet } from 'react-helmet';
 
 const Aktualnosci = ({ data }) => {
   const loadingRef = useRef(null);
@@ -17,42 +18,56 @@ const Aktualnosci = ({ data }) => {
   const { currentData } = usePaginate(data, loadingRef);
 
   return (
-    <MainWrapper>
-      <HeroImageContainer placeholderImage={data.placeholderImage} />
+    <>
+      <Helmet
+        title='Leyla Bellydance - aktualności'
+        meta={[
+          {
+            name: 'description',
+            content:
+              'Posiadam państwowe uprawnienia do wykonywania zawodu instruktora belly dance. Jestem dyplomowaną Instruktorką Tańca Sportowego o specjalności belly dance oraz dyplomowanym Instruktorem Sportu. Nauczam różnych odmian tańca orientalnego. Zwracam uwagę na szlifowanie techniki, grację i poprawę kondycji oraz sylwetki każdej z ćwiczących pań. Swoim barwnym tańcem staram się uświetnić ważne wydarzenia w Państwa życiu: jubileusze, rocznice, szampański Sylwester czy rodzinne festyny.',
+          },
+        ]}
+        defer={false}
+      />
 
-      <Styled.Wrapper>
-        <Heading
-          label='Co słychać w królestwie tańca orientalnego?'
-          isMain
-        />
+      <MainWrapper>
+        <HeroImageContainer placeholderImage={data.placeholderImage} />
 
-        <Combobox setSortByDate={setSortByDate} />
+        <Styled.Wrapper>
+          <Heading
+            label='Co słychać w królestwie tańca orientalnego?'
+            isMain
+          />
 
-        <Styled.PostsWrapper>
-          {currentData.length ? (
-            <>
-              {currentData.map(({ node: { id, title, description, assets, meta } }) => (
-                <Frame
-                  key={id}
-                  upRight
-                >
-                  <Post
-                    title={title}
-                    description={description}
-                    assets={assets}
-                    meta={meta}
-                  />
-                </Frame>
-              ))}
-            </>
-          ) : (
-            <h2>Nie znaleziono postów.</h2>
-          )}
-        </Styled.PostsWrapper>
+          <Combobox setSortByDate={setSortByDate} />
 
-        {currentData.length < data.allDatoCmsPost.edges.length && <div ref={loadingRef} />}
-      </Styled.Wrapper>
-    </MainWrapper>
+          <Styled.PostsWrapper>
+            {currentData.length ? (
+              <>
+                {currentData.map(({ node: { id, title, description, assets, meta } }) => (
+                  <Frame
+                    key={id}
+                    upRight
+                  >
+                    <Post
+                      title={title}
+                      description={description}
+                      assets={assets}
+                      meta={meta}
+                    />
+                  </Frame>
+                ))}
+              </>
+            ) : (
+              <h2>Nie znaleziono postów.</h2>
+            )}
+          </Styled.PostsWrapper>
+
+          {currentData.length < data.allDatoCmsPost.edges.length && <div ref={loadingRef} />}
+        </Styled.Wrapper>
+      </MainWrapper>
+    </>
   );
 };
 

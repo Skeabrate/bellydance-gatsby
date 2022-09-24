@@ -6,12 +6,17 @@ export const HeroImage = styled(BgImage)`
   position: relative;
   height: 100vh;
   min-height: 600px;
+  max-height: 1000px;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
   row-gap: 6rem;
+
+  ${({ theme }) => theme.mq.desktop} {
+    min-height: 800px;
+  }
 
   ${({ theme }) => theme.mq.bigDesktop} {
     row-gap: 8rem;
