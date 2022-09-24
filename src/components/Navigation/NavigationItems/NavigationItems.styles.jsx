@@ -14,19 +14,17 @@ export const Wrapper = styled.nav`
   justify-content: space-between;
   align-items: center;
   transform: ${({ $toggle }) => ($toggle ? 'translateX(0)' : 'translateX(-100%)')};
-  box-shadow: 0px 0px 50px -33px rgba(0, 0, 0, 1);
-
   transition: transform 0.7s cubic-bezier(0.3, 0, 0, 1);
 
   ${({ theme }) => theme.mq.desktop} {
     position: initial;
     width: fit-content;
-    height: fit-content;
+    height: 100%;
     background-color: transparent;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding-block: 0;
+    padding-block: 0px;
     transform: translateX(0);
   }
 `;
@@ -66,6 +64,7 @@ export const NavLinksList = styled.ul`
     flex-direction: row;
     margin-right: 30px;
     min-height: unset;
+    padding-block: 0px;
   }
 `;
 
