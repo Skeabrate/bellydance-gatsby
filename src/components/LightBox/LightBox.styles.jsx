@@ -56,8 +56,8 @@ export const Wrapper = styled.div`
 
   img,
   video {
-    max-width: 90%;
-    max-height: 90%;
+    max-width: 90% !important;
+    max-height: 90% !important;
   }
 
   * {
