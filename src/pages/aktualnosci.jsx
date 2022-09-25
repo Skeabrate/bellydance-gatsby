@@ -9,7 +9,7 @@ import Heading from 'components/Heading/Heading';
 import Combobox from 'components/Combobox/Combobox';
 import Frame from 'components/Frame/Frame';
 import Post from 'components/Post/Post';
-import { Helmet } from 'react-helmet';
+import HeadComponent from 'components/HeadComponent/HeadComponent';
 
 const Aktualnosci = ({ data }) => {
   const loadingRef = useRef(null);
@@ -17,19 +17,11 @@ const Aktualnosci = ({ data }) => {
   const { setSortByDate } = useSortByDate(data);
   const { currentData } = usePaginate(data, loadingRef);
 
+  const fetchMorePosts = currentData.length < data.allDatoCmsPost.edges.length;
+
   return (
     <>
-      <Helmet
-        title='Leyla Bellydance - aktualności'
-        meta={[
-          {
-            name: 'description',
-            content:
-              'Posiadam państwowe uprawnienia do wykonywania zawodu instruktora belly dance. Jestem dyplomowaną Instruktorką Tańca Sportowego o specjalności belly dance oraz dyplomowanym Instruktorem Sportu. Nauczam różnych odmian tańca orientalnego. Zwracam uwagę na szlifowanie techniki, grację i poprawę kondycji oraz sylwetki każdej z ćwiczących pań. Swoim barwnym tańcem staram się uświetnić ważne wydarzenia w Państwa życiu: jubileusze, rocznice, szampański Sylwester czy rodzinne festyny.',
-          },
-        ]}
-        defer={false}
-      />
+      <HeadComponent title='aktualności' />
 
       <MainWrapper>
         <HeroImageContainer placeholderImage={data.placeholderImage} />
@@ -64,7 +56,7 @@ const Aktualnosci = ({ data }) => {
             )}
           </Styled.PostsWrapper>
 
-          {currentData.length < data.allDatoCmsPost.edges.length && <div ref={loadingRef} />}
+          {fetchMorePosts && <div ref={loadingRef} />}
         </Styled.Wrapper>
       </MainWrapper>
     </>

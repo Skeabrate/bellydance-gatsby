@@ -7,22 +7,12 @@ import Heading from 'components/Heading/Heading';
 import Frame from 'components/Frame/Frame';
 import PyramidPointer from 'components/PyramidPointer/PyramidPointer';
 import SandContent from 'components/SandContent/SandContent';
-import { Helmet } from 'react-helmet';
+import HeadComponent from 'components/HeadComponent/HeadComponent';
 
 const Zajecia = () => {
   return (
     <>
-      <Helmet
-        title='Leyla Bellydance - zajęcia'
-        meta={[
-          {
-            name: 'description',
-            content:
-              'Posiadam państwowe uprawnienia do wykonywania zawodu instruktora belly dance. Jestem dyplomowaną Instruktorką Tańca Sportowego o specjalności belly dance oraz dyplomowanym Instruktorem Sportu. Nauczam różnych odmian tańca orientalnego. Zwracam uwagę na szlifowanie techniki, grację i poprawę kondycji oraz sylwetki każdej z ćwiczących pań. Swoim barwnym tańcem staram się uświetnić ważne wydarzenia w Państwa życiu: jubileusze, rocznice, szampański Sylwester czy rodzinne festyny.',
-          },
-        ]}
-        defer={false}
-      />
+      <HeadComponent title='zajęcia' />
 
       <MainWrapper>
         <ContentWrapper>

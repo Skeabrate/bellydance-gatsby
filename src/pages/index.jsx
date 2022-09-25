@@ -10,22 +10,12 @@ import Frame from 'components/Frame/Frame';
 import SandContent from 'components/SandContent/SandContent';
 import Gallery from 'components/Gallery/Gallery';
 import SkipButton from 'components/SkipButton/SkipButton';
-import { Helmet } from 'react-helmet';
+import HeadComponent from 'components/HeadComponent/HeadComponent';
 
 const Index = ({ data }) => {
   return (
     <>
-      <Helmet
-        title='Leyla Bellydance'
-        meta={[
-          {
-            name: 'description',
-            content:
-              'Posiadam państwowe uprawnienia do wykonywania zawodu instruktora belly dance. Jestem dyplomowaną Instruktorką Tańca Sportowego o specjalności belly dance oraz dyplomowanym Instruktorem Sportu. Nauczam różnych odmian tańca orientalnego. Zwracam uwagę na szlifowanie techniki, grację i poprawę kondycji oraz sylwetki każdej z ćwiczących pań. Swoim barwnym tańcem staram się uświetnić ważne wydarzenia w Państwa życiu: jubileusze, rocznice, szampański Sylwester czy rodzinne festyny.',
-          },
-        ]}
-        defer={false}
-      />
+      <HeadComponent />
 
       <main>
         {/* HeroImage */}
