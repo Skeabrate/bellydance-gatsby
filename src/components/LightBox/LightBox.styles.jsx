@@ -104,5 +104,6 @@ export const Counter = styled.div`
   position: absolute;
   top: 20px;
   left: 20px;
+  z-index: 999;
   color: ${({ theme }) => theme.colors.white};
 `;
