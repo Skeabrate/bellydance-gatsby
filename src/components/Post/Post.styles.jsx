@@ -14,6 +14,7 @@ export const MediaContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.sand};
   position: relative;
   max-height: 300px;
+  overflow: hidden;
 
   img {
     max-height: 300px;
