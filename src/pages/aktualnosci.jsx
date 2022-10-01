@@ -37,7 +37,7 @@ const Aktualnosci = ({ data }) => {
           <Styled.PostsWrapper>
             {currentData.length ? (
               <>
-                {currentData.map(({ node: { id, title, description, assets, meta } }) => (
+                {currentData.map(({ node: { id, title, description, assets, meta, date } }) => (
                   <Frame
                     key={id}
                     upRight
@@ -47,6 +47,7 @@ const Aktualnosci = ({ data }) => {
                       description={description}
                       assets={assets}
                       meta={meta}
+                      date={date}
                     />
                   </Frame>
                 ))}
@@ -82,6 +83,7 @@ export const query = graphql`
           }
           id
           title
+          date
           meta {
             firstPublishedAt
           }

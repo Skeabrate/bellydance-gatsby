@@ -6,7 +6,7 @@ import { useScroll } from 'hooks/useScroll';
 import { StructuredText } from 'react-datocms';
 import LightBoxContext from 'context/LightBoxContext';
 
-const Post = ({ title, description, meta, assets }) => {
+const Post = ({ title, description, meta, assets, date }) => {
   const { setImgIndex, setLightBoxData } = useContext(LightBoxContext);
   const { setBodyOverflowToHidden } = useScroll();
 
@@ -56,7 +56,7 @@ const Post = ({ title, description, meta, assets }) => {
         <StructuredText data={description} />
       </Styled.PostContent>
 
-      <Styled.PyramidDate>{meta.firstPublishedAt.slice(0, 10)}</Styled.PyramidDate>
+      <Styled.PyramidDate>{date || meta.firstPublishedAt.slice(0, 10)}</Styled.PyramidDate>
     </Styled.Wrapper>
   );
 };
@@ -66,6 +66,7 @@ Post.propTypes = {
   description: PropTypes.object.isRequired,
   meta: PropTypes.object.isRequired,
   assets: PropTypes.array,
+  date: PropTypes.any,
 };
 
 export default Post;
