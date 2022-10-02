@@ -44,6 +44,12 @@ export const MediaContainer = styled.div`
 `;
 
 export const Media = styled.div`
+  transition: scale 0.3s ease-in-out;
+
+  &:hover {
+    scale: 1.05;
+  }
+
   &::after {
     content: '';
     position: absolute;
@@ -60,14 +66,14 @@ export const Media = styled.div`
   }
 
   &:hover::after {
-    opacity: 0.1;
+    opacity: 0.2;
   }
 `;
 
 export const Legend = styled.div`
   position: absolute !important;
   z-index: 0;
-  bottom: 10px;
+  top: 10px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -75,12 +81,17 @@ export const Legend = styled.div`
   max-width: 300px;
   overflow-x: hidden;
 
-  div {
+  button {
     width: 12px;
     height: 12px;
-    background-color: #eeeeee;
+    background-color: ${({ theme }) => theme.colors.sand};
     border-radius: 100px;
-    border: 1px solid #c7c7c7;
+    border: none;
+    transition: background-color 0.1s ease-in-out;
+
+    &:hover {
+      background-color: #dccdb4;
+    }
   }
 `;
 

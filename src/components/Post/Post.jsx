@@ -10,8 +10,8 @@ const Post = ({ title, description, meta, assets, date }) => {
   const { setImgIndex, setLightBoxData } = useContext(LightBoxContext);
   const { setBodyOverflowToHidden } = useScroll();
 
-  const handleOpenLightBox = () => {
-    setImgIndex(0);
+  const handleOpenLightBox = (index) => {
+    setImgIndex(index);
     setLightBoxData(assets);
     setBodyOverflowToHidden();
   };
@@ -20,7 +20,7 @@ const Post = ({ title, description, meta, assets, date }) => {
     <Styled.Wrapper>
       {assets && assets.length ? (
         <Styled.MediaContainer>
-          <Styled.Media onClick={handleOpenLightBox}>
+          <Styled.Media onClick={() => handleOpenLightBox(0)}>
             {assets[0].gatsbyImageData ? (
               <GatsbyImage
                 image={assets[0].gatsbyImageData}
@@ -41,16 +41,19 @@ const Post = ({ title, description, meta, assets, date }) => {
               </video>
             ) : null}
           </Styled.Media>
-
-          <Styled.Legend>
-            {assets.map((item, index) => (
-              <div key={index}></div>
-            ))}
-          </Styled.Legend>
         </Styled.MediaContainer>
       ) : null}
 
       <Styled.PostContent>
+        <Styled.Legend>
+          {assets?.map((item, index) => (
+            <button
+              onClick={() => handleOpenLightBox(index)}
+              key={index}
+            ></button>
+          ))}
+        </Styled.Legend>
+
         <h2>{title}</h2>
 
         <StructuredText data={description} />
