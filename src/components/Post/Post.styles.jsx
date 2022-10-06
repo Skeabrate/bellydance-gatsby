@@ -96,7 +96,7 @@ export const Legend = styled.div`
 `;
 
 export const PostContent = styled.div`
-  padding: 2rem;
+  padding: 4rem 2rem 2rem 2rem;
   margin-bottom: 7rem;
   position: relative;
   z-index: 1;
