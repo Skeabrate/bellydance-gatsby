@@ -61,15 +61,12 @@ const LightBox = () => {
         threshHold={100}
       >
         {lightBoxData.map(({ gatsbyImageData, alt, video }, index) => (
-          <div
-            key={index}
-            style={{ position: 'relative' }}
-          >
+          <Styled.SliderItem key={index}>
             {gatsbyImageData ? (
               <>
                 <img
                   src={gatsbyImageData.images.fallback.src}
-                  alt={alt || 'Agnieszka Świeczkowska - Leyla Bellydance'}
+                  alt={alt ? alt : 'Agnieszka Świeczkowska - Leyla Bellydance'}
                   onLoad={() => handleLoad(index)}
                 />
                 {!isLoaded[index] && (
@@ -92,7 +89,7 @@ const LightBox = () => {
                 />
               </video>
             ) : null}
-          </div>
+          </Styled.SliderItem>
         ))}
       </Slider>
     </Styled.Wrapper>

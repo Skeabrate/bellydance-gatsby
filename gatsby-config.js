@@ -12,6 +12,8 @@ module.exports = {
     siteUrl: `https://leyla-bellydance.pl/`,
   },
   plugins: [
+    'gatsby-plugin-robots-txt',
+    'gatsby-plugin-sitemap',
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-html-attributes',

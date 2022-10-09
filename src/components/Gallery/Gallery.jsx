@@ -30,7 +30,7 @@ export default function Gallery({ data }) {
           {gatsbyImageData ? (
             <GatsbyImage
               image={gatsbyImageData}
-              alt={alt || 'Agnieszka Świeczkowska Leyla bellydance'}
+              alt={alt ? alt : 'Agnieszka Świeczkowska Leyla bellydance'}
             />
           ) : video ? (
             <video

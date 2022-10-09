@@ -32,7 +32,6 @@ const Post = ({ title, description, meta, assets, date }) => {
                 controls
                 width='100%'
                 height='100%'
-                style={{ zIndex: '1' }}
               >
                 <source
                   src={`${assets[0].video.mp4Url}#t=0.1`}

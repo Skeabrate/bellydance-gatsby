@@ -11,6 +11,11 @@ import PyramidPointer from 'components/PyramidPointer/PyramidPointer';
 import Gallery from 'components/Gallery/Gallery';
 import DanceVid from 'assets/images/Pokazy/Videos/agunia.mp4';
 import HeadComponent from 'components/HeadComponent/HeadComponent';
+import styled from 'styled-components';
+
+const StyledVideo = styled.video`
+  z-index: 1;
+`;
 
 const Pokazy = ({ data }) => {
   return (
@@ -89,18 +94,17 @@ const Pokazy = ({ data }) => {
             </article>
 
             <Frame isFlex>
-              <video
+              <StyledVideo
                 preload='metadata'
                 controls
                 width='100%'
                 height='100%'
-                style={{ zIndex: '1' }}
               >
                 <source
                   src={`${DanceVid}#t=0.1`}
                   type='video/mp4'
                 />
-              </video>
+              </StyledVideo>
             </Frame>
           </GridSection>
 

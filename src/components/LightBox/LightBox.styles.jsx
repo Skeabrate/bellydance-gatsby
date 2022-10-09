@@ -67,6 +67,10 @@ export const Wrapper = styled.div`
   }
 `;
 
+export const SliderItem = styled.div`
+  position: relative;
+`;
+
 export const SwitchButtonLeft = styled.button`
   height: 100%;
   width: 60px;

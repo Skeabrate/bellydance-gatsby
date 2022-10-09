@@ -9,7 +9,7 @@ const HeadComponent = ({ title }) => {
         {
           name: 'description',
           content:
-            'Posiadam państwowe uprawnienia do wykonywania zawodu instruktora belly dance. Jestem dyplomowaną Instruktorką Tańca Sportowego o specjalności belly dance oraz dyplomowanym Instruktorem Sportu. Nauczam różnych odmian tańca orientalnego. Zwracam uwagę na szlifowanie techniki, grację i poprawę kondycji oraz sylwetki każdej z ćwiczących pań. Swoim barwnym tańcem staram się uświetnić ważne wydarzenia w Państwa życiu: jubileusze, rocznice, szampański Sylwester czy rodzinne festyny.',
+            'Jestem dyplomowaną Instruktorką Tańca Sportowego o specjalności belly dance oraz dyplomowanym Instruktorem Sportu.',
         },
         {
           name: 'keywords',
@@ -22,7 +22,12 @@ const HeadComponent = ({ title }) => {
         },
       ]}
       defer={false}
-    />
+    >
+      <link
+        rel='canonical'
+        href='https://leyla-bellydance.pl/'
+      />
+    </Helmet>
   );
 };
 

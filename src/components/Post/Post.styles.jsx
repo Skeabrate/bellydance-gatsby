@@ -44,9 +44,17 @@ export const MediaContainer = styled.div`
 `;
 
 export const Media = styled.div`
-  transition: scale 0.3s ease-in-out;
+  video,
+  img {
+    transition: scale 0.3s ease-in-out !important;
+  }
 
-  &:hover {
+  video {
+    z-index: 1 !important;
+  }
+
+  &:hover img,
+  video {
     scale: 1.05;
   }
 

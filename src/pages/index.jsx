@@ -41,6 +41,7 @@ const Index = ({ data }) => {
           <section>
             <Heading
               label='O mnie'
+              as='h2'
               isMain
             />
 

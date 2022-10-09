@@ -8,6 +8,11 @@ import Frame from 'components/Frame/Frame';
 import PyramidPointer from 'components/PyramidPointer/PyramidPointer';
 import SandContent from 'components/SandContent/SandContent';
 import HeadComponent from 'components/HeadComponent/HeadComponent';
+import styled from 'styled-components';
+
+const StyledSpan = styled.span`
+  font-weight: 400;
+`;
 
 const Zajecia = () => {
   return (
@@ -26,9 +31,7 @@ const Zajecia = () => {
               <header>
                 <h2>
                   Bez względu na wiek, predyspozycje fizyczne, czy wcześniejszą aktywność ruchową,{' '}
-                  <span style={{ fontWeight: '400' }}>
-                    każda z Pań może rozpocząć naukę tańca belly dance.
-                  </span>
+                  <StyledSpan>każda z Pań może rozpocząć naukę tańca belly dance.</StyledSpan>
                 </h2>
               </header>
 
