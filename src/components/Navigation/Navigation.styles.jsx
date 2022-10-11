@@ -38,14 +38,10 @@ export const Logo = styled(Link)`
   }};
   transition: all 0.2s ease-in-out;
 
-  h1 {
-    font-size: ${({ theme }) => theme.fontSize.headingMobile};
-    font-weight: 400;
-  }
+  font-size: ${({ theme }) => theme.fontSize.headingMobile};
+  font-weight: 400;
 
   ${({ theme }) => theme.mq.desktop} {
-    h1 {
-      font-size: ${({ theme }) => theme.fontSize.heading};
-    }
+    font-size: ${({ theme }) => theme.fontSize.heading};
   }
 `;

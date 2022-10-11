@@ -35,10 +35,9 @@ const Navigation = () => {
         to='/'
         $isOnTop={isOnTop}
         $changeColor={changeColor}
+        translate='no'
       >
-        <header>
-          <h1 translate='no'>Leyla Bellydance</h1>
-        </header>
+        Leyla Bellydance
       </Styled.Logo>
 
       <NavigationItems

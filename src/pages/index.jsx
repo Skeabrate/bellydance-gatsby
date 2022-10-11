@@ -48,7 +48,7 @@ const Index = ({ data }) => {
             <Styled.AboutMe>
               <article>
                 <header>
-                  <h2>Uprawnienia państwowe</h2>
+                  <h3>Uprawnienia państwowe</h3>
                 </header>
 
                 <p>Posiadam państwowe uprawnienia do wykonywania zawodu instruktora belly dance.</p>
@@ -56,7 +56,7 @@ const Index = ({ data }) => {
 
               <article>
                 <header>
-                  <h2>Dyplomowany instruktor</h2>
+                  <h3>Dyplomowany instruktor</h3>
                 </header>
 
                 <p>
@@ -67,7 +67,7 @@ const Index = ({ data }) => {
 
               <article>
                 <header>
-                  <h2>Przekazywanie wiedzy innym</h2>
+                  <h3>Przekazywanie wiedzy innym</h3>
                 </header>
 
                 <p>
@@ -78,7 +78,7 @@ const Index = ({ data }) => {
 
               <article>
                 <header>
-                  <h2>Orientalne show!</h2>
+                  <h3>Orientalne show!</h3>
                 </header>
 
                 <p>
@@ -114,7 +114,7 @@ const Index = ({ data }) => {
           <Styled.Competitions>
             <article>
               <header>
-                <h2>Biorę udział w konkursach</h2>
+                <h3>Biorę udział w konkursach</h3>
               </header>
 
               <p>

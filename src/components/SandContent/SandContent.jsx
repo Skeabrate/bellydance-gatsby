@@ -38,7 +38,7 @@ const SandContent = ({ data = [], children }) => {
           {data.map(({ id, title, desc }) => (
             <article key={id}>
               <header>
-                <h2>{title}</h2>
+                <h3>{title}</h3>
               </header>
               <p>{desc}</p>
             </article>
