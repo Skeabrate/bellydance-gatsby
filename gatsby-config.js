@@ -75,4 +75,7 @@ module.exports = {
     },
     'gatsby-plugin-smoothscroll',
   ],
+  flags: {
+    PARALLEL_QUERY_RUNNING: true,
+  },
 };
