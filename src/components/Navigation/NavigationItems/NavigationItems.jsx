@@ -11,6 +11,10 @@ const items = [
     path: '/',
   },
   {
+    title: 'Blog',
+    path: '/blog',
+  },
+  {
     title: 'Aktualności',
     path: '/aktualnosci',
   },

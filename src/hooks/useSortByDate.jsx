@@ -4,7 +4,7 @@ export const useSortByDate = (data) => {
   const [sortByDate, setSortByDate] = useState(true);
 
   (function () {
-    data?.allDatoCmsPost.edges.sort((a, b) => {
+    data.sort((a, b) => {
       const aDate = a.node.date || a.node.meta.firstPublishedAt;
       const bDate = b.node.date || b.node.meta.firstPublishedAt;
 

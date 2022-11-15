@@ -1,15 +1,13 @@
 import { useState, useEffect, useMemo } from 'react';
 
-const POSTS_PER_PAGE = 8;
+export const usePaginate = (data, loadingRef, postsPerPage = 8) => {
+  const [postsCount, setPostsCount] = useState(postsPerPage);
 
-export const usePaginate = (data, loadingRef) => {
-  const [postsCount, setPostsCount] = useState(POSTS_PER_PAGE);
-
-  const currentData = data?.allDatoCmsPost.edges.slice(0, postsCount);
+  const currentData = data.slice(0, postsCount);
 
   const callbackFunction = (entries) => {
     const [entry] = entries;
-    if (entry.isIntersecting) setPostsCount((state) => state + POSTS_PER_PAGE);
+    if (entry.isIntersecting) setPostsCount((state) => state + postsPerPage);
   };
 
   const options = useMemo(() => {

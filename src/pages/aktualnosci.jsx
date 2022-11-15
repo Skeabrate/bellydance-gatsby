@@ -14,8 +14,8 @@ import HeadComponent from 'components/HeadComponent/HeadComponent';
 const Aktualnosci = ({ data }) => {
   const loadingRef = useRef(null);
 
-  const { setSortByDate } = useSortByDate(data);
-  const { currentData } = usePaginate(data, loadingRef);
+  const { setSortByDate } = useSortByDate(data.allDatoCmsPost.edges);
+  const { currentData } = usePaginate(data.allDatoCmsPost.edges, loadingRef);
 
   const fetchMorePosts = currentData.length < data.allDatoCmsPost.edges.length;
 
