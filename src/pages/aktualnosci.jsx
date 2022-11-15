@@ -4,29 +4,35 @@ import * as Styled from 'assets/styles/pages/aktualnosci.styles';
 import { useSortByDate } from 'hooks/useSortByDate';
 import { usePaginate } from 'hooks/usePaginate';
 import MainWrapper from 'templates/MainWrapper';
+import ContentWrapper from 'templates/ContentWrapper';
+import HeadComponent from 'components/HeadComponent/HeadComponent';
 import HeroImageContainer from 'components/HeroImageContainer/HeroImageContainer';
 import Heading from 'components/Heading/Heading';
 import Combobox from 'components/Combobox/Combobox';
 import Frame from 'components/Frame/Frame';
 import Post from 'components/Post/Post';
-import HeadComponent from 'components/HeadComponent/HeadComponent';
 
-const Aktualnosci = ({ data }) => {
+const Aktualnosci = ({
+  data: {
+    allDatoCmsPost: { edges: allPosts },
+    placeholderImage,
+  },
+}) => {
   const loadingRef = useRef(null);
 
-  const { setSortByDate } = useSortByDate(data.allDatoCmsPost.edges);
-  const { currentData } = usePaginate(data.allDatoCmsPost.edges, loadingRef);
+  const { setSortByDate } = useSortByDate(allPosts);
+  const { currentData } = usePaginate(allPosts, loadingRef);
 
-  const fetchMorePosts = currentData.length < data.allDatoCmsPost.edges.length;
+  const fetchMorePosts = currentData.length < allPosts.length;
 
   return (
     <>
       <HeadComponent title='aktualności' />
 
       <MainWrapper>
-        <HeroImageContainer placeholderImage={data.placeholderImage} />
+        <HeroImageContainer placeholderImage={placeholderImage} />
 
-        <Styled.Wrapper>
+        <ContentWrapper>
           <Heading
             label='Co słychać w królestwie tańca orientalnego?'
             isMain
@@ -37,18 +43,12 @@ const Aktualnosci = ({ data }) => {
           <Styled.PostsWrapper>
             {currentData.length ? (
               <>
-                {currentData.map(({ node: { id, title, description, assets, meta, date } }) => (
+                {currentData.map(({ node: { id, ...post } }) => (
                   <Frame
                     key={id}
                     upRight
                   >
-                    <Post
-                      title={title}
-                      description={description}
-                      assets={assets}
-                      meta={meta}
-                      date={date}
-                    />
+                    <Post {...post} />
                   </Frame>
                 ))}
               </>
@@ -58,7 +58,7 @@ const Aktualnosci = ({ data }) => {
           </Styled.PostsWrapper>
 
           {fetchMorePosts && <div ref={loadingRef} />}
-        </Styled.Wrapper>
+        </ContentWrapper>
       </MainWrapper>
     </>
   );
