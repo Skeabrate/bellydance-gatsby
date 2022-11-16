@@ -66,7 +66,7 @@ const LightBox = () => {
               <>
                 <img
                   src={gatsbyImageData.images.fallback.src}
-                  alt={alt ? alt : 'Agnieszka Świeczkowska - Leyla Bellydance'}
+                  alt={alt || 'Agnieszka Świeczkowska - Leyla Bellydance'}
                   onLoad={() => handleLoad(index)}
                 />
                 {!isLoaded[index] && (
