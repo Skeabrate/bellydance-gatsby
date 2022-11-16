@@ -74,7 +74,7 @@ export const Media = styled.div`
   }
 
   &:hover::after {
-    opacity: 0.2;
+    opacity: 0.15;
   }
 `;
 
@@ -112,22 +112,4 @@ export const PostContent = styled.div`
   ${({ theme }) => theme.mq.tablet} {
     padding: 4rem;
   }
-`;
-
-export const PyramidDate = styled.p`
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  padding-bottom: 5px;
-  font-weight: 700;
-  font-size: ${({ theme }) => theme.fontSize.caption};
-  color: ${({ theme }) => theme.colors.white};
-  background-color: ${({ theme }) => theme.colors.sand};
-  width: 130px;
-  height: 60px;
-  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 `;

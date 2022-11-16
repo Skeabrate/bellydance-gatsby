@@ -4,11 +4,13 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import * as Styled from 'assets/styles/pages/blog.styles';
 import { useSortByDate } from 'hooks/useSortByDate';
 import { usePaginate } from 'hooks/usePaginate';
+import { getFirstPublishedAtDate } from 'utils/getFirstPublishedAtDate';
 import MainWrapper from 'templates/MainWrapper';
 import ContentWrapper from 'templates/ContentWrapper';
 import HeadComponent from 'components/HeadComponent/HeadComponent';
 import Heading from 'components/Heading/Heading';
 import Combobox from 'components/Combobox/Combobox';
+import PyramidDate from 'components/PyramidDate/PyramidDate';
 
 const Blog = ({
   data: {
@@ -22,8 +24,6 @@ const Blog = ({
 
   const fetchMorePosts = currentData.length < allBlogPosts.length;
 
-  console.log(currentData);
-
   return (
     <>
       <HeadComponent title='blog' />
@@ -34,20 +34,31 @@ const Blog = ({
             isMain
           />
 
+          <Styled.Intro>
+            Zapraszam na mój orientalny blog, na którym dzielę się swoją wiedzą na temat tańca
+            orientalnego i nie tylko.
+          </Styled.Intro>
+
           <Combobox setSortByDate={setSortByDate} />
 
           <Styled.BlogPostsWrapper>
             {currentData.map(({ node: { id, blogPostTitle, thumbnail, link, meta, date } }) => (
-              <article key={id}>
+              <Styled.BlogPost key={id}>
                 <Link to={`/blog/${link}`}>
-                  <GatsbyImage
-                    image={thumbnail.gatsbyImageData}
-                    alt={'Agnieszka Świeczkowska Leyla bellydance'}
-                  />
+                  <Styled.Thumbnail>
+                    <GatsbyImage
+                      image={thumbnail.gatsbyImageData}
+                      alt={'Agnieszka Świeczkowska Leyla bellydance'}
+                    />
+                  </Styled.Thumbnail>
 
-                  <h2>{blogPostTitle}</h2>
+                  <div>
+                    <h2>{blogPostTitle}</h2>
+
+                    <PyramidDate date={date || getFirstPublishedAtDate(meta.firstPublishedAt)} />
+                  </div>
                 </Link>
-              </article>
+              </Styled.BlogPost>
             ))}
           </Styled.BlogPostsWrapper>
 

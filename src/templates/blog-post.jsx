@@ -13,7 +13,7 @@ export default function BlogPost({
   return (
     <MainWrapper>
       <ContentWrapper>
-        <h1>blog page</h1>
+        <h1>{blogPostTitle}</h1>
       </ContentWrapper>
     </MainWrapper>
   );

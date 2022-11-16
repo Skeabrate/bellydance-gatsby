@@ -2,9 +2,11 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import * as Styled from './Post.styles';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import { useScroll } from 'hooks/useScroll';
 import { StructuredText } from 'react-datocms';
+import { useScroll } from 'hooks/useScroll';
+import { getFirstPublishedAtDate } from 'utils/getFirstPublishedAtDate';
 import LightBoxContext from 'context/LightBoxContext';
+import PyramidDate from 'components/PyramidDate/PyramidDate';
 
 const Post = ({ title, description, meta, assets, date }) => {
   const { setImgIndex, setLightBoxData } = useContext(LightBoxContext);
@@ -58,7 +60,7 @@ const Post = ({ title, description, meta, assets, date }) => {
         <StructuredText data={description} />
       </Styled.PostContent>
 
-      <Styled.PyramidDate>{date || meta.firstPublishedAt.slice(0, 10)}</Styled.PyramidDate>
+      <PyramidDate date={date || getFirstPublishedAtDate(meta.firstPublishedAt)} />
     </Styled.Wrapper>
   );
 };
