@@ -49,7 +49,7 @@ const Blog = ({
                   <Styled.Thumbnail>
                     <GatsbyImage
                       image={thumbnail.gatsbyImageData}
-                      alt={'Agnieszka Świeczkowska Leyla bellydance'}
+                      alt={thumbnail.alt || 'Agnieszka Świeczkowska Leyla bellydance'}
                     />
                   </Styled.Thumbnail>
 
@@ -87,6 +87,7 @@ export const query = graphql`
           blogPostTitle
           thumbnail {
             gatsbyImageData(placeholder: BLURRED)
+            alt
           }
           content {
             description {

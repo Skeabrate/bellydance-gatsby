@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-const HeadComponent = ({ title }) => {
+const HeadComponent = ({ title, description }) => {
   return (
     <Helmet
       title={title ? `Leyla Bellydance - ${title} ` : 'Leyla Bellydance'}
@@ -9,6 +9,7 @@ const HeadComponent = ({ title }) => {
         {
           name: 'description',
           content:
+            description ||
             'Jestem dyplomowaną Instruktorką Tańca Sportowego o specjalności belly dance oraz dyplomowanym Instruktorem Sportu.',
         },
         {
