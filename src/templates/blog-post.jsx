@@ -1,4 +1,5 @@
 import React from 'react';
+import * as Styled from 'assets/styles/pages/blog-post.styles';
 import { graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { StructuredText } from 'react-datocms';
@@ -23,35 +24,37 @@ export default function BlogPost({
 
       <MainWrapper>
         <ContentWrapper>
-          <Heading
-            label={blogPostTitle}
-            isMain
-          />
+          <Styled.Wrapper>
+            <Heading
+              label={blogPostTitle}
+              isMain
+            />
 
-          <p>{date || getFirstPublishedAtDate(meta.firstPublishedAt)}</p>
+            <Styled.Date>{date || getFirstPublishedAtDate(meta.firstPublishedAt)}</Styled.Date>
 
-          <section>
-            {content.map(({ id, title, description, image }) => (
-              <article key={id}>
-                {title && (
-                  <header>
-                    <h2>{title}</h2>
-                  </header>
-                )}
+            <section>
+              {content.map(({ id, title, description, image }) => (
+                <Styled.Chapter key={id}>
+                  {title && (
+                    <header>
+                      <h2>{title}</h2>
+                    </header>
+                  )}
 
-                <StructuredText data={description.value} />
+                  <StructuredText data={description.value} />
 
-                {image?.gatsbyImageData ? (
-                  <GatsbyImage
-                    image={image.gatsbyImageData}
-                    alt={image.alt || 'Agnieszka Świeczkowska Leyla bellydance'}
-                  />
-                ) : image?.url ? (
-                  <Video source={image.url} />
-                ) : null}
-              </article>
-            ))}
-          </section>
+                  {image?.gatsbyImageData ? (
+                    <GatsbyImage
+                      image={image.gatsbyImageData}
+                      alt={image.alt || 'Agnieszka Świeczkowska Leyla bellydance'}
+                    />
+                  ) : image?.url ? (
+                    <Video source={image.url} />
+                  ) : null}
+                </Styled.Chapter>
+              ))}
+            </section>
+          </Styled.Wrapper>
         </ContentWrapper>
       </MainWrapper>
     </>

@@ -9,7 +9,7 @@ export const StyledPyramidDate = styled.p`
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  padding-bottom: 5px;
+  padding-bottom: 0.5rem;
   font-weight: 700;
   font-size: ${({ theme }) => theme.fontSize.caption};
   color: ${({ theme }) => theme.colors.white};

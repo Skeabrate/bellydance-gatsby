@@ -8,7 +8,7 @@ export const Wrapper = styled.footer`
   align-items: center;
   justify-content: flex-end;
   padding-bottom: 5rem;
-  row-gap: 15px;
+  row-gap: 1.5rem;
   height: 260px;
 
   p {

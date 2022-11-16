@@ -15,9 +15,9 @@ const StyledSection = styled.section`
     li {
       display: grid;
       grid-template-columns: auto 1fr;
-      column-gap: 6px;
+      column-gap: 0.6rem;
       align-items: baseline;
-      margin-top: 12px;
+      margin-top: 1.2rem;
 
       ${({ theme }) => theme.mq.bigDesktop} {
         margin-top: 2rem;

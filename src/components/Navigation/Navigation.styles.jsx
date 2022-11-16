@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
+  padding: 0 2rem;
   z-index: 100;
 
   transform: ${({ $toggle, $hideNav, $imgIndex }) => {
@@ -25,7 +25,7 @@ export const Wrapper = styled.div`
   transition: all 0.3s ease-in-out;
 
   ${({ theme }) => theme.mq.desktop} {
-    padding: 0 50px;
+    padding: 0 5rem;
   }
 `;
 

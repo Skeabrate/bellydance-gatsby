@@ -10,14 +10,14 @@ const StyledPyramid = styled.button`
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
-  padding-bottom: 10px;
+  padding-bottom: 1rem;
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
   border: none;
 
   ${({ theme }) => theme.mq.tablet} {
     width: 180px;
     height: 90px;
-    padding-bottom: 20px;
+    padding-bottom: 2rem;
   }
 
   svg {

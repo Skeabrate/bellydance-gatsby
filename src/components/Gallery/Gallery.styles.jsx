@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 12px;
+  grid-gap: 1.2rem;
 
   @media (min-width: 350px) {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   font-weight: 700;
   position: relative;
   width: max-content;
-  margin: 0 20px;
+  margin: 0 2rem;
 
   span {
     margin: 0 2px 0 8px;
@@ -43,7 +43,7 @@ export const Wrapper = styled.div`
     background-color: ${({ theme }) => theme.colors.white};
 
     li {
-      padding: 10px;
+      padding: 1rem;
     }
   }
 

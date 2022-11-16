@@ -8,7 +8,7 @@ const Wrapper = styled.button`
   display: none;
   justify-content: center;
   align-items: center;
-  column-gap: 10px;
+  column-gap: 1rem;
   font-weight: 700;
   position: relative;
   width: max-content;

@@ -83,5 +83,5 @@ export const Form = styled.form`
 
 export const FormResponse = styled.div`
   color: ${({ $succeeded }) => ($succeeded ? 'green' : 'red')};
-  padding-bottom: 20px;
+  padding-bottom: 2rem;
 `;

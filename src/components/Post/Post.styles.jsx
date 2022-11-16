@@ -89,7 +89,7 @@ export const Legend = styled.div`
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  column-gap: 6px;
+  column-gap: 0.6rem;
   max-width: 300px;
   overflow-x: hidden;
 

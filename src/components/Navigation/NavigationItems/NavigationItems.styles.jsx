@@ -7,7 +7,7 @@ export const Wrapper = styled.nav`
   left: 0;
   width: 100%;
   height: 100vh;
-  padding-block: 50px;
+  padding-block: 5rem;
   background-color: ${({ theme }) => theme.colors.white};
   display: flex;
   flex-direction: column;
@@ -50,10 +50,10 @@ export const NavLinksList = styled.ul`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  column-gap: 35px;
+  column-gap: 3.5rem;
   height: 100%;
   min-height: 300px;
-  padding-block: 50px;
+  padding-block: 5rem;
 
   li:hover a {
     color: ${({ theme }) => theme.colors.sand};
@@ -62,7 +62,7 @@ export const NavLinksList = styled.ul`
 
   ${({ theme }) => theme.mq.desktop} {
     flex-direction: row;
-    margin-right: 30px;
+    margin-right: 3rem;
     min-height: unset;
     padding-block: 0px;
   }
@@ -83,8 +83,8 @@ export const NavLink = styled(Link)`
 
 export const Socials = styled.div`
   display: flex;
-  column-gap: 35px;
-  row-gap: 35px;
+  column-gap: 3.5rem;
+  row-gap: 3.5rem;
 `;
 
 export const SocialsItem = styled.a`
