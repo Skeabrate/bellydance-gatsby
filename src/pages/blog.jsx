@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { graphql, Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
+import { StructuredText } from 'react-datocms';
 import * as Styled from 'assets/styles/pages/blog.styles';
 import { useSortByDate } from 'hooks/useSortByDate';
 import { usePaginate } from 'hooks/usePaginate';
@@ -42,9 +43,9 @@ const Blog = ({
           <Combobox setSortByDate={setSortByDate} />
 
           <Styled.BlogPostsWrapper>
-            {currentData.map(({ node: { id, blogPostTitle, thumbnail, link, meta, date } }) => (
-              <Styled.BlogPost key={id}>
-                <Link to={`/blog/${link}`}>
+            {currentData.map(
+              ({ node: { id, blogPostTitle, thumbnail, content, link, meta, date } }) => (
+                <Styled.BlogPost key={id}>
                   <Styled.Thumbnail>
                     <GatsbyImage
                       image={thumbnail.gatsbyImageData}
@@ -52,14 +53,20 @@ const Blog = ({
                     />
                   </Styled.Thumbnail>
 
-                  <div>
+                  <Styled.Content>
                     <h2>{blogPostTitle}</h2>
 
-                    <PyramidDate date={date || getFirstPublishedAtDate(meta.firstPublishedAt)} />
-                  </div>
-                </Link>
-              </Styled.BlogPost>
-            ))}
+                    <Styled.FadeOutText>
+                      <StructuredText data={content[0]?.description?.value} />
+                    </Styled.FadeOutText>
+
+                    <Link to={`/blog/${link}`}>Czytaj więcej</Link>
+                  </Styled.Content>
+
+                  <PyramidDate date={date || getFirstPublishedAtDate(meta.firstPublishedAt)} />
+                </Styled.BlogPost>
+              )
+            )}
           </Styled.BlogPostsWrapper>
 
           {fetchMorePosts && <div ref={loadingRef} />}
@@ -80,6 +87,11 @@ export const query = graphql`
           blogPostTitle
           thumbnail {
             gatsbyImageData(placeholder: BLURRED)
+          }
+          content {
+            description {
+              value
+            }
           }
           link
           date

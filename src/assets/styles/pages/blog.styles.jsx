@@ -31,21 +31,8 @@ export const BlogPostsWrapper = styled.section`
 
 export const BlogPost = styled.article`
   position: relative;
+  padding-bottom: 8rem;
   box-shadow: 0px 0px 30px -15px rgba(0, 0, 0, 1);
-
-  h2 {
-    font-size: ${({ theme }) => theme.fontSize.paragraph};
-    font-weight: 700;
-    padding: 2rem;
-    padding-bottom: 8rem;
-    margin: 0;
-  }
-
-  a {
-    text-decoration: none;
-    color: black;
-    height: 100%;
-  }
 
   &::after {
     content: '';
@@ -56,52 +43,21 @@ export const BlogPost = styled.article`
     bottom: -10px;
     right: 50%;
     transform: translateX(50%);
-    transition: 0.3s ease-in-out;
-  }
-
-  &:hover {
-    img {
-      scale: 1.05;
-    }
-
-    &::after {
-      width: 100%;
-    }
   }
 `;
 
 export const Thumbnail = styled.div`
   background-color: ${({ theme }) => theme.colors.sand};
   position: relative;
-  max-height: 300px;
+  max-height: 240px;
   overflow: hidden;
 
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    background-color: white;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    z-index: 1;
-  }
-
   img {
-    max-height: 300px;
-    transition: scale 0.3s ease-in-out !important;
+    max-height: 240px;
   }
 
   div {
     position: static;
-  }
-
-  &:hover::after {
-    opacity: 0.15;
   }
 
   @media (min-width: ${mobileScreenWidth}) {
@@ -120,4 +76,50 @@ export const Thumbnail = styled.div`
       height: 260px;
     }
   }
+`;
+
+export const Content = styled.div`
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+
+  a {
+    color: black;
+    text-decoration: none;
+    position: relative;
+    align-self: center;
+    transition: 0.1s ease-in-out;
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      background-color: black;
+      width: calc(100% + 12px);
+      height: 1px;
+      left: -6px;
+      transition: 0.1s ease-in-out;
+    }
+
+    &:hover {
+      color: ${({ theme }) => theme.colors.sand};
+
+      &::after {
+        background-color: ${({ theme }) => theme.colors.sand};
+      }
+    }
+  }
+
+  h2 {
+    font-size: ${({ theme }) => theme.fontSize.paragraph};
+    font-weight: 700;
+    margin: 0;
+  }
+`;
+
+export const FadeOutText = styled.div`
+  max-height: 90px;
+  overflow: hidden;
+  mask-image: linear-gradient(to bottom, white 50%, transparent 100%);
+  margin: 6px 0 14px;
 `;
