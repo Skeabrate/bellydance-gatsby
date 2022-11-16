@@ -7,6 +7,7 @@ import { useScroll } from 'hooks/useScroll';
 import { getFirstPublishedAtDate } from 'utils/getFirstPublishedAtDate';
 import LightBoxContext from 'context/LightBoxContext';
 import PyramidDate from 'components/PyramidDate/PyramidDate';
+import Video from 'components/Video/Video';
 
 const Post = ({ title, description, meta, assets, date }) => {
   const { setImgIndex, setLightBoxData } = useContext(LightBoxContext);
@@ -29,17 +30,7 @@ const Post = ({ title, description, meta, assets, date }) => {
                 alt={assets[0].alt || 'Agnieszka Świeczkowska Leyla bellydance'}
               />
             ) : assets[0].video ? (
-              <video
-                preload='metadata'
-                controls
-                width='100%'
-                height='100%'
-              >
-                <source
-                  src={`${assets[0].video.mp4Url}#t=0.1`}
-                  type='video/mp4'
-                />
-              </video>
+              <Video source={assets[0].video.mp4Url} />
             ) : null}
           </Styled.Media>
         </Styled.MediaContainer>

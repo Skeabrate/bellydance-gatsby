@@ -7,6 +7,7 @@ import MainWrapper from 'templates/MainWrapper';
 import ContentWrapper from 'templates/ContentWrapper';
 import HeadComponent from 'components/HeadComponent/HeadComponent';
 import Heading from 'components/Heading/Heading';
+import Video from 'components/Video/Video';
 
 export default function BlogPost({
   data: {
@@ -16,8 +17,8 @@ export default function BlogPost({
   return (
     <>
       <HeadComponent
-        title={seo.title || blogPostTitle}
-        description={seo.description}
+        title={seo?.title || blogPostTitle}
+        description={seo?.description}
       />
 
       <MainWrapper>
@@ -32,30 +33,22 @@ export default function BlogPost({
           <section>
             {content.map(({ id, title, description, image }) => (
               <article key={id}>
-                <header>
-                  <h2>{title}</h2>
-                </header>
+                {title && (
+                  <header>
+                    <h2>{title}</h2>
+                  </header>
+                )}
 
-                <StructuredText data={description?.value} />
+                <StructuredText data={description.value} />
 
-                {image.gatsbyImageData ? (
+                {image?.gatsbyImageData ? (
                   <GatsbyImage
                     image={image.gatsbyImageData}
                     alt={image.alt || 'Agnieszka Świeczkowska Leyla bellydance'}
                   />
-                ) : (
-                  <video
-                    preload='metadata'
-                    controls
-                    width='100%'
-                    height='100%'
-                  >
-                    <source
-                      src={`${image.url}#t=0.1`}
-                      type='video/mp4'
-                    />
-                  </video>
-                )}
+                ) : image?.url ? (
+                  <Video source={image.url} />
+                ) : null}
               </article>
             ))}
           </section>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
+import DanceVid from 'assets/images/Pokazy/Videos/agunia.mp4';
 import MainWrapper from 'templates/MainWrapper';
 import ContentWrapper from 'templates/ContentWrapper';
 import GridSection from 'templates/GridSection';
@@ -9,13 +10,8 @@ import SkipButton from 'components/SkipButton/SkipButton';
 import Frame from 'components/Frame/Frame';
 import PyramidPointer from 'components/PyramidPointer/PyramidPointer';
 import Gallery from 'components/Gallery/Gallery';
-import DanceVid from 'assets/images/Pokazy/Videos/agunia.mp4';
 import HeadComponent from 'components/HeadComponent/HeadComponent';
-import styled from 'styled-components';
-
-const StyledVideo = styled.video`
-  z-index: 1;
-`;
+import Video from 'components/Video/Video';
 
 const Pokazy = ({ data }) => {
   return (
@@ -94,17 +90,9 @@ const Pokazy = ({ data }) => {
             </article>
 
             <Frame isFlex>
-              <StyledVideo
-                preload='metadata'
-                controls
-                width='100%'
-                height='100%'
-              >
-                <source
-                  src={`${DanceVid}#t=0.1`}
-                  type='video/mp4'
-                />
-              </StyledVideo>
+              <div style={{ zIndex: 1 }}>
+                <Video source={DanceVid} />
+              </div>
             </Frame>
           </GridSection>
 

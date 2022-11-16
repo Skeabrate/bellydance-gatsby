@@ -16,8 +16,10 @@ export const MediaContainer = styled.div`
   max-height: 300px;
   overflow: hidden;
 
-  img {
+  img,
+  video {
     max-height: 300px;
+    object-fit: cover;
   }
 
   div {
@@ -28,7 +30,8 @@ export const MediaContainer = styled.div`
     max-height: unset;
     height: 450px;
 
-    img {
+    img,
+    video {
       max-height: unset;
       height: 450px;
     }
@@ -37,7 +40,8 @@ export const MediaContainer = styled.div`
   ${({ theme }) => theme.mq.desktop} {
     height: 350px;
 
-    img {
+    img,
+    video {
       height: 350px;
     }
   }

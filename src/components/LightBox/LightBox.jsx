@@ -1,13 +1,14 @@
 import React, { useContext, useState } from 'react';
 import * as Styled from './LightBox.styles';
+import Slider from 'react-touch-drag-slider';
+import ClipLoader from 'react-spinners/ClipLoader';
 import { document } from 'browser-monads';
 import { closeModal } from 'utils/closeModal';
 import LightBoxContext from 'context/LightBoxContext';
 import Close from 'assets/images/SVG/x.svg';
 import LeftArrow from 'assets/images/SVG/leftArrow.svg';
 import RightArrow from 'assets/images/SVG/rightArrow.svg';
-import Slider from 'react-touch-drag-slider';
-import ClipLoader from 'react-spinners/ClipLoader';
+import Video from 'components/Video/Video';
 
 const LightBox = () => {
   const [isLoaded, setIsLoaded] = useState({});
@@ -76,18 +77,10 @@ const LightBox = () => {
                 )}
               </>
             ) : video ? (
-              <video
-                preload='metadata'
-                controls
-                width='100%'
-                height='100%'
-                onClick={(e) => e.preventDefault()}
-              >
-                <source
-                  src={`${video.mp4Url}#t=0.1`}
-                  type='video/mp4'
-                />
-              </video>
+              <Video
+                preventDefault
+                source={video.mp4Url}
+              />
             ) : null}
           </Styled.SliderItem>
         ))}

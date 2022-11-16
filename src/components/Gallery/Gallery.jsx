@@ -2,8 +2,9 @@ import React, { useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import * as Styled from './Gallery.styles';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import LightBoxContext from 'context/LightBoxContext';
 import { useScroll } from 'hooks/useScroll';
+import LightBoxContext from 'context/LightBoxContext';
+import Video from 'components/Video/Video';
 
 export default function Gallery({ data }) {
   const { setImgIndex, setLightBoxData } = useContext(LightBoxContext);
@@ -33,17 +34,7 @@ export default function Gallery({ data }) {
               alt={alt || 'Agnieszka Świeczkowska Leyla bellydance'}
             />
           ) : video ? (
-            <video
-              preload='metadata'
-              controls
-              width='100%'
-              height='100%'
-            >
-              <source
-                src={`${video.mp4Url}#t=0.1`}
-                type='video/mp4'
-              />
-            </video>
+            <Video source={video.mp4Url} />
           ) : null}
         </Styled.GalleryItem>
       ))}
