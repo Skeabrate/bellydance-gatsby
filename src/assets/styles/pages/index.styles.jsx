@@ -85,7 +85,7 @@ export const AboutMeImages = styled.div`
   column-gap: ${({ theme }) => theme.spacing.columnGap};
   row-gap: 1rem;
 
-  @media (min-width: 500px) {
+  ${({ theme }) => theme.mq.mobile} {
     row-gap: 3rem;
   }
 
@@ -126,7 +126,7 @@ export const CompetitionsImages = styled.div`
   column-gap: 1rem;
   row-gap: 1rem;
 
-  @media (min-width: 500px) {
+  ${({ theme }) => theme.mq.mobile} {
     grid-template-columns: 1fr 1fr;
     row-gap: 3rem;
   }

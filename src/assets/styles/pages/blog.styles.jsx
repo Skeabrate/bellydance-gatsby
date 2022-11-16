@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-const mobileScreenWidth = '500px';
-
 export const Intro = styled.p`
   text-align: center;
   margin-bottom: 3rem;
@@ -14,7 +12,7 @@ export const BlogPostsWrapper = styled.section`
   row-gap: 6rem;
   margin-top: 6rem;
 
-  @media (min-width: ${mobileScreenWidth}) {
+  ${({ theme }) => theme.mq.mobile} {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -60,7 +58,7 @@ export const Thumbnail = styled.div`
     position: static;
   }
 
-  @media (min-width: ${mobileScreenWidth}) {
+  ${({ theme }) => theme.mq.mobile} {
     height: 200px;
 
     img {

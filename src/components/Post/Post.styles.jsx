@@ -24,7 +24,7 @@ export const MediaContainer = styled.div`
     position: static;
   }
 
-  @media (min-width: 500px) {
+  ${({ theme }) => theme.mq.mobile} {
     max-height: unset;
     height: 450px;
 
