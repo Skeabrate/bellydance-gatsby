@@ -68,12 +68,6 @@ export const BlogPost = styled.article`
       width: 100%;
     }
   }
-
-  ${({ theme }) => theme.mq.tablet} {
-    h2 {
-      font-size: 2.2rem;
-    }
-  }
 `;
 
 export const Thumbnail = styled.div`
