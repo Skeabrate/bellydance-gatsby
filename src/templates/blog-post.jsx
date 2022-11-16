@@ -49,21 +49,23 @@ export default function BlogPost({
                     <StructuredText data={description.value} />
                   </div>
 
-                  <Frame
-                    isFlex
-                    downRight={index % 2 === 0}
-                  >
-                    <Styled.Media>
-                      {image?.gatsbyImageData ? (
-                        <GatsbyImage
-                          image={image.gatsbyImageData}
-                          alt={image.alt || 'Agnieszka Świeczkowska Leyla bellydance'}
-                        />
-                      ) : image?.url ? (
-                        <Video source={image.url} />
-                      ) : null}
-                    </Styled.Media>
-                  </Frame>
+                  {(image?.gatsbyImageData || image?.url) && (
+                    <Frame
+                      isFlex
+                      downRight={index % 2 === 0}
+                    >
+                      <Styled.Media>
+                        {image?.gatsbyImageData ? (
+                          <GatsbyImage
+                            image={image.gatsbyImageData}
+                            alt={image.alt || 'Agnieszka Świeczkowska Leyla bellydance'}
+                          />
+                        ) : image?.url ? (
+                          <Video source={image.url} />
+                        ) : null}
+                      </Styled.Media>
+                    </Frame>
+                  )}
                 </Styled.Chapter>
               ))}
             </section>
