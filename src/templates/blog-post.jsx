@@ -4,11 +4,13 @@ import { graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { StructuredText } from 'react-datocms';
 import { getFirstPublishedAtDate } from 'utils/getFirstPublishedAtDate';
+import Calendar from 'assets/images/SVG/calendar.svg';
 import MainWrapper from 'templates/MainWrapper';
 import ContentWrapper from 'templates/ContentWrapper';
 import HeadComponent from 'components/HeadComponent/HeadComponent';
 import Heading from 'components/Heading/Heading';
 import Video from 'components/Video/Video';
+import Frame from 'components/Frame/Frame';
 
 export default function BlogPost({
   data: {
@@ -30,27 +32,38 @@ export default function BlogPost({
               isMain
             />
 
-            <Styled.Date>{date || getFirstPublishedAtDate(meta.firstPublishedAt)}</Styled.Date>
+            <Styled.Date>
+              <Calendar /> {date || getFirstPublishedAtDate(meta.firstPublishedAt)}
+            </Styled.Date>
 
             <section>
-              {content.map(({ id, title, description, image }) => (
+              {content.map(({ id, title, description, image }, index) => (
                 <Styled.Chapter key={id}>
-                  {title && (
-                    <header>
-                      <h2>{title}</h2>
-                    </header>
-                  )}
+                  <div>
+                    {title && (
+                      <header>
+                        <h2>{title}</h2>
+                      </header>
+                    )}
 
-                  <StructuredText data={description.value} />
+                    <StructuredText data={description.value} />
+                  </div>
 
-                  {image?.gatsbyImageData ? (
-                    <GatsbyImage
-                      image={image.gatsbyImageData}
-                      alt={image.alt || 'Agnieszka Świeczkowska Leyla bellydance'}
-                    />
-                  ) : image?.url ? (
-                    <Video source={image.url} />
-                  ) : null}
+                  <Frame
+                    isFlex
+                    downRight={index % 2 === 0}
+                  >
+                    <Styled.Media>
+                      {image?.gatsbyImageData ? (
+                        <GatsbyImage
+                          image={image.gatsbyImageData}
+                          alt={image.alt || 'Agnieszka Świeczkowska Leyla bellydance'}
+                        />
+                      ) : image?.url ? (
+                        <Video source={image.url} />
+                      ) : null}
+                    </Styled.Media>
+                  </Frame>
                 </Styled.Chapter>
               ))}
             </section>
