@@ -5,6 +5,7 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import { StructuredText } from 'react-datocms';
 import { getFirstPublishedAtDate } from 'utils/getFirstPublishedAtDate';
 import Calendar from 'assets/images/SVG/calendar.svg';
+import Arrow from 'assets/images/SVG/thinArrow.svg';
 import MainWrapper from 'templates/MainWrapper';
 import ContentWrapper from 'templates/ContentWrapper';
 import HeadComponent from 'components/HeadComponent/HeadComponent';
@@ -27,6 +28,11 @@ export default function BlogPost({
       <MainWrapper>
         <ContentWrapper>
           <Styled.Wrapper>
+            <Styled.GoBack to='/blog'>
+              <Arrow />
+              Wróć do listy
+            </Styled.GoBack>
+
             <Heading
               label={blogPostTitle}
               isMain
