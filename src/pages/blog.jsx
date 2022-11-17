@@ -8,6 +8,7 @@ import { usePaginate } from 'hooks/usePaginate';
 import { getFirstPublishedAtDate } from 'utils/getFirstPublishedAtDate';
 import MainWrapper from 'templates/MainWrapper';
 import ContentWrapper from 'templates/ContentWrapper';
+import HeroImageContainer from 'components/HeroImageContainer/HeroImageContainer';
 import HeadComponent from 'components/HeadComponent/HeadComponent';
 import Heading from 'components/Heading/Heading';
 import Combobox from 'components/Combobox/Combobox';
@@ -16,6 +17,7 @@ import PyramidDate from 'components/PyramidDate/PyramidDate';
 const Blog = ({
   data: {
     allDatoCmsBlog: { edges: allBlogPosts },
+    placeholderImage,
   },
 }) => {
   const loadingRef = useRef(null);
@@ -28,7 +30,10 @@ const Blog = ({
   return (
     <>
       <HeadComponent title='blog' />
+
       <MainWrapper>
+        <HeroImageContainer placeholderImage={placeholderImage} />
+
         <ContentWrapper>
           <Heading
             label='Orientalny Blog'
@@ -100,6 +105,12 @@ export const query = graphql`
             firstPublishedAt
           }
         }
+      }
+    }
+
+    placeholderImage: file(relativePath: { eq: "Blog/banerBlog.jpg" }) {
+      childImageSharp {
+        gatsbyImageData(placeholder: BLURRED, formats: WEBP)
       }
     }
   }
