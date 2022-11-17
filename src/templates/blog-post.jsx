@@ -5,7 +5,8 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import { StructuredText } from 'react-datocms';
 import { getFirstPublishedAtDate } from 'utils/getFirstPublishedAtDate';
 import Calendar from 'assets/images/SVG/calendar.svg';
-import Arrow from 'assets/images/SVG/thinArrow.svg';
+import LeftArrow from 'assets/images/SVG/thinArrow.svg';
+import UpArrow from 'assets/images/SVG/upArrow.svg';
 import MainWrapper from 'templates/MainWrapper';
 import ContentWrapper from 'templates/ContentWrapper';
 import HeadComponent from 'components/HeadComponent/HeadComponent';
@@ -18,6 +19,14 @@ export default function BlogPost({
     datoCmsBlog: { blogPostTitle, content, seo, date, meta },
   },
 }) {
+  const goBackToTopHandler = () =>
+    typeof window !== 'undefined' &&
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
+
   return (
     <>
       <HeadComponent
@@ -29,7 +38,7 @@ export default function BlogPost({
         <ContentWrapper>
           <Styled.Wrapper>
             <Styled.GoBack to='/blog'>
-              <Arrow />
+              <LeftArrow />
               Wróć do listy
             </Styled.GoBack>
 
@@ -75,6 +84,11 @@ export default function BlogPost({
                 </Styled.Chapter>
               ))}
             </section>
+
+            <Styled.GoToTop onClick={goBackToTopHandler}>
+              <UpArrow />
+              Wróć do góry
+            </Styled.GoToTop>
           </Styled.Wrapper>
         </ContentWrapper>
       </MainWrapper>

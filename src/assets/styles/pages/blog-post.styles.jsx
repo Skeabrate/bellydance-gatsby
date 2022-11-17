@@ -1,24 +1,24 @@
 import { Link } from 'gatsby';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const GoBack = styled(Link)`
-  color: black;
+const buttonStyles = css`
+  position: relative;
   display: flex;
   align-items: center;
   gap: 4px;
-  font-size: 1.4rem;
-  font-style: italic;
-  text-decoration: none;
-  position: relative;
   width: fit-content;
-  padding: 3px 0;
+  padding-block: 3px;
+  background: transparent;
+  border: none;
+  font-style: italic;
+  font-size: 1.4rem;
+  color: black;
+  text-decoration: none;
 
   &::after {
     content: '';
     position: absolute;
-    left: -4px;
     bottom: 0;
-    width: 80%;
     height: 1px;
     background-color: ${({ theme }) => theme.colors.sand};
     transition: 0.2s ease-in-out;
@@ -33,6 +33,15 @@ export const GoBack = styled(Link)`
       fill: ${({ theme }) => theme.colors.sand};
     }
   }
+`;
+
+export const GoBack = styled(Link)`
+  ${buttonStyles};
+
+  &::after {
+    left: -4px;
+    width: 80%;
+  }
 
   &:hover {
     &::after {
@@ -41,6 +50,29 @@ export const GoBack = styled(Link)`
 
     svg {
       transform: translateX(-4px);
+    }
+  }
+`;
+
+export const GoToTop = styled.button`
+  ${buttonStyles};
+  flex-direction: column;
+  margin: 0 auto;
+
+  &::after {
+    left: 0;
+    width: 100%;
+    transform-origin: center;
+    transform: scaleX(0.7);
+  }
+
+  &:hover {
+    &::after {
+      transform: scaleX(1);
+    }
+
+    svg {
+      transform: translateY(-4px);
     }
   }
 `;
@@ -95,7 +127,7 @@ export const Chapter = styled.article`
   }
 
   &:last-child {
-    margin-bottom: 0;
+    margin-bottom: 8rem;
   }
 
   ${({ theme }) => theme.mq.tablet} {
@@ -104,6 +136,10 @@ export const Chapter = styled.article`
 
     h2 {
       font-size: 2.4rem;
+    }
+
+    &:last-child {
+      margin-bottom: 12rem;
     }
   }
 `;
