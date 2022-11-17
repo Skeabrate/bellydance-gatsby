@@ -30,7 +30,7 @@ export const BlogPostsWrapper = styled.section`
 export const BlogPost = styled.article`
   position: relative;
   padding-bottom: 8rem;
-  box-shadow: 0px 0px 30px -15px rgba(0, 0, 0, 1);
+  box-shadow: 0px 0px 20px -15px rgba(0, 0, 0, 1);
 
   &::after {
     content: '';
