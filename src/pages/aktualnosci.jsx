@@ -11,6 +11,7 @@ import Heading from 'components/Heading/Heading';
 import Combobox from 'components/Combobox/Combobox';
 import Frame from 'components/Frame/Frame';
 import Post from 'components/Post/Post';
+import NoDataFound from 'components/NoDataFound/NoDataFound';
 
 const Aktualnosci = ({
   data: {
@@ -40,22 +41,20 @@ const Aktualnosci = ({
 
           <Combobox setSortByDate={setSortByDate} />
 
-          <Styled.PostsWrapper>
-            {currentData.length ? (
-              <>
-                {currentData.map(({ node: { id, ...post } }) => (
-                  <Frame
-                    key={id}
-                    upRight
-                  >
-                    <Post {...post} />
-                  </Frame>
-                ))}
-              </>
-            ) : (
-              <h2>Nie znaleziono postów.</h2>
-            )}
-          </Styled.PostsWrapper>
+          {currentData.length ? (
+            <Styled.PostsWrapper>
+              {currentData.map(({ node: { id, ...post } }) => (
+                <Frame
+                  key={id}
+                  upRight
+                >
+                  <Post {...post} />
+                </Frame>
+              ))}
+            </Styled.PostsWrapper>
+          ) : (
+            <NoDataFound label={'Nie znaleziono postów.'} />
+          )}
 
           {fetchMorePosts && <div ref={loadingRef} />}
         </ContentWrapper>

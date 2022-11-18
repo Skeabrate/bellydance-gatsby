@@ -13,6 +13,7 @@ import HeadComponent from 'components/HeadComponent/HeadComponent';
 import Heading from 'components/Heading/Heading';
 import Combobox from 'components/Combobox/Combobox';
 import PyramidDate from 'components/PyramidDate/PyramidDate';
+import NoDataFound from 'components/NoDataFound/NoDataFound';
 
 const Blog = ({
   data: {
@@ -47,32 +48,36 @@ const Blog = ({
 
           <Combobox setSortByDate={setSortByDate} />
 
-          <Styled.BlogPostsWrapper>
-            {currentData.map(
-              ({ node: { id, blogPostTitle, thumbnail, content, link, meta, date } }) => (
-                <Styled.BlogPost key={id}>
-                  <Styled.Thumbnail>
-                    <GatsbyImage
-                      image={thumbnail.gatsbyImageData}
-                      alt={thumbnail.alt || 'Agnieszka Świeczkowska Leyla bellydance'}
-                    />
-                  </Styled.Thumbnail>
+          {currentData.length ? (
+            <Styled.BlogPostsWrapper>
+              {currentData.map(
+                ({ node: { id, blogPostTitle, thumbnail, content, link, meta, date } }) => (
+                  <Styled.BlogPost key={id}>
+                    <Styled.Thumbnail>
+                      <GatsbyImage
+                        image={thumbnail.gatsbyImageData}
+                        alt={thumbnail.alt || 'Agnieszka Świeczkowska Leyla bellydance'}
+                      />
+                    </Styled.Thumbnail>
 
-                  <Styled.Content>
-                    <h2>{blogPostTitle}</h2>
+                    <Styled.Content>
+                      <h2>{blogPostTitle}</h2>
 
-                    <Styled.FadeOutText>
-                      <StructuredText data={content[0]?.description?.value} />
-                    </Styled.FadeOutText>
+                      <Styled.FadeOutText>
+                        <StructuredText data={content[0]?.description?.value} />
+                      </Styled.FadeOutText>
 
-                    <Link to={`/blog/${link}`}>Czytaj więcej</Link>
-                  </Styled.Content>
+                      <Link to={`/blog/${link}`}>Czytaj więcej</Link>
+                    </Styled.Content>
 
-                  <PyramidDate date={date || getFirstPublishedAtDate(meta.firstPublishedAt)} />
-                </Styled.BlogPost>
-              )
-            )}
-          </Styled.BlogPostsWrapper>
+                    <PyramidDate date={date || getFirstPublishedAtDate(meta.firstPublishedAt)} />
+                  </Styled.BlogPost>
+                )
+              )}
+            </Styled.BlogPostsWrapper>
+          ) : (
+            <NoDataFound label={'Nie znaleziono wpisów.'} />
+          )}
 
           {fetchMorePosts && <div ref={loadingRef} />}
         </ContentWrapper>
