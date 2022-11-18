@@ -38,7 +38,7 @@ const Blog = ({
         {/* BIRTHDAY */}
         <div
           style={{
-            width: '100%',
+            width: '100vw',
             height: '120vh',
             position: 'relative',
             overflow: 'hidden',
