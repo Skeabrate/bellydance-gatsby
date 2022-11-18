@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { graphql, Link } from 'gatsby';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
 import { StructuredText } from 'react-datocms';
 import * as Styled from 'assets/styles/pages/blog.styles';
 import { useSortByDate } from 'hooks/useSortByDate';
@@ -33,7 +33,39 @@ const Blog = ({
       <HeadComponent title='blog' />
 
       <MainWrapper>
-        <HeroImageContainer placeholderImage={placeholderImage} />
+        {/* <HeroImageContainer placeholderImage={placeholderImage} /> */}
+
+        {/* BIRTHDAY */}
+        <div
+          style={{
+            width: '100%',
+            height: '120vh',
+            position: 'relative',
+            overflow: 'hidden',
+          }}
+        >
+          <StaticImage
+            src='../assets/images/happyBirthDay.png'
+            placeholder='blurred'
+            alt=''
+            layout='fullWidth'
+          />
+          <h1
+            style={{
+              position: 'absolute',
+              top: '80%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              width: '100%',
+              fontFamily: '"Great Vibes", cursiv',
+              fontSize: '10rem',
+              textAlign: 'center',
+            }}
+          >
+            ❤️ <span style={{ marginRight: '4rem' }}>Wszystkiego najlepszego!</span>❤️
+          </h1>
+        </div>
+        {/* BIRTHDAY */}
 
         <ContentWrapper>
           <Heading
