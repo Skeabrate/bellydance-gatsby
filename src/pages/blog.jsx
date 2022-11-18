@@ -38,14 +38,14 @@ const Blog = ({
         {/* BIRTHDAY */}
         <div
           style={{
-            width: '100vw',
+            width: '100%',
             height: '120vh',
             position: 'relative',
             overflow: 'hidden',
           }}
         >
           <StaticImage
-            src='../assets/images/happyBirthDay.png'
+            src='../assets/images/happyBirthday.png'
             placeholder='blurred'
             alt=''
             layout='fullWidth'
