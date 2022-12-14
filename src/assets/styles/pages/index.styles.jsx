@@ -6,7 +6,7 @@ export const HeroImage = styled(BgImage)`
   position: relative;
   height: 100vh;
   min-height: 600px;
-  max-height: 1000px;
+  max-height: 1400px;
   width: 100%;
   display: flex;
   flex-direction: column;
