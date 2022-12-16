@@ -34,7 +34,10 @@ export default function Gallery({ data }) {
               alt={alt || 'Agnieszka Świeczkowska Leyla bellydance'}
             />
           ) : video ? (
-            <Video source={video.mp4Url} />
+            <Video
+              source={video.mp4Url}
+              thumbnailUrl={video.thumbnailUrl}
+            />
           ) : null}
         </Styled.GalleryItem>
       ))}
