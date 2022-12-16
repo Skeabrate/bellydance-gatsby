@@ -209,6 +209,7 @@ export const query = graphql`
             gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
             video {
               mp4Url
+              thumbnailUrl
             }
           }
         }

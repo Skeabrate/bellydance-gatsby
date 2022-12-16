@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
-import DanceVid from 'assets/images/Pokazy/Videos/agunia.mp4';
+import VideoUrl from 'assets/images/Pokazy/Videos/agunia.mp4';
 import MainWrapper from 'templates/MainWrapper';
 import ContentWrapper from 'templates/ContentWrapper';
 import GridSection from 'templates/GridSection';
@@ -91,7 +91,12 @@ const Pokazy = ({ data }) => {
 
             <Frame isFlex>
               <div style={{ zIndex: 1 }}>
-                <Video source={DanceVid} />
+                <Video
+                  source={VideoUrl}
+                  thumbnailUrl={
+                    data.placeholderImage.childImageSharp.gatsbyImageData.images.fallback.src
+                  }
+                />
               </div>
             </Frame>
           </GridSection>
@@ -149,9 +154,16 @@ export const query = graphql`
             alt
             video {
               mp4Url
+              thumbnailUrl
             }
           }
         }
+      }
+    }
+
+    placeholderImage: file(relativePath: { eq: "Pokazy/img9.jpg" }) {
+      childImageSharp {
+        gatsbyImageData(placeholder: BLURRED, formats: WEBP)
       }
     }
   }

@@ -30,7 +30,10 @@ const Post = ({ title, description, meta, assets, date }) => {
                 alt={assets[0].alt || 'Agnieszka Świeczkowska Leyla bellydance'}
               />
             ) : assets[0].video ? (
-              <Video source={assets[0].video.mp4Url} />
+              <Video
+                source={assets[0].video.mp4Url}
+                thumbnailUrl={assets[0].video.thumbnailUrl}
+              />
             ) : null}
           </Styled.Media>
         </Styled.MediaContainer>

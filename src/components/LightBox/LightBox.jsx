@@ -80,6 +80,7 @@ const LightBox = () => {
               <Video
                 preventDefault
                 source={video.mp4Url}
+                thumbnailUrl={video.thumbnailUrl}
               />
             ) : null}
           </Styled.SliderItem>

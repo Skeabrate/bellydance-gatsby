@@ -75,6 +75,7 @@ export const query = graphql`
             alt
             video {
               mp4Url
+              thumbnailUrl
             }
           }
           description {
