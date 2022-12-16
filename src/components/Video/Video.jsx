@@ -1,9 +1,10 @@
 import React from 'react';
 
-const Video = ({ source, preventDefault }) => {
+const Video = ({ source, thumbnailUrl, preventDefault }) => {
   return (
     <video
       preload='metadata'
+      poster={thumbnailUrl}
       controls
       width='100%'
       height='100%'

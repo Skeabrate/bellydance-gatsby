@@ -64,7 +64,7 @@ export default function BlogPost({
                     <StructuredText data={description.value} />
                   </div>
 
-                  {(image?.gatsbyImageData || image?.url) && (
+                  {(image?.gatsbyImageData || image?.video) && (
                     <Frame
                       isFlex
                       downRight={index % 2 === 0}
@@ -75,8 +75,11 @@ export default function BlogPost({
                             image={image.gatsbyImageData}
                             alt={image.alt || 'Agnieszka Świeczkowska Leyla bellydance'}
                           />
-                        ) : image?.url ? (
-                          <Video source={image.url} />
+                        ) : image?.video ? (
+                          <Video
+                            source={image.video.mp4Url}
+                            thumbnailUrl={image.video.thumbnailUrl}
+                          />
                         ) : null}
                       </Styled.Media>
                     </Frame>
@@ -108,8 +111,11 @@ export const query = graphql`
         }
         image {
           gatsbyImageData(placeholder: BLURRED)
-          url
           alt
+          video {
+            mp4Url
+            thumbnailUrl
+          }
         }
       }
       seo {
