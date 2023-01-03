@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef } from 'react';
 import PropTypes from 'prop-types';
 import * as Styled from './Post.styles';
 import { GatsbyImage } from 'gatsby-plugin-image';
@@ -8,10 +8,13 @@ import { getFirstPublishedAtDate } from 'utils/getFirstPublishedAtDate';
 import LightBoxContext from 'context/LightBoxContext';
 import PyramidDate from 'components/PyramidDate/PyramidDate';
 import Video from 'components/Video/Video';
+import PostOrnament from 'components/PostOrnament/PostOrnament';
 
 const Post = ({ title, description, meta, assets, date }) => {
   const { setImgIndex, setLightBoxData } = useContext(LightBoxContext);
   const { setBodyOverflowToHidden } = useScroll();
+
+  const postRef = useRef();
 
   const handleOpenLightBox = (index) => {
     setImgIndex(index);
@@ -20,7 +23,7 @@ const Post = ({ title, description, meta, assets, date }) => {
   };
 
   return (
-    <Styled.Wrapper>
+    <Styled.Wrapper ref={postRef}>
       {assets && assets.length ? (
         <Styled.MediaContainer>
           <Styled.Media onClick={() => handleOpenLightBox(0)}>
@@ -55,6 +58,7 @@ const Post = ({ title, description, meta, assets, date }) => {
       </Styled.PostContent>
 
       <PyramidDate date={date || getFirstPublishedAtDate(meta.firstPublishedAt)} />
+      <PostOrnament ref={postRef} />
     </Styled.Wrapper>
   );
 };

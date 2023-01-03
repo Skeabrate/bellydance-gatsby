@@ -14,6 +14,33 @@ import Heading from 'components/Heading/Heading';
 import Combobox from 'components/Combobox/Combobox';
 import PyramidDate from 'components/PyramidDate/PyramidDate';
 import NoDataFound from 'components/NoDataFound/NoDataFound';
+import PostOrnament from 'components/PostOrnament/PostOrnament';
+
+const BlogPost = ({ blogPost: { blogPostTitle, thumbnail, content, link, meta, date } }) => {
+  const blogPostRef = useRef();
+
+  return (
+    <Styled.BlogPost ref={blogPostRef}>
+      <Styled.Thumbnail>
+        <GatsbyImage
+          image={thumbnail.gatsbyImageData}
+          alt={thumbnail.alt || 'Agnieszka Świeczkowska Leyla bellydance'}
+        />
+      </Styled.Thumbnail>
+      <Styled.Content>
+        <h2>{blogPostTitle}</h2>
+
+        <Styled.FadeOutText>
+          <StructuredText data={content[0]?.description?.value} />
+        </Styled.FadeOutText>
+
+        <Link to={`/blog/${link}`}>Czytaj więcej</Link>
+      </Styled.Content>
+      <PyramidDate date={date || getFirstPublishedAtDate(meta.firstPublishedAt)} />
+      <PostOrnament ref={blogPostRef} />
+    </Styled.BlogPost>
+  );
+};
 
 const Blog = ({
   data: {
@@ -50,30 +77,12 @@ const Blog = ({
 
           {currentData.length ? (
             <Styled.BlogPostsWrapper>
-              {currentData.map(
-                ({ node: { id, blogPostTitle, thumbnail, content, link, meta, date } }) => (
-                  <Styled.BlogPost key={id}>
-                    <Styled.Thumbnail>
-                      <GatsbyImage
-                        image={thumbnail.gatsbyImageData}
-                        alt={thumbnail.alt || 'Agnieszka Świeczkowska Leyla bellydance'}
-                      />
-                    </Styled.Thumbnail>
-
-                    <Styled.Content>
-                      <h2>{blogPostTitle}</h2>
-
-                      <Styled.FadeOutText>
-                        <StructuredText data={content[0]?.description?.value} />
-                      </Styled.FadeOutText>
-
-                      <Link to={`/blog/${link}`}>Czytaj więcej</Link>
-                    </Styled.Content>
-
-                    <PyramidDate date={date || getFirstPublishedAtDate(meta.firstPublishedAt)} />
-                  </Styled.BlogPost>
-                )
-              )}
+              {currentData.map(({ node: { id, ...blogPost } }) => (
+                <BlogPost
+                  key={id}
+                  blogPost={blogPost}
+                />
+              ))}
             </Styled.BlogPostsWrapper>
           ) : (
             <NoDataFound label={'Nie znaleziono wpisów.'} />

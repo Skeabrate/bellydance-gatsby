@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import * as Styled from './Gallery.styles';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import { useAnimation } from '../../hooks/useAnimation';
+import { useAnimation } from 'hooks/useAnimation';
 import Video from 'components/Video/Video';
 
 const GalleryItem = ({ galleryItem: { gatsbyImageData, alt, video }, passIndexToLightBox }) => {
