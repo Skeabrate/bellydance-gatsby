@@ -1,21 +1,23 @@
 import { useState, useEffect, useMemo } from 'react';
 
-export const useAnimation = (ref) => {
-  const [startAnimation, setStartAnimation] = useState(false);
+export const useAnimation = ({ ref, treshold = 0, rootMargin = '0px 0px 0px 0px' }) => {
+  const [isElementVisible, setIsElementVisible] = useState(false);
 
   const callbackFunction = (entries) => {
     entries.forEach((entry) => {
       const bcr = entry.boundingClientRect;
-      const isBottomVisible = bcr.bottom < window.innerHeight && bcr.bottom;
+      const bcrWithTreshold = bcr.bottom - treshold;
+      const isBottomVisible = bcrWithTreshold < window.innerHeight && bcrWithTreshold;
 
-      if (isBottomVisible) setStartAnimation(true);
+      if (isBottomVisible) setIsElementVisible(true);
+      else setIsElementVisible(false);
     });
   };
 
   const options = useMemo(() => {
     return {
       root: null,
-      rootMargin: '-20px',
+      rootMargin,
       threshold: Array(11)
         .fill()
         .map((_, i) => i * 0.1),
@@ -33,5 +35,5 @@ export const useAnimation = (ref) => {
     return () => currRef && observer.unobserve(currRef);
   }, [ref, options]);
 
-  return { startAnimation };
+  return { isElementVisible };
 };

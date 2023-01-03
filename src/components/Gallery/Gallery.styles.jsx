@@ -14,6 +14,11 @@ export const GalleryItem = styled.div`
   position: relative;
   overflow: hidden;
   cursor: pointer;
+  opacity: ${({ $appearGalleryItem }) => ($appearGalleryItem ? 1 : 0)};
+  transform: ${({ $appearGalleryItem }) =>
+    $appearGalleryItem ? 'translateY(0)' : 'translateY(40px)'};
+
+  transition: opacity 0.6s cubic-bezier(0, 0, 0.25, 1), transform 0.4s cubic-bezier(0, 0, 0.25, 1);
 
   img,
   video {

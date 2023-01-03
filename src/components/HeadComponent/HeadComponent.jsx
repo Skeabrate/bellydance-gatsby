@@ -15,7 +15,7 @@ const HeadComponent = ({ title, description }) => {
         {
           name: 'keywords',
           content:
-            'pokaz tańca belly dance na jubileuszu, pokaz tańca belly dance na evencie firmowym, pokaz tańca belly dance dla jubilata, prezent dla jubilata, prezent dla solenizanta, pokaz tańca na sylwestra, zajęcia tańca orientalnego  we Włocławku i Płocku, zajęcia belly dance we Włocławku i Płocku, pokaz tańca brzucha na imprezach okolicznościowych, taniec brzucha we Włocławku i Płocku, taniec orientalny we Włocławku i Płocku',
+            'zajęcia tańca orientalnego Włocławek, zajęcia tańca orientalnego Płock, zajęcia belly dance Włocławek, zajęcia belly dance Płock, pokaz tańca brzucha na imprezach okolicznościowych, taniec brzucha we Włocławku i Płocku, taniec orientalny we Włocławku i Płocku, pokaz tańca belly dance na jubileuszu, pokaz tańca belly dance na evencie firmowym, pokaz tańca belly dance dla jubilata, prezent dla jubilata, prezent dla solenizanta, pokaz tańca na sylwestra',
         },
         {
           name: 'google-site-verification',

@@ -5,7 +5,8 @@ import { useAnimation } from 'hooks/useAnimation';
 
 const Frame = ({ children, upRight, downRight, hideMobile, isFlex }) => {
   const frameRef = useRef(null);
-  const { startAnimation } = useAnimation(frameRef);
+
+  const { isElementVisible } = useAnimation({ ref: frameRef, rootMargin: '-20px' });
 
   return (
     <Styled.Wrapper
@@ -18,7 +19,7 @@ const Frame = ({ children, upRight, downRight, hideMobile, isFlex }) => {
         $upRight={upRight}
         $downRight={downRight}
         $hideMobile={hideMobile}
-        $startAnimation={startAnimation}
+        $startAnimation={isElementVisible}
       ></Styled.Frame>
       {children}
     </Styled.Wrapper>
