@@ -15,7 +15,7 @@ const StyledPostOrnament = styled.div`
   transition: transform 0.5s cubic-bezier(0, 0, 0.25, 1);
 `;
 const PostOrnament = React.forwardRef((props, ref) => {
-  const { isElementVisible } = useAnimation({ ref, rootMargin: '-50px' });
+  const { isElementVisible } = useAnimation({ ref, rootMargin: '-30px' });
 
   return <StyledPostOrnament $isElementVisible={isElementVisible} />;
 });

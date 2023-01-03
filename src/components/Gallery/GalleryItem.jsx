@@ -6,7 +6,7 @@ import Video from 'components/Video/Video';
 
 const GalleryItem = ({ galleryItem: { gatsbyImageData, alt, video }, passIndexToLightBox }) => {
   const itemRef = useRef(null);
-  const { isElementVisible } = useAnimation({ ref: itemRef, treshold: 40 });
+  const { isElementVisible } = useAnimation({ ref: itemRef, treshold: 80 });
 
   return (
     <Styled.GalleryItem
