@@ -2,7 +2,19 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.article`
   height: 100%;
+  position: relative;
   box-shadow: 0px 0px 20px -15px rgba(0, 0, 0, 1);
+
+  &::after {
+    content: '';
+    position: absolute;
+    background-color: #d1b892;
+    width: 160px;
+    height: 5px;
+    bottom: -10px;
+    right: 50%;
+    transform: translateX(50%);
+  }
 
   ul {
     padding-left: 20px;

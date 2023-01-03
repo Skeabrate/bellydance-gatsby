@@ -9,7 +9,6 @@ import HeadComponent from 'components/HeadComponent/HeadComponent';
 import HeroImageContainer from 'components/HeroImageContainer/HeroImageContainer';
 import Heading from 'components/Heading/Heading';
 import Combobox from 'components/Combobox/Combobox';
-import Frame from 'components/Frame/Frame';
 import Post from 'components/Post/Post';
 import NoDataFound from 'components/NoDataFound/NoDataFound';
 
@@ -44,12 +43,10 @@ const Aktualnosci = ({
           {currentData.length ? (
             <Styled.PostsWrapper>
               {currentData.map(({ node: { id, ...post } }) => (
-                <Frame
+                <Post
                   key={id}
-                  upRight
-                >
-                  <Post {...post} />
-                </Frame>
+                  {...post}
+                />
               ))}
             </Styled.PostsWrapper>
           ) : (
