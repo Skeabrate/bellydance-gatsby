@@ -108,7 +108,7 @@ export const query = graphql`
           ... on ContentfulAsset {
             contentful_id
             __typename
-            gatsbyImageData
+            gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
             description
             url
           }

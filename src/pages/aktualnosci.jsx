@@ -65,7 +65,7 @@ export const query = graphql`
           id
           title
           gallery {
-            gatsbyImageData
+            gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
             description
             url
           }
