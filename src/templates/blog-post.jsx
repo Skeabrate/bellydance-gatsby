@@ -2,8 +2,8 @@ import React from 'react';
 import * as Styled from 'assets/styles/pages/blog-post.styles';
 import { graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import { StructuredText } from 'react-datocms';
-import { getFirstPublishedAtDate } from 'utils/getFirstPublishedAtDate';
+import { renderRichText } from 'gatsby-source-contentful/rich-text';
+import { getDate } from 'utils/getDate';
 import Calendar from 'assets/images/SVG/calendar.svg';
 import LeftArrow from 'assets/images/SVG/thinArrow.svg';
 import UpArrow from 'assets/images/SVG/upArrow.svg';
@@ -12,11 +12,45 @@ import ContentWrapper from 'templates/ContentWrapper';
 import HeadComponent from 'components/HeadComponent/HeadComponent';
 import Heading from 'components/Heading/Heading';
 import Video from 'components/Video/Video';
-import Frame from 'components/Frame/Frame';
+import PostOrnament from 'components/PostOrnament/PostOrnament';
+
+const MediaWrapper = ({ children }) => {
+  return (
+    <PostOrnament>
+      <Styled.Media>{children}</Styled.Media>
+    </PostOrnament>
+  );
+};
+
+const renderOptions = {
+  renderNode: {
+    'embedded-asset-block': (node) => {
+      const { gatsbyImageData, description, url } = node.data.target;
+      if (gatsbyImageData) {
+        return (
+          <MediaWrapper>
+            <GatsbyImage
+              image={gatsbyImageData}
+              alt={description || 'Agnieszka Świeczkowska Leyla bellydance'}
+            />
+          </MediaWrapper>
+        );
+      } else if (url) {
+        return (
+          <MediaWrapper>
+            <Video source={url} />
+          </MediaWrapper>
+        );
+      } else {
+        return null;
+      }
+    },
+  },
+};
 
 export default function BlogPost({
   data: {
-    datoCmsBlog: { blogPostTitle, content, seo, date, meta },
+    contentfulBlog: { title, content, date, createdAt, meta_description },
   },
 }) {
   const goBackToTopHandler = () =>
@@ -30,8 +64,8 @@ export default function BlogPost({
   return (
     <>
       <HeadComponent
-        title={seo?.title || blogPostTitle}
-        description={seo?.description}
+        title={title}
+        description={meta_description}
       />
 
       <MainWrapper>
@@ -43,50 +77,15 @@ export default function BlogPost({
             </Styled.GoBack>
 
             <Heading
-              label={blogPostTitle}
+              label={title}
               isMain
             />
 
             <Styled.Date>
-              <Calendar /> {date || getFirstPublishedAtDate(meta.firstPublishedAt)}
+              <Calendar /> {getDate(date, createdAt)}
             </Styled.Date>
 
-            <section>
-              {content.map(({ id, title, description, image }, index) => (
-                <Styled.Chapter key={id}>
-                  <div>
-                    {title && (
-                      <header>
-                        <h2>{title}</h2>
-                      </header>
-                    )}
-
-                    <StructuredText data={description.value} />
-                  </div>
-
-                  {(image?.gatsbyImageData || image?.video) && (
-                    <Frame
-                      isFlex
-                      downRight={index % 2 === 0}
-                    >
-                      <Styled.Media>
-                        {image?.gatsbyImageData ? (
-                          <GatsbyImage
-                            image={image.gatsbyImageData}
-                            alt={image.alt || 'Agnieszka Świeczkowska Leyla bellydance'}
-                          />
-                        ) : image?.video ? (
-                          <Video
-                            source={image.video.mp4Url}
-                            thumbnailUrl={image.video.thumbnailUrl}
-                          />
-                        ) : null}
-                      </Styled.Media>
-                    </Frame>
-                  )}
-                </Styled.Chapter>
-              ))}
-            </section>
+            <Styled.Content>{renderRichText(content, renderOptions)}</Styled.Content>
 
             <Styled.GoToTop onClick={goBackToTopHandler}>
               <UpArrow />
@@ -101,31 +100,23 @@ export default function BlogPost({
 
 export const query = graphql`
   query ($link: String!) {
-    datoCmsBlog(link: { eq: $link }) {
-      blogPostTitle
+    contentfulBlog(link: { eq: $link }) {
+      title
       content {
-        id
-        title
-        description {
-          value
-        }
-        image {
-          gatsbyImageData(placeholder: BLURRED)
-          alt
-          video {
-            mp4Url
-            thumbnailUrl
+        raw
+        references {
+          ... on ContentfulAsset {
+            contentful_id
+            __typename
+            gatsbyImageData
+            description
+            url
           }
         }
       }
-      seo {
-        title
-        description
-      }
       date
-      meta {
-        firstPublishedAt
-      }
+      createdAt
+      meta_description
     }
   }
 `;

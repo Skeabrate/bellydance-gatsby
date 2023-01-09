@@ -1,11 +1,10 @@
 import React, { useRef } from 'react';
 import { graphql, Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import { StructuredText } from 'react-datocms';
 import * as Styled from 'assets/styles/pages/blog.styles';
 import { useSortByDate } from 'hooks/useSortByDate';
 import { usePaginate } from 'hooks/usePaginate';
-import { getFirstPublishedAtDate } from 'utils/getFirstPublishedAtDate';
+import { getDate } from 'utils/getDate';
 import MainWrapper from 'templates/MainWrapper';
 import ContentWrapper from 'templates/ContentWrapper';
 import HeroImageContainer from 'components/HeroImageContainer/HeroImageContainer';
@@ -13,38 +12,38 @@ import HeadComponent from 'components/HeadComponent/HeadComponent';
 import Heading from 'components/Heading/Heading';
 import Combobox from 'components/Combobox/Combobox';
 import PyramidDate from 'components/PyramidDate/PyramidDate';
-import NoDataFound from 'components/NoDataFound/NoDataFound';
 import PostOrnament from 'components/PostOrnament/PostOrnament';
 
-const BlogPost = ({ blogPost: { blogPostTitle, thumbnail, content, link, meta, date } }) => {
-  const blogPostRef = useRef();
+const BlogPost = ({ blogPost: { title, thumbnail, content, link, createdAt, date } }) => {
+  const firstParagraph = JSON.parse(content.raw)?.content.find(
+    ({ nodeType }) => nodeType === 'paragraph'
+  ).content[0].value;
 
   return (
-    <Styled.BlogPost ref={blogPostRef}>
-      <Styled.Thumbnail>
-        <GatsbyImage
-          image={thumbnail.gatsbyImageData}
-          alt={thumbnail.alt || 'Agnieszka Świeczkowska Leyla bellydance'}
-        />
-      </Styled.Thumbnail>
-      <Styled.Content>
-        <h2>{blogPostTitle}</h2>
+    <PostOrnament>
+      <Styled.BlogPost>
+        <Styled.Thumbnail>
+          <GatsbyImage
+            image={thumbnail.gatsbyImageData}
+            alt={thumbnail.description || 'Agnieszka Świeczkowska Leyla bellydance'}
+          />
+        </Styled.Thumbnail>
+        <Styled.Content>
+          <h2>{title}</h2>
 
-        <Styled.FadeOutText>
-          <StructuredText data={content[0]?.description?.value} />
-        </Styled.FadeOutText>
+          <Styled.FadeOutText>{firstParagraph}</Styled.FadeOutText>
 
-        <Link to={`/blog/${link}`}>Czytaj więcej</Link>
-      </Styled.Content>
-      <PyramidDate date={date || getFirstPublishedAtDate(meta.firstPublishedAt)} />
-      <PostOrnament ref={blogPostRef} />
-    </Styled.BlogPost>
+          <Link to={`/blog/${link}`}>Czytaj więcej</Link>
+        </Styled.Content>
+        <PyramidDate date={getDate(date, createdAt)} />
+      </Styled.BlogPost>
+    </PostOrnament>
   );
 };
 
 const Blog = ({
   data: {
-    allDatoCmsBlog: { edges: allBlogPosts },
+    allContentfulBlog: { edges: allBlogPosts },
     placeholderImage,
   },
 }) => {
@@ -75,18 +74,14 @@ const Blog = ({
 
           <Combobox setSortByDate={setSortByDate} />
 
-          {currentData.length ? (
-            <Styled.BlogPostsWrapper>
-              {currentData.map(({ node: { id, ...blogPost } }) => (
-                <BlogPost
-                  key={id}
-                  blogPost={blogPost}
-                />
-              ))}
-            </Styled.BlogPostsWrapper>
-          ) : (
-            <NoDataFound label={'Nie znaleziono wpisów.'} />
-          )}
+          <Styled.BlogPostsWrapper>
+            {currentData.map(({ node: { id, ...blogPost } }) => (
+              <BlogPost
+                key={id}
+                blogPost={blogPost}
+              />
+            ))}
+          </Styled.BlogPostsWrapper>
 
           {fetchMorePosts && <div ref={loadingRef} />}
         </ContentWrapper>
@@ -99,25 +94,21 @@ export default Blog;
 
 export const query = graphql`
   query AllBlogPostsQuery {
-    allDatoCmsBlog {
+    allContentfulBlog {
       edges {
         node {
           id
-          blogPostTitle
+          title
           thumbnail {
-            gatsbyImageData(placeholder: BLURRED)
-            alt
+            gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
+            description
           }
           content {
-            description {
-              value
-            }
+            raw
           }
-          link
           date
-          meta {
-            firstPublishedAt
-          }
+          createdAt
+          link
         }
       }
     }

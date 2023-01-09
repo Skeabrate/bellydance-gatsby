@@ -183,14 +183,14 @@ const Index = ({ data }) => {
           </section>
 
           <section>
-            <Heading label={'Wspieram'} />
+            <Heading label={data?.allContentfulGalerieZdjec?.edges[0].node.title} />
 
             <Styled.Support>
               Dzielę sie swą pasją wspierając różne akcje i instytucje charytatywne: WOŚP,
               Eurointegrację oraz odwiedzam domy seniora, czy szkoły.
             </Styled.Support>
 
-            <Gallery data={data?.allDatoCmsWspieram?.edges[0].node.gallery} />
+            <Gallery data={data?.allContentfulGalerieZdjec?.edges[0].node.gallery} />
           </section>
         </ContentWrapper>
       </main>
@@ -202,15 +202,16 @@ export default Index;
 
 export const query = graphql`
   query IndexQuery {
-    allDatoCmsWspieram {
+    allContentfulGalerieZdjec(filter: { title: { eq: "Wspieram" } }) {
       edges {
         node {
+          id
+          title
           gallery {
+            id
             gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
-            video {
-              mp4Url
-              thumbnailUrl
-            }
+            description
+            url
           }
         }
       }

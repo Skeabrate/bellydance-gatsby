@@ -105,56 +105,47 @@ export const Date = styled.p`
   }
 `;
 
-export const Chapter = styled.article`
-  display: grid;
-  grid-gap: 2rem;
-  margin-bottom: 4rem;
+export const Content = styled.section`
+  margin-bottom: 8rem;
 
   h2 {
     font-size: 2rem;
+    margin-top: 4rem;
+
+    &:first-child {
+      margin-top: 0;
+    }
   }
 
   p {
-    margin-bottom: 0.6rem;
-
-    &:last-of-type {
-      margin-bottom: 0;
-    }
+    margin-bottom: 1rem;
   }
 
-  ul {
+  ul,
+  ol {
     margin: 1rem 0 1rem 2rem;
   }
 
-  &:last-child {
-    margin-bottom: 8rem;
-  }
-
   ${({ theme }) => theme.mq.tablet} {
-    margin-bottom: 6rem;
-    grid-gap: 3rem;
+    margin-bottom: 12rem;
 
     h2 {
       font-size: 2.4rem;
+      margin-top: 6rem;
     }
 
-    &:last-child {
-      margin-bottom: 12rem;
+    p {
+      margin-bottom: 1.4rem;
     }
   }
 `;
 
 export const Media = styled.div`
-  z-index: 1;
-
-  img,
-  video {
-    width: 100% !important;
-    object-fit: contain;
-  }
+  display: flex;
+  margin-block: 2.6rem;
 
   div {
-    position: static;
-    z-index: 0;
+    width: 100%;
+    height: fit-content;
   }
 `;

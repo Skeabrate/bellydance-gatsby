@@ -4,7 +4,10 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import { useAnimation } from 'hooks/useAnimation';
 import Video from 'components/Video/Video';
 
-const GalleryItem = ({ galleryItem: { gatsbyImageData, alt, video }, passIndexToLightBox }) => {
+const GalleryItem = ({
+  galleryItem: { gatsbyImageData, description, url },
+  passIndexToLightBox,
+}) => {
   const itemRef = useRef(null);
   const { isElementVisible } = useAnimation({ ref: itemRef, treshold: 80 });
 
@@ -17,13 +20,10 @@ const GalleryItem = ({ galleryItem: { gatsbyImageData, alt, video }, passIndexTo
       {gatsbyImageData ? (
         <GatsbyImage
           image={gatsbyImageData}
-          alt={alt || 'Agnieszka Świeczkowska Leyla bellydance'}
+          alt={description || 'Agnieszka Świeczkowska Leyla bellydance'}
         />
-      ) : video ? (
-        <Video
-          source={video.mp4Url}
-          thumbnailUrl={video.thumbnailUrl}
-        />
+      ) : url ? (
+        <Video source={url} />
       ) : null}
     </Styled.GalleryItem>
   );

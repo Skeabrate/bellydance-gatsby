@@ -34,9 +34,24 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-source-datocms',
+      resolve: `gatsby-source-contentful`,
       options: {
-        apiToken: process.env.DATOCMS_API,
+        spaceId: `e6ef1ne0cw4m`,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-contentful-optional-fields',
+      options: {
+        optionalFields: {
+          ContentfulPost: {
+            date: 'String',
+          },
+          ContentfulBlog: {
+            date: 'String',
+            meta_description: 'String',
+          },
+        },
       },
     },
     'gatsby-plugin-styled-components',
@@ -75,7 +90,4 @@ module.exports = {
     },
     'gatsby-plugin-smoothscroll',
   ],
-  flags: {
-    PARALLEL_QUERY_RUNNING: true,
-  },
 };

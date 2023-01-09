@@ -1,7 +1,7 @@
 exports.createPages = async function ({ actions, graphql }) {
   const { data } = await graphql(`
     query AllBlogPostsQuery {
-      allDatoCmsBlog {
+      allContentfulBlog {
         edges {
           node {
             link
@@ -11,7 +11,7 @@ exports.createPages = async function ({ actions, graphql }) {
     }
   `);
 
-  data.allDatoCmsBlog.edges.forEach((edge) => {
+  data.allContentfulBlog.edges.forEach((edge) => {
     const link = edge.node.link;
     actions.createPage({
       path: `/blog/${link}`,

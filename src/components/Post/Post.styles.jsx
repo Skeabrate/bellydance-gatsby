@@ -8,6 +8,12 @@ export const Wrapper = styled.article`
   ul {
     padding-left: 20px;
   }
+
+  a {
+    display: block;
+    margin-top: 6px;
+    word-break: break-all !important;
+  }
 `;
 
 export const MediaContainer = styled.div`

@@ -132,9 +132,9 @@ const Pokazy = ({ data }) => {
           </GridSection>
 
           <div id='galeria'>
-            <Heading label='Galeria' />
+            <Heading label={data?.allContentfulGalerieZdjec?.edges[0].node.title} />
 
-            <Gallery data={data?.allDatoCmsPokazy?.edges[0].node.gallery} />
+            <Gallery data={data?.allContentfulGalerieZdjec?.edges[0].node.gallery} />
           </div>
         </ContentWrapper>
       </MainWrapper>
@@ -146,16 +146,16 @@ export default Pokazy;
 
 export const query = graphql`
   query PokazyQuery {
-    allDatoCmsPokazy {
+    allContentfulGalerieZdjec(filter: { title: { eq: "Pokazy" } }) {
       edges {
         node {
+          id
+          title
           gallery {
+            id
             gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
-            alt
-            video {
-              mp4Url
-              thumbnailUrl
-            }
+            description
+            url
           }
         }
       }

@@ -1,74 +1,59 @@
-import React, { useContext, useRef } from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext } from 'react';
 import * as Styled from './Post.styles';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import { StructuredText } from 'react-datocms';
+import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { useScroll } from 'hooks/useScroll';
-import { getFirstPublishedAtDate } from 'utils/getFirstPublishedAtDate';
+import { getDate } from 'utils/getDate';
 import LightBoxContext from 'context/LightBoxContext';
 import PyramidDate from 'components/PyramidDate/PyramidDate';
 import Video from 'components/Video/Video';
 import PostOrnament from 'components/PostOrnament/PostOrnament';
 
-const Post = ({ title, description, meta, assets, date }) => {
+const Post = ({ title, description, createdAt, gallery, date }) => {
   const { setImgIndex, setLightBoxData } = useContext(LightBoxContext);
   const { setBodyOverflowToHidden } = useScroll();
 
-  const postRef = useRef();
-
   const handleOpenLightBox = (index) => {
     setImgIndex(index);
-    setLightBoxData(assets);
+    setLightBoxData(gallery);
     setBodyOverflowToHidden();
   };
 
   return (
-    <Styled.Wrapper ref={postRef}>
-      {assets && assets.length ? (
+    <PostOrnament>
+      <Styled.Wrapper>
         <Styled.MediaContainer>
           <Styled.Media onClick={() => handleOpenLightBox(0)}>
-            {assets[0].gatsbyImageData ? (
+            {gallery[0].gatsbyImageData ? (
               <GatsbyImage
-                image={assets[0].gatsbyImageData}
-                alt={assets[0].alt || 'Agnieszka Świeczkowska Leyla bellydance'}
+                image={gallery[0].gatsbyImageData}
+                alt={gallery[0].description || 'Agnieszka Świeczkowska Leyla bellydance'}
               />
-            ) : assets[0].video ? (
-              <Video
-                source={assets[0].video.mp4Url}
-                thumbnailUrl={assets[0].video.thumbnailUrl}
-              />
+            ) : gallery[0].url ? (
+              <Video source={gallery[0].url} />
             ) : null}
           </Styled.Media>
         </Styled.MediaContainer>
-      ) : null}
 
-      <Styled.PostContent>
-        <Styled.Legend>
-          {assets?.map((item, index) => (
-            <button
-              onClick={() => handleOpenLightBox(index)}
-              key={index}
-            ></button>
-          ))}
-        </Styled.Legend>
+        <Styled.PostContent>
+          <Styled.Legend>
+            {gallery.map((item, index) => (
+              <button
+                onClick={() => handleOpenLightBox(index)}
+                key={index}
+              ></button>
+            ))}
+          </Styled.Legend>
 
-        <h2>{title}</h2>
+          <h2>{title}</h2>
 
-        <StructuredText data={description} />
-      </Styled.PostContent>
+          {renderRichText(description)}
+        </Styled.PostContent>
 
-      <PyramidDate date={date || getFirstPublishedAtDate(meta.firstPublishedAt)} />
-      <PostOrnament ref={postRef} />
-    </Styled.Wrapper>
+        <PyramidDate date={getDate(date, createdAt)} />
+      </Styled.Wrapper>
+    </PostOrnament>
   );
-};
-
-Post.propTypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.object.isRequired,
-  meta: PropTypes.object.isRequired,
-  assets: PropTypes.array,
-  date: PropTypes.any,
 };
 
 export default Post;

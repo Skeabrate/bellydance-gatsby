@@ -5,8 +5,8 @@ export const useSortByDate = (data) => {
 
   (function () {
     data.sort((a, b) => {
-      const aDate = a.node.date || a.node.meta.firstPublishedAt;
-      const bDate = b.node.date || b.node.meta.firstPublishedAt;
+      const aDate = a.node.date || a.node.createdAt;
+      const bDate = b.node.date || b.node.createdAt;
 
       if (sortByDate) {
         return Date.parse(bDate) - Date.parse(aDate);

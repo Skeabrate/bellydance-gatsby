@@ -10,11 +10,10 @@ import HeroImageContainer from 'components/HeroImageContainer/HeroImageContainer
 import Heading from 'components/Heading/Heading';
 import Combobox from 'components/Combobox/Combobox';
 import Post from 'components/Post/Post';
-import NoDataFound from 'components/NoDataFound/NoDataFound';
 
 const Aktualnosci = ({
   data: {
-    allDatoCmsPost: { edges: allPosts },
+    allContentfulPost: { edges: allPosts },
     placeholderImage,
   },
 }) => {
@@ -40,18 +39,14 @@ const Aktualnosci = ({
 
           <Combobox setSortByDate={setSortByDate} />
 
-          {currentData.length ? (
-            <Styled.PostsWrapper>
-              {currentData.map(({ node: { id, ...post } }) => (
-                <Post
-                  key={id}
-                  {...post}
-                />
-              ))}
-            </Styled.PostsWrapper>
-          ) : (
-            <NoDataFound label={'Nie znaleziono postów.'} />
-          )}
+          <Styled.PostsWrapper>
+            {currentData.map(({ node: { id, ...post } }) => (
+              <Post
+                key={id}
+                {...post}
+              />
+            ))}
+          </Styled.PostsWrapper>
 
           {fetchMorePosts && <div ref={loadingRef} />}
         </ContentWrapper>
@@ -64,26 +59,21 @@ export default Aktualnosci;
 
 export const query = graphql`
   query AktualnosciQuery {
-    allDatoCmsPost {
+    allContentfulPost {
       edges {
         node {
-          assets {
-            gatsbyImageData(placeholder: BLURRED)
-            alt
-            video {
-              mp4Url
-              thumbnailUrl
-            }
-          }
-          description {
-            value
-          }
           id
           title
-          date
-          meta {
-            firstPublishedAt
+          gallery {
+            gatsbyImageData
+            description
+            url
           }
+          description {
+            raw
+          }
+          date
+          createdAt
         }
       }
     }
