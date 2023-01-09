@@ -13,132 +13,130 @@ import Gallery from 'components/Gallery/Gallery';
 import HeadComponent from 'components/HeadComponent/HeadComponent';
 import Video from 'components/Video/Video';
 
+export const Head = () => <HeadComponent title='pokazy' />;
+
 const Pokazy = ({ data }) => {
   return (
-    <>
-      <HeadComponent title='pokazy' />
+    <MainWrapper>
+      <ContentWrapper>
+        <Heading
+          label='Moje Pokazy'
+          isMain
+        />
 
-      <MainWrapper>
-        <ContentWrapper>
-          <Heading
-            label='Moje Pokazy'
-            isMain
-          />
+        <GridSection>
+          <article>
+            <header>
+              <h2>Magia tańca orientalnego podczas Państwa uroczystości</h2>
+            </header>
 
-          <GridSection>
-            <article>
-              <header>
-                <h2>Magia tańca orientalnego podczas Państwa uroczystości</h2>
-              </header>
+            <p>
+              W ten egzotyczny świat wprowadzi Cię tancerka Leyla, która może zatańczyć na Państwa
+              weselu, imprezie okolicznościowej, czy ofiarować w imieniu Państwa, taniec dla gości
+              imprezy.
+            </p>
 
-              <p>
-                W ten egzotyczny świat wprowadzi Cię tancerka Leyla, która może zatańczyć na Państwa
-                weselu, imprezie okolicznościowej, czy ofiarować w imieniu Państwa, taniec dla gości
-                imprezy.
-              </p>
-
-              <footer>
-                <SkipButton
-                  label='Program pokazów'
-                  scrollId='#program-pokazow'
-                />
-              </footer>
-            </article>
-
-            <Frame downRight>
-              <StaticImage
-                src='../assets/images/Pokazy/img11.jpg'
-                alt='Agnieszka Świeczkowska belly dance, taniec brzucha - pokazy'
-                placeholder='blurred'
-                layout='fullWidth'
+            <footer>
+              <SkipButton
+                label='Program pokazów'
+                scrollId='#program-pokazow'
               />
-            </Frame>
-          </GridSection>
+            </footer>
+          </article>
 
-          <GridSection>
-            <article id='program-pokazow'>
-              <header>
-                <h2>Program i repertuar</h2>
-              </header>
+          <Frame downRight>
+            <StaticImage
+              src='../assets/images/Pokazy/img11.jpg'
+              alt='Agnieszka Świeczkowska belly dance, taniec brzucha - pokazy'
+              placeholder='blurred'
+              layout='fullWidth'
+            />
+          </Frame>
+        </GridSection>
 
-              <p>
-                Program i charakter pokazu może być dostosowany do rodzaju imprezy okolicznościowej
-                oraz oczekiwań Klienta. W moim repertuarze znajdują się:
-              </p>
+        <GridSection>
+          <article id='program-pokazow'>
+            <header>
+              <h2>Program i repertuar</h2>
+            </header>
 
-              <ul>
-                <li>
-                  <PyramidPointer />
-                  <strong>nowoczesny pop</strong>
-                </li>
-                <li>
-                  <PyramidPointer />
-                  <span>
-                    <strong>pokazy z gatunku fantasy belly dance,</strong> czyli taneczne show z
-                    rekwizytami: skrzydłami Izydy, woalem, wachlarzami
-                  </span>
-                </li>
-                <li>
-                  <PyramidPointer />
-                  <strong>zmysłowa klasyka</strong>
-                </li>
-                <li>
-                  <PyramidPointer />
-                  <strong>radosny folklor do wesołej muzyki</strong>
-                </li>
-              </ul>
-            </article>
+            <p>
+              Program i charakter pokazu może być dostosowany do rodzaju imprezy okolicznościowej
+              oraz oczekiwań Klienta. W moim repertuarze znajdują się:
+            </p>
 
-            <Frame isFlex>
-              <div style={{ zIndex: 1 }}>
-                <Video
-                  source={VideoUrl}
-                  thumbnailUrl={
-                    data.placeholderImage.childImageSharp.gatsbyImageData.images.fallback.src
-                  }
-                />
-              </div>
-            </Frame>
-          </GridSection>
+            <ul>
+              <li>
+                <PyramidPointer />
+                <strong>nowoczesny pop</strong>
+              </li>
+              <li>
+                <PyramidPointer />
+                <span>
+                  <strong>pokazy z gatunku fantasy belly dance,</strong> czyli taneczne show z
+                  rekwizytami: skrzydłami Izydy, woalem, wachlarzami
+                </span>
+              </li>
+              <li>
+                <PyramidPointer />
+                <strong>zmysłowa klasyka</strong>
+              </li>
+              <li>
+                <PyramidPointer />
+                <strong>radosny folklor do wesołej muzyki</strong>
+              </li>
+            </ul>
+          </article>
 
-          <GridSection noPadding>
-            <article>
-              <header>
-                <h2>Na zakończenie, wspólna zabawa</h2>
-              </header>
-
-              <p>
-                Na zakończenie pokazu proponujemy wspólną zabawę z Gośćmi przy dźwiękach znanych
-                piosenek Shakiry, Tarkana, czy Arasha. Nauka podstawowych ruchów belly dance
-                rozweseli nawet najmniej roztańczonych Gości!
-              </p>
-
-              <footer>
-                <SkipButton
-                  label='Galeria zdjęć'
-                  scrollId='#galeria'
-                />
-              </footer>
-            </article>
-
-            <Frame downRight>
-              <StaticImage
-                src='../assets/images/Pokazy/img10.jpg'
-                alt='Agnieszka Świeczkowska belly dance, taniec brzucha - pokazy'
-                placeholder='blurred'
-                layout='fullWidth'
+          <Frame isFlex>
+            <div style={{ zIndex: 1 }}>
+              <Video
+                source={VideoUrl}
+                thumbnailUrl={
+                  data.placeholderImage.childImageSharp.gatsbyImageData.images.fallback.src
+                }
               />
-            </Frame>
-          </GridSection>
+            </div>
+          </Frame>
+        </GridSection>
 
-          <div id='galeria'>
-            <Heading label={data?.allContentfulGalerieZdjec?.edges[0].node.title} />
+        <GridSection noPadding>
+          <article>
+            <header>
+              <h2>Na zakończenie, wspólna zabawa</h2>
+            </header>
 
-            <Gallery data={data?.allContentfulGalerieZdjec?.edges[0].node.gallery} />
-          </div>
-        </ContentWrapper>
-      </MainWrapper>
-    </>
+            <p>
+              Na zakończenie pokazu proponujemy wspólną zabawę z Gośćmi przy dźwiękach znanych
+              piosenek Shakiry, Tarkana, czy Arasha. Nauka podstawowych ruchów belly dance rozweseli
+              nawet najmniej roztańczonych Gości!
+            </p>
+
+            <footer>
+              <SkipButton
+                label='Galeria zdjęć'
+                scrollId='#galeria'
+              />
+            </footer>
+          </article>
+
+          <Frame downRight>
+            <StaticImage
+              src='../assets/images/Pokazy/img10.jpg'
+              alt='Agnieszka Świeczkowska belly dance, taniec brzucha - pokazy'
+              placeholder='blurred'
+              layout='fullWidth'
+            />
+          </Frame>
+        </GridSection>
+
+        <div id='galeria'>
+          <Heading label={data?.allContentfulGalerieZdjec?.edges[0].node.title} />
+
+          <Gallery data={data?.allContentfulGalerieZdjec?.edges[0].node.gallery} />
+        </div>
+      </ContentWrapper>
+    </MainWrapper>
   );
 };
 

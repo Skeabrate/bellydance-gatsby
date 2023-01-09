@@ -14,6 +14,13 @@ import Heading from 'components/Heading/Heading';
 import Video from 'components/Video/Video';
 import PostOrnament from 'components/PostOrnament/PostOrnament';
 
+export const Head = ({ data }) => (
+  <HeadComponent
+    title={data.contentfulBlog.title}
+    description={data.contentfulBlog.meta_description}
+  />
+);
+
 const MediaWrapper = ({ children }) => {
   return (
     <PostOrnament>
@@ -50,7 +57,7 @@ const renderOptions = {
 
 export default function BlogPost({
   data: {
-    contentfulBlog: { title, content, date, createdAt, meta_description },
+    contentfulBlog: { title, content, date, createdAt },
   },
 }) {
   const goBackToTopHandler = () =>
@@ -62,39 +69,32 @@ export default function BlogPost({
     });
 
   return (
-    <>
-      <HeadComponent
-        title={title}
-        description={meta_description}
-      />
+    <MainWrapper>
+      <ContentWrapper>
+        <Styled.Wrapper>
+          <Styled.GoBack to='/blog'>
+            <LeftArrow />
+            Wróć do listy
+          </Styled.GoBack>
 
-      <MainWrapper>
-        <ContentWrapper>
-          <Styled.Wrapper>
-            <Styled.GoBack to='/blog'>
-              <LeftArrow />
-              Wróć do listy
-            </Styled.GoBack>
+          <Heading
+            label={title}
+            isMain
+          />
 
-            <Heading
-              label={title}
-              isMain
-            />
+          <Styled.Date>
+            <Calendar /> {getDate(date, createdAt)}
+          </Styled.Date>
 
-            <Styled.Date>
-              <Calendar /> {getDate(date, createdAt)}
-            </Styled.Date>
+          <Styled.Content>{renderRichText(content, renderOptions)}</Styled.Content>
 
-            <Styled.Content>{renderRichText(content, renderOptions)}</Styled.Content>
-
-            <Styled.GoToTop onClick={goBackToTopHandler}>
-              <UpArrow />
-              Wróć do góry
-            </Styled.GoToTop>
-          </Styled.Wrapper>
-        </ContentWrapper>
-      </MainWrapper>
-    </>
+          <Styled.GoToTop onClick={goBackToTopHandler}>
+            <UpArrow />
+            Wróć do góry
+          </Styled.GoToTop>
+        </Styled.Wrapper>
+      </ContentWrapper>
+    </MainWrapper>
   );
 }
 

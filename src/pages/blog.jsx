@@ -14,6 +14,8 @@ import Combobox from 'components/Combobox/Combobox';
 import PyramidDate from 'components/PyramidDate/PyramidDate';
 import PostOrnament from 'components/PostOrnament/PostOrnament';
 
+export const Head = () => <HeadComponent title='blog' />;
+
 const BlogPost = ({ blogPost: { title, thumbnail, content, link, createdAt, date } }) => {
   const firstParagraph = JSON.parse(content.raw)?.content.find(
     ({ nodeType }) => nodeType === 'paragraph'
@@ -55,38 +57,34 @@ const Blog = ({
   const fetchMorePosts = currentData.length < allBlogPosts.length;
 
   return (
-    <>
-      <HeadComponent title='blog' />
+    <MainWrapper>
+      <HeroImageContainer placeholderImage={placeholderImage} />
 
-      <MainWrapper>
-        <HeroImageContainer placeholderImage={placeholderImage} />
+      <ContentWrapper>
+        <Heading
+          label='Orientalny Blog'
+          isMain
+        />
 
-        <ContentWrapper>
-          <Heading
-            label='Orientalny Blog'
-            isMain
-          />
+        <Styled.Intro>
+          Zapraszam na mój orientalny blog, na którym dzielę się swoją wiedzą na temat tańca
+          orientalnego i nie tylko.
+        </Styled.Intro>
 
-          <Styled.Intro>
-            Zapraszam na mój orientalny blog, na którym dzielę się swoją wiedzą na temat tańca
-            orientalnego i nie tylko.
-          </Styled.Intro>
+        <Combobox setSortByDate={setSortByDate} />
 
-          <Combobox setSortByDate={setSortByDate} />
+        <Styled.BlogPostsWrapper>
+          {currentData.map(({ node: { id, ...blogPost } }) => (
+            <BlogPost
+              key={id}
+              blogPost={blogPost}
+            />
+          ))}
+        </Styled.BlogPostsWrapper>
 
-          <Styled.BlogPostsWrapper>
-            {currentData.map(({ node: { id, ...blogPost } }) => (
-              <BlogPost
-                key={id}
-                blogPost={blogPost}
-              />
-            ))}
-          </Styled.BlogPostsWrapper>
-
-          {fetchMorePosts && <div ref={loadingRef} />}
-        </ContentWrapper>
-      </MainWrapper>
-    </>
+        {fetchMorePosts && <div ref={loadingRef} />}
+      </ContentWrapper>
+    </MainWrapper>
   );
 };
 

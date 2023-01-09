@@ -12,6 +12,8 @@ import Frame from 'components/Frame/Frame';
 import ClipLoader from 'react-spinners/ClipLoader';
 import HeadComponent from 'components/HeadComponent/HeadComponent';
 
+export const Head = () => <HeadComponent title='kontakt' />;
+
 const Kontakt = ({ data }) => {
   const [state, handleSubmit] = useForm(process.env.GATSBY_FORMSPREE_API || 'apiKey');
 
@@ -22,100 +24,96 @@ const Kontakt = ({ data }) => {
   }, [state]);
 
   return (
-    <>
-      <HeadComponent title='kontakt' />
+    <MainWrapper>
+      <HeroImageContainer placeholderImage={data.placeholderImage} />
 
-      <MainWrapper>
-        <HeroImageContainer placeholderImage={data.placeholderImage} />
+      <ContentWrapper>
+        <Heading
+          label='Kontakt'
+          isMain
+        />
 
-        <ContentWrapper>
-          <Heading
-            label='Kontakt'
-            isMain
-          />
+        <Styled.ContactSection>
+          <article>
+            <header>
+              <h2>Zapraszam do kontaktu</h2>
 
-          <Styled.ContactSection>
-            <article>
-              <header>
-                <h2>Zapraszam do kontaktu</h2>
+              <p>
+                Z przyjemnością odpowiem na wszystkie Państwa pytania dotyczące pokazu, czy nauki
+                tańca.
+              </p>
 
-                <p>
-                  Z przyjemnością odpowiem na wszystkie Państwa pytania dotyczące pokazu, czy nauki
-                  tańca.
-                </p>
-
-                <p>
-                  <Phone /> Telefon:{' '}
-                  <a
-                    href="tel:'502 505 119"
-                    rel='noopener noreferrer'
-                  >
-                    502 505 119
-                  </a>
-                </p>
-              </header>
-
-              <Styled.Form
-                onSubmit={handleSubmit}
-                ref={formRef}
-              >
-                <input
-                  aria-label='Imię'
-                  id='imie'
-                  name='Imię'
-                  type='imie'
-                  placeholder='Imię'
-                />
-                <input
-                  aria-label='Adres e-mail'
-                  id='email'
-                  name='Email'
-                  type='email'
-                  placeholder='Adres e-mail'
-                  required
-                />
-                {state.errors.length ? (
-                  <Styled.FormResponse>
-                    {state.errors[0]?.message === 'should be an email'
-                      ? 'Nieprawidłowy email.'
-                      : null}
-                  </Styled.FormResponse>
-                ) : null}
-
-                <textarea
-                  aria-label='Wiadomość'
-                  id='wiadomosc'
-                  name='Wiadomość'
-                  placeholder='Wiadomość'
-                  required
-                ></textarea>
-
-                {state.succeeded ? (
-                  <Styled.FormResponse $succeeded>
-                    {state.succeeded ? 'Dziękuję za Twoją wiadomość.' : null}
-                  </Styled.FormResponse>
-                ) : null}
-                <button
-                  type='submit'
-                  disabled={state.submitting}
+              <p>
+                <Phone /> Telefon:{' '}
+                <a
+                  href="tel:'502 505 119"
+                  rel='noopener noreferrer'
                 >
-                  {state.submitting ? <ClipLoader size={20} /> : 'Wyślij'}
-                </button>
-              </Styled.Form>
-            </article>
+                  502 505 119
+                </a>
+              </p>
+            </header>
 
-            <Frame downRight>
-              <StaticImage
-                src='../assets/images/Kontakt/kontakt.jpg'
-                alt='Agnieszka Świeczkowska - kontakt'
-                placeholder='blurred'
-                layout='fullWidth'
+            <Styled.Form
+              onSubmit={handleSubmit}
+              ref={formRef}
+            >
+              <input
+                aria-label='Imię'
+                id='imie'
+                name='Imię'
+                type='imie'
+                placeholder='Imię'
               />
-            </Frame>
-          </Styled.ContactSection>
-        </ContentWrapper>
-      </MainWrapper>
-    </>
+              <input
+                aria-label='Adres e-mail'
+                id='email'
+                name='Email'
+                type='email'
+                placeholder='Adres e-mail'
+                required
+              />
+              {state.errors.length ? (
+                <Styled.FormResponse>
+                  {state.errors[0]?.message === 'should be an email'
+                    ? 'Nieprawidłowy email.'
+                    : null}
+                </Styled.FormResponse>
+              ) : null}
+
+              <textarea
+                aria-label='Wiadomość'
+                id='wiadomosc'
+                name='Wiadomość'
+                placeholder='Wiadomość'
+                required
+              ></textarea>
+
+              {state.succeeded ? (
+                <Styled.FormResponse $succeeded>
+                  {state.succeeded ? 'Dziękuję za Twoją wiadomość.' : null}
+                </Styled.FormResponse>
+              ) : null}
+              <button
+                type='submit'
+                disabled={state.submitting}
+              >
+                {state.submitting ? <ClipLoader size={20} /> : 'Wyślij'}
+              </button>
+            </Styled.Form>
+          </article>
+
+          <Frame downRight>
+            <StaticImage
+              src='../assets/images/Kontakt/kontakt.jpg'
+              alt='Agnieszka Świeczkowska - kontakt'
+              placeholder='blurred'
+              layout='fullWidth'
+            />
+          </Frame>
+        </Styled.ContactSection>
+      </ContentWrapper>
+    </MainWrapper>
   );
 };
 

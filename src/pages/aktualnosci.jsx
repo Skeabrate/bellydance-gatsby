@@ -11,6 +11,8 @@ import Heading from 'components/Heading/Heading';
 import Combobox from 'components/Combobox/Combobox';
 import Post from 'components/Post/Post';
 
+export const Head = () => <HeadComponent title='aktualności' />;
+
 const Aktualnosci = ({
   data: {
     allContentfulPost: { edges: allPosts },
@@ -25,33 +27,29 @@ const Aktualnosci = ({
   const fetchMorePosts = currentData.length < allPosts.length;
 
   return (
-    <>
-      <HeadComponent title='aktualności' />
+    <MainWrapper>
+      <HeroImageContainer placeholderImage={placeholderImage} />
 
-      <MainWrapper>
-        <HeroImageContainer placeholderImage={placeholderImage} />
+      <ContentWrapper>
+        <Heading
+          label='Co słychać w królestwie tańca orientalnego?'
+          isMain
+        />
 
-        <ContentWrapper>
-          <Heading
-            label='Co słychać w królestwie tańca orientalnego?'
-            isMain
-          />
+        <Combobox setSortByDate={setSortByDate} />
 
-          <Combobox setSortByDate={setSortByDate} />
+        <Styled.PostsWrapper>
+          {currentData.map(({ node: { id, ...post } }) => (
+            <Post
+              key={id}
+              {...post}
+            />
+          ))}
+        </Styled.PostsWrapper>
 
-          <Styled.PostsWrapper>
-            {currentData.map(({ node: { id, ...post } }) => (
-              <Post
-                key={id}
-                {...post}
-              />
-            ))}
-          </Styled.PostsWrapper>
-
-          {fetchMorePosts && <div ref={loadingRef} />}
-        </ContentWrapper>
-      </MainWrapper>
-    </>
+        {fetchMorePosts && <div ref={loadingRef} />}
+      </ContentWrapper>
+    </MainWrapper>
   );
 };
 

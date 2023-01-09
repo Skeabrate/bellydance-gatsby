@@ -30,16 +30,14 @@ const Wrapper = styled.main`
   }
 `;
 
+export const Head = () => <HeadComponent />;
+
 const NotFoundPage = () => {
   return (
-    <>
-      <HeadComponent />
-
-      <Wrapper>
-        <h1>404</h1>
-        <p>Strona nie została odnaleziona</p>
-      </Wrapper>
-    </>
+    <Wrapper>
+      <h1>404</h1>
+      <p>Strona nie została odnaleziona</p>
+    </Wrapper>
   );
 };
 
