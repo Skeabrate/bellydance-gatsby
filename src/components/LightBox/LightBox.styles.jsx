@@ -54,12 +54,6 @@ export const Wrapper = styled.div`
     }
   }
 
-  img,
-  video {
-    max-width: 90% !important;
-    max-height: 90% !important;
-  }
-
   * {
     padding: 0 !important;
     position: relative;
@@ -69,6 +63,11 @@ export const Wrapper = styled.div`
 
 export const SliderItem = styled.div`
   position: relative;
+  width: 90%;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const SwitchButtonLeft = styled.button`
