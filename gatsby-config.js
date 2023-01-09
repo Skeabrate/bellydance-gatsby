@@ -46,10 +46,14 @@ module.exports = {
         optionalFields: {
           ContentfulPost: {
             date: 'String',
+            description: 'Node',
           },
           ContentfulBlog: {
             date: 'String',
             meta_description: 'String',
+          },
+          ContentfulBlogContent: {
+            references: 'Node',
           },
         },
       },

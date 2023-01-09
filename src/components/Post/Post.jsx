@@ -47,7 +47,7 @@ const Post = ({ title, description, createdAt, gallery, date }) => {
 
           <h2>{title}</h2>
 
-          {renderRichText(description)}
+          {description ? renderRichText(description) : null}
         </Styled.PostContent>
 
         <PyramidDate date={getDate(date, createdAt)} />
