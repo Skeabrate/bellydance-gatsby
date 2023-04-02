@@ -66,7 +66,7 @@ const LightBox = () => {
             {gatsbyImageData ? (
               <>
                 <img
-                  src={gatsbyImageData.images.fallback.src}
+                  srcSet={gatsbyImageData?.images?.sources[0]?.srcSet}
                   alt={description || 'Agnieszka Świeczkowska - Leyla Bellydance'}
                   onLoad={() => handleLoad(index)}
                 />
