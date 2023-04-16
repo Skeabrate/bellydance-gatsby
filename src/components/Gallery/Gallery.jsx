@@ -1,24 +1,11 @@
 import React, { useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import * as Styled from './Gallery.styles';
-import { useScroll } from 'hooks/useScroll';
-import LightBoxContext from 'context/LightBoxContext';
+import LightboxContext from 'context/LightboxContext';
 import GalleryItem from './GalleryItem';
 
 export default function Gallery({ data }) {
-  const { setImgIndex, setLightBoxData } = useContext(LightBoxContext);
-  const { setBodyOverflowToHidden } = useScroll();
-
-  const passIndexToLightBox = (index) => {
-    setBodyOverflowToHidden();
-    setImgIndex(index);
-  };
-
-  useEffect(() => {
-    setLightBoxData(data);
-
-    return () => setLightBoxData([]);
-  }, [data, setLightBoxData]);
+  const { openLightbox } = useContext(LightboxContext);
 
   return (
     <Styled.Wrapper>
@@ -26,7 +13,7 @@ export default function Gallery({ data }) {
         <GalleryItem
           key={index}
           galleryItem={galleryItem}
-          passIndexToLightBox={() => passIndexToLightBox(index)}
+          openLightbox={() => openLightbox(data, index)}
         />
       ))}
     </Styled.Wrapper>

@@ -2,28 +2,20 @@ import React, { useContext } from 'react';
 import * as Styled from './Post.styles';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
-import { useScroll } from 'hooks/useScroll';
 import { getDate } from 'utils/getDate';
-import LightBoxContext from 'context/LightBoxContext';
+import LightboxContext from 'context/LightboxContext';
 import PyramidDate from 'components/PyramidDate/PyramidDate';
 import Video from 'components/Video/Video';
 import PostOrnament from 'components/PostOrnament/PostOrnament';
 
 const Post = ({ title, description, createdAt, gallery, date }) => {
-  const { setImgIndex, setLightBoxData } = useContext(LightBoxContext);
-  const { setBodyOverflowToHidden } = useScroll();
-
-  const handleOpenLightBox = (index) => {
-    setImgIndex(index);
-    setLightBoxData(gallery);
-    setBodyOverflowToHidden();
-  };
+  const { openLightbox } = useContext(LightboxContext);
 
   return (
     <PostOrnament>
       <Styled.Wrapper>
         <Styled.MediaContainer>
-          <Styled.Media onClick={() => handleOpenLightBox(0)}>
+          <Styled.Media onClick={() => openLightbox(gallery)}>
             {gallery[0].gatsbyImageData ? (
               <GatsbyImage
                 image={gallery[0].gatsbyImageData}
@@ -37,9 +29,9 @@ const Post = ({ title, description, createdAt, gallery, date }) => {
 
         <Styled.PostContent>
           <Styled.Legend>
-            {gallery.map((item, index) => (
+            {gallery.map((legend, index) => (
               <button
-                onClick={() => handleOpenLightBox(index)}
+                onClick={() => openLightbox(gallery, index)}
                 key={index}
               ></button>
             ))}

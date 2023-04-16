@@ -1,16 +1,14 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as Styled from './Navigation.styles';
 import { useLocation } from '@reach/router';
 import { useScroll } from 'hooks/useScroll';
 import NavigationItems from './NavigationItems/NavigationItems';
 import Hamburger from './Hamburger/Hamburger';
-import LightBoxContext from 'context/LightBoxContext';
 
 const Navigation = () => {
   const [toggle, setToggle] = useState(false);
   const [changeColor, setChangeColor] = useState(true);
 
-  const { imgIndex } = useContext(LightBoxContext);
   const { isOnTop, hideNav } = useScroll();
   const location = useLocation();
 
@@ -25,7 +23,6 @@ const Navigation = () => {
 
   return (
     <Styled.Wrapper
-      $imgIndex={imgIndex}
       $hideNav={hideNav}
       $isOnTop={isOnTop}
       $toggle={toggle}

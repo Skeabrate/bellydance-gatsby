@@ -1,92 +1,48 @@
-import React, { useContext, useState } from 'react';
-import * as Styled from './LightBox.styles';
-import Slider from 'react-touch-drag-slider';
-import ClipLoader from 'react-spinners/ClipLoader';
-import { document } from 'browser-monads';
-import { closeModal } from 'utils/closeModal';
-import LightBoxContext from 'context/LightBoxContext';
-import Close from 'assets/images/SVG/x.svg';
-import LeftArrow from 'assets/images/SVG/leftArrow.svg';
-import RightArrow from 'assets/images/SVG/rightArrow.svg';
-import Video from 'components/Video/Video';
+import React, { useContext } from 'react';
+import LightboxContext from '../../context/LightboxContext';
+import YetAnotherLightbox from 'yet-another-react-lightbox';
+import Fullscreen from 'yet-another-react-lightbox/plugins/fullscreen';
+import Thumbnails from 'yet-another-react-lightbox/plugins/thumbnails';
+import Video from 'yet-another-react-lightbox/plugins/video';
+import Zoom from 'yet-another-react-lightbox/plugins/zoom';
+import Counter from 'yet-another-react-lightbox/plugins/counter';
+import 'yet-another-react-lightbox/plugins/captions.css';
+import 'yet-another-react-lightbox/plugins/thumbnails.css';
+import 'yet-another-react-lightbox/plugins/counter.css';
+import 'yet-another-react-lightbox/styles.css';
 
-const LightBox = () => {
-  const [isLoaded, setIsLoaded] = useState({});
-  const { lightBoxData, setImgIndex, imgIndex } = useContext(LightBoxContext);
-  const bodyStyleTop = document.body.style.top;
-
-  const handleCloseGallery = () => {
-    closeModal(bodyStyleTop);
-    setImgIndex(false);
-  };
-
-  const handleFinishedIndex = (i) => setImgIndex(i);
-
-  const handleLoad = (index) => {
-    setIsLoaded((state) => ({
-      ...state,
-      [index]: true,
-    }));
-  };
-
-  const next = () => imgIndex < lightBoxData?.length - 1 && setImgIndex((state) => state + 1);
-
-  const previous = () => imgIndex > 0 && setImgIndex((state) => state - 1);
+export default function Lightbox() {
+  const { lightbox, closeLightbox } = useContext(LightboxContext);
 
   return (
-    <Styled.Wrapper>
-      <Styled.Counter>{`${imgIndex + 1} / ${lightBoxData.length}`}</Styled.Counter>
-      <Styled.CloseButton onClick={handleCloseGallery}>
-        <Close />
-      </Styled.CloseButton>
-      {imgIndex ? (
-        <Styled.SwitchButtonLeft
-          onClick={previous}
-          left
-        >
-          <LeftArrow />
-        </Styled.SwitchButtonLeft>
-      ) : null}
-      {imgIndex !== lightBoxData?.length - 1 && (
-        <Styled.SwitchButtonRight
-          onClick={next}
-          right
-        >
-          <RightArrow />
-        </Styled.SwitchButtonRight>
-      )}
-
-      <Slider
-        onSlideComplete={handleFinishedIndex}
-        activeIndex={imgIndex}
-        threshHold={100}
-      >
-        {lightBoxData.map(({ gatsbyImageData, description, url }, index) => (
-          <Styled.SliderItem key={index}>
-            {gatsbyImageData ? (
-              <>
-                <img
-                  srcSet={gatsbyImageData?.images?.sources[0]?.srcSet}
-                  alt={description || 'Agnieszka Świeczkowska - Leyla Bellydance'}
-                  onLoad={() => handleLoad(index)}
-                />
-                {!isLoaded[index] && (
-                  <Styled.Loader>
-                    <ClipLoader color='#9c9c9c' />
-                  </Styled.Loader>
-                )}
-              </>
-            ) : url ? (
-              <Video
-                preventDefault
-                source={url}
-              />
-            ) : null}
-          </Styled.SliderItem>
-        ))}
-      </Slider>
-    </Styled.Wrapper>
+    <YetAnotherLightbox
+      styles={{
+        container: {
+          backgroundColor: 'rgba(0, 0, 0, .9)',
+          thumbnailsContainer: { backgroundColor: 'rgba(0, 0, 0, .8)' },
+        },
+      }}
+      plugins={[Fullscreen, Counter, Thumbnails, Zoom, Video]}
+      open={lightbox.isOpen}
+      close={closeLightbox}
+      slides={lightbox.slides.map(({ url, gatsbyImageData }, index) => {
+        if (gatsbyImageData)
+          return {
+            key: index,
+            src: url,
+          };
+        else
+          return {
+            type: 'video',
+            key: index,
+            src: url,
+            width: '100%',
+            height: '100%',
+            sources: [{ src: url, type: 'video/mp4' }],
+          };
+      })}
+      index={lightbox.initialIndex}
+      carousel={{ finite: true }}
+    />
   );
-};
-
-export default LightBox;
+}

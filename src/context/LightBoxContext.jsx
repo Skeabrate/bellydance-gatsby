@@ -1,10 +1,38 @@
-import React from 'react';
+import React, { useState, useMemo, createContext, useCallback } from 'react';
+import Lightbox from 'components/Lightbox/Lightbox';
 
-const LightBoxContext = React.createContext({
-  lightBoxData: [],
-  setLightBoxData: () => {},
-  imgIndex: 0,
-  setImgIndex: () => {},
-});
+const LightboxContext = createContext({});
 
-export default LightBoxContext;
+const initialLightboxState = {
+  slides: [],
+  isOpen: false,
+  initialIndex: 0,
+};
+
+export const LightboxProvider = ({ children }) => {
+  const [lightbox, setLightbox] = useState(initialLightboxState);
+
+  const closeLightbox = useCallback(() => setLightbox(initialLightboxState), []);
+  const openLightbox = useCallback(
+    (slides, initialIndex = 0) => setLightbox({ slides: slides, isOpen: true, initialIndex }),
+    []
+  );
+
+  const value = useMemo(
+    () => ({
+      lightbox,
+      openLightbox,
+      closeLightbox,
+    }),
+    [lightbox, openLightbox, closeLightbox]
+  );
+
+  return (
+    <LightboxContext.Provider value={value}>
+      {lightbox.isOpen && <Lightbox />}
+      {children}
+    </LightboxContext.Provider>
+  );
+};
+
+export default LightboxContext;
