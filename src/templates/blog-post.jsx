@@ -38,7 +38,10 @@ const renderOptions = {
           <MediaWrapper>
             <GatsbyImage
               image={gatsbyImageData}
-              alt={description || 'Agnieszka Świeczkowska Leyla bellydance'}
+              alt={
+                description ||
+                'Agnieszka Świeczkowska Leyla bellydance taniec brzucha, taniec orientalny Włocławek, Płock'
+              }
             />
           </MediaWrapper>
         );

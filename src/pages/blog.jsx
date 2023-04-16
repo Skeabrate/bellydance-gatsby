@@ -27,7 +27,10 @@ const BlogPost = ({ blogPost: { title, thumbnail, content, link, createdAt, date
         <Styled.Thumbnail>
           <GatsbyImage
             image={thumbnail.gatsbyImageData}
-            alt={thumbnail.description || 'Agnieszka Świeczkowska Leyla bellydance'}
+            alt={
+              thumbnail.description ||
+              'Agnieszka Świeczkowska Leyla bellydance taniec brzucha, taniec orientalny Włocławek, Płock'
+            }
           />
         </Styled.Thumbnail>
         <Styled.Content>

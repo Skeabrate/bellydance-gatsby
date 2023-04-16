@@ -19,7 +19,10 @@ const Post = ({ title, description, createdAt, gallery, date }) => {
             {gallery[0].gatsbyImageData ? (
               <GatsbyImage
                 image={gallery[0].gatsbyImageData}
-                alt={gallery[0].description || 'Agnieszka Świeczkowska Leyla bellydance'}
+                alt={
+                  gallery[0].description ||
+                  'Agnieszka Świeczkowska Leyla bellydance taniec brzucha, taniec orientalny Włocławek, Płock'
+                }
               />
             ) : gallery[0].url ? (
               <Video source={gallery[0].url} />

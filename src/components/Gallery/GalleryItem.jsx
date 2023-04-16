@@ -17,7 +17,10 @@ const GalleryItem = ({ galleryItem: { gatsbyImageData, description, url }, openL
       {gatsbyImageData ? (
         <GatsbyImage
           image={gatsbyImageData}
-          alt={description || 'Agnieszka Świeczkowska Leyla bellydance'}
+          alt={
+            description ||
+            'Agnieszka Świeczkowska Leyla bellydance taniec brzucha, taniec orientalny Włocławek, Płock taniec brzucha, taniec orientalny Włocławek, Płock'
+          }
         />
       ) : url ? (
         <Video source={url} />
