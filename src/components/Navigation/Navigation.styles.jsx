@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Link } from 'gatsby';
 
 export const Wrapper = styled.div`
   position: fixed;
@@ -25,22 +24,5 @@ export const Wrapper = styled.div`
 
   ${({ theme }) => theme.mq.desktop} {
     padding: 0 5rem;
-  }
-`;
-
-export const Logo = styled(Link)`
-  font-family: ${({ theme }) => theme.fontFamily.greatVibes};
-  text-decoration: none;
-  color: ${({ theme, $changeColor, $isOnTop }) => {
-    if ($changeColor && $isOnTop) return theme.colors.white;
-    else return theme.colors.black;
-  }};
-  transition: all 0.2s ease-in-out;
-
-  font-size: ${({ theme }) => theme.fontSize.headingMobile};
-  font-weight: 400;
-
-  ${({ theme }) => theme.mq.desktop} {
-    font-size: ${({ theme }) => theme.fontSize.heading};
   }
 `;

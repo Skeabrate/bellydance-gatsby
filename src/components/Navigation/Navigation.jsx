@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'gatsby';
 import * as Styled from './Navigation.styles';
 import { useLocation } from '@reach/router';
 import { useScroll } from 'hooks/useScroll';
+import { StaticImage } from 'gatsby-plugin-image';
 import NavigationItems from './NavigationItems/NavigationItems';
 import Hamburger from './Hamburger/Hamburger';
 
@@ -28,14 +30,14 @@ const Navigation = () => {
       $toggle={toggle}
       $changeColor={changeColor}
     >
-      <Styled.Logo
-        to='/'
-        $isOnTop={isOnTop}
-        $changeColor={changeColor}
-        translate='no'
-      >
-        Leyla Bellydance
-      </Styled.Logo>
+      <Link to='/'>
+        <StaticImage
+          src='../../assets/images/leyla-bellydance-logo.png'
+          alt='leyla bellydance logo'
+          placeholder='blurred'
+          width={180}
+        />
+      </Link>
 
       <NavigationItems
         isOnTop={isOnTop}

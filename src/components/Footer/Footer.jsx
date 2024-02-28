@@ -1,5 +1,6 @@
 import React from 'react';
 import * as Styled from './Footer.styles';
+import { StaticImage } from 'gatsby-plugin-image';
 import Facebook from 'assets/images/SVG/fb.svg';
 import Instagram from 'assets/images/SVG/insta.svg';
 import Youtube from 'assets/images/SVG/yt.svg';
@@ -7,11 +8,14 @@ import Youtube from 'assets/images/SVG/yt.svg';
 const Footer = () => {
   return (
     <Styled.Wrapper>
-      <Styled.Logo to='/'>
-        <header>
-          <h3 translate='no'>Leyla Bellydance</h3>
-        </header>
-      </Styled.Logo>
+      <Styled.StyledLogo to='/'>
+				<StaticImage 
+					src='../../assets/images/leyla-bellydance-logo-black.png'
+					alt='leyla bellydance logo'
+					placeholder='blurred'
+					width={180}
+				/>
+      </Styled.StyledLogo>
 
       <Styled.Socials>
         <li>

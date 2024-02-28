@@ -20,21 +20,8 @@ export const Wrapper = styled.footer`
   }
 `;
 
-export const Logo = styled(Link)`
-  text-decoration: none;
-
-  h3 {
-    color: ${({ theme }) => theme.colors.black};
-    font-family: ${({ theme }) => theme.fontFamily.greatVibes};
-    font-size: ${({ theme }) => theme.fontSize.headingMobile};
-    font-weight: 400;
-  }
-
-  ${({ theme }) => theme.mq.desktop} {
-    h3 {
-      font-size: ${({ theme }) => theme.fontSize.heading};
-    }
-  }
+export const StyledLogo = styled(Link)`
+  padding-bottom: 0.8rem;
 `;
 
 export const Socials = styled.ul`
